@@ -1,0 +1,28 @@
+.gig-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.gig-preview {
+    background-color: $clr7;
+    color: whitesmoke;
+    border-radius: .2em;
+    margin: 5px;
+    text-align: center;
+    padding: 5px;
+}
+.gig-preview span {
+    color: pink;
+}
+
+.cart {
+    background-color: $clr2;
+    color: $clr6;
+    padding: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.cart li button {
+    margin: 5px;
+}
