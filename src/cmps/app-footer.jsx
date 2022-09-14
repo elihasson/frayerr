@@ -38,7 +38,7 @@ function _AppFooter({ count, cart, removeFromCart, checkout }) {
                             <button onClick={() => {
                                 removeFromCart(gig._id)
                             }}>x</button>
-                            {gig.vendor}
+                            {gig.title}
                         </li>)
                     }
                 </ul>
