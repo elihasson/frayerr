@@ -13,35 +13,35 @@ const gGigs = [
     {
         _id: 'g101', title: 'I will design your logo', price: 12, daysToMake: 3,
         description: 'make unique logo', imgUrl: 'url',
-        owner: { _id: 'u101' , fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4, password: '123' },
+        owner: { _id: 'u101' , fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 },
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: [{}]
     },
     {
         _id: 'g102', title: 'I will fix your car', price: 120, daysToMake: 2,
         description: 'best of the best', imgUrl: 'url',
-        owner: { _id: 'u102', fullname: 'marco polo', imgUrl: 'url', level: 'premium', rate: 5, password: '123' },
+        owner: { _id: 'u102', fullname: 'marco polo', imgUrl: 'url', level: 'premium', rate: 5 },
         tags: ['garage', 'mechanics', 'proffesional', 'accessible'],
         likedByUsers: [{}]
     },
     {
         _id: 'g103', title: 'building sites', price: 5000, daysToMake: 1,
         description: 'make a great react app', imgUrl: 'url',
-        owner: { _id: 'u103', fullname: 'amos devinci', imgUrl: 'url', level: 'basic', rate: 5, password: '123' },
+        owner: { _id: 'u103', fullname: 'amos devinci', imgUrl: 'url', level: 'basic', rate: 5 },
         tags: ['programming', 'coding-academy', 'proffesional', 'accessible'],
         likedByUsers: [{}]
     },
     {
         _id: 'g104', title: 'master of mastering', price: 100, daysToMake: 2,
         description: 'great song mastering', imgUrl: 'url',
-        owner: { _id: 'u104', fullname: 'moni piloni', imgUrl: 'url', level: 'professional', rate: 5, password: '123' },
+        owner: { _id: 'u104', fullname: 'moni piloni', imgUrl: 'url', level: 'professional', rate: 5 },
         tags: ['music', 'mastering', 'proffesional', 'accessible'],
         likedByUsers: [{}]
     },
     {
         _id: 'g105', title: 'I will fix your phone', price: 150, daysToMake: 2,
         description: 'i will fix it', imgUrl: 'url',
-        owner: { _id: 'u105', fullname: 'avi phone', imgUrl: 'url', level: 'basic', rate: 4, password: '123' },
+        owner: { _id: 'u105', fullname: 'avi phone', imgUrl: 'url', level: 'basic', rate: 4 },
         tags: ['cellolar', 'proffesional', 'accessible'],
         likedByUsers: [{}]
     }
