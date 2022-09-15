@@ -1,7 +1,26 @@
 .app-header {
+    display: flex;
     background-color: $clr4;
     padding: 10px;
+    align-items: center;
 
+    .burger-button{
+        background-color: transparent;
+    }
+
+    .burger-button-icon {
+        color: $clr9;
+    }
+
+    .frayerr-logo{
+        margin-inline-start: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .icon-search-bar-container{
+        marg
+    }
 
     .user-info {
         // background-color: $clr2;
@@ -17,12 +36,12 @@
             border-radius: 50%;
         }
 
-        img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+    }
+    .user-profile-img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
     }
 
     .user-info .btn-link {
