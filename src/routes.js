@@ -1,6 +1,6 @@
 import { HomePage } from './pages/home-page.jsx'
 import { AboutUs } from './pages/about-us.jsx'
-import { App } from './pages/app.jsx'
+import { Explore } from './pages/explore.jsx'
 import { ReviewApp } from './pages/review-app.jsx'
 import { ChatApp } from './pages/chat-app.jsx'
 import { AdminApp } from './pages/admin-app.jsx'
@@ -10,12 +10,12 @@ const routes = [
     {
         path: '/',
         component: <HomePage />,
-        label: 'Home 🏠',
+        label: 'Home',
     },
     {
-        path: 'gig',
-        component: <App/>,
-        label: 'Gigs'
+        path: 'explore',
+        component: <Explore/>,
+        label: 'Explore'
     },
     {
         path: 'review',

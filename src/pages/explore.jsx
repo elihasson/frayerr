@@ -8,7 +8,7 @@ import { showSuccessMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.js'
 import { GigPreview } from '../cmps/gig-preview.jsx'
 
-function _App({ loadGigs, addGig, updateGig, removeGig, addToCart, gigs }) {
+function _Explore({ loadGigs, addGig, updateGig, removeGig, addToCart, gigs }) {
 
     useEffect(() => {
         loadGigs()
@@ -65,4 +65,4 @@ const mapDispatchToProps = {
 }
 
 
-export const App = connect(mapStateToProps, mapDispatchToProps)(_App)
+export const Explore = connect(mapStateToProps, mapDispatchToProps)(_Explore)
