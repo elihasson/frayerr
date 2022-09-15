@@ -6,6 +6,7 @@ import routes from '../routes'
 
 
 import { onLogin, onLogout, onSignup, loadUsers, removeUser } from '../store/user.actions.js'
+import { GigFilter } from './gig-filter'
 import { LoginSignup } from './login-signup.jsx'
 
 function _AppHeader({ onLogin, onSignup, onLogout, user }) {
@@ -33,8 +34,8 @@ function _AppHeader({ onLogin, onSignup, onLogout, user }) {
                 }
 
             </nav>
-
-            <h1>My App</h1>
+            <GigFilter/>
+            <h1>frayerr<span>.</span></h1>
         </header>
     )
 }

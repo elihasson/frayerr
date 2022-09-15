@@ -13,9 +13,9 @@ const routes = [
         label: 'Home 🏠',
     },
     {
-        path: 'gig',
+        path: 'explore',
         component: <App/>,
-        label: 'Gigs'
+        label: 'Explore'
     },
     {
         path: 'review',
