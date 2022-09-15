@@ -1,68 +1,55 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 
 
 import { loadGigs, addGig, updateGig, removeGig, addToCart } from '../store/gig.actions.js'
 
 import { showSuccessMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.js'
-import { GigPreview } from '../cmps/gig-preview.jsx'
+import { GigList } from '../cmps/gig-list.jsx'
 
-function _Explore({ loadGigs, addGig, updateGig, removeGig, addToCart, gigs }) {
+export const Explore = (props) => {
+
+    const { gigs } = useSelector(state => state.gigModule)
+    const dispatch = useDispatch()
+
 
     useEffect(() => {
-        loadGigs()
+        dispatch(loadGigs())
     }, [])
 
     const onRemoveGig = (gigId) => {
-        removeGig(gigId)
+        dispatch(removeGig(gigId))
     }
     const onAddGig = () => {
         const gig = gigService.getEmptyGig()
         gig.title = prompt('title?')
-        addGig(gig)
+        dispatch(addGig(gig))
     }
     const onUpdateGig = (gig) => {
         const price = +prompt('New price?')
         const gigToSave = { ...gig, price }
-        updateGig(gigToSave)
+        dispatch(updateGig(gigToSave))
     }
 
     const onAddToCart = (gig) => {
         console.log(`Adding ${gig.title} to Cart`)
-        addToCart(gig)
+        dispatch(addToCart(gig))
         showSuccessMsg('Added to Cart')
     }
 
     return (
         <div>
-            <h3>Gigs App</h3>
+            <h3>Most popular Gigs in</h3>
             <main>
                 <button onClick={onAddGig}>Add Gig</button>
-                <ul className="gig-list">
-                    {gigs.map(gig => <GigPreview key={gig._id} gig={gig}
-                        onRemoveGig={onRemoveGig}
-                        onUpdateGig={onUpdateGig}
-                        onAddToCart={onAddToCart} />)}
-                </ul>
+                <GigList 
+                gigs={gigs}
+                onRemoveGig={onRemoveGig}
+                onUpdateGig={onUpdateGig}
+                onAddToCart={onAddToCart}/>
+                
             </main>
         </div>
     )
 }
-
-
-function mapStateToProps(state) {
-    return {
-        gigs: state.gigModule.gigs
-    }
-}
-const mapDispatchToProps = {
-    loadGigs,
-    removeGig,
-    addGig,
-    updateGig,
-    addToCart
-}
-
-
-export const Explore = connect(mapStateToProps, mapDispatchToProps)(_Explore)

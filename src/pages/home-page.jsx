@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import logo from '../assets/img/logo.png'
+import logo from '../assets/img/bg-hero-1.jpg'
 
 class _HomePage extends React.Component {
     state = {}
@@ -15,8 +15,8 @@ class _HomePage extends React.Component {
     render() {
         const { count } = this.props
         return (
-            <section>
-                <img src={logo} alt="Logo" style={{maxWidth: '300px'}} />
+            <section className='home-container'>
+                <img src={logo} alt="Hero" className='hero-img' />
                 <h2>
                     Count {count}
                     <button onClick={() => {

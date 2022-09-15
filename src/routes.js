@@ -12,7 +12,7 @@ const routes = [
         component: <HomePage />,
         label: 'Home',
     },
-    {
+    { 
         path: 'explore',
         component: <Explore/>,
         label: 'Explore'

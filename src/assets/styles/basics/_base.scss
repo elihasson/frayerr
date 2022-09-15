@@ -2,15 +2,19 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    font-family: roboto, Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: $clr2;
+    @media (max-width: 400px) {
+        overflow-x: hidden;
+    }
+}
+
 ::selection {
     background-color: $clr1;
     color: $clr6;
-}
-
-html {
-    font-family: montserrat;
-    line-height: 1.6;
-    color: $clr2;
 }
 
 body {
@@ -20,14 +24,21 @@ body {
     margin: auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: caveat;
     margin: 0 0 0.6em;
     line-height: 1;
 }
 
 
-section, main, footer {
+section,
+main,
+footer {
     padding: 5px;
 }
 
@@ -42,7 +53,7 @@ p {
 a {
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: underline;
 }
-

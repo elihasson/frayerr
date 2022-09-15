@@ -6,11 +6,11 @@
     }
 }
 
-// @mixin for-narrow-layout {
-//     @media (min-width: $mobile-breakpoint) {
-//         @content;
-//     }
-// }
+@mixin for-narrow-layout {
+    @media (min-width: $mobile-breakpoint) {
+        @content;
+    }
+}
 
 @mixin for-narrow-layout {
     @media (min-width: calc(#{$mobile-breakpoint} + 40)) {

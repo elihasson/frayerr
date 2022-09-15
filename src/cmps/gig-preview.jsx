@@ -2,7 +2,7 @@
 
 export function GigPreview({ gig, onRemoveGig, onUpdateGig, onAddToCart }) {
 
-    
+
     return (
         <li className="gig-preview" key={gig._id}>
         <h4>{gig.title}</h4>
