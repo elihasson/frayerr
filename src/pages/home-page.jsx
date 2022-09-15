@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { AppHero } from '../cmp/AppHero.jsx'
+import { GigFilter } from '../cmps/gig-filter.jsx'
 
-import logo from '../assets/img/bg-hero-1.jpg'
 
 class _HomePage extends React.Component {
     state = {}
@@ -13,11 +14,14 @@ class _HomePage extends React.Component {
     }
 
     render() {
-        const { count } = this.props
+        // const { count } = this.props
         return (
             <section className='home-container'>
-                <img src={logo} alt="Hero" className='hero-img' />
-                <h2>
+                <div className='home-page'>
+                    <AppHero />
+                    <GigFilter />
+                </div>
+                {/* <h2>
                     Count {count}
                     <button onClick={() => {
                         this.changeCount(1)
@@ -25,7 +29,7 @@ class _HomePage extends React.Component {
                     <button onClick={() => {
                         this.changeCount(10)
                     }}>+10</button>
-                </h2 >
+                </h2 > */}
             </section >
         )
     }
