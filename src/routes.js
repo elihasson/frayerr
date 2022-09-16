@@ -14,7 +14,7 @@ const routes = [
     },
     { 
         path: 'explore',
-        component: <Explore/>,
+        component: <Explore/>, 
         label: 'Explore'
     },
     {

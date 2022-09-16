@@ -1,0 +1,17 @@
+// Create an App-Hero .scss file and write the code below, then import the file to main.scss
+
+.hero-container {
+    overflow-x: hidden;
+    position: relative;
+
+    .hero-content {
+        font-family: roboto-bold;
+        font-size: rem(50px);
+        color: $clr7;
+        position: absolute;
+        inset-block-start: rem(80px);
+        inset-inline-start: rem(15px);
+        // width: 400px;
+        // padding-left: 100px;
+    }
+}

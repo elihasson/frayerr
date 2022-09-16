@@ -1,0 +1,31 @@
+.search-bar-container {
+    display: flex;
+    height: 42px;
+    align-items: center;
+    flex-grow: 1;
+    margin-inline-start: 20px;
+
+    .search-bar {
+        border: none;
+        text-decoration: none;
+        color: inherit;
+        padding: 0;
+        height: 100%;
+        border-radius: 5px 0 0 5px;
+        border-width: 0.5px;
+        border-style: solid;
+        border-color: $clr8;
+
+        &::placeholder {
+            padding: 10px;
+        }
+    }
+
+    .search-button {
+        height: 100%;
+        width: 50px;
+        border-radius: 0 5px 5px 0;
+        background-color: $clr9;
+
+    }
+}

@@ -1,19 +1,64 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
+
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import MenuIcon from '@mui/icons-material/Menu';
+
+import userImg from '../assets/img/profile_img_test.jpeg'
 
 import routes from '../routes'
 
 
 import { onLogin, onLogout, onSignup, loadUsers, removeUser } from '../store/user.actions.js'
 import { GigFilter } from './gig-filter'
+import { NavBar } from './nav-bar.jsx'
 import { LoginSignup } from './login-signup.jsx'
 
-function _AppHeader({ onLogin, onSignup, onLogout, user }) {
+export const AppHeader = (props) => {
+
+    const { users, user, count } = useSelector(state => state.userModule)
+    const isLoading = useSelector(state => state.systemModule.isLoading)
+    const dispatch = useDispatch()
+
+    let color = ''
+    let show = true
+
+    const openMenu = () => {
+        console.log('Click open menu')
+    }
 
     return (
-        <header className="app-header">
-            <nav>
+        <header className="app-header " >
+            <div>
+                {!show && <NavBar />}
+            </div>
+
+            {show && <div className="burger-button-container">
+                <button className="burger-button" onClick={openMenu}><MenuIcon className="burger-button-icon"></MenuIcon></button>
+            </div>}
+
+            <NavLink to="/" className={`frayerr-logo ${color}`}>
+                <div>frayerr<span>.</span></div>
+            </NavLink>
+
+            <div>
+                <GigFilter />
+            </div>
+
+            <div className='icon-search-bar-container'>
+                <NotificationsNoneOutlinedIcon />
+                <MailOutlineOutlinedIcon />
+                <FavoriteBorderOutlinedIcon />
+            </div>
+
+            <div>
+            <NavLink to="/"> <img src={userImg} alt="user img" className='user-profile-img' /> </NavLink>
+            </div>
+
+            {/* <nav>
                 {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
 
                 {user &&
@@ -34,28 +79,7 @@ function _AppHeader({ onLogin, onSignup, onLogout, user }) {
                 }
 
             </nav>
-            <GigFilter/>
-            <h1>frayerr<span>.</span></h1>
+            <h1>frayerr<span>.</span></h1> */}
         </header>
     )
 }
-
-function mapStateToProps(state) {
-    return {
-        users: state.userModule.users,
-        user: state.userModule.user,
-        count: state.userModule.count,
-        isLoading: state.systemModule.isLoading
-    }
-}
-const mapDispatchToProps = {
-    onLogin,
-    onSignup,
-    onLogout,
-    loadUsers,
-    removeUser
-}
-
-
-
-export const AppHeader = connect(mapStateToProps, mapDispatchToProps)(_AppHeader)

@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router'
 
 import routes from './routes'
 
-import { AppHeader } from './cmps/app-header'
+import { AppHeader } from './cmps/app-header.jsx'
 import { AppFooter } from './cmps/app-footer'
 import { UserDetails } from './pages/user-details'
 
