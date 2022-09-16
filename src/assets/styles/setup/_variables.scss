@@ -8,8 +8,8 @@ $clr6: #dadbdd;
 $clr7: #eee;
 $clr8: #82858c;
 $clr9: #2a2c30;
+$clr10: #023a15; // Added a clr10 variable for first hero
  
-
 // Padding
 $layoutPadding: 32px;
 
@@ -24,6 +24,11 @@ $break-extra-wide: 1300px;
 // $carousel-break-wide: 960px;
 
 //Header-breakpoint
+$header-bp-1: 630px;
+$header-bp-2: 900px;
+$header-bp-3: 1160px;
+// $header-bp-4: 1564px;
+
 $header-break-normal: 630px;
 $header-break-wide: 900px;
 $header-break-extra-wide: 1160px;

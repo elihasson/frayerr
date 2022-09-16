@@ -1,33 +1,33 @@
 /* Breakpoint mixins  (Media queries)*/
 @mixin for-normal-max-layout {
-    @media (max-width: $header-break-normal) {
-      @content;
-    }
+  @media (max-width: $header-break-normal) {
+    @content;
   }
-  
-  @mixin for-narrow-layout {
-    @media (min-width: $padded-break-narrow) {
-      @content;
-    }
+}
+
+@mixin for-narrow-layout {
+  @media (min-width: $padded-break-narrow) {
+    @content;
   }
-  
-  @mixin for-normal-layout {
-    @media (min-width: $padded-break-normal) {
-      @content;
-    }
+}
+
+@mixin for-normal-layout {
+  @media (min-width: $padded-break-normal) {
+    @content;
   }
-  
-  @mixin for-wide-layout {
-    @media (min-width: $header-break-wide) {
-      @content;
-    }
+}
+
+@mixin for-wide-layout {
+  @media (min-width: $header-break-wide) {
+    @content;
   }
-  
-  @mixin for-extra-wide-layout {
-    @media (min-width: $header-break-extra-wide) {
-      @content;
-    }
+}
+
+@mixin for-extra-wide-layout {
+  @media (min-width: $header-break-extra-wide) {
+    @content;
   }
+}
 
 //carousel layout mixins
 
@@ -36,7 +36,7 @@
 //       @content;
 //     }
 //   }
-  
+
 //   @mixin for-wide-carousel-layout {
 //     @media (min-width: $carousel-break-wide) {
 //       @content;
@@ -45,29 +45,29 @@
 
 //header layout mixins
 
-@mixin for-normal-header-layout {
-    @media (min-width: $header-break-normal) {
-      @content;
-    }
+@mixin for-header-layout-1 {
+  @media (min-width: $header-bp-1) {
+    @content;
   }
-  
-  @mixin for-wide-header-layout {
-    @media (min-width: $header-break-wide) {
-      @content;
-    }
+}
+
+@mixin for-header-layout-2 {
+  @media (min-width: $header-bp-2) {
+    @content;
   }
-  
-  @mixin for-extra-wide-header-layout {
-    @media (min-width: $header-break-extra-wide) {
-      @content;
-    }
+}
+
+@mixin for-header-layout-3 {
+  @media (min-width: $header-bp-3) {
+    @content;
   }
-  
-  @mixin for-large-screen-header-layout {
-    @media (min-width: $header-break-extra-wide) {
-      @content;
-    }
+}
+
+@mixin for-header-layout-4 {
+  @media (min-width: $header-bp-4) {
+    @content;
   }
+}
 
 // REVIEW MIXINS
 
@@ -76,76 +76,78 @@
 //       @content;
 //     }
 //   }
-  
-  //Order mixins
-  
+
+//Order mixins
+
 //   @mixin for-order-normal-layout {
 //     @media (min-width: $order-break-normal) {
 //       @content;
 //     }
 //   }
-  
+
 //   @mixin for-order-wide-layout {
 //     @media (min-width: $order-break-wide) {
 //       @content;
 //     }
 //   }
-  
+
 //   @mixin for-order-xwide-layout {
 //     @media (min-width: $order-break-extra-wide) {
 //       @content;
 //     }
 //   }
-  
-  //home-category mixins
+
+//home-category mixins
 //   @mixin for-home-category-narrow-layout {
 //     @media (min-width: $home-category-break-narrow) {
 //       @content;
 //     }
 //   }
-  
-  @mixin layoutWidth() {
-    width: 100%;
-    margin: auto;
-  }
-  
-  @mixin layoutMaxWidth() {
-    max-width: 1400px;
-    margin: auto;
-  }
-  
-  @mixin layoutGTC($max) {
-    grid-template-columns:
-      minmax($layoutPadding, 1fr) minmax(auto, $max) minmax($layoutPadding, 1fr);
-  }
-  
+
+@mixin layoutWidth() {
+  width: 100%;
+  margin: auto;
+}
+
+@mixin layoutMaxWidth() {
+  max-width: 1400px;
+  margin: auto;
+}
+
+@mixin layoutGTC($max) {
+  grid-template-columns:
+    minmax($layoutPadding, 1fr) minmax(auto, $max) minmax($layoutPadding, 1fr);
+}
+
 
 
 /* Media  Mixins */
 @mixin aspect-ratio($width, $height) {
-    position: relative;
-    overflow: hidden;
-    &::before {
-      display: block;
-      content: "";
-      width: 100%;
-      padding-top: calc(($height / $width) * 100%);
-    }
-    > * {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-  
-    > img {
-      height: 100%;
-      object-fit: cover;
-    }
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: calc(($height / $width) * 100%);
   }
-  
-  // Mixin for removing hover efects on iphone screen
+
+  >* {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  >img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Mixin for removing hover efects on iphone screen
 //   @mixin hover-supported {    
 //     @media not all and (pointer: coarse) {
 //         &:hover {

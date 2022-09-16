@@ -31,34 +31,54 @@ export const AppHeader = (props) => {
     }
 
     return (
-        <header className="app-header " >
-            <div>
-                {!show && <NavBar />}
-            </div>
+        <div className="app-header-container">
+            <header className="app-header " >
+                <div>
+                    {!show && <NavBar />}
+                </div>
 
-            {show && <div className="burger-button-container">
-                <button className="burger-button" onClick={openMenu}><MenuIcon className="burger-button-icon"></MenuIcon></button>
-            </div>}
+                <div className='burger-icon-gig-filter-container'>
+                    <div className='burger-icon-container'>
+                        {show && <div className="burger-button-container">
+                            {/* <div className="burger-button" onClick={openMenu}><MenuIcon className="burger-button-icon"></MenuIcon></div> */}
+                            <div><svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect></svg></div>
+                        </div>}
 
-            <NavLink to="/" className={`frayerr-logo ${color}`}>
-                <div>frayerr<span>.</span></div>
-            </NavLink>
+                        <NavLink to="/" className={`frayerr-logo ${color}`}>
+                            <div>frayerr<span>.</span></div>
+                        </NavLink>
+                    </div>
 
-            <div>
-                <GigFilter />
-            </div>
+                    <div className='gig-filter-container'>
+                        <GigFilter />
+                    </div>
+                </div>
 
-            <div className='icon-search-bar-container'>
-                <NotificationsNoneOutlinedIcon />
-                <MailOutlineOutlinedIcon />
-                <FavoriteBorderOutlinedIcon />
-            </div>
+                <div className='icon-search-bar-container'>
 
-            <div>
-            <NavLink to="/"> <img src={userImg} alt="user img" className='user-profile-img' /> </NavLink>
-            </div>
+                    <NavLink to="/" >
+                        <NotificationsNoneOutlinedIcon />
+                    </NavLink>
 
-            {/* <nav>
+                    <NavLink to="/" >
+                        <MailOutlineOutlinedIcon />
+                    </NavLink>
+
+                    <NavLink to="/" >
+                        <FavoriteBorderOutlinedIcon />
+                    </NavLink>
+
+                    <NavLink to="/" >
+                        <div>Orders</div>
+                    </NavLink>
+
+                </div>
+
+                <div>
+                    <NavLink to="/"> <img src={userImg} alt="user img" className='user-profile-img' /> </NavLink>
+                </div>
+
+                {/* <nav>
                 {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
 
                 {user &&
@@ -80,6 +100,7 @@ export const AppHeader = (props) => {
 
             </nav>
             <h1>frayerr<span>.</span></h1> */}
-        </header>
+            </header>
+        </div>
     )
 }

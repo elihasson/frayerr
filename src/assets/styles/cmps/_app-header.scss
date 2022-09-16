@@ -1,10 +1,42 @@
-.app-header {
-    display: flex;
-    background-color: $clr4;
-    padding: 10px;
-    align-items: center;
+.app-header-container {
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.541);
+    font-family: 'Macan-regular';
 
-    .burger-button{
+}
+
+.app-header {
+
+    display: flex;
+    background-color: white;
+    height: 136px;
+    max-width: 1400px + 2 * $layoutPadding ;
+    padding: 0 $layoutPadding 0 $layoutPadding ; // top right bottom left 
+    margin: auto;
+    margin: auto;
+    align-items: center;
+    border-bottom: 0.5px;
+
+    .burger-icon-gig-filter-container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        justify-content: space-evenly;
+
+        .burger-icon-container{
+            display: flex;
+            align-items: center;
+            .frayerr-logo{
+                position: absolute;
+                left: 50%;
+                margin-left: -60px;
+            }
+
+        }
+    }
+
+    .burger-button {
         background-color: transparent;
     }
 
@@ -12,61 +44,118 @@
         color: $clr9;
     }
 
-    .frayerr-logo{
-        margin-inline-start: 10px;
+    .frayerr-logo {
+        font-family: moon;
+        color: $clr2;
         font-size: 1.5rem;
-        font-weight: 700;
-    }
+        font-weight: 100;
 
-    .icon-search-bar-container{
-        marg
-    }
-
-    .user-info {
-        // background-color: $clr2;
-        // padding: 2px 8px;
-        padding-left: 100px;
-        color: $clr1;
-
-        .score {
-            background-color: $clr2;
-            color: $clr6;
-            padding: 8px;
-            margin: 10px;
-            border-radius: 50%;
+        span {
+            color: $clr1;
         }
 
     }
+
+    .gig-filter-container {
+        width: 100%;
+    }
+
+    .icon-search-bar-container {
+        display: none;
+    }
+
+
     .user-profile-img {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        object-fit: cover;
+        display: none;
     }
 
-    .user-info .btn-link {
-        color: $clr2;
+    @include for-header-layout-1 {
+        color: red;
+        height: 80px;
+        .user-profile-img {
+            display: block;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
     }
 
-    nav {
-        font-size: .8em;
-        background-color: $clr5;
-        padding: 5px;
+    @include for-header-layout-2 {
+        color: rgb(0, 255, 26);
 
+        .burger-icon-gig-filter-container{
+            position: static;
+            flex-direction: row;
+            .burger-icon-container{
+                position: static;
+                .frayerr-logo{
+                    position: static;
+                }
+               
+            }
+
+        }
+
+        .icon-search-bar-container {
+            margin: 20px;
+            display: flex;
+        }
     }
 
-    nav a:first-child {
-        margin-right: 30px;
+    @include for-header-layout-3 {
+        color: rgb(0, 89, 255);
+
+        .icon-search-bar-container {
+            margin: 20px;
+            display: flex;
+        }
+
+        .burger-button-container {
+            display: none;
+        }
     }
 
-    nav a:not(:first-child) {
-        border-top: 1px solid $clr1;
-        padding: 0 5px;
-        margin: 10px;
-    }
+    // .user-info {
+    //     // background-color: $clr2;
+    //     // padding: 2px 8px;
+    //     padding-left: 100px;
+    //     color: $clr1;
 
-    nav .active {
-        color: $clr1;
-    }
+    //     .score {
+    //         background-color: $clr2;
+    //         color: $clr6;
+    //         padding: 8px;
+    //         margin: 10px;
+    //         border-radius: 50%;
+    //     }
+
+    // }
+
+
+    // .user-info .btn-link {
+    //     color: $clr2;
+    // }
+
+    // nav {
+    //     font-size: .8em;
+    //     background-color: $clr5;
+    //     padding: 5px;
+
+    // }
+
+    // nav a:first-child {
+    //     margin-right: 30px;
+    // }
+
+    // nav a:not(:first-child) {
+    //     border-top: 1px solid $clr1;
+    //     padding: 0 5px;
+    //     margin: 10px;
+    // }
+
+    // nav .active {
+    //     color: $clr1;
+    // }
 
 }

@@ -2,16 +2,16 @@
     display: flex;
     height: 42px;
     align-items: center;
-    flex-grow: 1;
     margin-inline-start: 20px;
 
     .search-bar {
+        flex-grow: 1;
         border: none;
         text-decoration: none;
         color: inherit;
         padding: 0;
         height: 100%;
-        border-radius: 5px 0 0 5px;
+        border-radius: 5px;
         border-width: 0.5px;
         border-style: solid;
         border-color: $clr8;
@@ -22,10 +22,24 @@
     }
 
     .search-button {
-        height: 100%;
-        width: 50px;
-        border-radius: 0 5px 5px 0;
-        background-color: $clr9;
+        display: none;
 
     }
+
+    @include for-header-layout-2 {
+        .search-bar {
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-button {
+            display: block;
+            height: 100%;
+            width: 50px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            background-color: $clr9;
+            color: $clr4;
+        }
+    }
+
 }
