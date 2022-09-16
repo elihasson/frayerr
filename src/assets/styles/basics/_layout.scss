@@ -1,3 +1,39 @@
+// .max-width-container {
+.main-layout {
+    @include for-narrow-layout {
+        @include layoutWidth();
+    }
+
+    @include for-normal-header-layout {
+        @include layoutWidth();
+
+        .display-from-size-medium {
+            display: inline-block;
+        }
+    }
+
+    @include for-wide-header-layout {
+        @include layoutWidth();
+
+        .display-from-size-large {
+            display: inline-block;
+        }
+    }
+
+    @include for-extra-wide-header-layout {
+        @include layoutWidth();
+
+        .display-from-size-large {
+            display: inline-block;
+        }
+    }
+
+    @include for-large-screen-header-layout {
+        @include layoutMaxWidth();
+    }
+}
+
+
 // .main-container {
 //     display: grid;
 //     grid-template-columns: 20px 1fr 20px;
@@ -30,9 +66,8 @@
 //     }
 // }
 
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px;
-}
-
+// .card-grid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+//     grid-gap: 20px;
+// }

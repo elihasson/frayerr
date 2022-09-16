@@ -1,3 +1,23 @@
+
+@font-face {
+    font-family: 'Macan-regular';
+    src: url(../../fonts/macan/macan-regular.3d263b5.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Macan-bold';
+    src: url(../../fonts/macan/macan-bold.502483a.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Macan-semibold';
+    src: url(../../fonts/macan/macan-semibold.d147812.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Macan-light';
+    src: url(../../fonts/macan/macan-light.9b72a31.woff2) format('woff2');
+}
+
+
+// old fontFace - To delete?
 @font-face {
     font-family: roboto-bold;
     src: url(../../fonts/roboto/Roboto-Bold.ttf);
@@ -22,3 +42,5 @@
     font-family: work-sans-regular;
     src: url(../../fonts/work-sans/WorkSans-Regular.ttf);
 }
+
+

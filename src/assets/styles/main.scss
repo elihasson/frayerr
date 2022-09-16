@@ -6,8 +6,8 @@
 
 // Basics
 @import "basics/helpers";
-@import "basics/layout";
 @import "basics/base";
+@import "basics/layout";
 @import "basics/links";
 @import "basics/forms";
 
@@ -21,6 +21,8 @@
 // Components
 @import "cmps/app-header";
 @import "cmps/app-footer";
+@import "cmps/gig-list";
+@import "cmps/gig-preview";
 @import "cmps/user-msg";
 
 
