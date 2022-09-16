@@ -1,11 +1,13 @@
 .gig-preview {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid #e4e5e7;
-    &:hover {
-      .gig-title {
-        color: $clr1;
-      }
+  color: $clr2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #e4e5e7;
+
+  &:hover {
+    .gig-title {
+      color: $clr1;
     }
+  }
 }

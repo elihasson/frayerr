@@ -1,10 +1,19 @@
 // import { Link } from 'react-router-dom'
+import CarouselItem from './carousel-item'
+import { Carousel } from './Carousel'
+
 
 export function GigPreview({ gig, onRemoveGig, onUpdateGig, onAddToCart }) {
 
 
     return (
-        <li className="gig-preview" key={gig._id}>
+        <li className="gig-preview">
+            <div className="gig-img">
+                <Carousel onGoToDetails={onGoToDetails} gig={gig}>
+                    {gig.imgUrls.slice(0, 5).map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl}></CarouselItem>)}
+                </Carousel>
+            </div>
+            
         <h4>{gig.title}</h4>
         <small>description: <span>{gig.description}</span></small>
         <h1>⛐</h1>
