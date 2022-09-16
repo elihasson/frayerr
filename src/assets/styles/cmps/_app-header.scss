@@ -84,6 +84,19 @@
     @include for-header-layout-2 {
         color: rgb(0, 255, 26);
 
+        .burger-icon-gig-filter-container{
+            position: static;
+            flex-direction: row;
+            .burger-icon-container{
+                position: static;
+                .frayerr-logo{
+                    position: static;
+                }
+               
+            }
+
+        }
+
         .icon-search-bar-container {
             margin: 20px;
             display: flex;

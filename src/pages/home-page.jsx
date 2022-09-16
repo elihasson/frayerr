@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { AppHero } from '../cmp/AppHero.jsx'
-import { GigFilter } from '../cmps/gig-filter.jsx'
+import { AppHero } from '../cmp/AppHero'
+// import { GigFilter } from '../cmps/gig-filter'
 
 
 class _HomePage extends React.Component {
@@ -19,7 +19,7 @@ class _HomePage extends React.Component {
             <section className='home-container'>
                 <div className='home-page'>
                     <AppHero />
-                    <GigFilter />
+                    {/* <GigFilter /> */}
                 </div>
                 {/* <h2>
                     Count {count}

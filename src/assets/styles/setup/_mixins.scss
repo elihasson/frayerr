@@ -114,14 +114,6 @@
   margin: auto;
 }
 
-@mixin layoutWidth1 {
-  
-}
-
-@mixin layoutWidth3 {
-  
-}
-
 @mixin layoutGTC($max) {
   grid-template-columns:
     minmax($layoutPadding, 1fr) minmax(auto, $max) minmax($layoutPadding, 1fr);
