@@ -1,0 +1,80 @@
+.hero-container {
+    overflow-x: hidden;
+    position: relative;
+    margin-block-end: 10vh;
+    background-color: $clr10;
+    color: $clr7;
+    font-family: 'Macan-bold';
+
+    .hero-imgs-container {
+        width: 50%;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        .hero-img-container {
+            padding: 0 $layoutPadding;
+            height: 100%;
+            justify-content: flex-end;
+            // pointer-events: none;
+            // transition: 1s;
+            // opacity: 0;
+
+            // &.active {
+            //     opacity: 1;
+            // }
+            
+            .hero-img {
+                display: none;
+                // filter: drop-shadow(0rem 0rem 8rem rgba(255, 255, 255, 0.2));
+                @include for-wide-layout {
+                    display: inline;
+                    right: 0;
+                    bottom: 0;
+                    position: absolute;
+                    height: 52vh;
+                }
+
+                @include for-extra-wide-layout {
+                    left: 0;
+                    height: 63vh;
+                }
+            }
+
+            .hero-content-container {
+                padding: 0 $layoutPadding;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                height: 40vh;
+                // transition: 1s;
+
+                .hero-content {
+                    // width: 700px;
+                    z-index: 5;
+                    margin-top: 100px;
+                    width: 100%;
+                    @include for-narrow-layout {
+                        margin-top: 0;
+                    }
+
+                    h1 {
+                        display: none;
+                        width: 500px;
+                        font-size: 5vh;
+                        margin-block-start: rem(80px);
+                        margin-block-end: rem(15px);
+                
+                        @include for-narrow-layout {
+                            display: block;
+                            font-size: 36px;
+                        }
+                        @include for-wide-layout {
+                            font-size: 44px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
