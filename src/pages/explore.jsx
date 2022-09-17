@@ -43,12 +43,14 @@ export const Explore = (props) => {
             <h3>Most popular Gigs in</h3>
             <main>
                 <button onClick={onAddGig}>Add Gig</button>
-                <GigList 
-                gigs={gigs}
-                onRemoveGig={onRemoveGig}
-                onUpdateGig={onUpdateGig}
-                onAddToCart={onAddToCart}/>
-                
+                <GigList
+                    gigs={gigs}
+                    onRemoveGig={onRemoveGig}
+                    onUpdateGig={onUpdateGig}
+                    onAddToCart={onAddToCart}
+                    history={props.history}
+                     />
+
             </main>
         </div>
     )

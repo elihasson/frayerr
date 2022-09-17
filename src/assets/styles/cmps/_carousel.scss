@@ -1,0 +1,23 @@
+.carousel {
+  overflow: hidden;
+  position: relative;
+
+  .indicators {
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .carousel-btn-container {
+    bottom: 0%;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .inner {
+    white-space: nowrap;
+    transition: transform 0.3s;
+  }
+}

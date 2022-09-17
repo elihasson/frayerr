@@ -1,6 +1,9 @@
-// import { Link } from 'react-router-dom'
-import CarouselItem from './carousel-item'
+import StarIcon from '@mui/icons-material/Star'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import { CarouselItem } from './carousel-item'
 import { Carousel } from './Carousel'
+import { Link } from 'react-router-dom'
+
 
 
 export function GigPreview({ gig, onRemoveGig, onUpdateGig, onAddToCart }) {
@@ -9,25 +12,39 @@ export function GigPreview({ gig, onRemoveGig, onUpdateGig, onAddToCart }) {
     return (
         <li className="gig-preview">
             <div className="gig-img">
-                <Carousel onGoToDetails={onGoToDetails} gig={gig}>
-                    {gig.imgUrls.slice(0, 5).map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl}></CarouselItem>)}
+                <Carousel gig={gig}>
+                    {gig.imgUrls[0] && gig.imgUrls.map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl}></CarouselItem>)}
                 </Carousel>
             </div>
-            
-        <h4>{gig.title}</h4>
-        <small>description: <span>{gig.description}</span></small>
-        <h1>⛐</h1>
-        <p>Price: <span>${gig.price.toLocaleString()}</span></p>
-        <small>daysToMake: <span>{gig.daysToMake}</span></small>
-        <p>Owner: <span>{gig.owner && gig.owner.fullname}</span></p>
-        <small>level: <span>{gig.owner && gig.owner.level}</span></small>
-        <p>rate: <span>{gig.owner && gig.owner.rate}</span></p>
-        <div>
-            <button onClick={() => { onRemoveGig(gig._id) }}>x</button>
-            <button onClick={() => { onUpdateGig(gig) }}>Edit</button>
-        </div>
+            <div className="owner-info">
+                <div className="owner-name-level">
+                    <h5 className='owner-name'>{gig.owner.fullname}</h5>
+                    <h5 className='owner-level'>{gig.owner.level}</h5>
+                </div>
+            </div>
+            <Link className='clean-link' to={`/explore/${gig._id}`}>
+                <p className='gig-title'>{gig.title}</p>
+            </Link>
 
-        <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to Cart</button>
-    </li>
+            <div className='rate-wrapper'>
+                {/* <p>rate: <span>{gig.owner.rate}</span></p> */}
+                <span className='gig-rating'><StarIcon /> {gig.owner.rate}<span className='review-number'>(6)</span></span>
+            </div>
+
+            <div className='card-footer'>
+                <button onClick={() => { onRemoveGig(gig._id) }}>x</button>
+                <button onClick={() => { onUpdateGig(gig) }}>Edit</button>
+                <p>STARTING AT <span>${gig.price.toLocaleString()}</span></p>
+            </div>
+
+            {/* <button className="buy" onClick={() => { onAddToCart(gig) }}>Add to Cart</button> */}
+        </li>
     )
 }
+
+
+{/* <section className='actions'>
+<button onClick={() => onRemoveToy(toy._id)}>Delete</button>
+<Link to={`/toys/edit/${toy._id}`} >Edit</Link>
+<Link to={`/toy/${toy._id}`} >Details</Link>
+</section> */}

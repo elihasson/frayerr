@@ -12,12 +12,11 @@ const gigChannel = new BroadcastChannel('gigChannel')
 const gGigs = [
     {
         _id: 'g101', title: 'I will design your logo', price: 12, daysToMake: 3,
-        description: 'make unique logo', imgUrl: 'url',
-        owner: { _id: 'u101' , fullname: 'james carlo', 
+        description: 'make unique logo', 
         imgUrls: [{imgUrl: 'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/256384462/original/5235c1c65402ead582997c6392e3f6ea54a16a10.jpg'},
         {imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/de7b8ad34afe97d7590a32b76335775f-1650626158997/320257df-a518-48db-b4f8-ed64daafadfd.jpg'}, 
         {imgUrl: 'https://res.cloudinary.com/demo/image/upload/w_100,h_100,c_thumb,g_faces/couple.jpg'}], 
-        level: 'basic', rate: 4 },
+        owner: { _id: 'u101' , fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 },
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: [{}]
     },
@@ -101,6 +100,8 @@ async function save(gig) {
     } else {
         // Later, owner is set by the backend
         gig.owner = userService.getLoggedinUser()
+        if (!gig.owner)
+           gig.owner = {_id: 'u101', fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 }
         savedGig = await storageService.post(STORAGE_KEY, gig)
         gigChannel.postMessage(getActionAddGig(savedGig))
     }
@@ -110,7 +111,13 @@ async function save(gig) {
 function getEmptyGig() {
     return {
         title: 'I will put a title' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
+        price: utilService.getRandomIntInclusive(10, 1000),
+        daysToMake: 0,
+        description: 'some description',
+        imgUrls:[{imgUrl: 'url'}],
+        owner: {_id: 'u101', fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 },
+        tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
+        likedByUsers: []
     }
 }
 

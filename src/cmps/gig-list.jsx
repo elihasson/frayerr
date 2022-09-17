@@ -1,6 +1,6 @@
 import { GigPreview } from '../cmps/gig-preview.jsx'
 
-export const GigList = ({ gigs, onRemoveGig, onUpdateGig, onAddToCart }) => {
+export const GigList = ({ gigs, onRemoveGig, onUpdateGig, onAddToCart, history }) => {
     return (
         <div className="gig-list main-layout">
                     {gigs.map(gig => <GigPreview key={gig._id} gig={gig}
