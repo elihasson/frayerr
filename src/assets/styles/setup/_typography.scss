@@ -21,6 +21,21 @@
     src: url(../../fonts/moon_get/moon_get-Heavy.ttf)
 }
 
+// added new font faces:
+@font-face {
+    font-family: domain-display-bold;
+    src: url(../../fonts/domain-display-bold/domaine-display-bold.ttf);
+}
+
+@font-face {
+    font-family: domain-display-regular;
+    src: url(../../fonts/domain-display-regular/domain-display-regular.otf);
+}
+
+@font-face {
+    font-family: domain-display-italic;
+    src: url(../../fonts/domain-display-italic/domain-display-italic.otf);
+}
 
 // old fontFace - To delete?
 @font-face {
@@ -47,5 +62,3 @@
     font-family: work-sans-regular;
     src: url(../../fonts/work-sans/WorkSans-Regular.ttf);
 }
-
-

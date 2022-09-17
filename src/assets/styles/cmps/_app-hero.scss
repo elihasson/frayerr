@@ -79,10 +79,45 @@
 //     }
 // }
 
-.hero-india{
-    position: inherit;
-    width: 100%;
-    height: 680px;
-    background-color: red;
-    background-image: url(https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e…-1599344049983/bg-hero-1-1792-x1.png);
+.hero-container{
+    position: relative;
+
+    .hero-background {
+        display: flex;
+        justify-content: flex-end;
+        background-color: $clr10;
+        
+        .hero-andrea {
+            // position: inherit;
+            width: 100%;
+            height: 680px;
+            background-image: url('../../img/bg-hero-1.jpg');
+            background-position: 100% 100%;
+        }   
+    }
+
+    .hero-header {
+        display: flex;
+        // align-content: center;
+        flex-direction: column;
+        padding-bottom: 24px;
+        position: absolute;
+        inset-block-start: 5vh;
+        inset-inline-start: 20px;
+        width: 600px;
+
+        .hero-title {
+            font-size: rem(40px);
+            line-height: 48px; // must calculate with lh function
+            font-weight: 700;
+            color: $clr7;
+            font-family: 'Macan-bold';
+
+            i {
+                font-family: domain-display-italic;
+                font-weight: 500;
+            }
+        }
+    } 
 }
+
