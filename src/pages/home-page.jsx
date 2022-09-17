@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { AppHero } from '../cmp/AppHero'
+import { AppHero } from '../cmps/AppHero'
 // import { GigFilter } from '../cmps/gig-filter'
 
 
