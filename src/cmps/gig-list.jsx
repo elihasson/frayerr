@@ -6,7 +6,8 @@ export const GigList = ({ gigs, onRemoveGig, onUpdateGig, onAddToCart, history }
                     {gigs.map(gig => <GigPreview key={gig._id} gig={gig}
                         onRemoveGig={onRemoveGig}
                         onUpdateGig={onUpdateGig}
-                        onAddToCart={onAddToCart} />)}
+                        onAddToCart={onAddToCart}
+                     />)}
                 </div>
     )
 }

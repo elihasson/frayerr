@@ -1,0 +1,97 @@
+.gig-details {
+    background-color: antiquewhite;
+    flex: 60%;
+
+    .gig-title {
+        color: #404145;
+        font-size: 28px;
+    }
+
+    .owner-info {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        .owner-name {
+            color: #404145;
+            font-size: 14px;
+        }
+
+        .owner-level {
+            color: #62646A;
+            font-size: 14px;
+        }
+    }
+    
+    .carousel {
+        margin-bottom: 20px;
+    
+        .inner-wrapper {
+          position: relative;
+          overflow: hidden;
+        }
+    
+        .inner {
+          height: 427px;
+          padding: 0 auto;
+        }
+      }
+    .carousel-btn-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-block: 5px;
+
+        button {
+            height: 70px;
+            width: 100px;
+            background-size: cover;
+            opacity: 0.6;
+            border: none;
+            transition: opacity 0.3s;
+        }
+    }
+
+    button.active {
+        opacity: 1;
+    }
+
+
+    .carousel-item {
+        display: inline-flex;
+        // align-items: center;
+        // justify-content: center;
+        height: 100%;
+        width: 100%;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        color: #fff;
+        background-color: $clr4;
+        transition: 0.5s;
+    }
+
+    .indicators > span {
+        cursor: pointer;
+        background-color: #ffffff;
+        color: rgb(63, 62, 62);
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 5px 2px #0000001e;
+        z-index: 1000;
+        svg {
+          font-size: 19px;
+        }
+        &:first-child {
+          margin-inline-start: 5px;
+        }
+        &:last-child {
+          margin-inline-end: 5px;
+        }
+      }
+    
+}
