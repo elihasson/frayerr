@@ -1,5 +1,6 @@
 // import logo from '../assets/img/hero-portrait_1.png'
-import { GigFilter } from '../cmps/gig-filter'
+import { GigFilter } from './gig-filter'
+import { SearchBar } from './search-bar.jsx'
 
 export const AppHero = () => {
 
