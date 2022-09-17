@@ -102,6 +102,18 @@ export function removeFromCart(gigId) {
     }
 }
 
+export function loadGig(gigId) {
+    return async (dispatch) => {
+        try {
+            const gig = await gigService.getById(gigId)
+            dispatch({ type: 'SET_WATCHED_GIG', gig })
+        } catch (err) {
+            showErrorMsg('Cannot load gig')
+            console.log('Cannot load gig', err)
+        }
+    }
+}
+
 export function checkout() {
     return async (dispatch, getState) => {
         try {

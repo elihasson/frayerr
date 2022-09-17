@@ -23,16 +23,13 @@ export function Carousel({ gig, isDetails, children }) {
         onSwipedLeft: () => updateIdx(activeIdx + 1),
         onSwipedRight: () => updateIdx(activeIdx - 1)
     })
-    
+
     return (
         <div
             {...handlers}
             className="carousel"
             onMouseEnter={() => setArrows(true)}
             onMouseLeave={() => setArrows(false)}
-            // onClick={() => {
-            //     if (onGoToDetails) onGoToDetails(gig._id)
-            // }}
         >
             <div className="inner-wrapper">
                 <div className={isArrows ? 'indicators show' : 'indicators'}>

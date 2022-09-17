@@ -48,7 +48,6 @@ export const Explore = (props) => {
                     onRemoveGig={onRemoveGig}
                     onUpdateGig={onUpdateGig}
                     onAddToCart={onAddToCart}
-                    history={props.history}
                      />
 
             </main>

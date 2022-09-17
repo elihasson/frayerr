@@ -1,7 +1,8 @@
 const initialState = {
     gigs: [],
     cart:[],
-    lastRemovedGig: null
+    lastRemovedGig: null,
+    watchedGig: null
 }
 export function gigReducer(state = initialState, action) {
     var newState = state
@@ -11,6 +12,9 @@ export function gigReducer(state = initialState, action) {
         case 'SET_GIGS':
             newState = { ...state, gigs: action.gigs }
             break
+        case 'SET_WATCHED_GIG':
+            newState = { ...state, watchedGig: action.gig }
+            break;
         case 'REMOVE_GIG':
             const lastRemovedGig = state.gigs.find(gig => gig._id === action.gigId)
             gigs = state.gigs.filter(gig => gig._id !== action.gigId)
