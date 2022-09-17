@@ -81,11 +81,12 @@
 
 .hero-container{
     position: relative;
+    width: 100%;
+    background-color: $clr10;
 
     .hero-background {
         display: flex;
         justify-content: flex-end;
-        background-color: $clr10;
         
         .hero-andrea {
             // position: inherit;

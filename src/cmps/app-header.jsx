@@ -31,7 +31,7 @@ export const AppHeader = (props) => {
     }
 
     return (
-        <div className="app-header-container">
+        <div className="app-header-container full main-layout">
             <header className="app-header " >
                 <div>
                     {!show && <NavBar />}

@@ -1,6 +1,7 @@
 .app-header-container {
     border-bottom: 0.5px solid rgba(128, 128, 128, 0.541);
     font-family: 'Macan-regular';
+    // width: 100vw;
 
 }
 
@@ -9,12 +10,8 @@
     display: flex;
     background-color: white;
     height: 136px;
-    max-width: 1400px + 2 * $layoutPadding ;
-    padding: 0 $layoutPadding 0 $layoutPadding ; // top right bottom left 
-    margin: auto;
-    margin: auto;
     align-items: center;
-    border-bottom: 0.5px;
+    // border-bottom: 0.5px;
 
     .burger-icon-gig-filter-container{
         position: relative;
@@ -72,6 +69,22 @@
     @include for-header-layout-1 {
         color: red;
         height: 80px;
+
+        .burger-icon-gig-filter-container{
+            position: static;
+            flex-direction: row;
+            align-items: center;
+            .burger-icon-container{
+                position: static;
+                .frayerr-logo{
+                    position: static;
+                    margin-left: 15px;
+                }
+               
+            }
+    
+        }
+
         .user-profile-img {
             display: block;
             width: 32px;
@@ -84,18 +97,6 @@
     @include for-header-layout-2 {
         color: rgb(0, 255, 26);
 
-        .burger-icon-gig-filter-container{
-            position: static;
-            flex-direction: row;
-            .burger-icon-container{
-                position: static;
-                .frayerr-logo{
-                    position: static;
-                }
-               
-            }
-
-        }
 
         .icon-search-bar-container {
             margin: 20px;
