@@ -13,9 +13,9 @@ const gGigs = [
     {
         _id: 'g101', title: 'I will design your logo', price: 12, daysToMake: 3,
         description: 'make unique logo', 
-        imgUrls: [{imgUrl: 'image/Pst_Brian.jpg'},
-        {imgUrl: 'img/hero-portrait_1.png'}, 
-        {imgUrl: 'image/graduate.jpg'}], 
+        imgUrls: [{imgUrl: 'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/256384462/original/5235c1c65402ead582997c6392e3f6ea54a16a10.jpg'},
+        {imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/de7b8ad34afe97d7590a32b76335775f-1650626158997/320257df-a518-48db-b4f8-ed64daafadfd.jpg'}, 
+        {imgUrl: 'https://res.cloudinary.com/demo/image/upload/w_100,h_100,c_thumb,g_faces/couple.jpg'}], 
         owner: { _id: 'u101' , fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 },
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: [{}]
@@ -23,8 +23,8 @@ const gGigs = [
     {
         _id: 'g102', title: 'I will fix your car', price: 120, daysToMake: 2,
         description: 'best of the best', 
-        imgUrls: [{imgUrl: 'images/animated-explainer.png'},
-        {imgUrl: 'images/book-covers.png'}],
+        imgUrls: [{imgUrl: 'https://res.cloudinary.com/demo/image/upload/w_100,h_100,c_thumb,g_faces/couple.jpg'},
+        {imgUrl: 'https://res.cloudinary.com/demo/image/upload/w_100,h_100,c_thumb,g_faces/couple.jpg'}],
         owner: { _id: 'u102', fullname: 'marco polo', imgUrl: 'url', level: 'premium', rate: 5 },
         tags: ['garage', 'mechanics', 'proffesional', 'accessible'],
         likedByUsers: [{}]
@@ -32,7 +32,7 @@ const gGigs = [
     {
         _id: 'g103', title: 'building sites', price: 5000, daysToMake: 1,
         description: 'make a great react app', 
-        imgUrls: [{imgUrl: 'images/voiceover.png'}],
+        imgUrls: [{imgUrl: 'https://res.cloudinary.com/demo/image/upload/w_100,h_100,c_thumb,g_faces/couple.jpg'}],
         owner: { _id: 'u103', fullname: 'amos devinci', imgUrl: 'url', level: 'basic', rate: 5 },
         tags: ['programming', 'coding-academy', 'proffesional', 'accessible'],
         likedByUsers: [{}]
@@ -40,7 +40,7 @@ const gGigs = [
     {
         _id: 'g104', title: 'master of mastering', price: 100, daysToMake: 2,
         description: 'great song mastering', 
-        imgUrls: [{imgUrl: 'images/book-covers.png'}],
+        imgUrls: [{imgUrl: 'https://res.cloudinary.com/demo/image/upload/w_100,h_100,c_thumb,g_faces/couple.jpg'}],
         owner: { _id: 'u104', fullname: 'moni piloni', imgUrl: 'url', level: 'professional', rate: 5 },
         tags: ['music', 'mastering', 'proffesional', 'accessible'],
         likedByUsers: [{}]
@@ -48,7 +48,7 @@ const gGigs = [
     {
         _id: 'g105', title: 'I will fix your phone', price: 150, daysToMake: 2,
         description: 'i will fix it', 
-        imgUrls: [{imgUrl: 'images/wordpress.png'}],
+        imgUrls: [{imgUrl: 'https://res.cloudinary.com/demo/image/upload/w_100,h_100,c_thumb,g_faces/couple.jpg'}],
         owner: { _id: 'u105', fullname: 'avi phone', imgUrl: 'url', level: 'basic', rate: 4 },
         tags: ['cellolar', 'proffesional', 'accessible'],
         likedByUsers: [{}]
@@ -114,7 +114,7 @@ function getEmptyGig() {
         price: utilService.getRandomIntInclusive(10, 1000),
         daysToMake: 0,
         description: 'some description',
-        imgUrls: [{imgUrl: 'image/Pst_Brian.jpg'}],
+        imgUrls:[{imgUrl: 'url'}],
         owner: {_id: 'u101', fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 },
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: []
