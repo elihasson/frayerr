@@ -28,11 +28,11 @@ export const AppHero = () => {
         //         </div>
         //     </div>
         // </div>
-        <div className='hero-container '>
-            <div className='hero-background'>
-                <div className={changeImg()}>
+        <div className='hero-container full main-layout'>
+            <div className='hero-background full main-layout'>
+                <div className={`${changeImg()}  `}>
                     <div className='hero-header'>
-                        <h1 className="hero-title">
+                        <h1 className="hero-title ">
                             Find the perfect <i>freelance</i> services for your business
                         </h1>
                         <GigFilter />
