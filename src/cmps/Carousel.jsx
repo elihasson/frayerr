@@ -8,6 +8,9 @@ export function Carousel({ gig, isDetails, children }) {
     
     const [activeIdx, setActiveIdx] = useState(0);
     const [isArrows, setArrows] = useState(false);
+    console.log('gig321:', gig)
+    console.log('isDetail321:',  isDetails)
+    console.log('children321:', children)
 
     const updateIdx = (newIdx, ev) => {
         ev.stopPropagation()
