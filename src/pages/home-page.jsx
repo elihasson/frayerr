@@ -16,8 +16,8 @@ class _HomePage extends React.Component {
     render() {
         // const { count } = this.props
         return (
-            <section className='home-container full main-layout '>
-                <div className='home-page full main-layout'>
+            <section className='home-container  full '>
+                <div className='home-page  '>
                     <AppHero />
                     {/* <GigFilter /> */}
                 </div>
