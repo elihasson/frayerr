@@ -42,7 +42,7 @@ export const Explore = (props) => {
         <div>
             <h3>Most popular Gigs in</h3>
             <main>
-                <button onClick={onAddGig}>Add Gig</button>
+                {/* <button onClick={onAddGig}>Add Gig</button> */}
                 <GigList
                     gigs={gigs}
                     onRemoveGig={onRemoveGig}
