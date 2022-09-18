@@ -26,6 +26,13 @@ export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
         navigate(`/explore/${gigId}`)
     }
 
+    const getShortTitle = (gigTitle) => {
+        if (gigTitle.length > 45) {
+            return `${gigTitle.substring(0, 30)}...`
+        }
+        return gigTitle
+    }
+
 
     return (
         <li className="gig-preview">
@@ -44,7 +51,7 @@ export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
                 </div>
             </div>
             <Link className='clean-link' to={`/explore/${gig._id}`}>
-                <p className='gig-title'>{gig.title}</p>
+                <p className='gig-title'> {getShortTitle(gig.title)} </p>
             </Link>
 
             <div className='rate-wrapper'>
