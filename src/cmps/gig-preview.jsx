@@ -36,7 +36,7 @@ export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
 
 
     return (
-        <li className="gig-preview">
+        <li className="gig-preview full">
             <div className="gig-img"
             onClick={() => {
                   onNavToGigDetails(gig._id)

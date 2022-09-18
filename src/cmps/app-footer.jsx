@@ -10,7 +10,8 @@ export const AppFooter = () => {
 
     return (
         <section className='app-footer '>
-            <div className="main-info max-width-container ">
+            <div className="border-for-footer"></div>
+            <div className="main-info  ">
                 <div className="logo-small-container">
                     <h2>frayerr<span>®</span></h2>
                     <div className='logo-small-text'>© Frayerr International Ltd. 2022</div>

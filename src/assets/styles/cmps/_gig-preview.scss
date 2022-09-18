@@ -1,6 +1,8 @@
 .gig-preview {
   color: $clr2;
-  padding: 0;
+  padding: 0px;
+  width: 239px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8,6 +10,7 @@
   // border: 1px solid #e4e5e7;
   // border: 1px solid  #B5B6BA;
   border: 1px solid #EFEFF0;
+
 
   &:hover {
     .gig-title {
@@ -17,11 +20,12 @@
 
   .gig-img {
     width: 100%;
+    height: 150px;
     cursor: pointer;
 
     img {
       width: 100%;
-      height: 100%;
+      // height: 100%;
       object-fit: cover;
     }
   }
@@ -195,7 +199,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 197px;
+    height: 145px;
     background-size: cover;
     color: #fff;
   }

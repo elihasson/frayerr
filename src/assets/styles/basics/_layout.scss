@@ -1,41 +1,52 @@
 // .max-width-container {
-.main-layout >*:not(.full){
+.main-layout {
+    >*:not(.full) {
+        max-width: 1400px + 2 * $layoutPadding ;
+        padding: 0 $layoutPadding 0 $layoutPadding ; // top right bottom left 
+        margin: auto;
+    }
+}
+
+.add-main-layout {
     max-width: 1400px + 2 * $layoutPadding ;
     padding: 0 $layoutPadding 0 $layoutPadding ; // top right bottom left 
     margin: auto;
-    height: 100%;
-
-    @include for-narrow-layout {
-        @include layoutWidth();
-    }
-
-    // @include for-normal-header-layout {
-    //     @include layoutWidth();
-
-    //     .display-from-size-medium {
-    //         display: inline-block;
-    //     }
-    // }
-
-    // @include for-wide-header-layout {
-    //     @include layoutWidth();
-
-    //     .display-from-size-large {
-    //         display: inline-block;
-    //     }
-    // }
-
-    // @include for-extra-wide-header-layout {
-    //     @include layoutWidth();
-
-    //     .display-from-size-large {
-    //         display: inline-block;
-    //     }
-    // }
-
-    // @include for-large-screen-header-layout {
-    //     @include layoutMaxWidth();
-    // }
 }
 
 
+
+
+
+
+// > *:not(.full)
+// @include for-narrow-layout {
+//     @include layoutWidth();
+// }
+
+// @include for-normal-header-layout {
+//     @include layoutWidth();
+
+//     .display-from-size-medium {
+//         display: inline-block;
+//     }
+// }
+
+// @include for-wide-header-layout {
+//     @include layoutWidth();
+
+//     .display-from-size-large {
+//         display: inline-block;
+//     }
+// }
+
+// @include for-extra-wide-header-layout {
+//     @include layoutWidth();
+
+//     .display-from-size-large {
+//         display: inline-block;
+//     }
+// }
+
+// @include for-large-screen-header-layout {
+//     @include layoutMaxWidth();
+// }

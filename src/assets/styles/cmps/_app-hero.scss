@@ -1,119 +1,42 @@
-// .hero-container {
-//     overflow-x: hidden;
-//     position: relative;
-//     margin-block-end: 10vh;
-//     background-color: $clr10;
-//     color: $clr7;
-//     font-family: 'Macan-bold';
-
-//     .hero-imgs-container {
-//         width: 50%;
-//         position: absolute;
-//         right: 0;
-//         bottom: 0;
-
-//         .hero-img-container {
-//             padding: 0 $layoutPadding;
-//             height: 100%;
-//             justify-content: flex-end;
-//             // pointer-events: none;
-//             // transition: 1s;
-//             // opacity: 0;
-
-//             // &.active {
-//             //     opacity: 1;
-//             // }
-            
-//             .hero-img {
-//                 display: none;
-//                 // filter: drop-shadow(0rem 0rem 8rem rgba(255, 255, 255, 0.2));
-//                 @include for-wide-layout {
-//                     display: inline;
-//                     right: 0;
-//                     bottom: 0;
-//                     position: absolute;
-//                     height: 52vh;
-//                 }
-
-//                 @include for-extra-wide-layout {
-//                     left: 0;
-//                     height: 63vh;
-//                 }
-//             }
-
-//             .hero-content-container {
-//                 padding: 0 $layoutPadding;
-//                 justify-content: center;
-//                 align-items: center;
-//                 overflow: hidden;
-//                 height: 40vh;
-//                 // transition: 1s;
-
-//                 .hero-content {
-//                     // width: 700px;
-//                     z-index: 5;
-//                     margin-top: 100px;
-//                     width: 100%;
-//                     @include for-narrow-layout {
-//                         margin-top: 0;
-//                     }
-
-//                     h1 {
-//                         display: none;
-//                         width: 500px;
-//                         font-size: 5vh;
-//                         margin-block-start: rem(80px);
-//                         margin-block-end: rem(15px);
-                
-//                         @include for-narrow-layout {
-//                             display: block;
-//                             font-size: 36px;
-//                         }
-//                         @include for-wide-layout {
-//                             font-size: 44px;
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-
 .hero-container{
-    // position: relative;
-    position: absolute;
+    position: relative;
     height: 680px;
-    width: 100%;
-    background-color: $clr10;
-    z-index: -100;
-
-    .hero-background {
+    
+    .andrea-hero-background {
         width: 100%;
+        position: absolute;
+        height: 100%;
+        top: -80px;
         display: flex;
         justify-content: flex-end;
-        position: absolute;
-        z-index: -1;
+        background-color: $clr10;
+        z-index: -100; //added by Aharon
         
-        .hero-andrea {
-            // position: inherit;
+        .hero {
             width: 100%;
-            height: 680px;
-            background-image: url('../../img/bg-hero-1.jpg');
+            height: 100%;
+            background-image: url('https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049983/bg-hero-1-1792-x1.png');
             background-position: 50% 100%;
+            background-repeat: no-repeat;
+            
+            // position: absolute; //removed by Aharon
+            // background-image: url('../../img/bg-hero-1.jpg');
             // margin-inline-end: 100px;
         }   
     }
 
     .hero-header {
         display: flex;
-        // align-content: center;
         flex-direction: column;
-        padding-bottom: 24px;
-        position: absolute;
-        inset-block-start: 30vh;
-        width: 600px;
+        margin-block-start: 300px; //added by Aharon
+        // align-content: center; // removed by Aharon
+        // padding-bottom: 24px;
+        // position: absolute;
+        // inset-block-start: 30vh;
+        // width: 600px;
 
         .hero-title {
+            width: 600px;
             font-size: rem(40px);
             line-height: 48px; // must calculate with lh function
             font-weight: 700;
