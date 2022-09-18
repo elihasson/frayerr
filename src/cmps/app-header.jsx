@@ -75,7 +75,7 @@ export const AppHeader = (props) => {
                 </div>
 
                 <div>
-                    <NavLink to="/"> <img src={userImg} alt="user img" className='user-profile-img' /> </NavLink>
+                    <NavLink to="/explore"> <img src={userImg} alt="user img" className='user-profile-img' /> </NavLink>
                 </div>
 
                 {/* <nav>
