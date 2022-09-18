@@ -38,8 +38,8 @@ export const AppHero = () => {
                             Find the perfect <i>freelance</i> services for your business
                         </h1>
                         <SearchBar />
-                        <HeroDetails/>
                     </div>
+                    <HeroDetails />
                 </div>
             </div>
         </div>

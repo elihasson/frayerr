@@ -15,8 +15,13 @@ function _AppFooter({ count, cart, removeFromCart, checkout }) {
 
     return (
         <footer className="app-footer">
+            {/* Removed the count and added some rellevant data instead
             <p>
                 coffeerights - count: {count}
+            </p> 
+            */}
+            <p>
+                &copy; Frayerr, {new Date().getFullYear()}
             </p>
             {cart.length > 0 &&
                 <h5>

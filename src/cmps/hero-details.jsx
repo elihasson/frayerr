@@ -1,5 +1,5 @@
 export const HeroDetails = () => {
     return (
-        <div className='hero-details' style={{fontSize: '30px', color: '#eee'}}>Andrea, Web Designer</div>
+        <div className='hero-details'>Andrea, <span className='hero-role'>Fashion Designer</span></div>
     )
 }
