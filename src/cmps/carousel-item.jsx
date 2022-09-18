@@ -1,9 +1,18 @@
 export const CarouselItem = ({ children, width, imgUrl }) => {
     // const itemStyle = { width: width, backgroundImage: `url(https://robohash.org/1})` }
-    let image =  imgUrl.imgUrl
-   
-    const itemStyle = { width: width, backgroundImage: 'url(' + require ('../assets/images/' + image) + ')'}
+    // const itemStyle = { width: width, backgroundImage: `url(${imgUrl})` }
+    const image =  imgUrl.imgUrl
+    const itemStyle = { width: width, backgroundImage: `url(${image})` }
 
+    //  const itemStyle = { width: width, backgroundImage: `url(` + require (`../assets/image/Pst_Brian.jpg`) + ')'}
+    // <img src={require('../images/' + fileNameExt)} />
+
+    console.log('Hello123 ',image)
+    // debugger this
+    // const itemStyle = { width: width, backgroundImage: 'url(' + require ('../assets/' + image) + ')'}
+
+    // const itemStyle = { width: width, backgroundImage:  `url('' + image})`}
+    // `url(${templateStringForImage})`
     console.log(itemStyle)
     return (
         <div className="carousel-item" style={itemStyle} >
