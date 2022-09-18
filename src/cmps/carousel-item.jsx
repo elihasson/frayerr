@@ -1,5 +1,4 @@
 export const CarouselItem = ({ children, width, imgUrl }) => {
-    // debugger
     // const itemStyle = { width: width, backgroundImage: `url(https://robohash.org/1})` }
     // const itemStyle = { width: width, backgroundImage: `url(${imgUrl})` }
     const image =  imgUrl.imgUrl
@@ -15,7 +14,6 @@ export const CarouselItem = ({ children, width, imgUrl }) => {
     // const itemStyle = { width: width, backgroundImage:  `url('' + image})`}
     // `url(${templateStringForImage})`
     console.log(itemStyle)
-    // debugger
     return (
         <div className="carousel-item" style={itemStyle} >
             {children}
