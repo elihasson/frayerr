@@ -1,5 +1,5 @@
 .app-header-container {
-    border-bottom: 0.5px solid rgba(128, 128, 128, 0.541);
+    border-bottom: 1px solid #e5e6e8;
     font-family: 'Macan-regular';
     // width: 100vw;
 
@@ -13,7 +13,7 @@
     align-items: center;
     // border-bottom: 0.5px;
 
-    .burger-icon-gig-filter-container{
+    .burger-icon-gig-filter-container {
         position: relative;
         display: flex;
         flex-direction: column;
@@ -21,10 +21,11 @@
         height: 100%;
         justify-content: space-evenly;
 
-        .burger-icon-container{
+        .burger-icon-container {
             display: flex;
             align-items: center;
-            .frayerr-logo{
+
+            .frayerr-logo {
                 position: absolute;
                 left: 50%;
                 margin-left: -60px;
@@ -53,14 +54,14 @@
 
     }
 
-    .gig-filter-container {
-        width: 100%;
-    }
 
     .icon-search-bar-container {
         display: none;
     }
 
+    .gig-filter-container {
+        width: 100%;
+    }
 
     .user-profile-img {
         display: none;
@@ -70,19 +71,25 @@
         color: red;
         height: 80px;
 
-        .burger-icon-gig-filter-container{
+        .gig-filter-container {
+            margin-inline-start: 32px;
+        }
+
+        .burger-icon-gig-filter-container {
             position: static;
             flex-direction: row;
             align-items: center;
-            .burger-icon-container{
+
+            .burger-icon-container {
                 position: static;
-                .frayerr-logo{
+
+                .frayerr-logo {
                     position: static;
                     margin-left: 15px;
                 }
-               
+
             }
-    
+
         }
 
         .user-profile-img {
@@ -91,6 +98,7 @@
             height: 32px;
             border-radius: 50%;
             object-fit: cover;
+            margin-inline-start: 32px;
         }
     }
 
@@ -101,6 +109,14 @@
         .icon-search-bar-container {
             margin: 20px;
             display: flex;
+
+            .orders-button{
+                display: none;
+            }
+
+            .favorite-icon-button{
+                display: none;
+            }
         }
     }
 

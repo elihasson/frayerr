@@ -1,66 +1,50 @@
-
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-
-import { removeFromCart, checkout } from '../store/gig.actions'
-import { UserMsg } from './user-msg.jsx'
-
-function _AppFooter({ count, cart, removeFromCart, checkout }) {
-    const [isCartShown, setIsCartShown] = useState(false)
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 
-    function getCartTotal() {
-        return cart.reduce((acc, gig) => acc + gig.price, 0)
-    }
+export const AppFooter = () => {
+
 
     return (
-        <footer className="app-footer">
-            <p>
-                coffeerights - count: {count}
-            </p>
-            {cart.length > 0 &&
-                <h5>
-                    <span>{cart.length}</span> Products in your Cart
-                    <button className="btn-link" onClick={(ev) => {
-                        ev.preventDefault();
-                        setIsCartShown(!isCartShown)
-                    }}>
-                        ({(isCartShown) ? 'hide' : 'show'})
-                    </button>
-                </h5>
-            }
+        <section className='app-footer '>
+            <div className="main-info max-width-container ">
+                <div className="logo-small-container">
+                    <h2>frayerr<span>®</span></h2>
+                    <div className='logo-small-text'>© Frayerr International Ltd. 2022</div>
+                </div>
 
-            {isCartShown && cart.length > 0 && <section className="cart" >
-                <h5>Your Cart</h5>
-                <ul>
-                    {
-                        cart.map((gig, idx) => <li key={idx}>
-                            <button onClick={() => {
-                                removeFromCart(gig._id)
-                            }}>x</button>
-                            {gig.title}
-                        </li>)
-                    }
+                <ul className='social clean-list'>
+                    <li>
+                        <a className='clean-link' target="_blank" href="https://www.facebook.com/" >
+                            <FacebookRoundedIcon />
+                        </a>
+                    </li>
+                    <li>
+                        <a className='clean-link' target="_blank" href="https://twitter.com/explore" >
+                            <TwitterIcon />
+                        </a>
+                    </li>
+                    <li>
+                        <a className='clean-link' target="_blank" href="https://www.linkedin.com/" >
+                            <LinkedInIcon />
+                        </a>
+                    </li>
+                    <li>
+                        <a className='clean-link' target="_blank" href="https://www.pinterest.com/" >
+                            <PinterestIcon />
+                        </a>
+                    </li>
+                    <li>
+                        <a className='clean-link' target="_blank" href="https://www.instagram.com/" >
+                            <InstagramIcon />
+                        </a>
+                    </li>
                 </ul>
-                <p>Total: ${getCartTotal().toLocaleString()} </p>
-                <button onClick={checkout}>Checkout</button>
-            </section>}
-            <UserMsg />
-        </footer>
+            </div>
+
+        </section>
     )
 }
-
-
-function mapStateToProps(state) {
-    return {
-        count: state.userModule.count,
-        cart: state.gigModule.cart
-    }
-}
-
-const mapDispatchToProps = {
-    checkout,
-    removeFromCart
-}
-
-export const AppFooter = connect(mapStateToProps, mapDispatchToProps)(_AppFooter)

@@ -1,7 +1,53 @@
-.app-footer{
-    background-color: #111;
-    color: $clr4;
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
-}
+.app-footer {
+    border-top: 1px solid #e5e6e8;
+  
+    .main-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .social {
+        @include for-normal-max-layout {
+          display: none;
+        }
+      }
+    }
+  
+    .logo-small-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h2 {
+      font-family: roboto-bold, serif;
+      color: #7a7d85;
+    }
+    span {
+      font-size: 9px;
+      color: #b5b6ba;
+    }
+  
+    .logo-small-text {
+      color: #b5b6ba;
+      font-size: 1em;
+    //   margin-inline-start: 30px;
+    }
+  
+    ul {
+      display: flex;
+      align-items: center;
+  
+      li {
+        padding: 10px;
+        color: #7a7d85;
+        transition: 0.3s all;
+        border-radius: 50%;
+        line-height: 0.5;
+  
+        &:hover {
+          cursor: pointer;
+          background-color: #efeff0;
+        }
+      }
+    }
+  }
+  

@@ -64,11 +64,11 @@ export const AppHeader = (props) => {
                         <MailOutlineOutlinedIcon />
                     </NavLink>
 
-                    <NavLink to="/" >
+                    <NavLink to="/" className={'favorite-icon-button'}>
                         <FavoriteBorderOutlinedIcon />
                     </NavLink>
 
-                    <NavLink to="/" >
+                    <NavLink to="/" className={'orders-button'}>
                         <div>Orders</div>
                     </NavLink>
 
