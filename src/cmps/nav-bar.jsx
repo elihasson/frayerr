@@ -1,7 +1,7 @@
 
-export const NavBar = () => {
+export const NavBar = (props) => {
     return (
-        <section>
+        <section className={`nav-bar-containter ${props.classProp}`} >
             <div>Home</div>
             <div>Inbox</div>
             <div>Manage Orders</div>

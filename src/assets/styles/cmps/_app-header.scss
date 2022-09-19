@@ -3,6 +3,19 @@
     font-family: 'Macan-regular';
     // width: 100vw;
 
+    .main-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(87, 80, 80, 0.35);
+        opacity: 1;
+        pointer-events: auto;
+        transition: opacity 0.6s;
+        z-index: 20;
+      }
+
 }
 
 .app-header {
