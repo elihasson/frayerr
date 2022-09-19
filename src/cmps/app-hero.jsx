@@ -1,45 +1,87 @@
-// import logo from '../assets/img/hero-portrait_1.png'
 import { SearchBar } from './search-bar'
 import { HeroDetails } from './hero-details'
+import { useState, useEffect } from 'react'
+// import { img } from '../assets/img/bg-hero-1.jpg'
 
 export const AppHero = () => {
+    let heroIdx = 0
 
-    const changeImg = () => {
-        return 'andrea'
-    }
+    const heros = [
+        {
+            imgSrc: '1.jpg',
+            bgc: '#023a15',
+            details: {
+                heroName: 'Andrea',
+                heroRole: 'Fashion Designer'
+            }
+        },
+        {
+            imgSrc: '2.jpg',
+            bgc: '#b64762',
+            details: {
+                heroName: 'Moon',
+                heroRole: 'Marketing Expert'
+            }
+        },
+        {
+            imgSrc: '3.jpg',
+            bgc: '#540e1f',
+            details: {
+                heroName: 'Ritika',
+                heroRole: 'Shoemaker and Designer'
+            }
+        },
+        {
+            imgSrc: '4.jpg',
+            bgc: '#023a15',
+            details: {
+                heroName: 'Zach',
+                heroRole: 'Bar Owner'
+            }
+        },
+        {
+            imgSrc: '5.jpg',
+            bgc: '#7d1a00',
+            details: {
+                heroName: 'Gabrielle',
+                heroRole: 'Video Editor'
+            }
+        }
+    ]
+
+    const [hero, setHero] = useState(heros[0])
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            heroIdx = (heroIdx + 1) % heros.length
+            console.log('heroIdx:', heroIdx)
+            _switchHero(heros[heroIdx], setHero)
+        }, 7000)
+        return () => {
+            clearInterval(intervalId)
+        }
+    }, [])
 
     return (
-        // <div className='hero-container debug'>
-        //     <div className='hero-imgs-container debug'>
-        //         <div className='hero-img-container flex debug'>
-        //             <img src={logo} alt='Hero' className='hero-img debug' />
-        //         </div>
-        //     </div>
-        //     <div className='hero-content-container flex max-width-container debug'>
-        //         <div className='hero-content debug'>
-        //             <h1>
-        //                 Find the perfect <i>freelance</i> services for your business
-        //             </h1>
-        //         </div>
-        //         {/* <div className="static-background"></div> */}
-        //         <div className='seller-name debug'>
-        //             <span className='seller-skill'>Andrea, </span>
-        //             <span className='seller-skill'>Web Designer</span>
-        //         </div>
-        //     </div>
-        // </div>
+        // this url works in backgroundImage: "https://via.placeholder.com/500"
+        // these url don't: ${hero.imgSrc}, `../assets/img/bg-hero-${hero.imgSrc}`
+        // rendering background images doesn't affect breakpoints which is good
         <div className='hero-container'>
-            <div className={`${changeImg()}-hero-background`}>
-                <div className='hero'>
+            <div className='hero-background' style={{backgroundColor: hero.bgc}}>
+                <div className='hero' style={{backgroundImage: `url(${require(`../assets/img/bg-hero-${hero.imgSrc}`)})`}}>
                     <div className='hero-header add-main-layout'>
                         <h1 className='hero-title'>
                             Find the perfect <i>freelance</i> services for your business
                         </h1>
                         <SearchBar />
                     </div>
-                    <HeroDetails heroDetails={changeImg()}/>
+                    <HeroDetails heroDetails={hero.details}/>
                 </div>
             </div>
         </div>
     )
+}
+
+function _switchHero(hero, setHero) {
+    setHero(hero)
 }
