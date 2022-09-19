@@ -14,7 +14,7 @@ export class RootCmp extends React.Component {
     render() {
         return (
             <div className='app-container'>
-                <main className='main-layout'>
+                <main className='main-layout full-height'>
                     <AppHeader />
                     <Routes>
                         {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}

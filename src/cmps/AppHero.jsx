@@ -6,8 +6,7 @@ import { HeroDetails } from './hero-details'
 export const AppHero = () => {
 
     const changeImg = () => {
-        console.log('Hi')
-        return 'hero-andrea'
+        return 'andrea'
     }
 
     return (
@@ -30,16 +29,16 @@ export const AppHero = () => {
         //         </div>
         //     </div>
         // </div>
-        <div className='hero-container full main-layout'>
-            <div className='hero-background full main-layout'>
-                <div className={`${changeImg()}  `}>
-                    <div className='hero-header'>
+        <div className='hero-container '>
+            <div className={`${changeImg()}-hero-background`}>
+                <div className="hero">
+                    <div className='hero-header add-main-layout '>
                         <h1 className="hero-title ">
                             Find the perfect <i>freelance</i> services for your business
                         </h1>
                         <SearchBar />
                     </div>
-                    <HeroDetails />
+                    <HeroDetails heroDetails={changeImg()}/>
                 </div>
             </div>
         </div>
