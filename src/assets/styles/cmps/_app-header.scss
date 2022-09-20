@@ -1,3 +1,6 @@
+
+// HEADER WHEN EXPLORE PAGE
+
 .app-header-container {
     border-bottom: 1px solid #e5e6e8;
     font-family: 'Macan-regular';
@@ -14,7 +17,7 @@
         pointer-events: auto;
         transition: opacity 0.6s;
         z-index: 20;
-      }
+    }
 
 }
 
@@ -192,4 +195,74 @@
         }
     }
 
+}
+
+
+// HEADER WHEN HOME PAGE NO SCROLL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+.app-header-container.home-top-header-no-scroll {
+    border: none;
+    z-index: 1;
+
+    .app-header {
+        background-color: white;
+        height: 80px;
+
+        .burger-icon-gig-filter-container {
+            justify-content: flex-start;
+
+            .burger-icon-container {
+                fill: white;
+                // color: white;
+
+                .frayerr-logo {
+                    color: white;
+                }
+            }
+
+            .gig-filter-container {
+                display: none;
+            }
+        }
+
+        .icon-search-bar-container {
+            color: white;
+            font-weight: 700;
+            width: 100%;
+            justify-content: flex-end;
+            align-items: center;
+            margin: 0;
+
+            .join-button {
+                div {
+                    width: 70px;
+                    height: 30px;
+                    border: 1px solid white;
+                    border-radius: 2px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                :hover{
+                    background-color: $clr1;
+                }
+            }
+        }
+
+        @include for-header-layout-1 {
+            background-color: transparent;
+        }
+    }
+}
+
+
+// HEADER WHEN HOME PAGE WITH SCROLL @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+.app-header-container.home-top-header-with-scroll {
+    position: fixed;
+
+    .app-header {
+        background-color: white;
+    }
 }

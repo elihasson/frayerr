@@ -1,14 +1,16 @@
 // .max-width-container {
 .main-layout {
     >*:not(.full) {
-        max-width: 1400px + 2 * $layoutPadding ;
+        // max-width: 1400px + 2 * $layoutPadding ;
+        max-width: 1400px ;
         padding: 0 $layoutPadding 0 $layoutPadding ; // top right bottom left 
         margin: auto;
     }
 }
 
 .add-main-layout {
-    max-width: 1400px + 2 * $layoutPadding ;
+    // max-width: 1400px + 2 * $layoutPadding ;
+    max-width: 1400px;
     padding: 0 $layoutPadding 0 $layoutPadding ; // top right bottom left 
     margin: auto;
 }

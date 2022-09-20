@@ -27,7 +27,7 @@ export function _GigDetails({ gig, loadGig }) {
                         <h5 className='owner-name'>{gig.owner.fullname}</h5>
                         <h5 className='owner-level'>{gig.owner.rate}</h5>
                         <span className='spacer'>|</span>
-                        <UserRateStars gig={gig}/>
+                        <UserRateStars gig={gig} />
                         {/* <h5>stars</h5> */}
                     </div>
                 </div>
@@ -47,8 +47,10 @@ export function _GigDetails({ gig, loadGig }) {
                     </pre>
                 </div>}
             </div>
+            <div className='order-modal-container'>
+                <OrderModal modalClass="aside" gig={gig} />
+            </div>
 
-            <OrderModal modalClass="aside" gig={gig} />
         </section>
     )
 }

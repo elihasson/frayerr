@@ -215,76 +215,78 @@
     background-size: cover;
     color: #fff;
   }
-}
 
-.indicators {
-  display: block;
-  top: 50%;
-
-  &> :first-child {
-    position: absolute;
-    left: -26px;
-  }
-
-  &> :last-child {
-    position: absolute;
-    right: -26px;
-  }
-
-  justify-content: space-between;
-  transform: translateX(-50%);
-
-  // opacity: 0;
-  span {
-    transform: translateY(-50%);
-    transition: 0.4s all;
-  }
-
-  &.show {
-
-    // opacity: 1;
+  .indicators {
+    display: block;
+    top: 50%;
+  
     &> :first-child {
-      left: 0;
+      position: absolute;
+      left: -26px;
     }
-
+  
     &> :last-child {
-      right: 0;
+      position: absolute;
+      right: -26px;
+    }
+  
+    justify-content: space-between;
+    transform: translateX(-50%);
+  
+    // opacity: 0;
+    span {
+      transform: translateY(-50%);
+      transition: 0.4s all;
+    }
+  
+    &.show {
+  
+      // opacity: 1;
+      &> :first-child {
+        left: 0;
+      }
+  
+      &> :last-child {
+        right: 0;
+      }
     }
   }
+  
+  .indicators>span {
+    background-color: white;
+    color: $clr3;
+    border: 1px solid darken($clr4, 15%);
+  
+    svg {
+      font-size: 14px;
+      position: relative;
+    }
+  
+    &:first-child {
+      padding: 5px 5px 5px 5px;
+      border-end-end-radius: 50%;
+      border-top-right-radius: 50%;
+    }
+  
+    &:first-child svg {
+      top: 2px;
+      bottom: 2px;
+      right: 3px;
+    }
+  
+    &:last-child {
+      padding: 5px 5px 5px 5px;
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+    }
+  
+    &:last-child svg {
+      inset: 2px 3px;
+    }
+  }
+  
 }
 
-.indicators>span {
-  background-color: white;
-  color: $clr3;
-  border: 1px solid darken($clr4, 15%);
-
-  svg {
-    font-size: 14px;
-    position: relative;
-  }
-
-  &:first-child {
-    padding: 5px 5px 5px 5px;
-    border-end-end-radius: 50%;
-    border-top-right-radius: 50%;
-  }
-
-  &:first-child svg {
-    top: 2px;
-    bottom: 2px;
-    right: 3px;
-  }
-
-  &:last-child {
-    padding: 5px 5px 5px 5px;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-  }
-
-  &:last-child svg {
-    inset: 2px 3px;
-  }
-}
 
 
 
