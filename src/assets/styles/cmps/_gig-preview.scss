@@ -32,6 +32,7 @@
 
   .owner-info {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 10px;
     padding: 8px 0 8px 12px;
@@ -58,6 +59,15 @@
         color: #74767E;
 
       }
+
+    }
+
+    .user-img {
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%; 
     }
 
     .owner-pic {
@@ -132,42 +142,44 @@
       color: lighten($clr3, 20%);
       transition: color 0.3s;
       display: flex;
+
       svg {
-            height: 20px;
-          }
+        height: 20px;
+      }
 
       &.active {
         color: rgba(218, 95, 95, 0.829);
       }
+
       &:hover {
-      cursor: pointer;
+        cursor: pointer;
+      }
     }
-    }
 
-    
 
-  
 
-  //   ul {
-  //     cursor: pointer;
-  //   }
 
-  //   & ul li:first-child {
-  //     text-transform: uppercase;
-  //     color: #7a7d85;
-  //     font-size: 10px;
-  //     font-weight: 700;
-  //     letter-spacing: 0.5px;
-  //     padding: 2px 0;
-  //   }
 
-  //   & ul li:not(:first-child) {
-  //     margin-top: 2px;
-  //     font-size: 18px;
-  //     line-height: 20px;
-  //     color: $clr2;
-  //     text-align: right;
-  //   }
+    //   ul {
+    //     cursor: pointer;
+    //   }
+
+    //   & ul li:first-child {
+    //     text-transform: uppercase;
+    //     color: #7a7d85;
+    //     font-size: 10px;
+    //     font-weight: 700;
+    //     letter-spacing: 0.5px;
+    //     padding: 2px 0;
+    //   }
+
+    //   & ul li:not(:first-child) {
+    //     margin-top: 2px;
+    //     font-size: 18px;
+    //     line-height: 20px;
+    //     color: $clr2;
+    //     text-align: right;
+    //   }
   }
 
   .carousel-btn-container {
@@ -205,76 +217,76 @@
   }
 }
 
-  .indicators {
-    display: block;
-    top: 50%;
+.indicators {
+  display: block;
+  top: 50%;
 
+  &> :first-child {
+    position: absolute;
+    left: -26px;
+  }
+
+  &> :last-child {
+    position: absolute;
+    right: -26px;
+  }
+
+  justify-content: space-between;
+  transform: translateX(-50%);
+
+  // opacity: 0;
+  span {
+    transform: translateY(-50%);
+    transition: 0.4s all;
+  }
+
+  &.show {
+
+    // opacity: 1;
     &> :first-child {
-      position: absolute;
-      left: -26px;
+      left: 0;
     }
 
     &> :last-child {
-      position: absolute;
-      right: -26px;
-    }
-
-    justify-content: space-between;
-    transform: translateX(-50%);
-
-    // opacity: 0;
-    span {
-      transform: translateY(-50%);
-      transition: 0.4s all;
-    }
-
-    &.show {
-
-      // opacity: 1;
-      &> :first-child {
-        left: 0;
-      }
-
-      &> :last-child {
-        right: 0;
-      }
+      right: 0;
     }
   }
+}
 
-  .indicators>span {
-    background-color: white;
-    color: $clr3;
-    border: 1px solid darken($clr4, 15%);
+.indicators>span {
+  background-color: white;
+  color: $clr3;
+  border: 1px solid darken($clr4, 15%);
 
-    svg {
-      font-size: 14px;
-      position: relative;
-    }
-
-    &:first-child {
-      padding: 5px 5px 5px 5px;
-      border-end-end-radius: 50%;
-      border-top-right-radius: 50%;
-    }
-
-    &:first-child svg {
-      top: 2px;
-      bottom: 2px;
-      right: 3px;
-    }
-
-    &:last-child {
-      padding: 5px 5px 5px 5px;
-      border-top-left-radius: 50%;
-      border-bottom-left-radius: 50%;
-    }
-
-    &:last-child svg {
-      inset: 2px 3px;
-    }
+  svg {
+    font-size: 14px;
+    position: relative;
   }
 
- 
+  &:first-child {
+    padding: 5px 5px 5px 5px;
+    border-end-end-radius: 50%;
+    border-top-right-radius: 50%;
+  }
+
+  &:first-child svg {
+    top: 2px;
+    bottom: 2px;
+    right: 3px;
+  }
+
+  &:last-child {
+    padding: 5px 5px 5px 5px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+
+  &:last-child svg {
+    inset: 2px 3px;
+  }
+}
+
+
 
 
 .popup .popuptext {

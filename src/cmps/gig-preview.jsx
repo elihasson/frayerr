@@ -38,14 +38,15 @@ export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
     return (
         <li className="gig-preview full">
             <div className="gig-img"
-            onClick={() => {
-                  onNavToGigDetails(gig._id)
-             }}>
+                onClick={() => {
+                    onNavToGigDetails(gig._id)
+                }}>
                 <Carousel gig={gig}>
                     {gig.imgUrls[0] && gig.imgUrls.map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl}></CarouselItem>)}
                 </Carousel>
             </div>
             <div className="owner-info">
+                <div className="user-img" style={{ backgroundImage: `url(${gig.owner.imgUrl})` }}></div>
                 <div className="owner-name-level">
                     <h5 className='owner-name'>{gig.owner.fullname}</h5>
                     <h5 className='owner-level'>{gig.owner.level}</h5>
@@ -71,7 +72,7 @@ export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
                     }}
                     onClick={toggleLike}
                 ><FavoriteIcon />
-                    <span className={likePopupClass ? 'popuptext show' : 'popuptext'}> {!isLike ? 'Save to My list': ''  }</span>
+                    <span className={likePopupClass ? 'popuptext show' : 'popuptext'}> {!isLike ? 'Save to My list' : ''}</span>
                 </span>
                 <p>STARTING AT <span>${gig.price.toLocaleString()}</span></p>
 
