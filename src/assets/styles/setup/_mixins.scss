@@ -43,7 +43,7 @@
 //     }
 //   }
 
-//header layout mixins
+// header layout mixins
 
 @mixin for-header-layout-1 {
   @media (min-width: $header-bp-1) {
@@ -68,6 +68,32 @@
     @content;
   }
 }
+
+// hero layout mixins
+
+@mixin for-hero-layout-1 {
+  @media (min-width: $hero-bp-1) {
+    @content;
+  }
+}
+
+@mixin for-hero-layout-2 {
+  @media (min-width: $hero-bp-2) {
+    @content;
+  }
+}
+
+@mixin for-hero-layout-3 {
+  @media (min-width: $hero-bp-3) {
+    @content;
+  }
+}
+
+// @mixin for-hero-layout-4 {
+//   @media (min-width: $hero-bp-4) {
+//     @content;
+//   }
+// }
 
 // REVIEW MIXINS
 

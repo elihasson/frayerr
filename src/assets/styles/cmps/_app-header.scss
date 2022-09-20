@@ -3,6 +3,19 @@
     font-family: 'Macan-regular';
     // width: 100vw;
 
+    .main-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(87, 80, 80, 0.35);
+        opacity: 1;
+        pointer-events: auto;
+        transition: opacity 0.6s;
+        z-index: 20;
+      }
+
 }
 
 .app-header {
@@ -24,6 +37,8 @@
         .burger-icon-container {
             display: flex;
             align-items: center;
+            cursor: pointer;
+
 
             .frayerr-logo {
                 position: absolute;
@@ -57,18 +72,26 @@
 
     .icon-search-bar-container {
         display: none;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            padding: 0;
+        }
     }
 
     .gig-filter-container {
         width: 100%;
     }
 
+
     .user-profile-img {
         display: none;
     }
 
+
+
     @include for-header-layout-1 {
-        color: red;
         height: 80px;
 
         .gig-filter-container {
@@ -103,76 +126,70 @@
     }
 
     @include for-header-layout-2 {
-        color: rgb(0, 255, 26);
 
 
         .icon-search-bar-container {
-            margin: 20px;
+            color: #62646a;
             display: flex;
 
-            .orders-button{
+            .orders-button {
                 display: none;
             }
 
-            .favorite-icon-button{
+            .favorite-icon-button {
                 display: none;
+            }
+
+            a {
+                margin-inline-start: 18px;
+            }
+        }
+
+        .avatar-logo-container {
+            margin-inline-start: 18px;
+
+            .user-profile-img {
+                margin: 0;
             }
         }
     }
 
     @include for-header-layout-3 {
-        color: rgb(0, 89, 255);
 
         .icon-search-bar-container {
             margin: 20px;
             display: flex;
+
+            .orders-button {
+                display: flex;
+                align-items: center;
+
+                div {
+                    display: flex;
+
+                }
+            }
+
+            .favorite-icon-button {
+                display: block;
+            }
+
+
         }
 
         .burger-button-container {
             display: none;
         }
+
+        .burger-icon-gig-filter-container {
+            .burger-icon-container {
+                .frayerr-logo {
+
+                    margin: 0;
+
+                }
+            }
+        }
     }
-
-    // .user-info {
-    //     // background-color: $clr2;
-    //     // padding: 2px 8px;
-    //     padding-left: 100px;
-    //     color: $clr1;
-
-    //     .score {
-    //         background-color: $clr2;
-    //         color: $clr6;
-    //         padding: 8px;
-    //         margin: 10px;
-    //         border-radius: 50%;
-    //     }
-
-    // }
-
-
-    // .user-info .btn-link {
-    //     color: $clr2;
-    // }
-
-    // nav {
-    //     font-size: .8em;
-    //     background-color: $clr5;
-    //     padding: 5px;
-
-    // }
-
-    // nav a:first-child {
-    //     margin-right: 30px;
-    // }
-
-    // nav a:not(:first-child) {
-    //     border-top: 1px solid $clr1;
-    //     padding: 0 5px;
-    //     margin: 10px;
-    // }
-
-    // nav .active {
-    //     color: $clr1;
-    // }
 
 }

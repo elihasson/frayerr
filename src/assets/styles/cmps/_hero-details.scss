@@ -1,9 +1,15 @@
 .hero-details {
+    display: none;
     font-family: 'Macan-regular';
     color: $clr7;
     position: absolute;
     inset-block-end: 30px;
     inset-inline-end: 30px;
+    transition: 2s;
+
+    @include for-hero-layout-2 {
+        display: block;
+    }
 
     .hero-role {
         font-family: 'Macan-bold';

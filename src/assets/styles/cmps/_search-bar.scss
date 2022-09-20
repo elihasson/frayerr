@@ -1,8 +1,20 @@
 .gig-search-bar-container {
-    width: 600px; // added by aharon
+    width: 400px; // added by aharon
     margin-top: 40px;
     display: flex;
     position: relative;
+    flex-direction: column;
+    row-gap: 15px;
+
+    @include for-hero-layout-1 {
+        width: 700px;
+    }
+
+    @include for-hero-layout-2 {
+        width: 600px;
+        flex-direction: row;
+        row-gap: 0;
+    }
 
     .search-icon-container {
         position: absolute;
@@ -11,7 +23,7 @@
     }
 
     .gig-search-bar {
-        border-radius: 4px 0 0 4px;
+        border-radius: 4px;
         font-size: rem(16px);
         height: 48px;
         padding-left: 44px;
@@ -19,7 +31,12 @@
         border: none;
         outline: 0;
         flex-grow: 1;
+
+        @include for-hero-layout-2 {
+            border-radius: 4px 0 0 4px;
+        }
     }
+
     .gig-btn-search {
         font-family: 'Macan-bold';
         font-size: rem(16px);
@@ -27,7 +44,11 @@
         padding: 12px 24px;
         background-color: $clr1;
         color: $clr7;
-        border-radius: 0 4px 4px 0;
+        border-radius: 4px;
         border: none;
+
+        @include for-hero-layout-2 {
+            border-radius: 0 4px 4px 0;
+        }
     }
 }
