@@ -4,48 +4,51 @@ import { connect } from 'react-redux'
 import { loadGig } from '../store/gig.actions'
 import { CarouselItem } from '../cmps/carousel-item'
 import { Carousel } from '../cmps/Carousel'
+import { OrderModal } from '../cmps/order-modal'
+import { UserRateStars } from '../cmps/user-rate-stars'
+
 
 export function _GigDetails({ gig, loadGig }) {
 
     const params = useParams()
 
     useEffect(() => {
-        // debugger
-        // console.log(params)
         loadGig(params.gigId)
     }, [])
 
     if (!gig) return <div>Loading...</div>
     return (
         <section className="gig-details">
-            <div className='details-header inpage-nav' id='Overview'>
-                <h1 className="gig-title">{gig.title}</h1>
-                <div className="owner-info">
-                    <h5 className='owner-image'>image</h5>
-                    {/* {gig.owner.imgUrl} */}
-                    <h5 className='owner-name'>{gig.owner.fullname}</h5>
-                    <h5 className='owner-level'>{gig.owner.rate}</h5>
-                    <span className='spacer'>|</span>
-                    <h5>stars</h5>
+            <div className="gig-details-container">
+                <div className='details-header inpage-nav' id='Overview'>
+                    <h1 className="gig-title">{gig.title}</h1>
+                    <div className="owner-info">
+                        <div className="user-img" style={{ backgroundImage: `url(${gig.owner.imgUrl})` }}></div>
+                        <h5 className='owner-name'>{gig.owner.fullname}</h5>
+                        <h5 className='owner-level'>{gig.owner.rate}</h5>
+                        <span className='spacer'>|</span>
+                        <UserRateStars gig={gig}/>
+                        {/* <h5>stars</h5> */}
+                    </div>
                 </div>
+
+                <div className="gig-img">
+                    <Carousel gig={gig} isDetails={true}>
+                        {gig.imgUrls[0] && gig.imgUrls.map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl} isDetails={true}></CarouselItem>)}
+                    </Carousel>
+                </div>
+                <h1>Gig Details</h1>
+                {gig && <div>
+                    <h3>
+                        {gig.title}
+                    </h3>
+                    <pre>
+                        {JSON.stringify(gig, null, 2)}
+                    </pre>
+                </div>}
             </div>
 
-            <div className="gig-img">
-                <Carousel gig={gig}>
-                    {gig.imgUrls[0] && gig.imgUrls.map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl} isDetails={true}></CarouselItem>)}
-                </Carousel>
-            </div>
-
-
-            <h1>Gig Details</h1>
-            {gig && <div>
-                <h3>
-                    {gig.title}
-                </h3>
-                <pre>
-                    {JSON.stringify(gig, null, 2)}
-                </pre>
-            </div>}
+            <OrderModal modalClass="aside" gig={gig} />
         </section>
     )
 }

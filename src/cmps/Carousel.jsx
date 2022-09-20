@@ -5,12 +5,9 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 
 export function Carousel({ gig, isDetails, children }) {
-    
+
     const [activeIdx, setActiveIdx] = useState(0);
     const [isArrows, setArrows] = useState(false);
-    console.log('gig321:', gig)
-    console.log('isDetail321:',  isDetails)
-    console.log('children321:', children)
 
     const updateIdx = (newIdx, ev) => {
         ev.stopPropagation()
@@ -28,26 +25,19 @@ export function Carousel({ gig, isDetails, children }) {
     })
 
     return (
+
         <div
             {...handlers}
             className="carousel"
-            onMouseEnter={() => setArrows(true)}
-            onMouseLeave={() => setArrows(false)}
-        >
+            onMouseEnter={() => isDetails? setArrows(false): setArrows(true)}
+            onMouseLeave={() => setArrows(false)}>
+
             <div className="inner-wrapper">
                 <div className={isArrows ? 'indicators show' : 'indicators'}>
-                    <span
-                        onClick={(ev) => {
-                            updateIdx(activeIdx - 1, ev);
-                        }}
-                    >
+                    <span class='prev-button-slick' onClick={(ev) => { updateIdx(activeIdx - 1, ev) }} float="left" >
                         <ArrowBackIosNewIcon />
                     </span>
-                    <span
-                        onClick={(ev) => {
-                            updateIdx(activeIdx + 1, ev);
-                        }}
-                    >
+                    <span class='next-button-slick' onClick={(ev) => { updateIdx(activeIdx + 1, ev) }} float="right">
                         <ArrowForwardIosIcon />
                     </span>
                 </div>
@@ -57,7 +47,7 @@ export function Carousel({ gig, isDetails, children }) {
                 >
 
                     {React.Children.map(children, (child, index) => {
-                        return React.cloneElement(child, { width: "100%" });
+                        return React.cloneElement(child, { width: "100%" })
                     })}
                 </div>
             </div>
@@ -65,8 +55,8 @@ export function Carousel({ gig, isDetails, children }) {
                 {React.Children.map(children, (child, index) => {
                     return (
                         <button
-                            style={{ backgroundImage: isDetails ? `url(${child.props.imgUrl})` : '' }}
                             className={`${index === activeIdx ? "active" : ""}`}
+                            style={{ backgroundImage: `url(${child.props.imgUrl.imgUrl})` }}
                             onClick={(ev) => {
                                 updateIdx(index, ev);
                             }}

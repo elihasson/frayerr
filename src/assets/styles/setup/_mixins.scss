@@ -77,25 +77,25 @@
 //     }
 //   }
 
-//Order mixins
+//Order form mixins
 
-//   @mixin for-order-normal-layout {
-//     @media (min-width: $order-break-normal) {
-//       @content;
-//     }
-//   }
+  @mixin for-order-normal-layout {
+    @media (min-width: $order-break-normal) {
+      @content;
+    }
+  }
 
-//   @mixin for-order-wide-layout {
-//     @media (min-width: $order-break-wide) {
-//       @content;
-//     }
-//   }
+  @mixin for-order-wide-layout {
+    @media (min-width: $order-break-wide) {
+      @content;
+    }
+  }
 
-//   @mixin for-order-xwide-layout {
-//     @media (min-width: $order-break-extra-wide) {
-//       @content;
-//     }
-//   }
+  @mixin for-order-xwide-layout {
+    @media (min-width: $order-break-extra-wide) {
+      @content;
+    }
+  }
 
 //home-category mixins
 //   @mixin for-home-category-narrow-layout {
