@@ -8,18 +8,19 @@ import { gigService } from '../services/gig.service'
 
 export function OrderModal({ gig, modalClass }) {
 
-
     var { title } = gig
-    title = _trimIWill(title);
-    const [features, setFeatures] = useState([]);
+    title = _dropIWill(title)
+    const [features, setFeatures] = useState([])
+
     useEffect(async () => {
-        var ans = await getCategories();
-        setFeatures(ans);
+        var ans = await getFeatures()
+        setFeatures(ans)
         return () => {
         }
     }, [])
-    const getCategories = async () => {
-        return await gigService.getFeaturesByCategory(gig.categories[0]);
+    
+    const getFeatures = async () => {
+        return await gigService.getFeaturesByCategory(gig.category)
     }
 
     return (
@@ -50,7 +51,7 @@ export function OrderModal({ gig, modalClass }) {
     )
 }
 
-function _trimIWill(title) {
+function _dropIWill(title) {
     title = title.trim();
     var titleToEdit = title.toLowerCase();
     if (titleToEdit.startsWith('i will')) {
