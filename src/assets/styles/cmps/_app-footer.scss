@@ -1,64 +1,102 @@
 .app-footer {
-  height: 80px;
-  position: relative;
-  display: flex;
-
-  .border-for-footer {
-    border-top: 1px solid #e5e6e8;
-    position: absolute;
-    right: $layoutPadding;
-    left: $layoutPadding;
-  }
-
-  .main-info {
+    height: 150px;
+    position: relative;
     display: flex;
-    flex-grow: 1;
-    justify-content: space-between;
-    // align-items: center;
-    // .social {
-    //   @include for-normal-max-layout {
-    //     display: none;
-    //   }
-    // }
-  }
 
-  .logo-small-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  h2 {
-    font-family: roboto-bold, serif;
-    color: #7a7d85;
-  }
-
-  span {
-    font-size: 9px;
-    color: #b5b6ba;
-  }
-
-  .logo-small-text {
-    color: #b5b6ba;
-    font-size: 1em;
-    //   margin-inline-start: 30px;
-  }
-
-  ul {
-    display: flex;
-    align-items: center;
-
-    li {
-      padding: 10px;
-      color: #7a7d85;
-      transition: 0.3s all;
-      border-radius: 50%;
-      line-height: 0.5;
-
-      &:hover {
-        cursor: pointer;
-        background-color: #efeff0;
-      }
+    .border-for-footer {
+        border-top: 1px solid #e5e6e8;
+        position: absolute;
+        right: $layoutPadding;
+        left: $layoutPadding;
     }
-  }
+
+    .main-info {
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-between;
+        flex-direction: column;
+
+
+        .logo-small-container {
+            height: 100px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+
+
+            h2 {
+                font-family: roboto-bold, serif;
+                color: #7a7d85;
+
+                span {
+                    font-size: 9px;
+                    color: #b5b6ba;
+                }
+            }
+
+            .logo-small-text {
+                font-family: Macan-regular;
+                font-size: rem(14px);
+                margin-inline-start: 20px;
+                color: #b5b6ba;
+            }
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: space-around;
+            width: 200px;
+            margin: auto;
+            
+
+            li {
+                padding: 10px;
+                margin-inline-start: 10px;
+                color: #7a7d85;
+                transition: 0.3s all;
+                border-radius: 50%;
+                line-height: 0.5;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #efeff0;
+                }
+            }
+
+            .instagram-icon {
+                margin-right: -10px;
+            }
+        }
+    }
+
+    @include for-header-layout-1 {
+        height: 90px;
+
+        .main-info {
+            flex-direction: row;
+
+            .logo-small-container {
+                height: 100%;
+                flex-direction: row;
+
+                .logo-small-text {
+                    min-width: 230px;
+                }
+            }
+
+            ul {
+                margin: 0;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+
+
+
+    }    
+
 }

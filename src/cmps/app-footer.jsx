@@ -38,8 +38,8 @@ export const AppFooter = () => {
                             <PinterestIcon />
                         </a>
                     </li>
-                    <li>
-                        <a className='clean-link' target="_blank" href="https://www.instagram.com/" >
+                    <li className='instagram-icon'>
+                        <a className='clean-link ' target="_blank" href="https://www.instagram.com/" >
                             <InstagramIcon />
                         </a>
                     </li>
