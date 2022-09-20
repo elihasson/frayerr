@@ -55,7 +55,7 @@ export const AppHero = () => {
         const intervalId = setInterval(() => {
             heroIdx = (heroIdx + 1) % heros.length
             console.log('heroIdx:', heroIdx)
-            _switchHero(heros[heroIdx], setHero)
+            setHero(heros[heroIdx])
         }, 7000)
         return () => {
             clearInterval(intervalId)
@@ -64,7 +64,8 @@ export const AppHero = () => {
 
     return (
         // this url works in backgroundImage: "https://via.placeholder.com/500"
-        // these url don't: ${hero.imgSrc}, `../assets/img/bg-hero-${hero.imgSrc}`
+        // this url doesn't: ${hero.imgSrc}
+        // this url also finally works `../assets/img/bg-hero-${hero.imgSrc}`
         // rendering background images doesn't affect breakpoints which is good
         <div className='hero-container'>
             <div className='hero-background' style={{backgroundColor: hero.bgc}}>
@@ -80,8 +81,4 @@ export const AppHero = () => {
             </div>
         </div>
     )
-}
-
-function _switchHero(hero, setHero) {
-    setHero(hero)
 }
