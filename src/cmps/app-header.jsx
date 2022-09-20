@@ -55,7 +55,10 @@ export const AppHeader = (props) => {
         if (isHome) return 'home-top-header-no-scroll'
 
     }
-    console.log('isHomeHeaderTop():', isHomeHeaderTop());
+
+    // const setSvgColor = () => {
+
+    // }
 
     return (
         <div className={`app-header-container full main-layout ${isHomeHeaderTop()}`}>
@@ -66,9 +69,7 @@ export const AppHeader = (props) => {
                 <div className='burger-icon-gig-filter-container'>
                     <div className='burger-icon-container'>
                         <div className="burger-button-container" onClick={toggleMenu}>
-                            {isHome && !isScroll && <div><svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#fff"></rect><rect width="23" height="3" rx="1.5" fill="#fff"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#fff"></rect></svg></div>}
-                            {isHome && isScroll && <div><svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect></svg></div>}
-                            {!isHome && !isScroll && <div><svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect></svg></div>}
+                           <div><svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" ></rect><rect width="23" height="3" rx="1.5" ></rect><rect y="8" width="23" height="3" rx="1.5" ></rect></svg></div>
                         </div>
 
                         <NavLink to="/" className={`frayerr-logo `}>
