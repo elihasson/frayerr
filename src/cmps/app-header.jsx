@@ -14,12 +14,17 @@ import { GigFilter } from './gig-filter'
 import { LoginSignup } from './login-signup.jsx'
 
 import userImg from '../assets/img/profile_img_test.jpeg'
+import { toggleJoinModal, toggleLoginModal } from '../store/system.actions'
 
+import { Login } from './login'
+import { Signup } from './signup'
 export const AppHeader = (props) => {
 
     const { users, user, count } = useSelector(state => state.userModule)
     const isLoading = useSelector(state => state.systemModule.isLoading)
     const isHome = useSelector(state => state.systemModule.isHome)
+    const isJoinModal = useSelector(state => state.systemModule.isJoinModal)
+    const isModalSign = useSelector(state => state.systemModule.isModalSign)
 
     const dispatch = useDispatch()
 
@@ -107,12 +112,20 @@ export const AppHeader = (props) => {
                         <div>Explore</div>
                     </NavLink>
 
-                    <NavLink to="/" className='signin-button'>
-                        <div>Sign in</div>
+                    {/* <NavLink to="/" className='signin-button'>
+                        <div onClick={() => {console.log(isModalSign); toggleLoginModal(true)}}>Sign in</div>
                     </NavLink>
 
                     <NavLink to="/" className='join-button'>
-                        <div>Join</div>
+                        <div onClick={() => {console.log(isJoinModal); toggleJoinModal(true)}}>Join</div>
+                    </NavLink> */}
+
+                    <NavLink to="/" className='signin-button'>
+                        <div onClick={() => {toggleLoginModal(true)}}>Sign in</div>
+                    </NavLink>
+
+                    <NavLink to="/" className='join-button'>
+                        <div onClick={() => {toggleJoinModal(true)}}>Join</div>
                     </NavLink>
 
                 </div>}

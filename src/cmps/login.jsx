@@ -1,12 +1,11 @@
 import { connect } from 'react-redux'
 import { useState } from 'react'
-import { onLogin, googleLogin, onSignup } from '../store/user.actions'
+import { onLogin, onSignup } from '../store/user.actions'
 import { toggleLoginModal, toggleJoinModal } from '../store/system.actions'
 // import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service'
-// TODO: import google Login cmp from an npm library 
 import CloseIcon from '@mui/icons-material/Close'
 
-function _Login({ toggleLoginModal, onLogin, toggleJoinModal, googleLogin, onSignup }) {
+function _Login({ toggleLoginModal, onLogin, toggleJoinModal, onSignup }) {
 
     const [user, setUser] = useState({ username: '', password: '' })
 
@@ -32,51 +31,14 @@ function _Login({ toggleLoginModal, onLogin, toggleJoinModal, googleLogin, onSig
         toggleLoginModal(false)
         toggleJoinModal(true)
     }
-    // const responseGoogle = (response) => {
-    //     console.log(response)
-    // }
-    // const handleLogin = async (response) => {
-    //     const googleUser = response.profileObj
-    //     const ans = await googleLogin(googleUser.googleId)
-    //     if (ans) {
-    //         // showSuccessMsg(`${ans.username} logged successfuly`)
-    //         toggleLoginModal()
-    //     }
-    //     else {
-    //         var tempUser = {
-    //             fullname: googleUser.name,
-    //             username: googleUser.email,
-    //             password: "secret",
-    //             imgUrl: googleUser.imageUrl,
-    //             googleId: googleUser.googleId
-    //         }
-    //         const joinedUser = await onSignup(tempUser)
-    //         // if (!joinedUser) showErrorMsg("Failed google login...")
-    //         // showSuccessMsg(`${tempUser.username} logged successfuly`)
-    //         toggleLoginModal()
-    //     }
-    // }
+    
     return (
         <section className="sign-modal">
             <div className='btn-close-sign' onClick={() => toggleLoginModal(false)}><CloseIcon /></div>
             <div className="modal-content">
                 <header >
-                    <h1 className="modal-title">Sign in to dimerr</h1>
+                    <h1 className="modal-title">Sign in to frayerr</h1>
                 </header>
-                <div className="social-tab">
-                    {/* <GoogleLogin
-                        clientId={process.env.REACT_APP_CLIENT_ID}
-                        onSuccess={handleLogin}
-                        onFailure={responseGoogle}
-                        // isSignedIn={true}
-                        cookiePolicy={'single_host_origin'}
-                        className="social-btn"
-                    ><p>Continue with Google</p>
-                    </GoogleLogin > */}
-                    <div className="seperator">
-                        <span>OR</span>
-                    </div>
-                </div>
                 <form action="" className="sign-form" onSubmit={handleSubmit}>
                     <div className="form-input-div">
                         <input required autoComplete="off" type="text" name="username" placeholder="Enter Username" onChange={handleChange} className="user-input" />
@@ -107,7 +69,6 @@ const mapDispatchToProps = {
     onLogin,
     toggleLoginModal,
     toggleJoinModal,
-    googleLogin,
     onSignup
 }
 
