@@ -13,9 +13,9 @@ export const Explore = (props) => {
     const { gigs } = useSelector(state => state.gigModule)
     const dispatch = useDispatch()
 
-
     useEffect(() => {
         dispatch(loadGigs())
+    //    gigs = loadGigs()
     }, [])
 
     const onRemoveGig = (gigId) => {

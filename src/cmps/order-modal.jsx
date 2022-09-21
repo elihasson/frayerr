@@ -12,13 +12,13 @@ export function OrderModal({ gig, modalClass }) {
     title = _dropIWill(title)
     const [features, setFeatures] = useState([])
 
-    useEffect(async () => {
-        var ans = await getFeatures()
-        setFeatures(ans)
-        return () => {
-        }
-    }, [])
-    
+    // useEffect(async () => {
+        // var ans = await getFeatures()
+        // setFeatures(ans)
+        // return () => {
+        // }
+    // }, [])
+
     const getFeatures = async () => {
         return await gigService.getFeaturesByCategory(gig.category)
     }

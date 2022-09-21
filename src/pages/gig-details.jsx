@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { loadGig } from '../store/gig.actions'
 import { CarouselItem } from '../cmps/carousel-item'
 import { Carousel } from '../cmps/Carousel'
@@ -37,11 +37,17 @@ export function _GigDetails({ gig, loadGig }) {
                         {gig.imgUrls[0] && gig.imgUrls.map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl} isDetails={true}></CarouselItem>)}
                     </Carousel>
                 </div>
-                <h1>Gig Details</h1>
+                <div className='gig-about'>
+                    <h1>About this gig</h1>
+                    <p>
+                        {gig.description}
+                    </p>
+                </div>
+
+
+
+
                 {gig && <div>
-                    <h3>
-                        {gig.title}
-                    </h3>
                     <pre>
                         {JSON.stringify(gig, null, 2)}
                     </pre>

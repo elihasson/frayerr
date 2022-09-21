@@ -34,10 +34,10 @@ export function Carousel({ gig, isDetails, children }) {
 
             <div className="inner-wrapper">
                 <div className={isArrows ? 'indicators show' : 'indicators'}>
-                    <span class='prev-button-slick' onClick={(ev) => { updateIdx(activeIdx - 1, ev) }} float="left" >
+                    <span className='prev-button-slick' onClick={(ev) => { updateIdx(activeIdx - 1, ev) }} float="left" >
                         <ArrowBackIosNewIcon />
                     </span>
-                    <span class='next-button-slick' onClick={(ev) => { updateIdx(activeIdx + 1, ev) }} float="right">
+                    <span className='next-button-slick' onClick={(ev) => { updateIdx(activeIdx + 1, ev) }} float="right">
                         <ArrowForwardIosIcon />
                     </span>
                 </div>
