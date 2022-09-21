@@ -110,6 +110,7 @@ function getEmptyOrder() {
         },
         status: ''
     }
+}
 
 //         title: 'I will put a card in the grid for you so you can test your application' + (Date.now() % 1000),
 //         price: utilService.getRandomIntInclusive(10, 1000),
@@ -166,7 +167,6 @@ function getEmptyOrder() {
 //   ]
 // TEST DATA
 // storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
-
 
 
 
