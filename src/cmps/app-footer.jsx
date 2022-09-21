@@ -54,11 +54,9 @@ export const AppFooter = () => {
                 <ul>
                     <li>user name:{user.username}</li>
                     <li>full name:{user.fullname}</li>
-                    <button onClick={() => userService.logout()}>Logout</button>
+                    <button onClick={() => (userService.logout())}>Logout</button>
                 </ul>
             </div>}
-
-
         </section>
     )
 }
