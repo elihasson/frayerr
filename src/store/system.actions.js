@@ -15,14 +15,14 @@ export function setLoadingDone() {
 }
 
 // added by Ariel - toggling modals:
-export function toggleLoginModal(isModalSign) {
+export function toggleLoginModal() {
     return (dispatch) => {
-        dispatch({ type: "TOGGLE_LOGIN_MODAL", isModalSign })
+        dispatch({ type: "TOGGLE_LOGIN_MODAL" })
     }
 }
 
-export function toggleJoinModal(isJoinModal) {
+export function toggleJoinModal() {
     return (dispatch) => {
-        dispatch({ type: "TOGGLE_JOIN_MODAL", isJoinModal })
+        dispatch({ type: "TOGGLE_JOIN_MODAL" })
     }
 }

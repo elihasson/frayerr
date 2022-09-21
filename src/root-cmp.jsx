@@ -2,7 +2,7 @@ import React from 'react'
 
 // const { Switch, Route } = ReactRouterDOM
 import { Routes, Route } from 'react-router'
-import { connect, useSelector } from 'react-redux'
+import { connect, useSelector, useDispatch } from 'react-redux'
 
 import routes from './routes'
 import { toggleJoinModal, toggleLoginModal } from './store/system.actions'
@@ -16,9 +16,12 @@ import { Signup } from './cmps/signup'
 export const RootCmp = () => {
     const isModalSign = useSelector(state => state.systemModule.isModalSign)
     const isJoinModal = useSelector(state => state.systemModule.isJoinModal)
+    const dispatch = useDispatch()
         return (
             <div className='app-container'>
-                {isModalSign && <Login/>}
+                {isModalSign && <div onClick={() => {dispatch(toggleLoginModal())}} className="main-screen"></div>}
+                {isModalSign &&  <Login/>}
+                {isJoinModal && <div onClick={() => {dispatch(toggleJoinModal())}} className="main-screen"></div>}
                 {isJoinModal && <Signup/>}
                 <main className='main-layout full-height'>
                     <AppHeader />

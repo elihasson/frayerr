@@ -216,9 +216,15 @@
       }
     }
 
-    .gig-about {
+    .about-gig {
       color: #62646a;
-      display: block;
+      // display: block;
+      padding: auto;
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 24px;
+      outline-color: rgb(98,100,106);
+      
       
     }
   }

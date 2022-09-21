@@ -37,7 +37,7 @@ export function _GigDetails({ gig, loadGig }) {
                         {gig.imgUrls[0] && gig.imgUrls.map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl} isDetails={true}></CarouselItem>)}
                     </Carousel>
                 </div>
-                <div className='gig-about'>
+                <div className='about-gig'>
                     <h1>About this gig</h1>
                     <p>
                         {gig.description}
@@ -47,11 +47,11 @@ export function _GigDetails({ gig, loadGig }) {
 
 
 
-                {gig && <div>
+                {/* {gig && <div>
                     <pre>
                         {JSON.stringify(gig, null, 2)}
                     </pre>
-                </div>}
+                </div>} */}
             </div>
             <div className='order-modal-container'>
                 <OrderModal modalClass="aside" gig={gig} />
