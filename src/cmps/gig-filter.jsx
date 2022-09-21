@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -10,6 +10,7 @@ export const GigFilter = () => {
         const { value } = target
         setTxt(value);
     }
+    
     
     const onSubmit = (ev) => {
         ev.preventDefault();

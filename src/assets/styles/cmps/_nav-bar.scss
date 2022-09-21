@@ -14,4 +14,41 @@
         left: 0;
         transform: translate(0, 0);
     }
+
+    .menu-header {
+        margin-block-start: 16px;
+
+        .nav-bar-join-button {
+            div {
+                color: white;
+                width: 132px;
+                height: 42px;
+                background-color: $clr1;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            :hover {
+                background-color: green;
+            }
+
+        }
+
+        .nav-bar-signin-button {
+            margin-block-start: 16px;
+        }
+
+        
+    }
+
+    .menu-nav {
+
+        div {
+            margin-block-start: 16px;
+        }
+    }
+
 }

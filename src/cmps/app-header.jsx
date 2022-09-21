@@ -14,12 +14,17 @@ import { GigFilter } from './gig-filter'
 import { LoginSignup } from './login-signup.jsx'
 
 import userImg from '../assets/img/profile_img_test.jpeg'
+import { toggleJoinModal, toggleLoginModal } from '../store/system.actions'
 
+import { Login } from './login'
+import { Signup } from './signup'
 export const AppHeader = (props) => {
 
     const { users, user, count } = useSelector(state => state.userModule)
     const isLoading = useSelector(state => state.systemModule.isLoading)
     const isHome = useSelector(state => state.systemModule.isHome)
+    const isJoinModal = useSelector(state => state.systemModule.isJoinModal)
+    const isModalSign = useSelector(state => state.systemModule.isModalSign)
 
     const dispatch = useDispatch()
 
@@ -55,20 +60,23 @@ export const AppHeader = (props) => {
         if (isHome) return 'home-top-header-no-scroll'
 
     }
-    console.log('isHomeHeaderTop():', isHomeHeaderTop());
+
+    // const setSvgColor = () => {
+
+    // }
 
     return (
         <div className={`app-header-container full main-layout ${isHomeHeaderTop()}`}>
             {isMenuOpen && <div onClick={toggleMenu} className="main-screen"></div>}
+
             <NavBar classProp={navBarOpenClassName} />
+            
             <header className="app-header" >
 
                 <div className='burger-icon-gig-filter-container'>
                     <div className='burger-icon-container'>
                         <div className="burger-button-container" onClick={toggleMenu}>
-                            {isHome && !isScroll && <div><svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#fff"></rect><rect width="23" height="3" rx="1.5" fill="#fff"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#fff"></rect></svg></div>}
-                            {isHome && isScroll && <div><svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect></svg></div>}
-                            {!isHome && !isScroll && <div><svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect><rect width="23" height="3" rx="1.5" fill="#555"></rect><rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect></svg></div>}
+                           <div><svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" ></rect><rect width="23" height="3" rx="1.5" ></rect><rect y="8" width="23" height="3" rx="1.5" ></rect></svg></div>
                         </div>
 
                         <NavLink to="/" className={`frayerr-logo `}>
@@ -107,12 +115,20 @@ export const AppHeader = (props) => {
                         <div>Explore</div>
                     </NavLink>
 
-                    <NavLink to="/" className='signin-button'>
-                        <div>Sign in</div>
+                    {/* <NavLink to="/" className='signin-button'>
+                        <div onClick={() => {console.log(isModalSign); toggleLoginModal(true)}}>Sign in</div>
                     </NavLink>
 
                     <NavLink to="/" className='join-button'>
-                        <div>Join</div>
+                        <div onClick={() => {console.log(isJoinModal); toggleJoinModal(true)}}>Join</div>
+                    </NavLink> */}
+
+                    <NavLink to="/" className='signin-button'>
+                        <div onClick={() => {toggleLoginModal(true)}}>Sign in</div>
+                    </NavLink>
+
+                    <NavLink to="/" className='join-button'>
+                        <div onClick={() => {toggleJoinModal(true)}}>Join</div>
                     </NavLink>
 
                 </div>}
@@ -121,27 +137,6 @@ export const AppHeader = (props) => {
                     <NavLink to="/explore"> <img src={userImg} alt="user img" className='user-profile-img' /> </NavLink>
                 </div>}
 
-                {/* <nav>
-                {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
-
-                {user &&
-                    <span className="user-info">
-                        <Link to={`user/${user._id}`}>
-                            {user.imgUrl && <img src={user.imgUrl} />}
-                            {user.fullname}
-                        </Link>
-                        <span className="score">{user.score?.toLocaleString()}</span>
-                        <button onClick={onLogout}>Logout</button>
-                    </span>
-                }
-
-                {!user &&
-                    <section className="user-info">
-                        <LoginSignup onLogin={onLogin} onSignup={onSignup} />
-                    </section>
-                }
-
-            </nav> */}
             </header>
         </div>
     )

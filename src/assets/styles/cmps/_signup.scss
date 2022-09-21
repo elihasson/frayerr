@@ -1,0 +1,159 @@
+.main-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(87, 80, 80, 0.35);
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.6s;
+    z-index: 20;
+  }
+  
+  .sign-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  
+    .btn-close-sign {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      transform: scale(1.4);
+      color: $clr3;
+      cursor: pointer;
+      &:hover {
+        color: darken($clr3, 20%);
+      }
+    }
+  
+    @include for-narrow-layout {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: auto;
+      border-radius: 4px;
+  
+      .btn-close-sign {
+        display: none;
+      }
+    }
+  
+    z-index: 21;
+    background-color: #fff;
+    .modal-content {
+      text-align: center;
+      padding: 0 36px 24px;
+      font-family: Arial, Helvetica, sans-serif;
+      header {
+        padding: 32px 0 0;
+        .modal-title {
+          color: $clr2;
+          font-weight: 700;
+        }
+      }
+      .social-tab {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        .social-btn {
+          width: 100%;
+          padding: 12px 30px 12px 16px;
+          p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: Arial, Helvetica, sans-serif;
+            color: $clr5;
+            @media (max-width: 300px) {
+              font-size: rem(12px);
+            }
+          }
+        }
+        .seperator {
+          height: 12px;
+          margin: 20px 0 32px;
+          text-align: center;
+          border-bottom: 1px solid #e4e5e7;
+          span {
+            padding: 0 8px;
+            line-height: 24px;
+            background-color: #fff;
+            color: $clr5;
+          }
+        }
+      }
+    }
+    footer {
+      border-top: 1px solid $clr6;
+      border-radius: 0 0 4px 4px;
+      padding: 15px;
+      text-align: center;
+      width: 100%;
+      .sign-in-footer {
+        width: 100%;
+        justify-content: center;
+        p {
+          padding-right: 5px;
+          font-size: 1rem;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        button {
+          background: inherit;
+          border: none;
+          color: $clr1;
+          cursor: pointer;
+          font-size: 1rem;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+      }
+    }
+  }
+  form {
+    &.sign-form {
+      display: flex;
+      flex-direction: column;
+      .form-input-div {
+        padding-bottom: 16px;
+      }
+      input {
+        font-size: 16px;
+        line-height: 24px;
+        color: $clr2;
+        border: 1px solid #c5c6c9;
+        width: 100%;
+        padding: 8px 12px;
+        font-family: inherit;
+        border-radius: 4px;
+        transition: 0.15s ease-in-out;
+        resize: none;
+        &:focus {
+          outline: none;
+        }
+      }
+      .siginig-agree {
+        color: $clr5;
+        padding-top: 20px;
+        margin: 0;
+        outline: 0;
+        font-size: 14px;
+        line-height: 21px;
+        display: block;
+      }
+      button {
+        color: #fff;
+        cursor: pointer;
+        background-color: $clr1;
+        padding: 12px 24px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+      }
+    }
+  }
+  

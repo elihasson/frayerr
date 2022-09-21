@@ -1,6 +1,9 @@
 const initialState = {
     isLoading: false,
     isHome: false,
+    // Modals Initial States - Added By Ariel:
+    isModalSign: false,
+    isJoinModal: false,
 }
 
 export function systemReducer(state = initialState, action = {}) {
@@ -10,7 +13,12 @@ export function systemReducer(state = initialState, action = {}) {
         case 'LOADING_DONE':
             return { ...state, isLoading: false }
         case 'SET_HOME':
-            return {...state, isHome: action.isHomePage}
+            return { ...state, isHome: action.isHomePage }
+        // Modals Actions - Added By Ariel:
+        case "TOGGLE_LOGIN_MODAL":
+            return { ...state, isModalSign: action.isModalSign }
+        case "TOGGLE_JOIN_MODAL":
+            return { ...state, isJoinModal: action.isJoinModal }   
         default: return state
     }
 }

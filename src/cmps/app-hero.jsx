@@ -54,7 +54,7 @@ export const AppHero = () => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             heroIdx = (heroIdx + 1) % heros.length
-            console.log('heroIdx:', heroIdx)
+            // console.log('heroIdx:', heroIdx)
             setHero(heros[heroIdx])
         }, 7000)
         return () => {
