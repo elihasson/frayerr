@@ -66,7 +66,7 @@ async function save(order, gig = null) {
             throw new Error('Not loggedin user - cannot make an order')
 
         order = _makeOrder(gig, user)
-        savedOrder = await storageService.put(STORAGE_KEY, order)
+        savedOrder = await storageService.post(STORAGE_KEY, order)
         orderChannel.postMessage(getActionUpdateOrder(savedOrder))
     }
     return savedOrder

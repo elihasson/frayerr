@@ -9,8 +9,8 @@ export const AppFooter = () => {
 
 
     return (
-        <section className='app-footer '>
-            <div className="border-for-footer"></div>
+        <section className='app-footer main-layout '>
+            {/* <div className="border-for-footer  "></div> */}
             <div className="main-info  ">
                 <div className="logo-small-container">
                     <h2>frayerr<span>®</span></h2>

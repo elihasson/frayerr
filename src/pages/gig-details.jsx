@@ -11,11 +11,12 @@ import { UserRateStars } from '../cmps/user-rate-stars'
 export function _GigDetails({ gig, loadGig }) {
 
     const params = useParams()
-
+    //need to be inner function if no gig
     useEffect(() => {
         loadGig(params.gigId)
     }, [])
 
+    //component of loader
     if (!gig) return <div>Loading...</div>
     return (
         <section className="gig-details">

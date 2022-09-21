@@ -1,10 +1,18 @@
 // .max-width-container {
 .main-layout {
+
+    display: grid;
+    grid-template-columns: 
+    minmax($layoutPadding, 1fr)
+    minmax(auto, 1400px)
+    minmax($layoutPadding, 1fr)
+    ;
     >*:not(.full) {
         // max-width: 1400px + 2 * $layoutPadding ;
-        max-width: 1400px ;
-        padding: 0 $layoutPadding 0 $layoutPadding ; // top right bottom left 
-        margin: auto;
+        grid-column: 2;
+    }
+    >*.full {
+        grid-column: 1 / -1;
     }
 }
 
