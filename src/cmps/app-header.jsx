@@ -59,7 +59,7 @@ export const AppHeader = (props) => {
 
             <NavBar classProp={navBarOpenClassName} />
             
-            <header className="app-header" >
+            <header className="app-header main-layout" >
 
                 <div className='burger-icon-gig-filter-container'>
                     <div className='burger-icon-container'>

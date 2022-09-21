@@ -35,26 +35,26 @@ const routes = [
         component: <UserOrder />,
         label: 'User order manager'
     },
-    {
-        path: 'review',
-        component: <ReviewApp />,
-        label: 'Reviews'
-    },
-    {
-        path: 'chat',
-        component: <ChatApp />,
-        label: 'Chat'
-    },
+    
+    //     path: 'review',
+    //     component: <ReviewApp />,
+    //     label: 'Reviews'
+    // },
+    // {
+    //     path: 'chat',
+    //     component: <ChatApp />,
+    //     label: 'Chat'
+    // },
     {
         path: 'about',
         component: <AboutUs />,
         label: 'About us'
-    },
-    {
-        path: 'admin',
-        component: <AdminApp />,
-        label: 'Admin Only'
     }
+    // {
+    //     path: 'admin',
+    //     component: <AdminApp />,
+    //     label: 'Admin Only'
+    // }
 ]
 
 export default routes

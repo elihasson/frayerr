@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { connect, useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 import { loadGigs, addGig, updateGig, removeGig, addToCart } from '../store/gig.actions.js'
@@ -28,29 +28,29 @@ export const Explore = (props) => {
         dispatch(addGig(gig))
     }
     const onUpdateGig = (gig) => {
+        //gig edit
         const price = +prompt('New price?')
         const gigToSave = { ...gig, price }
         dispatch(updateGig(gigToSave))
     }
 
-    const onAddToCart = (gig) => {
-        console.log(`Adding ${gig.title} to Cart`)
-        dispatch(addToCart(gig))
-        showSuccessMsg('Added to Cart')
-    }
+    // add to favorites ?
+    // const onAddToCart = (gig) => {
+    //     console.log(`Adding ${gig.title} to Cart`)
+    //     dispatch(addToCart(gig))
+    //     showSuccessMsg('Added to Cart')
+    // }
 
     return (
-        <div>
-            <h3>Most popular Gigs in</h3>
+        <div className="explore">
+            <h2>Most popular Gigs in</h2>
             <main>
                 {/* <button onClick={onAddGig}>Add Gig</button> */}
                 <GigList
                     gigs={gigs}
                     onRemoveGig={onRemoveGig}
                     onUpdateGig={onUpdateGig}
-                    onAddToCart={onAddToCart}
                      />
-
             </main>
         </div>
     )

@@ -2,13 +2,15 @@
     height: 150px;
     position: relative;
     display: flex;
+    border-top: 1px solid #e5e6e8;
 
-    .border-for-footer {
-        border-top: 1px solid #e5e6e8;
-        position: absolute;
-        right: $layoutPadding;
-        left: $layoutPadding;
-    }
+
+    // .border-for-footer {
+        // border-top: 1px solid #e5e6e8;
+        // position: absolute;
+        // right: $layoutPadding;
+        // left: $layoutPadding;
+    // }
 
     .main-info {
         display: flex;
