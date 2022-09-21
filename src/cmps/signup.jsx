@@ -82,7 +82,7 @@ export function _Signup(props) {
                                className="user-input" />
                     </div>
                     <button className="continue-btn" type="submit">Continue</button>
-                    <p className="siginig-agree">By joining I agree to the terms fo frayerr.</p>
+                    <p className="siginig-agree">By joining I agree to the terms of frayerr.</p>
                 </form>
             </div>
             <footer>

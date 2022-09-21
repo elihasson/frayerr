@@ -11,7 +11,6 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import { onLogin, onLogout, onSignup, loadUsers, removeUser } from '../store/user.actions.js'
 import { NavBar } from './nav-bar.jsx'
 import { GigFilter } from './gig-filter'
-import { LoginSignup } from './login-signup.jsx'
 
 import userImg from '../assets/img/profile_img_test.jpeg'
 import { toggleJoinModal, toggleLoginModal } from '../store/system.actions'
