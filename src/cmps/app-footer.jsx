@@ -3,10 +3,14 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { useSelector } from 'react-redux';
+import { userService } from '../services/user.service';
 
 
 export const AppFooter = () => {
 
+    const  user  = useSelector(state => state.userModule.user)
+    console.log('user:', user)
 
     return (
         <section className='app-footer main-layout '>
@@ -45,6 +49,15 @@ export const AppFooter = () => {
                     </li>
                 </ul>
             </div>
+
+            {user && <div>
+                <ul>
+                    <li>user name:{user.username}</li>
+                    <li>full name:{user.fullname}</li>
+                    <button onClick={userService.logout()}>Logout</button>
+                </ul>
+            </div>}
+
 
         </section>
     )

@@ -143,6 +143,7 @@ async function logout() {
 
 
 function saveLocalUser(user) {
+    console.log('HI in saveLocalUser:', user );
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }

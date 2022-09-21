@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom"
 
+
+
 export const NavBar = (props) => {
     return (
         <section className={`nav-bar-containter ${props.classProp}`} >
