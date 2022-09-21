@@ -1,8 +1,15 @@
 import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 
 import SearchIcon from '@mui/icons-material/Search';
 
+import { setFiltertxt  } from '../store/gig.actions'
+
 export const GigFilter = () => {
+
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [txt, setTxt] = useState('');
     
@@ -14,8 +21,10 @@ export const GigFilter = () => {
     
     const onSubmit = (ev) => {
         ev.preventDefault();
-        console.log('onSubmit filter line12 gig-filter:', txt );
+        dispatch(setFiltertxt(txt))
+        navigate(`/explore?txt=${txt}`)
     }
+
     return (
             <form className='search-bar-container'
                 onSubmit={onSubmit}>

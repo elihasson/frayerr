@@ -12,7 +12,7 @@ export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
     const [isLike, setLike] = useState(false)
     const [likePopupClass, setClass] = useState(false)
     const navigate = useNavigate()
-    console.log('gig123', gig)
+    // console.log('gig123', gig)
 
     useEffect(() => {
         // need to check if user in the gig.likedByUsers then set like/unlike

@@ -11,17 +11,19 @@ export function OrderModal({ gig, modalClass }) {
     var { title } = gig
     title = _dropIWill(title)
     const [features, setFeatures] = useState([])
+   
+    useEffect(() => {
+        async function getFeatures() {
+            let res = await gigService.getFeaturesByCategory(gig.category)
+            setFeatures(res)
+          }
+      
+          getFeatures()
+    }, [])
 
-    // useEffect(async () => {
-        // var ans = await getFeatures()
-        // setFeatures(ans)
-        // return () => {
-        // }
-    // }, [])
-
-    const getFeatures = async () => {
-        return await gigService.getFeaturesByCategory(gig.category)
-    }
+    // const getFeatures = async () => {
+    //     return await gigService.getFeaturesByCategory(gig.category)
+    // }
 
     return (
         <div className={`order-modal ${modalClass}`}>

@@ -1,7 +1,18 @@
+.explore{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    h2{
+        font-size: 26px;
+        color: #404145;
+        margin-bottom: 20px;
+    }
+
+}
+
+
 .gig-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 11px;
-    margin-bottom: 10px;
-    margin: 0px; 
+    gap: 8px;
+    margin: 0; 
 }

@@ -7,9 +7,13 @@ export function LoginSignup(props) {
     const [isSignup, setIsSignup] = useState(false)
     const [users, setUsers] = useState([])
 
-    useEffect(async () => {
-        const users = await userService.getUsers()
-        setUsers(users)
+    
+    useEffect( () => {
+        async function getData() {
+
+            const users = await userService.getUsers()
+            setUsers(users)
+        }
     }, [])
 
     const clearState = () => {

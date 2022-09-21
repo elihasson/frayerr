@@ -1,35 +1,39 @@
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import { onLogin, onSignup } from '../store/user.actions'
 import { toggleLoginModal, toggleJoinModal } from '../store/system.actions'
 // import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service'
 import CloseIcon from '@mui/icons-material/Close'
+import { userService } from '../services/user.service'
 
-function _Login({ toggleLoginModal, onLogin, toggleJoinModal, onSignup }) {
+export const Login = () => {
 
-    const [user, setUser] = useState({ username: '', password: '' })
+    const userFromStore = useSelector(state => state.userModule.user)
+    const [credentials, setUser] = useState({ username: '', password: '' })
+    const dispatch = useDispatch()
+
 
     const handleSubmit = async (ev) => {
         ev.preventDefault()
-        const ans = await onLogin(user)
-        // if (ans) {
-        //     showSuccessMsg(`user ${ans.username} signed in`)
-        // }
-        // else {
-        //     showErrorMsg('failed to login...')
-        // }
-        toggleLoginModal(false)
+        if(!credentials) return 
+        console.log('ev:', ev)
+        try{
+            const user = await userService.login(credentials)
+            dispatch(onLogin(user))
+            dispatch(toggleLoginModal())
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     const handleChange = ({ target }) => {
         const field = target.name
         const value = target.value
-        setUser({ ...user, [field]: value })
+        setUser({ ...credentials, [field]: value })
     }
 
     const onJoin = () => {
-        toggleLoginModal(false)
-        toggleJoinModal(true)
+        dispatch(toggleJoinModal())
     }
     
     return (
@@ -59,17 +63,3 @@ function _Login({ toggleLoginModal, onLogin, toggleJoinModal, onSignup }) {
         </section >
     )
 }
-
-function mapStateToProps({ userModule }) {
-    return {
-        user: userModule.user
-    }
-}
-const mapDispatchToProps = {
-    onLogin,
-    toggleLoginModal,
-    toggleJoinModal,
-    onSignup
-}
-
-export const Login = connect(mapStateToProps, mapDispatchToProps)(_Login)

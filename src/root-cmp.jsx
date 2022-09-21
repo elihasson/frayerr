@@ -2,7 +2,7 @@ import React from 'react'
 
 // const { Switch, Route } = ReactRouterDOM
 import { Routes, Route } from 'react-router'
-import { connect, useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import routes from './routes'
 import { toggleJoinModal, toggleLoginModal } from './store/system.actions'

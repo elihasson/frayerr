@@ -23,9 +23,10 @@ export function getActionUpdateGig(gig) {
 }
 
 export function loadGigs() {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
+        const  filterBy  = getState().gigModule.filterBy
         try {
-            const gigs = await gigService.query()
+            const gigs = await gigService.query(filterBy)
             console.log('gigs from DB:', gigs)
             dispatch({
                 type: 'SET_GIGS',
@@ -130,6 +131,24 @@ export function checkout() {
     }
 }
 
+export function setFiltertxt(txt) {
+    return (dispatch) => {
+        dispatch({type: 'SET_FILTER_TXT', txt})
+    }
+}
+
+export function setFilterBy(filterBy) {
+    return (dispatch) => {
+        dispatch({type: 'SET_FILTER_BY', filterBy})
+    }
+}
+
+export function setSortBy(sortBy) {
+    return (dispatch) => {
+        dispatch({type: 'SET_SORT_BY', sortBy})
+    }
+}
+
 
 // Demo for Optimistic Mutation 
 // (IOW - Assuming the server call will work, so updating the UI first)
@@ -156,3 +175,4 @@ export function onRemoveGigOptimistic(gigId) {
             })
     }
 }
+
