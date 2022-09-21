@@ -8,9 +8,9 @@ import CloseIcon from '@mui/icons-material/Close'
 
 
 // import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js';
-// import { onSignup } from '../store/user.actions'
+import { onSignup } from '../store/user.actions'
 
-export function _Signup({ onSignup }) {
+export function _Signup(props) {
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
     const [isSignup, setIsSignup] = useState(false)
     const [users, setUsers] = useState([])
@@ -35,7 +35,7 @@ export function _Signup({ onSignup }) {
         setIsSignup(false)
     }
 
-    const onSignup = (ev = null) => {
+    const handleSignup = (ev = null) => {
         if (ev) ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.fullname) return
         props.onSignup(credentials)
@@ -53,7 +53,7 @@ export function _Signup({ onSignup }) {
                 <header >
                     <h1 className="modal-title">Join frayerr</h1>
                 </header>
-                <form action="" className="sign-form" onSubmit={onSignup}>
+                <form action="" className="sign-form" onSubmit={handleSignup}>
                     <div className="form-input-div">
                         <input required autoComplete="off" 
                                type="text" 
@@ -104,7 +104,7 @@ function mapStateToProps(state) {
     }
 }
 const mapDispatchToProps = {
-    onSignup  
+    onSignup
 }
 
 export const Signup = connect(mapStateToProps, mapDispatchToProps)(_Signup)
