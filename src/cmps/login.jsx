@@ -8,22 +8,19 @@ import { userService } from '../services/user.service'
 
 export const Login = () => {
 
-    const userFromStore = useSelector(state => state.userModule.user)
     const [credentials, setUser] = useState({ username: '', password: '' })
     const dispatch = useDispatch()
 
 
-    const handleSubmit = async (ev) => {
+    const handleSubmit = (ev) => {
         ev.preventDefault()
-        if(!credentials) return 
+        if (!credentials) return
         console.log('ev:', ev)
-        try{
-            const user = await userService.login(credentials)
-            dispatch(onLogin(user))
-            dispatch(toggleLoginModal())
-        } catch (err) {
-            console.log(err)
-        }
+
+        // const user = await userService.login(credentials)
+        dispatch(onLogin(credentials))
+        dispatch(toggleLoginModal())
+
     }
 
     const handleChange = ({ target }) => {
@@ -35,7 +32,7 @@ export const Login = () => {
     const onJoin = () => {
         dispatch(toggleJoinModal())
     }
-    
+
     return (
         <section className="sign-modal">
             <div className='btn-close-sign' onClick={() => toggleLoginModal(false)}><CloseIcon /></div>
@@ -56,7 +53,7 @@ export const Login = () => {
             <footer>
                 <div className="sign-in-footer flex">
                     <p>Not a member yet?</p>
-                    <button onClick={() => { onJoin() }}>Join us</button>
+                    <button onClick={() =>  onJoin() }>Join us</button>
                 </div>
             </footer>
 

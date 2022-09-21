@@ -19,9 +19,9 @@ export const RootCmp = () => {
     const dispatch = useDispatch()
         return (
             <div className='app-container'>
-                {isModalSign && <div onClick={() => {dispatch(toggleLoginModal())}} className="main-screen"></div>}
+                {isModalSign && <div onClick={() => dispatch(toggleLoginModal())} className="main-screen"></div>}
                 {isModalSign &&  <Login/>}
-                {isJoinModal && <div onClick={() => {dispatch(toggleJoinModal())}} className="main-screen"></div>}
+                {isJoinModal && <div onClick={() => dispatch(toggleJoinModal())} className="main-screen"></div>}
                 {isJoinModal && <Signup/>}
                 <main className='main-layout full-height'>
                     <AppHeader />
