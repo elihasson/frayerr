@@ -15,7 +15,7 @@ export function _Signup(props) {
     const [isSignup, setIsSignup] = useState(false)
     const [users, setUsers] = useState([])
 
-    useEffect( () => {
+    useEffect(() => {
         async function getData() {
 
             const users = await userService.getUsers()
@@ -43,7 +43,7 @@ export function _Signup(props) {
     }
 
     const onLogin = () => {
-        toggleLoginModal()
+        props.toggleLoginModal()
     }
 
     return (
@@ -55,31 +55,31 @@ export function _Signup(props) {
                 </header>
                 <form action="" className="sign-form" onSubmit={handleSignup}>
                     <div className="form-input-div">
-                        <input required autoComplete="off" 
-                               type="text" 
-                               name="fullname"
-                               value={credentials.fullname} 
-                               placeholder="Enter your full name" 
-                               onChange={handleChange} 
-                               className="user-input" />
+                        <input required autoComplete="off"
+                            type="text"
+                            name="fullname"
+                            value={credentials.fullname}
+                            placeholder="Enter your full name"
+                            onChange={handleChange}
+                            className="user-input" />
                     </div>
                     <div className="form-input-div">
-                        <input required autoComplete="off" 
-                               type="text" 
-                               name="username" 
-                               value={credentials.username}
-                               placeholder="Choose a Username" 
-                               onChange={handleChange} 
-                               className="user-input" />
+                        <input required autoComplete="off"
+                            type="text"
+                            name="username"
+                            value={credentials.username}
+                            placeholder="Choose a Username"
+                            onChange={handleChange}
+                            className="user-input" />
                     </div>
                     <div className="form-input-div">
-                        <input required autoComplete="off" 
-                               type="password" 
-                               name="password"
-                               value={credentials.password} 
-                               placeholder="Choose a Password" 
-                               onChange={handleChange} 
-                               className="user-input" />
+                        <input required autoComplete="off"
+                            type="password"
+                            name="password"
+                            value={credentials.password}
+                            placeholder="Choose a Password"
+                            onChange={handleChange}
+                            className="user-input" />
                     </div>
                     <button className="continue-btn" type="submit">Continue</button>
                     <p className="siginig-agree">By joining I agree to the terms of frayerr.</p>
@@ -104,7 +104,9 @@ function mapStateToProps(state) {
     }
 }
 const mapDispatchToProps = {
-    onSignup
+    onSignup,
+    toggleLoginModal, 
+    toggleJoinModal
 }
 
 export const Signup = connect(mapStateToProps, mapDispatchToProps)(_Signup)

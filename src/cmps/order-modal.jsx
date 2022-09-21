@@ -11,6 +11,13 @@ export function OrderModal({ gig, modalClass }) {
     var { title } = gig
     title = _dropIWill(title)
     const [features, setFeatures] = useState([])
+
+    // useEffect(async () => {
+    //     var ans = await getFeatures()
+    //     setFeatures(ans)
+    //     return () => {
+    //     }
+    // }, [])
    
     useEffect(() => {
         async function getFeatures() {

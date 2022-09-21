@@ -56,7 +56,7 @@ export const Login = () => {
             <footer>
                 <div className="sign-in-footer flex">
                     <p>Not a member yet?</p>
-                    <button onClick={() => { onJoin() }}>Join us</button>
+                    <button onClick={() => {onJoin()}}>Join us</button>
                 </div>
             </footer>
 
