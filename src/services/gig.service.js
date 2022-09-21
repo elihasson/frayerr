@@ -4,6 +4,7 @@ import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { getActionRemoveGig, getActionAddGig, getActionUpdateGig } from '../store/gig.actions.js'
 import { store } from '../store/store'
+import { showErrorMsg } from './event-bus.service.js'
 
 // This file demonstrates how to use a BroadcastChannel to notify other browser tabs 
 
@@ -70,10 +71,10 @@ const gCategories = [
     {
         name: "marketing",
         features: [
-            "Multiple Campaigns",  
-            "Researched audiences",  
-            "Multiple Ads",  
-            "Budget & Creative Optimization", 
+            "Multiple Campaigns",
+            "Researched audiences",
+            "Multiple Ads",
+            "Budget & Creative Optimization",
             "Free tips"
         ]
     },
@@ -229,15 +230,24 @@ export const gigService = {
 window.cs = gigService
 
 
-function query(filterBy) {
-    return storageService.query(STORAGE_KEY)
-        .then(gigs => {
-            if (!gigs || !gigs.length) {
-                storageService.postMany(STORAGE_KEY, gGigs)
-                gigs = gGigs
-            }
-            return gigs
-        })
+async function query(filterBy) {
+    const { txt } = filterBy
+    try {
+        let gigs = await storageService.query(STORAGE_KEY)
+        if (!gigs || !gigs.length) {
+            storageService.postMany(STORAGE_KEY, gGigs)
+            gigs = gGigs
+        }
+        if (txt) {
+            const regex = new RegExp(txt, 'i')
+            gigs = gigs.filter(gig => regex.test(gig.title))
+        }
+        return gigs
+    } catch (err) {
+        showErrorMsg('Cannot load gigs')
+        console.log('Cannot load gigs', err)
+    }
+
 }
 
 function getById(gigId) {

@@ -2,29 +2,23 @@
 import { useEffect, useState } from "react"
 
 import { useSelector, useDispatch } from 'react-redux'
-import { Link, NavLink, useParams } from 'react-router-dom'
+import {  NavLink, useParams } from 'react-router-dom'
 
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
-import { onLogin, onLogout, onSignup, loadUsers, removeUser } from '../store/user.actions.js'
 import { NavBar } from './nav-bar.jsx'
 import { GigFilter } from './gig-filter'
-import { LoginSignup } from './login-signup.jsx'
 
 import userImg from '../assets/img/profile_img_test.jpeg'
 import { toggleJoinModal, toggleLoginModal } from '../store/system.actions'
 
-import { Login } from './login'
-import { Signup } from './signup'
 export const AppHeader = (props) => {
 
     const { users, user, count } = useSelector(state => state.userModule)
     const isLoading = useSelector(state => state.systemModule.isLoading)
     const isHome = useSelector(state => state.systemModule.isHome)
-    const isJoinModal = useSelector(state => state.systemModule.isJoinModal)
-    const isModalSign = useSelector(state => state.systemModule.isModalSign)
 
     const dispatch = useDispatch()
 
@@ -54,16 +48,10 @@ export const AppHeader = (props) => {
     }
 
     const isHomeHeaderTop = () => {
-        console.log('isScroll:', isScroll)
-        console.log('isHome:', isHome)
         if (isHome && isScroll) return 'home-top-header-with-scroll'
         if (isHome) return 'home-top-header-no-scroll'
 
     }
-
-    // const setSvgColor = () => {
-
-    // }
 
     return (
         <div className={`app-header-container full main-layout ${isHomeHeaderTop()}`}>
@@ -114,14 +102,6 @@ export const AppHeader = (props) => {
                     <NavLink to="/explore" className='explore-button'>
                         <div>Explore</div>
                     </NavLink>
-
-                    {/* <NavLink to="/" className='signin-button'>
-                        <div onClick={() => {console.log(isModalSign); toggleLoginModal(true)}}>Sign in</div>
-                    </NavLink>
-
-                    <NavLink to="/" className='join-button'>
-                        <div onClick={() => {console.log(isJoinModal); toggleJoinModal(true)}}>Join</div>
-                    </NavLink> */}
 
                     <NavLink to="/" className='signin-button'>
                         <div onClick={() => {dispatch(toggleLoginModal())}}>Sign in</div>

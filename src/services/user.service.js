@@ -70,7 +70,6 @@ const gUsers = [
 
 ]
 
-
 function getUsers() {
     return storageService.query('user')
         .then(users => {

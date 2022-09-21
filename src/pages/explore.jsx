@@ -10,13 +10,14 @@ import { GigList } from '../cmps/gig-list.jsx'
 
 export const Explore = (props) => {
 
-    const { gigs } = useSelector(state => state.gigModule)
+    const  gigs  = useSelector(state => state.gigModule.gigs)
+    const  filterBy  = useSelector(state => state.gigModule.filterBy)
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(loadGigs())
     //    gigs = loadGigs()
-    }, [])
+    }, [filterBy])
 
     const onRemoveGig = (gigId) => {
         dispatch(removeGig(gigId))
