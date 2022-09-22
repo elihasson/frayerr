@@ -5,6 +5,8 @@ import PinterestIcon from '@mui/icons-material/Pinterest';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { useSelector } from 'react-redux';
 import { userService } from '../services/user.service';
+import { UserGigs } from '../pages/user-gigs';
+import { NavLink } from 'react-router-dom';
 
 
 export const AppFooter = () => {
@@ -18,7 +20,7 @@ export const AppFooter = () => {
             <div className="main-info  ">
                 <div className="logo-small-container">
                     <h2>frayerr<span>®</span></h2>
-                    <div className='logo-small-text'>© Frayerr International Ltd. 2022</div>
+                    <div className='logo-small-text'>© Frayerr International Ltd. {new Date().getFullYear()}</div>
                 </div>
 
                 <ul className='social clean-list'>
@@ -51,11 +53,14 @@ export const AppFooter = () => {
             </div>
 
             {user && <div>
+                {console.log('user id:', user._id)}
                 <ul>
                     <li>user name:{user.username}</li>
                     <li>full name:{user.fullname}</li>
                     <button onClick={() => (userService.logout())}>Logout</button>
                 </ul>
+                    {/* <button onClick={() => {<UserGigs/>}}>User Gigs</button> */}
+                    <NavLink to={`/user/${user._id}/gig`}>User gigs</NavLink>
             </div>}
         </section>
     )

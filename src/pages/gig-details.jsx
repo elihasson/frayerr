@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { connect, useDispatch, useSelector } from 'react-redux'
 import { loadGig } from '../store/gig.actions'
 import { CarouselItem } from '../cmps/carousel-item'
-import { Carousel } from '../cmps/Carousel'
+import { Carousel } from '../cmps/carousel'
 import { OrderModal } from '../cmps/order-modal'
 import { UserRateStars } from '../cmps/user-rate-stars'
 

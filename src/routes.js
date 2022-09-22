@@ -7,6 +7,7 @@ import { AdminApp } from './pages/admin-app.jsx'
 import { GigDetails } from './pages/gig-details.jsx'
 import { UserBackOffice } from './pages/user-back-office.jsx'
 import { UserOrder } from './pages/user-order.jsx'
+import { UserGigs } from './pages/user-gigs.jsx'
 
 // Routes accessible from the main navigation (in AppHeader)
 const routes = [
@@ -34,6 +35,11 @@ const routes = [
         path: "/user/:userId/order",
         component: <UserOrder />,
         label: 'User order manager'
+    },
+    {
+        path: "/user/:userId/gig",
+        component: <UserGigs />,
+        label: 'User gigs'
     },
     
     //     path: 'review',

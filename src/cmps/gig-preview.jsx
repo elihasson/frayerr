@@ -2,7 +2,7 @@ import StarIcon from '@mui/icons-material/Star'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import { useEffect, useState } from 'react'
 import { CarouselItem } from './carousel-item'
-import { Carousel } from './Carousel'
+import { Carousel } from './carousel'
 import { Link, useNavigate } from 'react-router-dom'
 
 
