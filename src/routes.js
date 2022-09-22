@@ -7,6 +7,8 @@ import { AdminApp } from './pages/admin-app.jsx'
 import { GigDetails } from './pages/gig-details.jsx'
 import { UserBackOffice } from './pages/user-back-office.jsx'
 import { UserOrder } from './pages/user-order.jsx'
+import { OrderCheckout } from './cmps/order-checkout.jsx'
+import { GigEdit } from './pages/gig-edit.jsx'
 
 // Routes accessible from the main navigation (in AppHeader)
 const routes = [
@@ -35,7 +37,22 @@ const routes = [
         component: <UserOrder />,
         label: 'User order manager'
     },
-    
+    {
+        path: "/checkout/:gigId",
+        component: <OrderCheckout />,
+        label: 'Order Checkout'
+    },
+    {
+        path: "/edit/:gigId",
+        component: <GigEdit />,
+        label: 'Edit gig'
+    },
+    {
+        path: "/edit/",
+        component: <GigEdit />,
+        label: 'Create gig'
+    },
+
     //     path: 'review',
     //     component: <ReviewApp />,
     //     label: 'Reviews'

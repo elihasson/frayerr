@@ -23,7 +23,7 @@ export const RootCmp = () => {
                 {isModalSign &&  <Login/>}
                 {isJoinModal && <div onClick={() => dispatch(toggleJoinModal())} className="main-screen"></div>}
                 {isJoinModal && <Signup/>}
-                <main className='main-layout full-height'>
+                <main className='main-layout'>
                     <AppHeader />
                     <Routes>
                         {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
