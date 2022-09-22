@@ -18,12 +18,15 @@
 @import "views/gig-details";
 @import "views/explore";
 @import "views/review-app";
+@import "views/back-office";
+@import "views/gig-edit";
 
 // Components
 @import "cmps/app-header";
 @import "cmps/app-footer";
 @import "cmps/gig-list";
 @import "cmps/gig-preview";
+@import "cmps/order-checkout";
 @import "cmps/carousel";
 @import "cmps/user-msg";
 @import "cmps/gig-filter";
@@ -32,6 +35,8 @@
 @import "cmps/hero-details"; // Added a hero-details scss file
 @import "cmps/nav-bar"; 
 @import "cmps/signup";
+@import "cmps/user-order";
+@import "cmps/order-list.scss";
 
 
 

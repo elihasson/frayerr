@@ -9,7 +9,65 @@ import { store } from '../store/store'
 
 const STORAGE_KEY = 'order'
 const orderChannel = new BroadcastChannel('orderChannel')
-const gOrders = []
+const gOrders = [
+    {
+        _id: "o1225",
+        createdAt: 9898989,
+        buyer: {
+            _id: "u101",
+            fullname: 'Golda Sheraton',
+            username: "golda",
+        },
+        seller: {
+            _id: "u100",
+
+        },
+        gig: {
+            _id: "i101",
+            name: "Design Logo",
+            price: 20
+        },
+        status: "pending"
+    },
+    {
+        _id: "o7777",
+        createdAt: 9898989,
+        buyer: {
+            _id: "u101",
+            fullname: 'Golda Sheraton',
+            username: "golda",
+        },
+        seller: {
+            _id: "u100",
+
+        },
+        gig: {
+            _id: "i102",
+            name: "I will scratch you back",
+            price: 33
+        },
+        status: "pending"
+    },
+    {
+        _id: "05555",
+        createdAt: 9898989,
+        buyer: {
+            _id: "u100",
+            fullname: 'Frayerr Solutions',
+            username: "frayer",
+        },
+        seller: {
+            _id: "u101",
+
+        },
+        gig: {
+            _id: "i104",
+            name: "Scrape data",
+            price: 50
+        },
+        status: "pending"
+    }
+]
 
 
     ; (() => {
@@ -36,6 +94,11 @@ function query(filterBy) {
             if (!orders || !orders.length) {
                 storageService.postMany(STORAGE_KEY, gOrders)
                 orders = gOrders
+            }
+            if(filterBy?.userId){
+                orders = orders.filter( order => {
+                return order.seller._id === filterBy.userId
+                })
             }
             return orders
         })
@@ -125,18 +188,18 @@ function getEmptyOrder() {
 
 // "order": [
 //     {
-//       "_id": "o1225",
-//       "createdAt": 9898989,
-//       "buyer": "mini-user",
-//       "seller": "mini-user",
-//       "gig": {
-//         "_id": "i101",
-//         "name": "Design Logo",
-//         "price": 20
-//       },
-//       "status": "pending"
+//         "_id": "o1225",
+//         "createdAt": 9898989,
+//         "buyer": "mini-user",
+//         "seller": "mini-user",
+//         "gig": {
+//             "_id": "i101",
+//             "name": "Design Logo",
+//             "price": 20
+//         },
+//         "status": "pending"
 //     }
-//   ],
+// ],
 
 // "gig": [
 //     {

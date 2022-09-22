@@ -23,9 +23,10 @@ export function getActionUpdateOrder(order) {
 }
 
 export function loadOrders() {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
+        const  filterBy  = getState().orderModule.filterBy
         try {
-            const orders = await orderService.query()
+            const orders = await orderService.query(filterBy)
             console.log('orders from DB:', orders)
             dispatch({
                 type: 'SET_ORDERS',
@@ -98,6 +99,13 @@ export function loadOrder(orderId) {
     }
 }
 
+export function setFilterUserId(userId) {
+    return (dispatch) => {
+        dispatch({type: 'SET_FILTER_USER_ID', userId})
+    }
+}
+
+
 // export function addToCart(order) {
 //     return (dispatch) => {
 //         dispatch({
@@ -158,3 +166,4 @@ export function onRemoveOrderOptimistic(orderId) {
             })
     }
 }
+

@@ -8,7 +8,6 @@ import { userService } from '../services/user.service'
 
 export const Login = () => {
 
-    const userFromStore = useSelector(state => state.userModule.user)
     const [credentials, setUser] = useState({ username: '', password: '' })
     const dispatch = useDispatch()
 

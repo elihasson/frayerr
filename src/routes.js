@@ -8,6 +8,8 @@ import { GigDetails } from './pages/gig-details.jsx'
 import { UserBackOffice } from './pages/user-back-office.jsx'
 import { UserOrder } from './pages/user-order.jsx'
 import { UserGigs } from './pages/user-gigs.jsx'
+import { OrderCheckout } from './cmps/order-checkout.jsx'
+import { GigEdit } from './pages/gig-edit.jsx'
 
 // Routes accessible from the main navigation (in AppHeader)
 const routes = [
@@ -41,7 +43,22 @@ const routes = [
         component: <UserGigs />,
         label: 'User gigs'
     },
-    
+    {
+        path: "/checkout/:gigId",
+        component: <OrderCheckout />,
+        label: 'Order Checkout'
+    },
+    {
+        path: "/edit/:gigId",
+        component: <GigEdit />,
+        label: 'Edit gig'
+    },
+    {
+        path: "/edit/",
+        component: <GigEdit />,
+        label: 'Create gig'
+    },
+
     //     path: 'review',
     //     component: <ReviewApp />,
     //     label: 'Reviews'

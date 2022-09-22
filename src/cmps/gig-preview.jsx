@@ -58,7 +58,7 @@ export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
 
             <div className='rate-wrapper'>
                 {/* <p>rate: <span>{gig.owner.rate}</span></p> */}
-                <span className='gig-rating'><StarIcon /> {gig.owner.rate}<span className='review-number'>(6)</span></span>
+                <span className='gig-rating'><StarIcon /> {gig.owner.rate}<span className='review-number'>(1k+)</span></span>
             </div>
 
             <div className='card-footer'>

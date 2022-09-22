@@ -3,16 +3,18 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { userService } from '../services/user.service';
-import { UserGigs } from '../pages/user-gigs';
-import { NavLink } from 'react-router-dom';
+import { onLogout } from '../store/user.actions'
 
 
 export const AppFooter = () => {
 
     const  user  = useSelector(state => state.userModule.user)
-    console.log('user:', user)
+    const dispatch = useDispatch()
+
+    const [isUser, setIsUser] = useState(user)
 
     return (
         <section className='app-footer main-layout '>
@@ -57,10 +59,8 @@ export const AppFooter = () => {
                 <ul>
                     <li>user name:{user.username}</li>
                     <li>full name:{user.fullname}</li>
-                    <button onClick={() => (userService.logout())}>Logout</button>
+                    <button onClick={() => dispatch(onLogout())}>Logout</button>
                 </ul>
-                    {/* <button onClick={() => {<UserGigs/>}}>User Gigs</button> */}
-                    <NavLink to={`/user/${user._id}/gig`}>User gigs</NavLink>
             </div>}
         </section>
     )

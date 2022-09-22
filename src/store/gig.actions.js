@@ -131,7 +131,7 @@ export function checkout() {
     }
 }
 
-export function setFiltertxt(txt) {
+export function setFilterTxt(txt) {
     return (dispatch) => {
         dispatch({type: 'SET_FILTER_TXT', txt})
     }

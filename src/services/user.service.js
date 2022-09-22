@@ -18,7 +18,8 @@ export const userService = {
     getById,
     remove,
     update,
-    saveReview
+    saveReview,
+    getMiniuserById
 }
 
 window.userService = userService
@@ -32,6 +33,7 @@ const gUsers = [
         username: "golda",
         password: "gold",
         level: "premium",
+        rate: 4.5,
         isAdmin: false,
         reviews: [
             {
@@ -51,6 +53,7 @@ const gUsers = [
         imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/200950826/original/08090f735021ad8441f30fe2f38542ce95a2ead9.png",
         username: "frayer",
         password: "123",
+        rate: 4.5,
         level: "premium",
         isAdmin: true,
         reviews: [
@@ -69,6 +72,7 @@ const gUsers = [
     }
 
 ]
+
 
 function getUsers() {
     return storageService.query('user')
@@ -97,6 +101,24 @@ async function getById(userId) {
 
     return user
 }
+
+async function getMiniuserById(userId) {
+    const user = await storageService.get('user', userId)
+    // const user = await httpService.get(`user/${userId}`
+
+    const miniuser = {
+        _id: user._id,
+        username: user.username,
+        fullname: user.fullname,
+        imgUrl: user.imgUrl,
+        level: user.level,
+        rate: user.rate
+    }
+
+    return miniuser 
+}
+
+
 function remove(userId) {
     return storageService.remove('user', userId)
     // return httpService.delete(`user/${userId}`)
@@ -128,6 +150,7 @@ async function signup(userCred) {
     return saveLocalUser(user)
 }
 async function logout() {
+    console.log('hi:')
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
     socketService.logout()
     // return await httpService.post('auth/logout')
@@ -143,7 +166,6 @@ async function logout() {
 
 
 function saveLocalUser(user) {
-    console.log('HI in saveLocalUser:', user );
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -182,10 +204,11 @@ async function saveUser(user) {
 }
 
 
+
 // ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'user1', password:'123',score: 10000, isAdmin: false})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
+//     // await userService.login(gUsers[1])
+//     // await userService.login(gUsers[0])
+//     // await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
 // })()
 
 // "user": [
