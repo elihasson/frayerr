@@ -18,7 +18,8 @@ export const userService = {
     getById,
     remove,
     update,
-    saveReview
+    saveReview,
+    getMiniuserById
 }
 
 window.userService = userService
@@ -98,6 +99,24 @@ async function getById(userId) {
 
     return user
 }
+
+async function getMiniuserById(userId) {
+    const user = await storageService.get('user', userId)
+    // const user = await httpService.get(`user/${userId}`
+
+    const miniuser = {
+        _id: user._id,
+        username: user.username,
+        fullname: user.fullname,
+        imgUrl: user.imgUrl,
+        level: user.level,
+        rate: user.rate
+    }
+
+    return miniuser 
+}
+
+
 function remove(userId) {
     return storageService.remove('user', userId)
     // return httpService.delete(`user/${userId}`)

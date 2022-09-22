@@ -266,7 +266,11 @@ async function save(gig) {
 
     } else {
         // Later, owner is set by the backend
-        gig.owner = userService.getLoggedinUser()
+        let newGig = getEmptyGig()
+        gig = {...newGig, ...gig} 
+        const owner = userService.getLoggedinUser()
+        gig.owner = await userService.getMiniuserById(owner._id)
+        console.log('upd gig', gig);
         if (!gig.owner)
             gig.owner = { _id: 'u101', fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 }
         savedGig = await storageService.post(STORAGE_KEY, gig)
@@ -279,10 +283,11 @@ function getEmptyGig() {
     return {
         title: 'I will put a card in the grid for you so you can test your application' + (Date.now() % 1000),
         price: utilService.getRandomIntInclusive(10, 1000),
+        category: "logo Design",
         daysToMake: 0,
         description: 'i will add some description for you so you can see a description in your gig',
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/8a1623fd3276ad7297d7647a8727bdf0-1589096119095/6c637953-9dc0-4c9c-b04d-c13c947fdc43.jpg" }],
-        owner: { _id: 'u101', fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 },
+        owner: { _id: 'u101',username: 'james', fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 },
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: []
     }
