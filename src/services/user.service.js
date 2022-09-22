@@ -164,7 +164,6 @@ async function logout() {
 
 
 function saveLocalUser(user) {
-    console.log('HI in saveLocalUser:', user );
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -203,11 +202,12 @@ async function saveUser(user) {
 }
 
 
-;(async ()=>{
-    await userService.signup(gUsers[1])
-    // await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-    // await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
-})()
+
+// ;(async ()=>{
+//     // await userService.login(gUsers[1])
+//     // await userService.login(gUsers[0])
+//     // await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
+// })()
 
 // "user": [
 //     {
