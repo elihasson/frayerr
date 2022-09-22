@@ -7,8 +7,8 @@ export const UserOrder = (props) => {
 
 
     return (
-        <section>
-            <div>hello form user orders</div>
+        <section className='user-order-container'>
+            <div className='user-order-heading'>Your orders:</div>
             <OrderList />
         </section>
     )

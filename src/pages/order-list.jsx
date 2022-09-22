@@ -33,37 +33,31 @@ export const OrderList = (props) => {
     setUserId(userIdFromParams)
   }, [])
 
-  function createData(name, gigPrice, buyerName) {
-    return { name, gigPrice, buyerName };
+  function createData(name, gigPrice, buyerName, action) {
+    return { name, gigPrice, buyerName, action };
   }
 
   let rows = []
 
-  // const makeRows = async () => {
-    rows = orders?.map(async (order) => {
-      const name = order.gig.name
-      const gigPrice = order.gig.price
-      const buyer = await userService.getById(order.buyer._id)
-      const buyerName = buyer.fullname
-      console.log('buyerName:', buyerName)
-      return (() => createData(name, gigPrice, buyerName))
-    })
-  // }
+  rows = orders?.map((order) => {
+    const name = order.gig.name
+    const gigPrice = order.gig.price
+    const buyerName = order.buyer.fullname
+    return createData(name, gigPrice, buyerName)
+  })
 
-  console.log('rows:', rows)
 
-  ;(async () => {
-    console.log('rows1231223:', rows)
-   })()
+
+
   // const rows = [
-  //   createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  //   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  //   createData('Eclair', 262, 16.0, 24, 6.0),
+  //   createData('Frozen yoghurt', 159, 6.0, 5),
+  //   createData('Ice cream sandwich', 237, 9.0, 6),
+  //   createData('Eclair', 262, 16.0, 7),
 
   // ];
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className="order-list">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>

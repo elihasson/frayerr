@@ -15,7 +15,8 @@ const gOrders = [
         createdAt: 9898989,
         buyer: {
             _id: "u101",
-
+            fullname: 'Golda Sheraton',
+            username: "golda",
         },
         seller: {
             _id: "u100",
@@ -33,7 +34,8 @@ const gOrders = [
         createdAt: 9898989,
         buyer: {
             _id: "u101",
-
+            fullname: 'Golda Sheraton',
+            username: "golda",
         },
         seller: {
             _id: "u100",
@@ -51,7 +53,8 @@ const gOrders = [
         createdAt: 9898989,
         buyer: {
             _id: "u100",
-
+            fullname: 'Frayerr Solutions',
+            username: "frayer",
         },
         seller: {
             _id: "u101",
