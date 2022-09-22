@@ -70,6 +70,7 @@ const gUsers = [
 
 ]
 
+
 function getUsers() {
     return storageService.query('user')
         .then(users => {
@@ -128,6 +129,7 @@ async function signup(userCred) {
     return saveLocalUser(user)
 }
 async function logout() {
+    console.log('hi:')
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
     socketService.logout()
     // return await httpService.post('auth/logout')
@@ -182,11 +184,11 @@ async function saveUser(user) {
 }
 
 
-// ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'user1', password:'123',score: 10000, isAdmin: false})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
-// })()
+;(async ()=>{
+    await userService.signup(gUsers[1])
+    // await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
+    // await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
+})()
 
 // "user": [
 //     {

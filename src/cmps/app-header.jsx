@@ -16,7 +16,7 @@ import { toggleJoinModal, toggleLoginModal } from '../store/system.actions'
 
 export const AppHeader = (props) => {
 
-    const { users, user, count } = useSelector(state => state.userModule)
+    const user = useSelector(state => state.userModule.user)
     const isLoading = useSelector(state => state.systemModule.isLoading)
     const isHome = useSelector(state => state.systemModule.isHome)
 
@@ -48,8 +48,9 @@ export const AppHeader = (props) => {
     }
 
     const isHomeHeaderTop = () => {
-        if (isHome && isScroll) return 'home-top-header-with-scroll'
-        if (isHome) return 'home-top-header-no-scroll'
+        if (isHome && isScroll && !user) return 'home-top-header-with-scroll'
+        if (isHome && !user) return 'home-top-header-no-scroll'
+        if (!user) return 'home-top-header-with-scroll'
 
     }
 
@@ -77,7 +78,7 @@ export const AppHeader = (props) => {
                     </div>
                 </div>
 
-                {!isHome && <div className='icon-search-bar-container'>
+                {user && <div className='icon-search-bar-container'>
 
                     <NavLink to="/" >
                         <NotificationsNoneOutlinedIcon />
@@ -97,7 +98,7 @@ export const AppHeader = (props) => {
 
                 </div>}
 
-                {isHome && <div className='icon-search-bar-container'>
+                {( !user ) && <div className='icon-search-bar-container'>
 
                     <NavLink to="/explore" className='explore-button'>
                         <div>Explore</div>
@@ -113,8 +114,11 @@ export const AppHeader = (props) => {
 
                 </div>}
 
-                {!isHome && <div className='avatar-logo-container'>
-                    <NavLink to="/explore"> <img src={userImg} alt="user img" className='user-profile-img' /> </NavLink>
+                {user && <div className='avatar-logo-container'>
+                    <NavLink to={`/user/${user?._id}`}> <img src={user?.imgUrl} alt="user img" 
+                    data-hover={`Username: ${user?.username}`}
+                    className='user-profile-img hovertext' /></NavLink>
+                    
                 </div>}
 
             </header>
