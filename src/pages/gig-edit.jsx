@@ -11,7 +11,7 @@ export const GigEdit = () => {
     const params = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const  user  = useSelector(state => state.userModule.user)
+    const user = useSelector(state => state.userModule.user)
 
     const [gig, handleChange, setGig] = useForm({
         title: '',
@@ -25,14 +25,10 @@ export const GigEdit = () => {
     useEffect(() => {
         inputRef.current.focus()
         const gigId = params.gigId
-        console.log('gigID', gigId);
+
         if (!gigId) return
-        gigService
-            .getById(gigId)
-            .then((gig) => {
-                console.log('giigi', gig);
-                setGig(gig)
-            })
+        gigService.getById(gigId)
+            .then((gig) => { setGig(gig) })
             .catch((err) => {
                 console.log('err:', err)
             })
@@ -55,22 +51,26 @@ export const GigEdit = () => {
 
     return (
         <section className="gig-edit full-height">
-            <div className="gig-edit-container">
+            <div className="user-container">
                 <div className='details-header inpage-nav' id='Overview'>
                     <div className="owner-info">
-                        <div className="user-img" style={{ backgroundImage: `url(${user.imgUrl})` }}></div>
                         <h5 className='owner-name'>{user.fullname}</h5>
-                        <h5 className='owner-level'>{user.rate}</h5>
-                        <span className='spacer'>|</span>
-                        {/* <UserRateStars gig={gig} /> */}
-                        <h5>stars</h5>
+                        <div className='level-rate-user'>
+                            <h5 className='owner-level'>{user.rate}</h5>
+                            <span className='spacer'>|</span>
+                            <h5>stars</h5>
+                            {/* <UserRateStars gig={gig} /> */}
+                        </div>
+                        <div className="user-img" style={{ backgroundImage: `url(${user.imgUrl})` }}></div>
                     </div>
                 </div>
+            </div>
 
+            <div className="gig-edit-container">
                 <h1>{gig._id ? 'Edit' : 'Add'} Gig</h1>
                 {/* <form onSubmit={onSaveGig}> */}
-                <form onSubmit={onSaveGig}>
-                    <label htmlFor="title">Title</label>
+                <form className='gig-edit-form' onSubmit={onSaveGig}>
+                    <label className="egig-title" htmlFor="title">Title:</label>
                     <input
                         ref={inputRef}
                         value={gig.title}
@@ -80,7 +80,7 @@ export const GigEdit = () => {
                         id="title"
                     />
 
-                    <label htmlFor="price">Price</label>
+                    <label className="egig-price" htmlFor="price">Price:</label>
                     <input
                         value={gig.price}
                         onChange={handleChange}
@@ -88,7 +88,7 @@ export const GigEdit = () => {
                         name="price"
                         id="price"
                     />
-                    <label htmlFor="daysToMake">days to make:</label>
+                    <label className="egig-days-to-make" htmlFor="daysToMake">Days to make:</label>
                     <input
                         value={gig.daysToMake}
                         onChange={handleChange}
@@ -96,16 +96,16 @@ export const GigEdit = () => {
                         name="daysToMake"
                         id="daysToMake"
                     />
-                    <label htmlFor="description">description:</label>
-                    <input
+                    <label className="egig-description" htmlFor="description">Description:</label>
+                    <input className="egig-description-inp"
                         value={gig.description}
                         onChange={handleChange}
-                        type="text"
+                        type="textarea"
                         name="description"
                         id="description"
                     />
 
-                    <button>Save</button>
+                    <button className='btn'>Save</button>
                 </form>
             </div>
 
