@@ -1,0 +1,88 @@
+.gig-edit {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    min-height: 60vh;
+
+    .gig-edit-container {
+        width: 51%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 100px;
+    }
+
+    .user-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details-header {
+
+        flex-direction: column;
+
+    }
+
+    .owner-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        
+        .owner-name {
+            color: #404145;
+            font-size: 20px;
+        }
+        
+        .level-rate-user{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .owner-level {
+            color: #62646A;
+            font-size: 14px;
+        }
+
+        .user-img {
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+          }
+    }
+
+    .gig-edit-form {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+
+        label {
+            color: #62646A;
+            font-weight: 600;
+        }
+
+        input {
+            border-radius: 4px;
+            margin-inline: none;
+            font-size: 18px;
+            min-height: 35px;
+            line-height: 20px;
+            padding: 2px;
+            border-color: rgb(197, 198, 201);
+            border-width: 0.5px;
+            border-style: solid;
+            box-sizing: border-box;
+
+            // border-color: #62646A;
+            // border: none;
+            .egig-description-inp {
+                min-height: 60px;
+            }
+
+        }
+
+    }
+}

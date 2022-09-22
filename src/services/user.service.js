@@ -18,7 +18,8 @@ export const userService = {
     getById,
     remove,
     update,
-    saveReview
+    saveReview,
+    getMiniuserById
 }
 
 window.userService = userService
@@ -32,6 +33,7 @@ const gUsers = [
         username: "golda",
         password: "gold",
         level: "premium",
+        rate: 4.5,
         isAdmin: false,
         reviews: [
             {
@@ -51,6 +53,7 @@ const gUsers = [
         imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/200950826/original/08090f735021ad8441f30fe2f38542ce95a2ead9.png",
         username: "frayer",
         password: "123",
+        rate: 4.5,
         level: "premium",
         isAdmin: true,
         reviews: [
@@ -98,6 +101,24 @@ async function getById(userId) {
 
     return user
 }
+
+async function getMiniuserById(userId) {
+    const user = await storageService.get('user', userId)
+    // const user = await httpService.get(`user/${userId}`
+
+    const miniuser = {
+        _id: user._id,
+        username: user.username,
+        fullname: user.fullname,
+        imgUrl: user.imgUrl,
+        level: user.level,
+        rate: user.rate
+    }
+
+    return miniuser 
+}
+
+
 function remove(userId) {
     return storageService.remove('user', userId)
     // return httpService.delete(`user/${userId}`)
