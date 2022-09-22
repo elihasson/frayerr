@@ -48,25 +48,6 @@ button {
     cursor: pointer;
 }
 
-.btn {
-    cursor: pointer;
-    background-color: $clr1;
-    border: none;
-    color: white;
-    font-size: 1rem;
-    border-radius: 4px;
-    padding: 0.8em 0.8em;
-    transition: 0.1s;
-
-    &:hover {
-        background-color: darken($clr1, 5%);
-    }
-
-    &:active {
-        background-color: darken($clr1, 10%);
-    }
-}
-
 a {
     text-decoration: none;
     &:hover{

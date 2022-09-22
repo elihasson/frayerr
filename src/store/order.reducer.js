@@ -2,7 +2,10 @@ const initialState = {
     orders: [],
     // cart: [],
     lastRemovedOrder: null,
-    watchedOrder: null
+    watchedOrder: null,
+    filterBy: {
+        userId: '',
+    },
 }
 export function orderReducer(state = initialState, action) {
     var newState = state
@@ -32,16 +35,10 @@ export function orderReducer(state = initialState, action) {
                 newState = { ...state, orders: [...state.orders, state.lastRemovedOrder], lastRemovedOrder: null }
             }
             break
-        // case 'ADD_TO_CART':
-        //     newState = { ...state, cart:[...state.cart, action.order]}
-        //     break
-        // case 'REMOVE_FROM_CART':
-        //     cart = state.cart.filter(order => order._id !== action.orderId)
-        //     newState = { ...state, cart}
-        //     break
-        // case 'CLEAR_CART':
-        //     newState = { ...state, cart: []}
-        //     break
+        case 'SET_FILTER_USER_ID':
+            newState = { ...state, filterBy: { ...state.filterBy, userId: action.userId } }
+            break
+
         default:
     }
     // For debug:

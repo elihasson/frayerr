@@ -15,7 +15,6 @@ export const AppFooter = () => {
     const dispatch = useDispatch()
 
     const [isUser, setIsUser] = useState(user)
-    console.log('user:', user)
 
     return (
         <section className='app-footer main-layout '>
@@ -62,8 +61,6 @@ export const AppFooter = () => {
                     <button onClick={() => dispatch(onLogout())}>Logout</button>
                 </ul>
             </div>}
-
-
         </section>
     )
 }
