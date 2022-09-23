@@ -15,110 +15,89 @@ import { loadGig } from '../store/gig.actions'
 
 // // class _OrderCheckout extends React.Component {
 export const OrderCheckout = () => {
-    // const { gig } = useSelector(state => state.watchedGig)
-    // const dispatch = useDispatch()
-    // const [gig, setGig] = useState([])
+    const dispatch = useDispatch()
+    const watchedGig  = useSelector(state => state.gigModule.watchedGig)
+    const categories  = useSelector(state => state.gigModule.categories)
+    const [gig, setGig] = useState([])
+    const [features, setFeatures] = useState([])
+    const params = useParams()
 
 
-    // const params = useParams()
-    //     useEffect(() => {
-        //         dispatch(loadGig(params.gigId))
-        
-        // }, [])
-        
-    // const loadGig = async (gigId) => {
-    //     const gig = await gigService.getById(gigId)
-    //     // this.setState(prevState => ({ ...prevState, gig }))
-    // }
-        
-        // const  onSetOrder = async () => {
-    //     const { gig, owner } = this.state
-    //     const { user } = this.props
-    //     if (!user) {
-    //         this.props.toggleJoinModal(true);
-    //         return;
-    //     }
-    //     const savedOrder = await this.props.addOrder(order, gig) //?
-    //     const notification = {
-    //         _id: utilService.makeId(8),
-    //         sender: user,
-    //         txt: '',
-    //         type: 'new order',
-    //         createdAt: Date.now(),
-    //         msg: this.createMsg()
-    //     }
-    //     socketService.emit('new order', { savedOrder, notification })
-    //     this.props.history.push(`/dashboard/${user._id}`)
-    // }
+    console.log('check', categories)
 
+
+        useEffect(() => {
+            
+            async function fetchData() {
+                let currGig = await gigService.getById(params.gigId)
+                let currGigFeatures = await gigService.getFeaturesByCategory(currGig.category)
+                
+                setGig(currGig)
+                setFeatures(currGigFeatures)
+
+              }
+            
+              fetchData()
+            }, [])
 
     return(
-
-        <div>checkout</div>
-        // <div>
-        // {gig && <div>
-        //             <pre>
-        //                 {JSON.stringify(gig, null, 2)}
-        //             </pre>
-        //         </div> }
-        // </div>
-        //  <section className='checkout main-layout ' >
-        //     <div className="left-side-container">
-        //         <div className="main-content-container">
-        //             <div className="img-container">
-        //                 <img src={gig.imgUrls[0]} alt="first image"></img>
-        //             </div>
-        //             <div className="main">
-        //                 <h3>{gig.title}</h3>
-        //                 <div className="star-rate-container">
-        //                     <UserRateStars owner={gig.owner.reviews} gig={gig} isReviews={true} />
-        //                     {/* <span className='num-of-rating'>{this.getAvgRate()}</span> */}
-        //                     {/* <span className='review-length'>({owner.reviews.length})</span> */}
-        //                 </div>
-        //             </div>
-        //             <div className="price">{gig.price.toLocaleString("USA", { style: "currency", currency: "USD" })}</div>
-        //         </div>
-        //         <div className="details">
-        //             <h2>Order Details</h2>
-        //             {/* <p>{() => {trimIWill()}}</p> */}
-        //             <div className='order-features'>
-        //                 <ul className='clean-list'>
-        //                     {/* {this.features.map((feature, idx) => {
-        //                         return (<li key={idx}>
-        //                             <CheckIcon className="check-icon" />
-        //                             {feature}
-        //                         </li>)
-        //                     })} */}
-        //                 </ul>
-        //             </div>
-        //         </div>
-        //     </div >
-        //     <div className="right-side-container">
-        //         <div className="order-modal sticky">
-        //             <h3>Price summary</h3>
-        //             <ul className='clean-list'>
-        //                 <li>Subtotal
-        //                     <span> {gig.price.toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
-        //                 </li>
-        //                 <li>Service Fee
-        //                     <span> {(gig.price * 0.05).toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
-        //                 </li>
-        //                 <li className='bold'>
-        //                     Total
-        //                     <span> {(gig.price + (gig.price * 0.05)).toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
-        //                 </li>
-        //                 <li> Delivery Time
-        //                     <div className="li-inner-container">
-        //                         <span>{gig.daysToMake}</span>
-        //                         <span> {gig.daysToMake === 1 ? 'day' : 'days'}</span>
-        //                     </div>
-        //                 </li>
-        //             </ul>
-        //             {/* <button className='btn' onClick={this.onSetOrder}>Purchase</button> */}
-        //             <button className='btn'>Purchase</button>
-        //         </div>
-        //     </div>
-        // </section>
+         <section className='checkout main-layout ' >
+            <div className="left-side-container">
+                <div className="main-content-container">
+                    <div className="img-container">
+                        {/* <img src={gig.imgUrls[0]} alt="first image"></img> */}
+                    </div>
+                    <div className="main">
+                        <h3>{gig.title}</h3>
+                        <div className="star-rate-container">
+                            {/* <UserRateStars owner={gig.owner.reviews} gig={gig} isReviews={true} /> */}
+                            {/* <span className='num-of-rating'>{this.getAvgRate()}</span> */}
+                            {/* <span className='review-length'>({owner.reviews.length})</span> */}
+                        </div>
+                    </div>
+                    {/* <div className="price">{gig.price.toLocaleString("USA", { style: "currency", currency: "USD" })}</div> */}
+                </div>
+                <div className="details">
+                    <h2>Order Details</h2>
+                    {/* <p>{() => {trimIWill()}}</p> */}
+                    <div className='order-features'>
+                        <ul className='clean-list'>
+                            {/* {this.features.map((feature, idx) => {
+                                return (<li key={idx}>
+                                    <CheckIcon className="check-icon" />
+                                    {feature}
+                                </li>)
+                            })} */}
+                        </ul>
+                    </div>
+                </div>
+            </div >
+            <div className="right-side-container">
+                <div className="order-modal sticky">
+                    <h3>Price summary</h3>
+                    <ul className='clean-list'>
+                        <li>Subtotal
+                            {/* <span> {gig.price.toLocaleString("USA", { style: "currency", currency: "USD" })}</span> */}
+                        </li>
+                        <li>Service Fee
+                            <span> {(gig.price * 0.05).toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
+                        </li>
+                        <li className='bold'>
+                            Total
+                            {/* <span> {(gig.price + (gig.price * 0.05)).toLocaleString("USA", { style: "currency", currency: "USD" })}</span> */}
+                        </li>
+                        <li> Delivery Time
+                            <div className="li-inner-container">
+                                <span>{gig.daysToMake}</span>
+                                <span> {gig.daysToMake === 1 ? 'day' : 'days'}</span>
+                            </div>
+                        </li>
+                    </ul>
+                    {/* <button className='btn' onClick={this.onSetOrder}>Purchase</button> */}
+                    <button className='btn'>Purchase</button>
+                </div>
+            </div>
+        </section>
     )
     
     }
@@ -262,4 +241,16 @@ const trimIWill = () => {
 //         </section>
 //     )
 
+
+ // <div>checko
+        {/* {gig && <div>
+                    <pre>
+                        {JSON.stringify(gig, null, 2)}
+                    </pre>
+        <p>
+            {JSON.stringify(features, null, 2)}
+            {/* {JSON.stringify(categories.map((category) => gig.category.name, null, 2))} */}
+        //     </p>
+        // </div>} */}
+        // </div>
 

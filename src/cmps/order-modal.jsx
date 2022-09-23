@@ -56,6 +56,9 @@ export function OrderModal({ gig, modalClass }) {
             <Link className='clean-link' to={`/checkout/${gig._id}?features=${features}`}>
                 <button className='btn'>Continue ({gig.price.toLocaleString("USA", { style: "currency", currency: "USD" })})</button>
             </Link>
+            {/* <Link className='clean-link' to={`/explore/${gig._id}`}>
+                <p className='gig-title'> {getShortTitle(gig.title)} </p>
+            </Link> */}
         </div>
     )
 }

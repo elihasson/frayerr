@@ -68,16 +68,16 @@ const gCategories = [
             "Number Of Words: 150"
         ]
     },
-    {
-        name: "marketing",
-        features: [
-            "Multiple Campaigns",
-            "Researched audiences",
-            "Multiple Ads",
-            "Budget & Creative Optimization",
-            "Free tips"
-        ]
-    },
+    // {
+    //     name: "marketing",
+    //     features: [
+    //         "Multiple Campaigns",
+    //         "Researched audiences",
+    //         "Multiple Ads",
+    //         "Budget & Creative Optimization",
+    //         "Free tips"
+    //     ]
+    // },
 ]
 
 const gGigs = [
@@ -225,7 +225,8 @@ export const gigService = {
     remove,
     getEmptyGig,
     getCategories,
-    getFeaturesByCategory
+    getFeaturesByCategory,
+    getCategoriesNames
 }
 window.cs = gigService
 
@@ -295,6 +296,12 @@ function getEmptyGig() {
 
 // when working with database need to turn to a real async functions
 async function getCategories() {
+    // const categories = await httpService.get("category");
+    // const categories = await storageService.get('category')
+    return gCategories
+}
+
+async function getCategoriesNames() {
     // const categories = await httpService.get("category");
     // const categories = await storageService.get('category')
     return gCategories.map((category) => category.name)

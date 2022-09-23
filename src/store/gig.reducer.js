@@ -1,7 +1,10 @@
 const initialState = {
     gigs: [],
     cart: [],
+    categories: [],
+    gigFeatures: [],
     lastRemovedGig: null,
+
     watchedGig: null,
     filterBy: {
         txt: '',
@@ -36,6 +39,14 @@ export function gigReducer(state = initialState, action) {
             gigs = state.gigs.map(gig => (gig._id === action.gig._id) ? action.gig : gig)
             newState = { ...state, gigs }
             break
+        case 'SET_CATEGORIES':
+            newState = { ...state, categories: action.categories }
+            break
+        case 'SET_GIG_FEATURES':
+            newState = { ...state, gigFeatures: action.gigFeatures }
+            break
+
+
         case 'ADD_TO_CART':
             newState = { ...state, cart: [...state.cart, action.gig] }
             break
@@ -43,6 +54,9 @@ export function gigReducer(state = initialState, action) {
             cart = state.cart.filter(gig => gig._id !== action.gigId)
             newState = { ...state, cart }
             break
+
+
+
         case 'CLEAR_CART':
             newState = { ...state, cart: [] }
             break
