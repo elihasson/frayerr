@@ -17,7 +17,6 @@ export function _Signup(props) {
 
     useEffect(() => {
         async function getData() {
-            console.log('hiiiiiiiiiiiiiiiiiiiiiiiii')
             const users = await userService.getUsers()
             setUsers(users)
         }

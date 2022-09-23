@@ -105,11 +105,11 @@ export const AppHeader = (props) => {
                         <div>Explore</div>
                     </NavLink>
 
-                    <NavLink to="/" className='signin-button'>
+                    <NavLink to="#" className='signin-button'>
                         <div onClick={() => { dispatch(toggleLoginModal()) }}>Sign in</div>
                     </NavLink>
 
-                    <NavLink to="/" className='join-button'>
+                    <NavLink to="#" className='join-button'>
                         <div onClick={() => { dispatch(toggleJoinModal()) }}>Join</div>
                     </NavLink>
 
