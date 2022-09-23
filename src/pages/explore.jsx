@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 
-import { loadGigs, addGig, updateGig, removeGig, addToCart } from '../store/gig.actions.js'
+import { loadGigs, addGig, updateGig, removeGig, loadCategories } from '../store/gig.actions.js'
 
 import { showSuccessMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.js'
@@ -13,9 +13,11 @@ export const Explore = (props) => {
     const  gigs  = useSelector(state => state.gigModule.gigs)
     const  filterBy  = useSelector(state => state.gigModule.filterBy)
     const dispatch = useDispatch()
-
+    
     useEffect(() => {
         dispatch(loadGigs())
+        dispatch(loadCategories())
+
     //    gigs = loadGigs()
     }, [filterBy])
 

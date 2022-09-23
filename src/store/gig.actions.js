@@ -40,6 +40,36 @@ export function loadGigs() {
     }
 }
 
+export function loadFeatures(categoryName) {
+    return async (dispatch) => {
+        try {
+            const gig = await gigService.getFeaturesByCategory(categoryName)
+            dispatch({ type: 'SET_GIG_FEATURES', gig })
+        } catch (err) {
+            showErrorMsg('Cannot load Features')
+            console.log('Cannot load Features', err)
+        }
+    }
+}
+
+
+export function loadCategories() {
+    return async (dispatch) => {
+        try {
+            const categories = await gigService.getCategories()
+            console.log('Categories from DB:', categories)
+            dispatch({
+                type: 'SET_CATEGORIES',
+                categories
+            })
+
+        } catch (err) {
+            showErrorMsg('Cannot load Categories')
+            console.log('Cannot load Categories', err)
+        }
+    }
+}
+
 export function removeGig(gigId) {
     return async (dispatch) => {
         try {
