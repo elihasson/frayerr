@@ -18,13 +18,17 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
     const dispatch = useDispatch()
     const [userId, setUserId] = useState('')
     const gigs = useSelector(state => state.gigModule.gigs)
+    const filterBy = useSelector(state => state.gigModule.filterBy)
     console.log('gigs:', gigs)
+    console.log('filterBy:', filterBy)
 
     useEffect(() => {
         const userIdFromParams = params.userId
         dispatch(setFilterUserId(userIdFromParams))
         dispatch(loadGigs())
         setUserId(userIdFromParams)
+
+        return dispatch(setFilterUserId(''))
     }, [])
 
     // currently without plans and counts === 0
