@@ -137,6 +137,12 @@ export function setFilterTxt(txt) {
     }
 }
 
+export function setFilterUserId(userId) {
+    return (dispatch) => {
+        dispatch({type: 'SET_FILTER_USER_ID', userId})
+    }
+}
+
 export function setFilterBy(filterBy) {
     return (dispatch) => {
         dispatch({type: 'SET_FILTER_BY', filterBy})

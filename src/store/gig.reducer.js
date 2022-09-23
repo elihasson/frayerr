@@ -8,7 +8,7 @@ const initialState = {
         deliveryTime: '',
         budget: '',
         category: '',
-        username: '',
+        userId: '',
     },
     sortBy: '',
 
@@ -53,6 +53,10 @@ export function gigReducer(state = initialState, action) {
             break
         case 'SET_FILTER_TXT':
             newState = { ...state, filterBy: { ...state.filterBy, txt: action.txt } }
+            break
+        case 'SET_FILTER_USER_ID':
+            gigs = state.gigs.filter(gig => gig.owner._id === action.userId)
+            newState = { ...state, filterBy: { ...state.filterBy, gigs, userId: action.userId } }
             break
         case 'SET_FILTER_BY':
             newState = { ...state, filterBy: action.filterBy }
