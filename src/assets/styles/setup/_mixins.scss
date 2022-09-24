@@ -124,11 +124,11 @@
   }
 
 //home-category mixins
-//   @mixin for-home-category-narrow-layout {
-//     @media (min-width: $home-category-break-narrow) {
-//       @content;
-//     }
-//   }
+  @mixin for-home-category-narrow-layout {
+    @media (min-width: $home-category-break-narrow) {
+      @content;
+    }
+  }
 
 @mixin layoutWidth() {
   width: 100%;

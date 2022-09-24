@@ -50,7 +50,7 @@ $order-break-wide: 1080px;
 $order-break-normal: 910px;
 
 //home-categories-breakpoint
-// $home-category-break-narrow: 500px;
+$home-category-break-narrow: 500px;
 
 $padded-break-narrow: $break-narrow + $layoutPadding * 2;
 $padded-break-normal: $break-normal + $layoutPadding * 2;
