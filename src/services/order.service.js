@@ -114,7 +114,8 @@ async function remove(orderId) {
     orderChannel.postMessage(getActionRemoveOrder(orderId))
 }
 
-async function save(order, gig = null) {
+async function save(order = [], gig = null) {
+    debugger
     var savedOrder
     console.log('order to update from order service:', order )
     if (order._id) {
@@ -151,6 +152,7 @@ function _makeOrder(gig, user) {
             title: gig.title,
             daysToMake: gig.daysToMake,
             price: gig.price,
+            serviceFee: gig.price * 0.05,
             img: gig.imgUrls[0],
         },
         orderStatus: 'pending',
