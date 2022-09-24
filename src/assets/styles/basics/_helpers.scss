@@ -155,11 +155,11 @@
     transition: 0.1s;
 
     &:hover {
-        background-color: darken($clr1, 5%);
+        background-color: darken(red, 5%);
     }
 
     &:active {
-        background-color: darken($clr1, 10%);
+        background-color: darken(red, 10%);
     }
 }
 

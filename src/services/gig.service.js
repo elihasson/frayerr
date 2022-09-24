@@ -187,7 +187,7 @@ const gGigs = [
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d098c50d82476b11568f3a50111a8a89-1636128369729/ef737ebd-6908-47bc-be50-963dabe16d0e.jpg" },
         { imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg" }],
         owner: {
-            _id: 'u105', username:'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
+            _id: 'u100', username:'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
             level: 'basic', rate: 4
         },
         tags: ['cellolar', 'proffesional', 'accessible'],
@@ -203,7 +203,7 @@ const gGigs = [
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/eb6eef20969192eca1d8b1301e91cb4f-1630440851285/60f03cc4-71f2-437b-a241-f9423b6e2728.jpg" },
         { imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/3ec0d56f436079ef157dbcc1d21c4c62-1625030446037/1c926a30-7aa5-4de8-9a3b-6565be7ddd5b.jpg" }],
         owner: {
-            _id: 'u105', username:'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
+            _id: 'u100', username:'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
             level: 'basic', rate: 4
         },
         tags: ['cellolar', 'proffesional', 'accessible'],
@@ -232,7 +232,7 @@ window.cs = gigService
 
 
 async function query(filterBy) {
-    const { txt } = filterBy
+    const { txt, userId } = filterBy
     try {
         let gigs = await storageService.query(STORAGE_KEY)
         if (!gigs || !gigs.length) {
@@ -242,6 +242,9 @@ async function query(filterBy) {
         if (txt) {
             const regex = new RegExp(txt, 'i')
             gigs = gigs.filter(gig => regex.test(gig.title))
+        }
+        if (userId) {
+            gigs = gigs.filter(gig => gig.owner._id === userId)
         }
         return gigs
     } catch (err) {

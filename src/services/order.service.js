@@ -117,6 +117,7 @@ async function remove(orderId) {
 async function save(order = [], gig = null) {
     debugger
     var savedOrder
+    console.log('order to update from order service:', order )
     if (order._id) {
         savedOrder = await storageService.put(STORAGE_KEY, order)
         orderChannel.postMessage(getActionUpdateOrder(savedOrder))

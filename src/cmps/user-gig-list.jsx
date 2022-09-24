@@ -6,6 +6,9 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
+import Avatar from '@mui/material/Avatar'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
 
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,13 +21,17 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
     const dispatch = useDispatch()
     const [userId, setUserId] = useState('')
     const gigs = useSelector(state => state.gigModule.gigs)
+    const filterBy = useSelector(state => state.gigModule.filterBy)
     console.log('gigs:', gigs)
+    console.log('filterBy:', filterBy)
 
     useEffect(() => {
         const userIdFromParams = params.userId
         dispatch(setFilterUserId(userIdFromParams))
         dispatch(loadGigs())
         setUserId(userIdFromParams)
+
+        return dispatch(setFilterUserId(''))
     }, [])
 
     // currently without plans and counts === 0
@@ -63,6 +70,7 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
                         <TableCell align="left">Clicks</TableCell>
                         <TableCell align="left">Orders</TableCell>
                         <TableCell align="left">Cancellations</TableCell>
+                        <TableCell align="left">Delete Gig</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -72,17 +80,18 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell component="th" scope="row">
-                                <div>
-                                    <img src={`${row.gigImgUrl}`} alt="No img Url" />
-                                    <span>&nbsp;{row.gigTitle}</span>
-                                </div>
+                                <Grid container>
+                                    <Grid item lg={1}><Avatar src={`${row.gigImgUrl}`} alt="No img Url" variant="rounded" /></Grid>
+                                    <Grid item lg={5}><Typography>{row.gigTitle}</Typography></Grid>
+                                </Grid>
                             </TableCell>
                             {/* <TableCell align="left"><img src={`${row.gigImgUrl}`} alt="No img Url" /></TableCell>
                             <TableCell align="left">{row.gigTitle}</TableCell> */}
                             <TableCell align="left">{row.gigImpressionCount}</TableCell>
                             <TableCell align="left">{row.gigClickCount}</TableCell>
                             <TableCell align="left">{row.gigOrderCount}</TableCell>
-                            <TableCell align="left">{row.gigCancellationCount}</TableCell>
+                            <TableCell align="left">{row.gigCancellationCount + '%'}</TableCell>
+                            <TableCell align="left"><button onClick={onRemoveGig} className="btn-red">Delete Gig</button></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

@@ -3,8 +3,8 @@
     font-family: 'Macan-regular';
     color: $clr7;
     position: absolute;
-    inset-block-end: 30px;
-    inset-inline-end: 30px;
+    inset-block-end: 32px;
+    inset-inline-end: 30%;
     transition: 2s;
 
     @include for-hero-layout-2 {

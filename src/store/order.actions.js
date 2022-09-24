@@ -85,8 +85,6 @@ export function updateOrder(order) {
     }
 }
 
-
-
 export function loadOrder(orderId) {
     return async (dispatch) => {
         try {

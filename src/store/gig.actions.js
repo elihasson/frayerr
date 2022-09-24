@@ -74,7 +74,7 @@ export function removeGig(gigId) {
     return async (dispatch) => {
         try {
             await gigService.remove(gigId)
-            console.log('Deleted Succesfully!');
+            console.log('Deleted Succesfully!')
             dispatch(getActionRemoveGig(gigId))
             showSuccessMsg('Gig removed')
         } catch (err) {

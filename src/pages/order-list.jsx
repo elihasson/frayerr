@@ -6,13 +6,19 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+
+
 
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import { userService } from '../services/user.service'
 
-import { loadOrders, setFilterUserId } from '../store/order.actions'
+import { loadOrders, setFilterUserId, removeOrder, updateOrder } from '../store/order.actions'
 import { loadUser } from '../store/user.actions'
 import { useParams } from 'react-router-dom';
 
@@ -33,8 +39,8 @@ export const OrderList = (props) => {
     setUserId(userIdFromParams)
   }, [])
 
-  function createData(name, gigPrice, buyerName, action) {
-    return { name, gigPrice, buyerName, action };
+  const createData = (name, gigPrice, buyerName, orderId, orderStatus) => {
+    return { name, gigPrice, buyerName, orderId, orderStatus };
   }
 
   let rows = []
@@ -43,49 +49,68 @@ export const OrderList = (props) => {
     const name = order.gig.name
     const gigPrice = order.gig.price
     const buyerName = order.buyer.fullname
-    return createData(name, gigPrice, buyerName)
+    const orderId = order._id
+    const orderStatus = order.status
+    return createData(name, gigPrice, buyerName, orderId, orderStatus)
   })
 
+  const changeOrderStatus = (orderId, action) => {
+    if (action === 'delete') return dispatch(removeOrder(orderId))
+    const order = orders.filter(order => order._id === orderId)
+    if (action === 'decline' || action === 'accept') {
+      order[0].status = action
+      dispatch(updateOrder(order[0]))
+    }
+  }
 
-
-
-  // const rows = [
-  //   createData('Frozen yoghurt', 159, 6.0, 5),
-  //   createData('Ice cream sandwich', 237, 9.0, 6),
-  //   createData('Eclair', 262, 16.0, 7),
-
-  // ];
 
   return (
-    <TableContainer component={Paper} className="order-list">
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Gig ordered</TableCell>
-            <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Buyer Name</TableCell>
-            <TableCell align="right">Actions</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.gigPrice}</TableCell>
-              <TableCell align="right">{row.buyerName}</TableCell>
-              <TableCell align="right">
-                <button className='btn' >Accept</button>
-                <button className='btn-red' >Decline</button>
-              </TableCell>
+    <div>
+      <div className='user-order-heading'> 
+      {orders.length !== 0 ? 'Your orders:' : 'No orders yet :('}
+      </div>
+
+      {(orders.length !== 0) && <TableContainer component={Paper} className="order-list">
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Gig ordered</TableCell>
+              <TableCell align="center">Price</TableCell>
+              <TableCell align="center">Buyer Name</TableCell>
+              <TableCell align="center">Order status</TableCell>
+              <TableCell align="center">Actions</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow
+                key={row.name}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.name}
+                </TableCell>
+                <TableCell align="center">{row.gigPrice}</TableCell>
+                <TableCell align="center">{row.buyerName}</TableCell>
+                <TableCell align="center">{row.orderStatus}</TableCell>
+                <TableCell align="center">
+                  {/* <button className='btn' onClick={() =>changeOrderStatus(row.orderId, 'accept')} >Accept</button>
+                <button className='btn-red' onClick={() => changeOrderStatus(row.orderId, 'decline')}>Decline</button> */}
+                  <IconButton aria-label="accept" onClick={() => changeOrderStatus(row.orderId, 'accept')}>
+                    <DoneOutlineRoundedIcon />
+                  </IconButton>
+                  <IconButton aria-label="decline" onClick={() => changeOrderStatus(row.orderId, 'decline')}>
+                    <CloseRoundedIcon />
+                  </IconButton>
+                  <IconButton aria-label="delete" onClick={() => changeOrderStatus(row.orderId, 'delete')}>
+                    <DeleteIcon />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>}
+    </div>
+  )
 }
