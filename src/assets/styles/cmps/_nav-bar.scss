@@ -15,6 +15,10 @@
         transform: translate(0, 0);
     }
 
+    >* {
+        margin-inline-start: 18px;
+    }
+
     .menu-header {
         margin-block-start: 16px;
 

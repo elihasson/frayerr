@@ -63,6 +63,7 @@ export const AppFooter = () => {
                     <button onClick={() => dispatch(onLogout())}>Logout</button>
                 </ul>
             </div>}
+            
             <UserMsg />
         </section>
     )
