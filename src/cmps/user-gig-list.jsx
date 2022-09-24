@@ -14,9 +14,11 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { loadGigs, setFilterUserId } from '../store/gig.actions'
+import { useNavigate } from 'react-router-dom'
 
 export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
 
+    const navigate = useNavigate()
     const params = useParams()
     const dispatch = useDispatch()
     const [userId, setUserId] = useState('')
@@ -35,8 +37,8 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
     }, [])
 
     // currently without plans and counts === 0
-    function createData(gigImgUrl, gigTitle, gigImpressionCount, gigClickCount, gigOrderCount, gigCancellationCount, action) {
-        return { gigImgUrl, gigTitle, gigImpressionCount, gigClickCount, gigOrderCount, gigCancellationCount, action }
+    function createData(gigImgUrl, gigTitle, gigImpressionCount, gigClickCount, gigOrderCount, gigCancellationCount, gigId, action) {
+        return { gigImgUrl, gigTitle, gigImpressionCount, gigClickCount, gigOrderCount, gigCancellationCount, gigId, action }
     }
 
     let rows = []
@@ -48,7 +50,8 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
         const gigClickCount = 0
         const gigOrderCount = 0
         const gigCancellationCount = 0
-        return createData(gigImgUrl, gigTitle, gigImpressionCount, gigClickCount, gigOrderCount, gigCancellationCount)
+        const gigId = gig._id
+        return createData(gigImgUrl, gigTitle, gigImpressionCount, gigClickCount, gigOrderCount, gigCancellationCount, gigId)
     })
 
     return (
@@ -70,7 +73,7 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
                         <TableCell align="left">Clicks</TableCell>
                         <TableCell align="left">Orders</TableCell>
                         <TableCell align="left">Cancellations</TableCell>
-                        <TableCell align="left">Delete Gig</TableCell>
+                        <TableCell align="left">Gig Operations</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -91,7 +94,11 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
                             <TableCell align="left">{row.gigClickCount}</TableCell>
                             <TableCell align="left">{row.gigOrderCount}</TableCell>
                             <TableCell align="left">{row.gigCancellationCount + '%'}</TableCell>
-                            <TableCell align="left"><button onClick={onRemoveGig} className="btn-red">Delete Gig</button></TableCell>
+                            {/* <TableCell align="left"><button onClick={onRemoveGig} className="btn-red">Delete Gig</button></TableCell> */}
+                            <TableCell align="left">
+                                <button className="btn" onClick={() => navigate(`/edit/${row.gigId}`)}>Edit Gig</button>
+                                <button onClick={onRemoveGig} className="btn-red">Delete Gig</button>
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
