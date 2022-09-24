@@ -70,6 +70,7 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
                         <TableCell align="left">Clicks</TableCell>
                         <TableCell align="left">Orders</TableCell>
                         <TableCell align="left">Cancellations</TableCell>
+                        <TableCell align="left">Delete Gig</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -90,6 +91,7 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
                             <TableCell align="left">{row.gigClickCount}</TableCell>
                             <TableCell align="left">{row.gigOrderCount}</TableCell>
                             <TableCell align="left">{row.gigCancellationCount + '%'}</TableCell>
+                            <TableCell align="left"><button onClick={onRemoveGig} className="btn-red">Delete Gig</button></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
