@@ -225,6 +225,7 @@ export const gigService = {
     remove,
     getEmptyGig,
     getCategories,
+    getPopularCategories,
     getFeaturesByCategory,
     getCategoriesNames
 }
@@ -303,6 +304,17 @@ async function getCategories() {
     // const categories = await storageService.get('category')
     return gCategories
 }
+
+async function getPopularCategories(categoriesCount) {
+    // const categories = await httpService.get("category");
+    // const categories = await storageService.get("category")
+    var popularCategories = gCategories.slice(0, categoriesCount)
+    return popularCategories.map((category) => {
+      return `${category.category
+        .charAt(0)
+        .toUpperCase()}${category.category.slice(1)}`;
+      })
+    }
 
 async function getCategoriesNames() {
     // const categories = await httpService.get("category");
