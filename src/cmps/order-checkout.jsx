@@ -1,11 +1,12 @@
 //setExplore setBecomeSeller setProfile setDetails, setHomePage
-import React, { useState, useEffect }  from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
-// import CheckIcon from '@mui/icons-material/Check';
+import { useParams, useNavigate } from 'react-router-dom'
+import CheckIcon from '@mui/icons-material/Check';
 import { UserRateStars } from '../cmps/user-rate-stars'
 import { gigService } from "../services/gig.service";
-// import { userService } from "../services/user.service";
+import { userService } from "../services/user.service";
+import { orderService } from "../services/order.service";
 // import { addOrder } from '../store/order.actions';
 // import { toggleJoinModal, setHomePage } from '../store/system.actions'
 // import { socketService } from "../services/socket.service";
@@ -13,61 +14,76 @@ import { gigService } from "../services/gig.service";
 import { loadGig } from '../store/gig.actions'
 
 
-// // class _OrderCheckout extends React.Component {
 export const OrderCheckout = () => {
     const dispatch = useDispatch()
-    const watchedGig  = useSelector(state => state.gigModule.watchedGig)
-    const categories  = useSelector(state => state.gigModule.categories)
+    const navigate = useNavigate()
+
+    const watchedGig = useSelector(state => state.gigModule.watchedGig)
+    const categories = useSelector(state => state.gigModule.categories)
+    const watchedOrder = useSelector(state => state.orderModule.watchedOrder)
+
     const [gig, setGig] = useState([])
     const [features, setFeatures] = useState([])
+    const [order, setOrder] = useState([])
     const params = useParams()
 
 
     console.log('check', categories)
 
 
-        useEffect(() => {
-            
-            async function fetchData() {
-                let currGig = await gigService.getById(params.gigId)
-                let currGigFeatures = await gigService.getFeaturesByCategory(currGig.category)
-                
-                setGig(currGig)
-                setFeatures(currGigFeatures)
+    useEffect(() => {
 
-              }
-            
-              fetchData()
-            }, [])
+        async function fetchData() {
+            let currGig = await gigService.getById(params.gigId)
+            let currGigFeatures = await gigService.getFeaturesByCategory(currGig.category)
 
-    return(
-         <section className='checkout main-layout ' >
+            setGig(currGig)
+            setFeatures(currGigFeatures)
+        }
+
+        fetchData()
+    }, [])
+
+    const onSetOrder = async () => {
+
+        let currOrder = await orderService.save([],gig)
+        setOrder(currOrder)
+        navigate(`/user/${currOrder.buyer._id}/order`)
+    }
+
+    if (!gig) return <div>Loading...</div>
+
+    const image = gig?.imgUrls?.[0]?.imgUrl
+
+    return (
+        <section className='checkout main-layout ' >
             <div className="left-side-container">
                 <div className="main-content-container">
                     <div className="img-container">
-                        {/* <img src={gig.imgUrls[0]} alt="first image"></img> */}
+                        {/* <img src={gig.imgUrls[0].imgUrl} alt="first image"></img> */}
+                        <img src={image} alt="first image"></img>
                     </div>
                     <div className="main">
                         <h3>{gig.title}</h3>
                         <div className="star-rate-container">
-                            {/* <UserRateStars owner={gig.owner.reviews} gig={gig} isReviews={true} /> */}
+                            <UserRateStars gig={gig} />
                             {/* <span className='num-of-rating'>{this.getAvgRate()}</span> */}
                             {/* <span className='review-length'>({owner.reviews.length})</span> */}
                         </div>
                     </div>
-                    {/* <div className="price">{gig.price.toLocaleString("USA", { style: "currency", currency: "USD" })}</div> */}
+                    <div className="price">{(gig.price + 0).toLocaleString("USA", { style: "currency", currency: "USD" })}</div>
                 </div>
                 <div className="details">
                     <h2>Order Details</h2>
                     {/* <p>{() => {trimIWill()}}</p> */}
                     <div className='order-features'>
                         <ul className='clean-list'>
-                            {/* {this.features.map((feature, idx) => {
+                            {features.map((feature, idx) => {
                                 return (<li key={idx}>
                                     <CheckIcon className="check-icon" />
                                     {feature}
                                 </li>)
-                            })} */}
+                            })}
                         </ul>
                     </div>
                 </div>
@@ -77,30 +93,34 @@ export const OrderCheckout = () => {
                     <h3>Price summary</h3>
                     <ul className='clean-list'>
                         <li>Subtotal
-                            {/* <span> {gig.price.toLocaleString("USA", { style: "currency", currency: "USD" })}</span> */}
+                            <span> {(+gig.price).toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
                         </li>
                         <li>Service Fee
                             <span> {(gig.price * 0.05).toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
                         </li>
                         <li className='bold'>
                             Total
-                            {/* <span> {(gig.price + (gig.price * 0.05)).toLocaleString("USA", { style: "currency", currency: "USD" })}</span> */}
+                            <span> {(gig.price + (gig.price * 0.05)).toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
                         </li>
                         <li> Delivery Time
                             <div className="li-inner-container">
-                                <span>{gig.daysToMake}</span>
-                                <span> {gig.daysToMake === 1 ? 'day' : 'days'}</span>
+                                <span>{+gig.daysToMake}</span>
+                                <span> {+gig.daysToMake === 1 ? 'day' : 'days'}</span>
                             </div>
                         </li>
                     </ul>
-                    {/* <button className='btn' onClick={this.onSetOrder}>Purchase</button> */}
-                    <button className='btn'>Purchase</button>
+                    <button className='btn' onClick={onSetOrder}>Purchase</button>
                 </div>
+
+                {/* <div>{gig && <div><pre>{JSON.stringify(gig, null, 2)}</pre>
+                    <p>{JSON.stringify(features, null, 2)}
+                        {JSON.stringify(categories.map((category) => gig.category.name, null, 2))}</p></div>}</div> */}
             </div>
+
         </section>
     )
-    
-    }
+
+}
 
 const trimIWill = () => {
     let { gig: { title } } = this.state
@@ -112,145 +132,3 @@ const trimIWill = () => {
     }
     return title;
 }
-
-//     // state = {
-//     //     gig: null,
-//     //     owner: null
-//     // }
-
-//     const user = useSelector(state => state.userModule.user)
-//     const order = useSelector(state => state.orderModule.order)
-//     const dispatch = useDispatch()
-//     const params = useParams()
-//     const features = params.features
-//     // const [features, setFeatures] = useState([])
-
-
-
-//     useEffect(() => {
-//         loadGig(params.gigId)
-//         // fixFeatures()
-        
-//     }, [])
-
-
-//     async componentDidMount() {
-//         let urlParams = new URLSearchParams(this.props.location.search);
-//         this.fixFeatures()
-//         this.onSetProfile();
-//         await this.loadGig(gigId)
-//         this.loadOwner(this.state.gig.owner._id)
-//     }
-//     onSetProfile = () => {
-//         if (this.props.isProfile) return;
-//         this.props.setHomePagePage(false);
-//     }
-
-//     // const fixFeatures = () => {
-//     //     const features = params.features.split(',')
-//     // }
-
-    
-
-//     loadOwner = async (userId) => {
-//         const owner = await userService.getById(userId)
-//         this.setState(prevState => ({ ...prevState, owner }))
-//     }
-
-//     getAvgRate = () => {
-//         const { owner, gig } = this.state
-//         if (!owner.reviews.length) return ''
-//         const acc = owner.reviews.reduce((acc, review) => {
-//             acc += +review.rate
-//             return acc
-//         }, 0)
-//         gig.owner.rate = (acc / owner.reviews.length).toFixed(1)
-//         return (acc / owner.reviews.length).toFixed(1)
-//     }
-
-   
-
-
-//     createMsg = () => {
-//         var msg = {}
-//         const { user } = this.props
-//         msg.title = "Received new order!"
-//         msg.content = `${user.username} hired your services`
-//         msg.subHeader = "Time to make some dimes..."
-//         return msg;
-//     }
-
-//     const { gig, owner } = this.state
-//     if (!gig || !owner) return <React.Fragment></React.Fragment>
-//     return (
-//         <section className='checkout max-width-container equal-padding' >
-//             <div className="left-side-container">
-//                 <div className="main-content-container">
-//                     <div className="img-container">
-//                         <img src={gig.imgUrls[0]} alt="first image"></img>
-//                     </div>
-//                     <div className="main">
-//                         <h3>{gig.title}</h3>
-//                         <div className="star-rate-container">
-//                             <UserRateStars owner={owner.reviews} gig={gig} isReviews={true} />
-//                             <span className='num-of-rating'>{this.getAvgRate()}</span>
-//                             <span className='review-length'>({owner.reviews.length})</span>
-//                         </div>
-//                     </div>
-//                     <div className="price">{gig.price.toLocaleString("USA", { style: "currency", currency: "USD" })}</div>
-//                 </div>
-//                 <div className="details">
-//                     <h2>Order Details</h2>
-//                     <p>{this.trimIWill()}</p>
-//                     <div className='order-features'>
-//                         <ul className='clean-list'>
-//                             {this.features.map((feature, idx) => {
-//                                 return (<li key={idx}>
-//                                     <CheckIcon className="check-icon" />
-//                                     {feature}
-//                                 </li>)
-//                             })}
-//                         </ul>
-//                     </div>
-//                 </div>
-//             </div >
-//             <div className="right-side-container">
-//                 <div className="order-modal sticky">
-//                     <h3>Price summary</h3>
-//                     <ul className='clean-list'>
-//                         <li>Subtotal
-//                             <span> {gig.price.toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
-//                         </li>
-//                         <li>Service Fee
-//                             <span> {(gig.price * 0.05).toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
-//                         </li>
-//                         <li className='bold'>
-//                             Total
-//                             <span> {(gig.price + (gig.price * 0.05)).toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
-//                         </li>
-//                         <li> Delivery Time
-//                             <div className="li-inner-container">
-//                                 <span>{gig.daysToMake}</span>
-//                                 <span> {gig.daysToMake === 1 ? 'day' : 'days'}</span>
-//                             </div>
-//                         </li>
-//                     </ul>
-//                     <button className='btn' onClick={this.onSetOrder}>Purchase</button>
-//                 </div>
-//             </div>
-//         </section>
-//     )
-
-
- // <div>checko
-        {/* {gig && <div>
-                    <pre>
-                        {JSON.stringify(gig, null, 2)}
-                    </pre>
-        <p>
-            {JSON.stringify(features, null, 2)}
-            {/* {JSON.stringify(categories.map((category) => gig.category.name, null, 2))} */}
-        //     </p>
-        // </div>} */}
-        // </div>
-

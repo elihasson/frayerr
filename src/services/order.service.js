@@ -114,7 +114,8 @@ async function remove(orderId) {
     orderChannel.postMessage(getActionRemoveOrder(orderId))
 }
 
-async function save(order, gig = null) {
+async function save(order = [], gig = null) {
+    debugger
     var savedOrder
     if (order._id) {
         savedOrder = await storageService.put(STORAGE_KEY, order)
@@ -150,6 +151,7 @@ function _makeOrder(gig, user) {
             title: gig.title,
             daysToMake: gig.daysToMake,
             price: gig.price,
+            serviceFee: gig.price * 0.05,
             img: gig.imgUrls[0],
         },
         orderStatus: 'pending',
