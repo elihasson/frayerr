@@ -309,10 +309,11 @@ async function getPopularCategories(categoriesCount) {
     // const categories = await httpService.get("category");
     // const categories = await storageService.get("category")
     var popularCategories = gCategories.slice(0, categoriesCount)
+    console.log('popularCategories:', popularCategories)
     return popularCategories.map((category) => {
-      return `${category.category
+      return `${category.name
         .charAt(0)
-        .toUpperCase()}${category.category.slice(1)}`;
+        .toUpperCase()}${category.name.slice(1)}`;
       })
     }
 

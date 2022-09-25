@@ -3,29 +3,44 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import { gigService } from '../services/gig.service'
-import { onSetFilterBy, loadGigs } from '../store/gig.actions'
+import { setFilterBy, loadGigs } from '../store/gig.actions'
 
 export const HomeCategory = (props) => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
     const gigs = useSelector(state => state.gigModule.gigs)
     const filterBy = useSelector(state => state.gigModule.filterBy)
+    console.log('gigs:', gigs)
+    console.log('filterBy:', filterBy)
+    
+    const [popularCategories, setPopularCategories] = useState([])
 
-    const [popularCategories, setCategories] = useState([])
+    // useEffect(() => {
+    //     dispatch(setFilterBy(''))
+    //     dispatch(loadGigs())
+
+    //     return dispatch(setFilterUserId(''))
+    // }, [])
+
     useEffect(async () => {
-        var ans = await getCategories()
-        setCategories(ans)
+        var ans = await getPopularCategories()
+        setPopularCategories(ans)
         return () => {
         }
     }, [])
 
-    const getCategories = async () => {
-        return await gigService.getPopularCategories(5)
+    const getPopularCategories = async () => {
+        const popularCategories = await gigService.getPopularCategories(6)
+        console.log('popularCategories:', popularCategories)
+        // return await gigService.getPopularCategories(5)
+        return popularCategories
     }
 
     const onSetFilter = (category) => {
-        props.loadGigs({ category })
-        props.onSetFilterBy({ category }, 'category')
-        props.history.push(`/explore?category=${category}`)
-        // useNavigate(`/explore?category=${category}`)
+        dispatch(setFilterBy(category))
+        dispatch(loadGigs())
+        // props.history.push(`/explore?category=${category}`)
+        navigate(`/explore`)
     }
 
     return (
@@ -37,10 +52,10 @@ export const HomeCategory = (props) => {
             }}>
                 <span className="on-click"></span>
                 <div className="category-container">
-                    <div className="subtitle"> Capture your audience</div>
+                    <div className="subtitle"> Engage your audience</div>
                     <div className="title">{popularCategories[0]}</div>
                 </div>
-                <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781888/video-explainer_gjzhjs.jpg" />
+                <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png" />
             </div>
             <div className='img-container' onClick={() => {
                 onSetFilter(popularCategories[1])
@@ -51,7 +66,7 @@ export const HomeCategory = (props) => {
                     <div className="title">{popularCategories[1]}</div>
                 </div>
                 
-                <img src="https://res.cloudinary.com/ben2423/image/upload/v1643373743/old-fashioned-steam-train-crossing-the-mountain-bridge-vector-id165959348_oo3saj.jpg" />
+                <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/illustration-2x.png" />
             </div>
             <div className='img-container' onClick={() => {
                 onSetFilter(popularCategories[2])
@@ -72,12 +87,12 @@ export const HomeCategory = (props) => {
                 <div className="category-container">
 
                     <div className="subtitle">
-                    Brand your business
+                    Build your brand
                         </div>
                     <div className="title">{popularCategories[3]}</div>
                 </div>
                 
-                <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781888/logo-starbucks_w8plcz.jpg" />
+                <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png" />
             </div>
             <div className='img-container' onClick={() => {
                 onSetFilter(popularCategories[4])
@@ -86,12 +101,26 @@ export const HomeCategory = (props) => {
                 <div className="category-container">
 
                     <div className="subtitle">
-                    Level up your site
+                    Customize your site
                         </div>
                     <div className="title">{popularCategories[4]}</div>
                 </div>
                 
-                <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781889/wordpress_dofxal.jpg" />
+                <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png" />
+            </div>
+            <div className='img-container' onClick={() => {
+                onSetFilter(popularCategories[4])
+            }}>
+                <span className="on-click"></span>
+                <div className="category-container">
+
+                    <div className="subtitle">
+                    Share your message
+                        </div>
+                    <div className="title">{popularCategories[5]}</div>
+                </div>
+                
+                <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png" />
             </div>
         </div>
     </section >

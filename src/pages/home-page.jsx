@@ -2,7 +2,9 @@ import { useEffect, useState } from "react"
 import { useSelector, useDispatch  } from 'react-redux'
 
 import { AppHero } from '../cmps/app-hero'
-import { HomeCategory } from '../cmps/home-category.jsx'
+import { HomeCategory } from '../cmps/home-category'
+import { HomePageInfo } from '../cmps/home-page-info'
+import { HomeSignup } from '../cmps/home-signup'
 
 import { setHomePage } from '../store/system.actions.js' // aharon
 
@@ -21,9 +23,11 @@ export const HomePage = () => {
 
     return (
         <section className='home-container full'>
-            <div className='home-page'>
+            <div className='home-page main-layout'>
                 <AppHero />
                 <HomeCategory />
+                <HomePageInfo />
+                <HomeSignup />
             </div>
         </section >
     )
