@@ -1,4 +1,4 @@
-import { OrderList as PurchaseList } from './purchase-list.jsx'
+import { PurchaseList } from './purchase-list.jsx'
 
 
 export const UserPurchase = (props) => {

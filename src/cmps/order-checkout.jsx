@@ -48,7 +48,7 @@ export const OrderCheckout = () => {
 
         let currOrder = await orderService.save([],gig)
         setOrder(currOrder)
-        navigate(`/user/${currOrder.buyer._id}/order`)
+        navigate(`/user/${currOrder.buyer._id}/purchase`)
     }
 
     if (!gig) return <div>Loading...</div>
