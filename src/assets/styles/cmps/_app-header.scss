@@ -24,7 +24,7 @@
 .app-header {
 
     display: flex;
-    background-color:  white;
+    background-color: white;
     height: 136px;
     align-items: center;
     // border-bottom: 0.5px;
@@ -141,6 +141,11 @@
 
             .favorite-icon-button {
                 display: none;
+            }
+
+            .logout-button {
+                display: flex;
+                align-items: center;
             }
 
             a {
@@ -313,7 +318,7 @@
         @include for-header-layout-3 {
 
             .burger-icon-gig-filter-container {
-                
+
                 .burger-icon-container {
 
                     .frayerr-logo {
@@ -323,6 +328,7 @@
             }
         }
     }
+
     @include for-header-layout-1 {
         background-color: transparent;
     }

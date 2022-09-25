@@ -10,12 +10,11 @@ export const HomeCategory = (props) => {
     const filterBy = useSelector(state => state.gigModule.filterBy)
 
     const [popularCategories, setCategories] = useState([])
-    useEffect(async () => {
+    useEffect(() => async () => {
         var ans = await getCategories()
         setCategories(ans)
-        return () => {
         }
-    }, [])
+        , [])
 
     const getCategories = async () => {
         return await gigService.getPopularCategories(5)
@@ -30,70 +29,70 @@ export const HomeCategory = (props) => {
 
     return (
         <section className='proffesional-services-container max-width-container main-layout'>
-        <h1>Popular professional services</h1>
-        <div className='proffesional-services'>
-            <div className='img-container' onClick={() => {
-                onSetFilter(popularCategories[0])
-            }}>
-                <span className="on-click"></span>
-                <div className="category-container">
-                    <div className="subtitle"> Capture your audience</div>
-                    <div className="title">{popularCategories[0]}</div>
+            <h1>Popular professional services</h1>
+            <div className='proffesional-services'>
+                <div className='img-container' onClick={() => {
+                    onSetFilter(popularCategories[0])
+                }}>
+                    <span className="on-click"></span>
+                    <div className="category-container">
+                        <div className="subtitle"> Capture your audience</div>
+                        <div className="title">{popularCategories[0]}</div>
+                    </div>
+                    <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781888/video-explainer_gjzhjs.jpg" />
                 </div>
-                <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781888/video-explainer_gjzhjs.jpg" />
-            </div>
-            <div className='img-container' onClick={() => {
-                onSetFilter(popularCategories[1])
-            }}>
-                <span className="on-click"></span>
-                <div className="category-container">
-                    <div className="subtitle">Color your dreams</div>
-                    <div className="title">{popularCategories[1]}</div>
+                <div className='img-container' onClick={() => {
+                    onSetFilter(popularCategories[1])
+                }}>
+                    <span className="on-click"></span>
+                    <div className="category-container">
+                        <div className="subtitle">Color your dreams</div>
+                        <div className="title">{popularCategories[1]}</div>
+                    </div>
+
+                    <img src="https://res.cloudinary.com/ben2423/image/upload/v1643373743/old-fashioned-steam-train-crossing-the-mountain-bridge-vector-id165959348_oo3saj.jpg" />
                 </div>
-                
-                <img src="https://res.cloudinary.com/ben2423/image/upload/v1643373743/old-fashioned-steam-train-crossing-the-mountain-bridge-vector-id165959348_oo3saj.jpg" />
-            </div>
-            <div className='img-container' onClick={() => {
-                onSetFilter(popularCategories[2])
-            }}>
-                <span className="on-click"></span>
-                <div className="category-container">
+                <div className='img-container' onClick={() => {
+                    onSetFilter(popularCategories[2])
+                }}>
+                    <span className="on-click"></span>
+                    <div className="category-container">
 
-                    <div className="subtitle">Share your message</div>
-                    <div className="title">{popularCategories[2]}</div>
+                        <div className="subtitle">Share your message</div>
+                        <div className="title">{popularCategories[2]}</div>
+                    </div>
+
+                    <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781888/social-media_ihqmul.jpg" />
                 </div>
+                <div className='img-container' onClick={() => {
+                    onSetFilter(popularCategories[3])
+                }}>
+                    <span className="on-click"></span>
+                    <div className="category-container">
 
-                <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781888/social-media_ihqmul.jpg" />
-            </div>
-            <div className='img-container' onClick={() => {
-                onSetFilter(popularCategories[3])
-            }}>
-                <span className="on-click"></span>
-                <div className="category-container">
-
-                    <div className="subtitle">
-                    Brand your business
+                        <div className="subtitle">
+                            Brand your business
                         </div>
-                    <div className="title">{popularCategories[3]}</div>
-                </div>
-                
-                <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781888/logo-starbucks_w8plcz.jpg" />
-            </div>
-            <div className='img-container' onClick={() => {
-                onSetFilter(popularCategories[4])
-            }}>
-                <span className="on-click"></span>
-                <div className="category-container">
+                        <div className="title">{popularCategories[3]}</div>
+                    </div>
 
-                    <div className="subtitle">
-                    Level up your site
-                        </div>
-                    <div className="title">{popularCategories[4]}</div>
+                    <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781888/logo-starbucks_w8plcz.jpg" />
                 </div>
-                
-                <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781889/wordpress_dofxal.jpg" />
+                <div className='img-container' onClick={() => {
+                    onSetFilter(popularCategories[4])
+                }}>
+                    <span className="on-click"></span>
+                    <div className="category-container">
+
+                        <div className="subtitle">
+                            Level up your site
+                        </div>
+                        <div className="title">{popularCategories[4]}</div>
+                    </div>
+
+                    <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781889/wordpress_dofxal.jpg" />
+                </div>
             </div>
-        </div>
-    </section >
+        </section >
     )
 }

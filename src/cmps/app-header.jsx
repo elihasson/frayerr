@@ -81,15 +81,15 @@ export const AppHeader = (props) => {
 
                 {user && <div className='icon-search-bar-container'>
 
-                    <NavLink to="/" >
+                    <NavLink to="/explore" >
                         <NotificationsNoneOutlinedIcon />
                     </NavLink>
 
-                    <NavLink to="/" >
+                    <NavLink to="/explore" >
                         <MailOutlineOutlinedIcon />
                     </NavLink>
 
-                    <NavLink to="/" className='favorite-icon-button'>
+                    <NavLink to="/explore" className='favorite-icon-button'>
                         <FavoriteBorderOutlinedIcon />
                     </NavLink>
 
@@ -97,7 +97,7 @@ export const AppHeader = (props) => {
                         <div>Orders</div>
                     </NavLink>
 
-                    <NavLink to="#" className='Logout-button'>
+                    <NavLink to="#" className='logout-button'>
                         <div onClick={() => dispatch(onLogout())}>Logout</div>
                     </NavLink>
 

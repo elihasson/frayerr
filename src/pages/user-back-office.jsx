@@ -10,9 +10,10 @@ export const UserBackOffice = (props) => {
 
     return (
         <section className='back-office-container'>
-            <button className="btn" onClick={() => navigate(`/edit`)}>create gig</button>
-            <button className="btn" onClick={() => navigate(`/user/${user._id}/order`)}>Show orders</button>
-            <button className="btn" onClick={() => navigate(`/user/${user._id}/gig`)}>User Gigs</button>
+            <button className="btn" onClick={() => navigate(`/edit`)}>Create gig</button>
+            <button className="btn" onClick={() => navigate(`/user/${user._id}/order`)}>Gig orders</button>
+            <button className="btn" onClick={() => navigate(`/user/${user._id}/purchase`)}>Gigs purchased</button>
+            <button className="btn" onClick={() => navigate(`/user/${user._id}/gig`)}>My gigs</button>
         </section>
     )
 }

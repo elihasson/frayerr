@@ -69,8 +69,8 @@ export function gigReducer(state = initialState, action) {
             newState = { ...state, filterBy: { ...state.filterBy, txt: action.txt } }
             break
         case 'SET_FILTER_USER_ID':
-            gigs = state.gigs.filter(gig => gig.owner._id === action.userId)
-            newState = { ...state, filterBy: { ...state.filterBy, gigs, userId: action.userId } }
+            // gigs = state.gigs.filter(gig => gig.owner._id === action.userId)
+            newState = { ...state, filterBy: { ...state.filterBy, userId: action.userId } }
             break
         case 'SET_FILTER_BY':
             newState = { ...state, filterBy: action.filterBy }

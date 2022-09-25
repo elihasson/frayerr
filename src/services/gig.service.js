@@ -274,6 +274,7 @@ async function save(gig) {
         let newGig = getEmptyGig()
         gig = {...newGig, ...gig} 
         const owner = userService.getLoggedinUser()
+
         gig.owner = await userService.getMiniuserById(owner._id)
         console.log('upd gig', gig);
         if (!gig.owner)
@@ -310,9 +311,9 @@ async function getPopularCategories(categoriesCount) {
     // const categories = await storageService.get("category")
     var popularCategories = gCategories.slice(0, categoriesCount)
     return popularCategories.map((category) => {
-      return `${category.category
-        .charAt(0)
-        .toUpperCase()}${category.category.slice(1)}`;
+      return `${category?.category
+        ?.charAt(0)
+        .toUpperCase()}${category?.category?.slice(1)}`;
       })
     }
 

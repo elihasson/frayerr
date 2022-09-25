@@ -16,7 +16,10 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
+import { userService } from '../services/user.service'
+
 import { loadOrders, setOrderFilterUserId, removeOrder, updateOrder } from '../store/order.actions'
+import { loadUser } from '../store/user.actions'
 import { useParams } from 'react-router-dom';
 
 export const OrderList = (props) => {
@@ -24,7 +27,7 @@ export const OrderList = (props) => {
   const params = useParams()
   const dispatch = useDispatch()
 
-  // const [userId, setUserId] = useState('')
+  const [userId, setUserId] = useState('')
 
   const orders = useSelector(state => state.orderModule.orders)
   console.log('orders:', orders)
@@ -33,7 +36,7 @@ export const OrderList = (props) => {
     const userIdFromParams = params.userId
     dispatch(setOrderFilterUserId(userIdFromParams))
     dispatch(loadOrders())
-    // setUserId(userIdFromParams)
+    setUserId(userIdFromParams)
   }, [])
 
   const createData = (name, gigPrice, buyerName, orderId, orderStatus) => {
@@ -59,6 +62,7 @@ export const OrderList = (props) => {
       dispatch(updateOrder(order[0]))
     }
   }
+
 
   return (
     <div>

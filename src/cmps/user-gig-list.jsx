@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { loadGigs, setFilterUserId } from '../store/gig.actions'
+import { setLoadingStart, setLoadingDone } from '../store/system.actions'
 import { useNavigate } from 'react-router-dom'
 
 export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
@@ -24,8 +25,12 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
     const [userId, setUserId] = useState('')
     const gigs = useSelector(state => state.gigModule.gigs)
     const filterBy = useSelector(state => state.gigModule.filterBy)
+    const isLoading = useSelector(state => state.systemModule.isLoading)
     console.log('gigs:', gigs)
     console.log('filterBy:', filterBy)
+
+    if(!gigs) dispatch(setLoadingStart())
+    if(gigs) dispatch(setLoadingDone())
 
     useEffect(() => {
         const userIdFromParams = params.userId

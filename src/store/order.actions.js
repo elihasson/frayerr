@@ -97,7 +97,7 @@ export function loadOrder(orderId) {
     }
 }
 
-export function setFilterUserId(userId) {
+export function setOrderFilterUserId(userId) {
     return (dispatch) => {
         dispatch({type: 'SET_FILTER_USER_ID', userId})
     }

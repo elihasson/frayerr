@@ -24,8 +24,10 @@ export function getActionUpdateGig(gig) {
 
 export function loadGigs() {
     return async (dispatch, getState) => {
-        const  filterBy  = getState().gigModule.filterBy
+        const filterBy = getState().gigModule.filterBy
+        console.log('filterBy:', filterBy)
         try {
+            dispatch({ type: 'LOADING_START' })
             const gigs = await gigService.query(filterBy)
             console.log('gigs from DB:', gigs)
             dispatch({
@@ -36,6 +38,8 @@ export function loadGigs() {
         } catch (err) {
             showErrorMsg('Cannot load gigs')
             console.log('Cannot load gigs', err)
+        } finally {
+            dispatch({ type: 'LOADING_DONE' })
         }
     }
 }
@@ -163,25 +167,25 @@ export function checkout() {
 
 export function setFilterTxt(txt) {
     return (dispatch) => {
-        dispatch({type: 'SET_FILTER_TXT', txt})
+        dispatch({ type: 'SET_FILTER_TXT', txt })
     }
 }
 
 export function setFilterUserId(userId) {
     return (dispatch) => {
-        dispatch({type: 'SET_FILTER_USER_ID', userId})
+        dispatch({ type: 'SET_FILTER_USER_ID', userId })
     }
 }
 
 export function setFilterBy(filterBy) {
     return (dispatch) => {
-        dispatch({type: 'SET_FILTER_BY', filterBy})
+        dispatch({ type: 'SET_FILTER_BY', filterBy })
     }
 }
 
 export function setSortBy(sortBy) {
     return (dispatch) => {
-        dispatch({type: 'SET_SORT_BY', sortBy})
+        dispatch({ type: 'SET_SORT_BY', sortBy })
     }
 }
 

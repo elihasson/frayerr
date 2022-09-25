@@ -57,7 +57,7 @@ export const OrderCheckout = () => {
 
     return (
         <section className='checkout main-layout ' >
-            <div className="left-side-container">
+             <div className="left-side-container">
                 <div className="main-content-container">
                     <div className="img-container">
                         {/* <img src={gig.imgUrls[0].imgUrl} alt="first image"></img> */}
@@ -102,12 +102,12 @@ export const OrderCheckout = () => {
                             Total
                             <span> {(gig.price + (gig.price * 0.05)).toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
                         </li>
-                        <li> Delivery Time
+                        {/* <li> Delivery Time
                             <div className="li-inner-container">
                                 <span>{+gig.daysToMake}</span>
                                 <span> {+gig.daysToMake === 1 ? 'day' : 'days'}</span>
                             </div>
-                        </li>
+                        </li> */}
                     </ul>
                     <button className='btn' onClick={onSetOrder}>Purchase</button>
                 </div>
@@ -115,7 +115,7 @@ export const OrderCheckout = () => {
                 {/* <div>{gig && <div><pre>{JSON.stringify(gig, null, 2)}</pre>
                     <p>{JSON.stringify(features, null, 2)}
                         {JSON.stringify(categories.map((category) => gig.category.name, null, 2))}</p></div>}</div> */}
-            </div>
+            </div> 
 
         </section>
     )
