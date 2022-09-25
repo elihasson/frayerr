@@ -1,13 +1,22 @@
+import { gigService } from '../services/gig.service';
 import StarIcon from '@mui/icons-material/Star'
 import FavoriteIcon from '@mui/icons-material/Favorite'
+import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { CarouselItem } from './carousel-item'
 import { Carousel } from './carousel'
 import { Link, useNavigate } from 'react-router-dom'
+import { storageService } from '../services/async-storage.service'
+import { setLikedGig } from '../store/gig.actions'
+
 
 
 
 export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
+
+    const user = useSelector(state => state.userModule.user)
+    
+    const dispatch = useDispatch()
 
     const [isLike, setLike] = useState(false)
     const [likePopupClass, setClass] = useState(false)
@@ -15,11 +24,22 @@ export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
     // console.log('gig123', gig)
 
     useEffect(() => {
-        // need to check if user in the gig.likedByUsers then set like/unlike
+        checkIfLiked()
     }, [])
+
+    async function checkIfLiked() {
+        if (user) {
+            const isUserLiked = await gigService.isLikedByUser(gig)
+            setLike(isUserLiked)
+        } else {
+            const isGuestLiked = await storageService.isLikedByGuest(gig._id)
+            setLike(isGuestLiked)
+        }
+    }
 
     async function toggleLike() {
         setLike(!isLike)
+        dispatch(setLikedGig(gig, user))
         // when like/unlike - need to add/remove current user to gig.likedByUsers
     }
 

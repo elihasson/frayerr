@@ -9,6 +9,13 @@ export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added'
 export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you'
 
+export const SOCKET_EMIT_USER_OFFLINE = 'user-offline'
+export const SOCKET_EMIT_USER_ONLINE = 'user-online'
+export const SOCKET_EMIT_JOIN_IS_CONNECTED = 'join isConnected';
+export const SOCKET_EMIT_JOIN = 'join';
+
+
+
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 

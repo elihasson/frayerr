@@ -1,0 +1,90 @@
+
+// @include for-wide-header-layout {
+//     flex-direction: row;
+//     .profile-details-container {
+//         max-width: 425px;
+//         flex-grow: 1;
+//     }
+// }
+
+// .profile-details-container .user-details {
+// font-family: Arial, Helvetica, sans-serif;
+// padding-block: 32px;
+// margin-bottom: 20px;
+// padding-inline: 0;
+// background-color: #fff;
+// @include for-wide-header-layout {
+//     padding-inline: 32px;
+//     border: 1px solid $clr6;
+// }
+// .user-stats-wrapper {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     position: relative;
+//     border-bottom: 1px solid $clr6;
+//     padding-bottom: 30px;
+// }
+// .online-status {
+//     position: absolute;
+//     right: 0;
+//     color: $clr3;
+//     font-size: 0.9rem;
+//     border-radius: 2rem;
+//     border: 1px solid $clr3;
+//     padding: 2px 5px;
+//     font-family: Arial, Helvetica, sans-serif;
+//     &::before {
+//         content: "•";
+//         margin-inline: 4px;
+//     }
+// }
+// .online-status.online {
+//     color: $clr1;
+//     border: 1px solid $clr1;
+//     padding-inline-end: 10px;
+// }
+// .user-img {
+//     height: 150px;
+//     width: 150px;
+//     font-size: 48px;
+//     margin-bottom: 30px;
+// }
+// .fullname {
+//     font-size: rem(20px);
+//     color: $clr2;
+//     font-family: roboto-bold;
+// }
+// }
+
+// .profile-details-container .user-info-wrapper {
+// padding-top: 30px;
+// svg {
+//     margin-inline-end: 5px;
+//     height: 20px;
+// }
+// .origin-wrapper {
+//     display: flex;
+//     justify-content: space-between;
+//     div {
+//         display: flex;
+//         align-items: flex-end;
+//     }
+//     div:nth-child(2) {
+//         text-transform: capitalize;
+//         font-weight: 600;
+//     }
+//     margin-bottom: 5px;
+// }
+// .member-since {
+//     display: flex;
+//     justify-content: space-between;
+//     div {
+//         display: flex;
+//         align-items: flex-end;
+//     }
+//     div:nth-child(2) {
+//         font-weight: 600;
+//     }
+// }
+// }

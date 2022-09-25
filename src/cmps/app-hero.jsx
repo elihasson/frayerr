@@ -67,7 +67,7 @@ export const AppHero = () => {
         // this url doesn't: ${hero.imgSrc}
         // this url also finally works `../assets/img/bg-hero-${hero.imgSrc}`
         // rendering background images doesn't affect breakpoints which is good
-        <div className='hero-container'>
+        <div className='hero-container full'>
             <div className='hero-background'>
                 <div className='hero' style={{backgroundImage: `url(${require(`../assets/img/bg-hero-${hero.imgSrc}`)})`, backgroundColor: hero.bgc}}>
                     <div className='hero-header add-main-layout'>
