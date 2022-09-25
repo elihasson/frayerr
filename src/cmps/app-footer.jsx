@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userService } from '../services/user.service';
 import { onLogout } from '../store/user.actions'
+import { UserMsg } from './user-msg.jsx'
 
 
 export const AppFooter = () => {
@@ -62,6 +63,7 @@ export const AppFooter = () => {
                     <button onClick={() => dispatch(onLogout())}>Logout</button>
                 </ul>
             </div>}
+            <UserMsg />
         </section>
     )
 }

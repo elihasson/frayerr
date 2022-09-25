@@ -1,0 +1,30 @@
+.home-signup {
+    display: none;
+    margin-top: 48px;
+    border-radius: 4px;
+    height: 70vh;
+    background-image: url('../../img/bg-signup.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+
+    @include for-hero-layout-2 {
+        display: block;
+    }
+    
+    h2 {
+        color: $clr7;
+        font-family: 'Macan-regular';
+        font-weight: 700;
+        font-size: rem(48px);
+        line-height: 48px;
+        max-width: 650px;
+        padding-block-end: 40px;
+        margin-block-start: 120px;
+        margin-inline-start: 50px;
+
+        i {
+            font-family: 'domain-display-italic';
+        }
+    }
+}

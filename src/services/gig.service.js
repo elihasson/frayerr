@@ -226,6 +226,7 @@ export const gigService = {
     isLikedByUser,
     toggleLike,
     getCategories,
+    getPopularCategories,
     getFeaturesByCategory,
     getCategoriesNames
 }
@@ -337,6 +338,18 @@ async function getCategories() {
     // const categories = await storageService.get('category')
     return gCategories
 }
+
+async function getPopularCategories(categoriesCount) {
+    // const categories = await httpService.get("category");
+    // const categories = await storageService.get("category")
+    var popularCategories = gCategories.slice(0, categoriesCount)
+    console.log('popularCategories:', popularCategories)
+    return popularCategories.map((category) => {
+      return `${category.name
+        .charAt(0)
+        .toUpperCase()}${category.name.slice(1)}`;
+      })
+    }
 
 async function getCategoriesNames() {
     // const categories = await httpService.get("category");
