@@ -115,6 +115,22 @@ export function updateGig(gig) {
     }
 }
 
+export function setLikedGig(gig, user) {
+    return async (dispatch) => {
+        try {
+            const savedGig = await gigService.toggleLike(gig._id, user)
+            console.log('Updated Gig:', savedGig);
+            dispatch(getActionUpdateGig(savedGig))
+        } catch (err){
+            console.log('err', err)
+        }
+    }
+}
+
+
+
+
+
 export function addToCart(gig) {
     return (dispatch) => {
         dispatch({

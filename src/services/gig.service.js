@@ -68,16 +68,16 @@ const gCategories = [
             "Number Of Words: 150"
         ]
     },
-    // {
-    //     name: "marketing",
-    //     features: [
-    //         "Multiple Campaigns",
-    //         "Researched audiences",
-    //         "Multiple Ads",
-    //         "Budget & Creative Optimization",
-    //         "Free tips"
-    //     ]
-    // },
+    {
+        name: "marketing",
+        features: [
+            "Multiple Campaigns",
+            "Researched audiences",
+            "Multiple Ads",
+            "Budget & Creative Optimization",
+            "Free tips"
+        ]
+    },
 ]
 
 const gGigs = [
@@ -92,7 +92,7 @@ const gGigs = [
         { imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg" },
         { imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/231682055/original/77cc585046a1ceb81a809218fef35ee8252bbb3b.jpg" }],
         owner: {
-            _id: 'u101', username:'james', fullname: 'james carlo', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/798a61194492b92313c2f5b27d5397bb-1615924783131/a6a1c7f0-0cc0-4c50-95e1-2693d183ee1c.jpg",
+            _id: 'u101', username: 'james', fullname: 'james carlo', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/798a61194492b92313c2f5b27d5397bb-1615924783131/a6a1c7f0-0cc0-4c50-95e1-2693d183ee1c.jpg",
             level: 'basic', rate: 4
         },
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
@@ -108,7 +108,7 @@ const gGigs = [
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/83cc7c97f9873bdb052590a94d32f84c-1576419363871/ed47443e-0f9b-42ab-beaf-ec0a0acccfe8.jpeg" },
         { imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/197422311/original/1907136f4b9684daa164acfa5cfedc6035b771b1.jpg" }],
         owner: {
-            _id: 'u102',username:'marco', fullname: 'marco polo', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
+            _id: 'u102', username: 'marco', fullname: 'marco polo', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
             level: 'premium', rate: 5
         },
         tags: ['garage', 'mechanics', 'proffesional', 'accessible'],
@@ -124,7 +124,7 @@ const gGigs = [
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/5344c10fd4820db3626c4fc24968783d-1588608774469/1e4a3bd9-b71d-48ce-8ac0-0ff6d667caf4.jpeg" },
         { imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/155512325/original/9d62fbdec2b0bffd0318f9af43c2de023b62f5f0.jpg" }],
         owner: {
-            _id: 'u103', username:'amos', fullname: 'amos devinci', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e34531bf0bbed9d144dba7384f6473b6-1621577835789/60307055-cde9-4dc2-9e9e-4daa421991d3.jpg",
+            _id: 'u103', username: 'amos', fullname: 'amos devinci', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e34531bf0bbed9d144dba7384f6473b6-1621577835789/60307055-cde9-4dc2-9e9e-4daa421991d3.jpg",
             level: 'basic', rate: 5
         },
         tags: ['programming', 'coding-academy', 'proffesional', 'accessible'],
@@ -139,7 +139,7 @@ const gGigs = [
         description: "Hello! My name is Maria, and I am a digital marketer with over 3 years of experience working with diverse brands and businesses. I am well versed in everything marketing, SEO, graphic design, writing, and video editing. I am a one-stop shop for whatever you and your brand needs. I look to working with you!",
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/207813409/original/9557f50a12d8fccb5c52fb65b35f91cc036f99c6.jpg" }],
         owner: {
-            _id: 'u104', username:'amos', fullname: 'moni piloni', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/1fe02234f0b300905f098d1c2eef2599-1621414093019/30dd09bd-748a-49c0-b3bc-ee3071bdfadb.jpg",
+            _id: 'u104', username: 'amos', fullname: 'moni piloni', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/1fe02234f0b300905f098d1c2eef2599-1621414093019/30dd09bd-748a-49c0-b3bc-ee3071bdfadb.jpg",
             level: 'professional', rate: 5
         },
         tags: ['music', 'mastering', 'proffesional', 'accessible'],
@@ -155,7 +155,7 @@ const gGigs = [
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/1fe02234f0b300905f098d1c2eef2599-1621414093019/30dd09bd-748a-49c0-b3bc-ee3071bdfadb.jpg" },
         { imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/207580502/original/6d05bb9cde191b9423733c6b49d0e11892e35ee0.jpg" }],
         owner: {
-            _id: 'u105', username:'amos', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
+            _id: 'u105', username: 'amos', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
             level: 'basic', rate: 4
         },
         tags: ['cellolar', 'proffesional', 'accessible'],
@@ -171,7 +171,7 @@ const gGigs = [
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/044fb5914a845a4eb59fc2b69f7f7b32-1634120039750/4dbc2acb-7322-4cd0-9afb-e5190e8e8a0d.jpg" },
         { imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/3171448/original/a41a38f3733bb97279a49d1449f7337dece50693.jpg" }],
         owner: {
-            _id: 'u105',username:'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
+            _id: 'u105', username: 'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
             level: 'basic', rate: 4
         },
         tags: ['cellolar', 'proffesional', 'accessible'],
@@ -187,7 +187,7 @@ const gGigs = [
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/d098c50d82476b11568f3a50111a8a89-1636128369729/ef737ebd-6908-47bc-be50-963dabe16d0e.jpg" },
         { imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/a2dd1a0482bbfe54e61c6c2d6e64696e-1640431251801/943f73b5-dc43-4fe4-9728-9a58f0aafdbc.jpg" }],
         owner: {
-            _id: 'u100', username:'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
+            _id: 'u100', username: 'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
             level: 'basic', rate: 4
         },
         tags: ['cellolar', 'proffesional', 'accessible'],
@@ -203,7 +203,7 @@ const gGigs = [
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/eb6eef20969192eca1d8b1301e91cb4f-1630440851285/60f03cc4-71f2-437b-a241-f9423b6e2728.jpg" },
         { imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/3ec0d56f436079ef157dbcc1d21c4c62-1625030446037/1c926a30-7aa5-4de8-9a3b-6565be7ddd5b.jpg" }],
         owner: {
-            _id: 'u100', username:'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
+            _id: 'u100', username: 'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
             level: 'basic', rate: 4
         },
         tags: ['cellolar', 'proffesional', 'accessible'],
@@ -223,7 +223,8 @@ export const gigService = {
     getById,
     save,
     remove,
-    getEmptyGig,
+    isLikedByUser,
+    toggleLike,
     getCategories,
     getFeaturesByCategory,
     getCategoriesNames
@@ -267,35 +268,68 @@ async function save(gig) {
     if (gig._id) {
         savedGig = await storageService.put(STORAGE_KEY, gig)
         gigChannel.postMessage(getActionUpdateGig(savedGig))
-
+        return savedGig
     } else {
         // Later, owner is set by the backend
-        let newGig = getEmptyGig()
-        gig = {...newGig, ...gig} 
-        const owner = userService.getLoggedinUser()
-        gig.owner = await userService.getMiniuserById(owner._id)
-        console.log('upd gig', gig);
-        if (!gig.owner)
-            gig.owner = { _id: 'u101', fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 }
-        savedGig = await storageService.post(STORAGE_KEY, gig)
-        gigChannel.postMessage(getActionAddGig(savedGig))
+        let newGig = _getEmptyGig()
+        gig = { ...newGig, ...gig }
+        try {
+            const owner = await userService.getLoggedinUser()
+            if (owner._id){
+                gig.owner = await userService.getMiniuserById(owner._id)
+                savedGig = storageService.post(STORAGE_KEY, gig)
+                gigChannel.postMessage(getActionAddGig(savedGig))
+                return savedGig
+            }
+        } catch (err) {
+            showErrorMsg('you need to login')
+            console.log('no logged in user Cannot add/save gig', err)
+        }
+        // console.log('upd gig', gig);
+        // if (!gig.owner)
+        //     gig.owner = { _id: 'u101', fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 }
     }
-    return savedGig
 }
 
-function getEmptyGig() {
+function _getEmptyGig() {
     return {
-        title: 'I will put a card in the grid for you so you can test your application' + (Date.now() % 1000),
+        title: 'empty gig title' + (Date.now() % 1000),
         price: utilService.getRandomIntInclusive(10, 1000),
         category: "logo Design",
         daysToMake: 0,
-        description: 'i will add some description for you so you can see a description in your gig',
+        description: 'empty gig description',
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/8a1623fd3276ad7297d7647a8727bdf0-1589096119095/6c637953-9dc0-4c9c-b04d-c13c947fdc43.jpg" }],
-        owner: { _id: 'u101',username: 'james', fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 },
+        owner: { _id: '', username: '', fullname: '', imgUrl: '', level: '', rate: 0 },
         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
         likedByUsers: []
     }
 }
+
+async function toggleLike(gigId, user) {
+    const gig = await getById(gigId);
+    if (user) {
+      const idx = gig.likedByUsers.findIndex(currUser => currUser._id === user._id)
+      if (idx === -1) {
+        const miniUser = {
+          fullname: user.fullname,
+          imgUrl: user.imgUrl,
+          _id: user._id,
+        };
+        gig.likedByUsers = [...gig.likedByUsers, miniUser];
+      } else {
+        gig.likedByUsers.splice(idx, 1)
+      }
+    } else {
+      storageService.saveGuestGigs(gig);
+    }
+    const data = await save(gig);
+    return data;
+  }
+
+async function isLikedByUser(gig) {
+    const user = await userService.getLoggedinUser()
+    return gig.likedByUsers.some(currUser => currUser._id === user._id)
+  }
 
 // when working with database need to turn to a real async functions
 async function getCategories() {
@@ -311,8 +345,12 @@ async function getCategoriesNames() {
 }
 
 async function getFeaturesByCategory(categoryName) {
+    debugger
     const category = gCategories.find((category) => category.name === categoryName)
-    return category.features
+    if (category)
+        return category.features
+    else
+        return null    
 }
 
 

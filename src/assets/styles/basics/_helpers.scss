@@ -142,6 +142,13 @@
     &:active {
         background-color: darken($clr1, 10%);
     }
+
+    &.white{
+        background-color: white;
+        color: $clr1;
+        border: solid 1px;
+        border-color: $clr1 ;
+    }
 }
 
 .btn-red {
@@ -162,6 +169,8 @@
         background-color: darken(red, 10%);
     }
 }
+
+
 
 // .main-wrapper {
 //     width: 100%;
