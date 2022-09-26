@@ -13,7 +13,7 @@
 .gig-list {
     display: grid;
     grid-template-columns: repeat(1, minmax(245px, 1fr));
-    gap: 32px;
+    gap: 8px;
     margin: 0;
     @include for-gig-list-narrow-layout{
         grid-template-columns: repeat(2, minmax(245px, 1fr));

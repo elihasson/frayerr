@@ -15,13 +15,12 @@ import { setLikedGig } from '../store/gig.actions'
 export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
 
     const user = useSelector(state => state.userModule.user)
-    
+
     const dispatch = useDispatch()
 
     const [isLike, setLike] = useState(false)
     const [likePopupClass, setClass] = useState(false)
     const navigate = useNavigate()
-    // console.log('gig123', gig)
 
     useEffect(() => {
         checkIfLiked()
@@ -78,7 +77,11 @@ export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
 
             <div className='rate-wrapper'>
                 {/* <p>rate: <span>{gig.owner.rate}</span></p> */}
-                <span className='gig-rating'><StarIcon /> {gig.owner.rate}<span className='review-number'>(1k+)</span></span>
+                <div className='gig-rating'>
+                    <StarIcon fontSize="inherit" />
+                    <span>{gig.owner.rate}</span>
+                    <span className='review-number'>(1k+)</span>
+                </div>
             </div>
 
             <div className='card-footer'>
