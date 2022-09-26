@@ -109,6 +109,11 @@ export function loadOrder(orderId) {
     }
 }
 
+export function setOrderFilterBy(filterBy) {
+    return (dispatch) => {
+        dispatch({type: 'SET_ORDER_FILTER_BY', filterBy})
+    }
+}
 export function setOrderFilterUserId(userId) {
     return (dispatch) => {
         dispatch({type: 'SET_FILTER_USER_ID', userId})

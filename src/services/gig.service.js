@@ -365,8 +365,6 @@ async function getFeaturesByCategory(categoryName) {
         return null    
 }
 
-
-
 // "gig": [
 //     {
 //       "_id": "i101",
