@@ -114,10 +114,10 @@ function query(filterBy) {
     // filter by : status 
     return storageService.query(STORAGE_KEY)
         .then(orders => {
-            if (!orders || !orders.length) {
-                storageService.postMany(STORAGE_KEY, gOrders)
-                orders = gOrders
-            }
+            // if (!orders || !orders.length) {
+            //     storageService.postMany(STORAGE_KEY, gOrders)
+            //     orders = gOrders
+            // }
             if (filterBy) {
                 if (filterBy?.userIdSeller)
                     orders = orders.filter(order => {
@@ -186,7 +186,7 @@ function _makeOrder(gig, user) {
             serviceFee: gig.price * 0.05,
             img: gig.imgUrls[0],
         },
-        orderStatus: 'pending',
+        status: 'pending',
         //later by the DB
         _id: utilService.makeId(),
         createdAt: new Date(),

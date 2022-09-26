@@ -47,25 +47,16 @@ export const OrderCheckout = () => {
 
 
     const onSetOrder = async () => {
-        // dispatch(addOrder([],gig)
-        // let currOrder = await orderService.save([], gig)
         dispatch(addOrder([],gig))
         navigate(`/user/${user._id}/purchase`)
-            // try{
-            //     debugger
-            // }
-            // catch(err){
-            //     console.log('cant set order')
-            // }    
-        
     }
     
-    const onSetOrder1 = async () => {
+    // const onSetOrder1 = async () => {
 
-        let currOrder = await orderService.save([], gig)
-        setOrder(currOrder)
-        navigate(`/user/${currOrder.buyer._id}/purchase`)
-    }
+    //     let currOrder = await orderService.save([], gig)
+    //     setOrder(currOrder)
+    //     navigate(`/user/${user._id}/purchase`)
+    // }
 
     if (!gig) return <div>Loading...</div>
 
