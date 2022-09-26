@@ -358,7 +358,6 @@ async function getCategoriesNames() {
 }
 
 async function getFeaturesByCategory(categoryName) {
-    debugger
     const category = gCategories.find((category) => category.name === categoryName)
     if (category)
         return category.features

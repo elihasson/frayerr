@@ -7,10 +7,10 @@ export function UserRateStars({ gig }) {
     // let rate = 0
 
     // if (!gig.owner && !user) return <React.Fragment></React.Fragment>
-    if (!gig.owner) return <React.Fragment></React.Fragment>
-    // debugger
     // (!gig.owner.rate) ? rate = gig.owner.rate : rate = user.rate
-debugger
+    
+    if (!gig.owner) return <React.Fragment></React.Fragment>
+
     return (
         <div className='stars'>
             {stars.map((star, idx) => {

@@ -24,7 +24,7 @@ const gOrders = [
         },
         gig: {
             _id: "i101",
-            name: "Design Logo",
+            title: "Design Logo",
             price: 20
         },
         status: "pending"
@@ -43,7 +43,7 @@ const gOrders = [
         },
         gig: {
             _id: "i102",
-            name: "I will scratch you back",
+            title: "I will scratch you back",
             price: 33
         },
         status: "pending"
@@ -115,7 +115,6 @@ async function remove(orderId) {
 }
 
 async function save(order = [], gig = null) {
-    debugger
     var savedOrder
     console.log('order to update from order service:', order )
     if (order._id) {

@@ -45,7 +45,7 @@ export function OrderModal({ gig, modalClass }) {
             </div>
             <div className='order-features'>
                 <ul className='clean-list'>
-                    {features.map((feature, idx) => {
+                    {features?.map((feature, idx) => {
                         return (<li key={idx}>
                             <CheckIcon className="check-icon" />
                             {feature}
