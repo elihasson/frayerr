@@ -12,7 +12,16 @@
 
 .gig-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 8px;
-    margin: 0; 
+    grid-template-columns: repeat(1, minmax(245px, 1fr));
+    gap: 32px;
+    margin: 0;
+    @include for-gig-list-narrow-layout{
+        grid-template-columns: repeat(2, minmax(245px, 1fr));
+    } 
+    @include for-gig-list-normal-layout{
+        grid-template-columns: repeat(3, minmax(245px, 1fr));
+    } 
+    @include for-gig-list-wide-layout{
+        grid-template-columns: repeat(4, minmax(245px, 1fr));
+    } 
 }

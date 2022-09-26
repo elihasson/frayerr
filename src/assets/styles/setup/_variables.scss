@@ -11,13 +11,19 @@ $clr9: #2a2c30;
 $clr10: #023a15; // Added a clr10 variable for first hero
  
 // Padding
-$layoutPadding: 32px;
+// $layoutPadding: 71px;
+$layoutPadding: 35px;
 
 // Breakpoints
 $break-narrow: 460px;
 $break-normal: 720px;
 $break-wide: 960px;
 $break-extra-wide: 1300px;
+
+$gig-list-narrow: 630px;
+$gig-list-normal: 900px;
+$gig-list-wide: 1160px;
+
 
 // Carousel Breakpoints
 // $carousel-break-normal: 600px;

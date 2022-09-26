@@ -1,15 +1,14 @@
 .gig-preview {
   color: $clr2;
   padding: 0px;
-  width: 241px;
-  margin: 0 0 45px 0;
-  // margin-top: 15px;
+  min-width: 245px;
+  text-align: center;
+  transition:0.15s;
+  border-radius: .2em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #FFFFFF;
-  // border: 1px solid #e4e5e7;
-  // border: 1px solid  #B5B6BA;
   border: 1px solid #EFEFF0;
 
 
