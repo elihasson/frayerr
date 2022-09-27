@@ -356,7 +356,7 @@ async function getPopularCategories(categoriesCount) {
     return popularCategories.map((category) => {
       return `${category.name
         .charAt(0)
-        .toUpperCase()}${category.name.slice(1)}`;
+        .toUpperCase()}${category.name.slice(1)}`
       })
     }
 

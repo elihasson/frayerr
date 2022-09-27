@@ -30,6 +30,7 @@
       }
     }
     h2 {
+      padding-block-end: 24px;
       font-size: 32px;
       line-height: 120%;
       font-weight: 700;
@@ -37,6 +38,7 @@
     }
   
     .title {
+      padding-block: 8px;
       display: flex;
       align-items: center;
       gap: 5px;
@@ -49,6 +51,7 @@
     }
   
     .paragraph {
+      padding-block-end: 24px;
       .desc {
         font-size: 18px;
         color: #646466;

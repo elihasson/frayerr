@@ -5,19 +5,25 @@ import { useNavigate } from 'react-router-dom'
 import { gigService } from '../services/gig.service'
 import { setFilterBy, loadGigs } from '../store/gig.actions'
 
-export const HomeCategory = (props) => {
+export const HomeCategory = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const gigs = useSelector(state => state.gigModule.gigs)
+    const categories = useSelector(state => state.gigModule.gigs)
     const filterBy = useSelector(state => state.gigModule.filterBy)
-    console.log('gigs:', gigs)
-    console.log('filterBy:', filterBy)
 
     const [popularCategories, setPopularCategories] = useState([])
 
     // useEffect(() => {
     //     dispatch(setFilterBy(''))
     //     dispatch(loadGigs())
+
+    //     return dispatch(setFilterUserId(''))
+    // }, [])
+
+    // useEffect(() => {
+    //     dispatch(setFilterBy(''))
+    //     dispatch(categories())
 
     //     return dispatch(setFilterUserId(''))
     // }, [])
@@ -29,9 +35,9 @@ export const HomeCategory = (props) => {
 
     const getPopularCategories = async () => {
         const popularCategories = await gigService.getPopularCategories(6)
-        console.log('popularCategories:', popularCategories)
-        // return await gigService.getPopularCategories(5)
-        return popularCategories
+        return await gigService.getPopularCategories(6)
+        // console.log('popularCategories:', popularCategories)
+        // return popularCategories
     }
 
     const onSetFilter = (category) => {
