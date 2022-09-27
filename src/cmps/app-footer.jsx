@@ -3,10 +3,9 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { userService } from '../services/user.service';
-import { onLogout } from '../store/user.actions'
+import { loadCategories } from '../store/gig.actions'
 import { UserMsg } from './user-msg.jsx'
 
 import { InfinitySpin } from 'react-loader-spinner'
@@ -20,6 +19,10 @@ export const AppFooter = () => {
     const dispatch = useDispatch()
 
     const [isUser, setIsUser] = useState(user)
+
+    useEffect(() => {
+        dispatch(loadCategories())
+    }, [])
 
     return (
         <section className='app-footer main-layout '>

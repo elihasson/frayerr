@@ -1,32 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { connect, useDispatch, useSelector } from 'react-redux'
-import { loadGig } from '../store/gig.actions'
 import { CarouselItem } from '../cmps/carousel-item'
 import { Carousel } from '../cmps/carousel'
 import { OrderModal } from '../cmps/order-modal'
 import { UserRateStars } from '../cmps/user-rate-stars'
+import {  loadGig } from '../store/gig.actions'
 
 
-export function _GigDetails({ gig, loadGig }) {
+export const GigDetails = () => {
+
+    const dispatch = useDispatch()
+    const gig = useSelector(state => state.gigModule.watchedGig)
+    console.log('gig:', gig)
 
     const params = useParams()
     //need to be inner function if no gig
-    useEffect(() => {
-        loadGig(params.gigId)
-    }, [])
-
+    useEffect(() =>  {
+        dispatch(loadGig(params.gigId))
+    }, [params.gigId])
+    
     //component of loader
     if (!gig) return <div>Loading...</div>
     return (
         <section className="gig-details">
             <div className="gig-details-container">
                 <div className='details-header inpage-nav' id='Overview'>
-                    <h1 className="gig-title">{gig.title}</h1>
+                    <h1 className="gig-title">{gig?.title}</h1>
                     <div className="owner-info">
-                        <div className="user-img" style={{ backgroundImage: `url(${gig.owner.imgUrl})` }}></div>
-                        <h5 className='owner-name'>{gig.owner.fullname}</h5>
-                        <h5 className='owner-level'>{gig.owner.rate}</h5>
+                        <div className="user-img" style={{ backgroundImage: `url(${gig?.owner?.imgUrl})` }}></div>
+                        <h5 className='owner-name'>{gig?.owner?.fullname}</h5>
+                        <h5 className='owner-level'>{gig?.owner?.rate}</h5>
                         <span className='spacer'>|</span>
                         <UserRateStars gig={gig} />
                         {/* <h5>stars</h5> */}
@@ -35,13 +39,13 @@ export function _GigDetails({ gig, loadGig }) {
 
                 <div className="gig-img">
                     <Carousel gig={gig} isDetails={true}>
-                        {gig.imgUrls[0] && gig.imgUrls.map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl} isDetails={true}></CarouselItem>)}
+                        {gig?.imgUrls[0] && gig.imgUrls.map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl} isDetails={true}></CarouselItem>)}
                     </Carousel>
                 </div>
                 <div className='about-gig'>
                     <h1>About this gig</h1>
                     <p>
-                        {gig.description}
+                        {gig?.description}
                     </p>
                 </div>
 
@@ -55,7 +59,7 @@ export function _GigDetails({ gig, loadGig }) {
                 </div>} */}
             </div>
             <div className='order-modal-container'>
-                <OrderModal modalClass="aside" gig={gig} />
+                <OrderModal modalClass="aside" gig={gig}  />
             </div>
 
         </section>
@@ -63,14 +67,3 @@ export function _GigDetails({ gig, loadGig }) {
 }
 
 
-
-const mapStateToProps = state => {
-    return {
-        gig: state.gigModule.watchedGig
-    }
-}
-const mapDispatchToProps = {
-    loadGig
-}
-
-export const GigDetails = connect(mapStateToProps, mapDispatchToProps)(_GigDetails)

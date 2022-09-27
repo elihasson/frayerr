@@ -16,8 +16,6 @@ export const Explore = (props) => {
     
     useEffect(() => {
         dispatch(loadGigs())
-        dispatch(loadCategories())
-
     //    gigs = loadGigs()
     }, [filterBy])
 

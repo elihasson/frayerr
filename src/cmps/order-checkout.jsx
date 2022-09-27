@@ -12,43 +12,39 @@ import { orderService } from "../services/order.service";
 // import { socketService } from "../services/socket.service";
 // import { utilService } from "../services/util.service";
 import { loadGig } from '../store/gig.actions'
+import { addOrder } from '../store/order.actions'
 
 
 export const OrderCheckout = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const watchedGig = useSelector(state => state.gigModule.watchedGig)
+    const loggedinUser = useSelector(state => state.userModule.user)
+    const gig = useSelector(state => state.gigModule.watchedGig)
     const categories = useSelector(state => state.gigModule.categories)
-    const watchedOrder = useSelector(state => state.orderModule.watchedOrder)
 
-    const [gig, setGig] = useState([])
     const [features, setFeatures] = useState([])
-    const [order, setOrder] = useState([])
     const params = useParams()
 
-
-    console.log('check', categories)
-
+    console.log('gig:', gig)
+    console.log('categories:', categories)
 
     useEffect(() => {
+        dispatch(loadGig(params.gigId))
+        _getFeaturesByCategory(gig?.category)
+    }, [categories])
 
-        async function fetchData() {
-            let currGig = await gigService.getById(params.gigId)
-            let currGigFeatures = await gigService.getFeaturesByCategory(currGig.category)
-
-            setGig(currGig)
-            setFeatures(currGigFeatures)
-        }
-
-        fetchData()
-    }, [])
+    const _getFeaturesByCategory = (categoryName) => {
+        const featuresObj = categories.filter(category => category.name === categoryName)
+        setFeatures(featuresObj[0]?.features)
+    }
 
     const onSetOrder = async () => {
 
-        let currOrder = await orderService.save([],gig)
-        setOrder(currOrder)
-        navigate(`/user/${currOrder.buyer._id}/purchase`)
+        // let currOrder = await orderService.save([],gig)
+        // setOrder(currOrder)
+        dispatch(addOrder([],gig))
+        navigate(`/user/${loggedinUser._id}/purchase`)
     }
 
     if (!gig) return <div>Loading...</div>
@@ -78,7 +74,7 @@ export const OrderCheckout = () => {
                     {/* <p>{() => {trimIWill()}}</p> */}
                     <div className='order-features'>
                         <ul className='clean-list'>
-                            {features.map((feature, idx) => {
+                            {features?.map((feature, idx) => {
                                 return (<li key={idx}>
                                     <CheckIcon className="check-icon" />
                                     {feature}

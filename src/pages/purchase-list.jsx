@@ -38,20 +38,20 @@ export const PurchaseList = (props) => {
     dispatch(loadOrders())
   }, [])
 
-  const createData = (name, gigPrice, sellerName, orderId, orderStatus) => {
-    return { name, gigPrice, sellerName, orderId, orderStatus };
+  const createData = (title, gigPrice, sellerName, orderId, orderStatus) => {
+    return { title, gigPrice, sellerName, orderId, orderStatus };
   }
 
   let rows = []
 
   rows = orders?.map((order) => {
-    const name = order.gig.name
-    const gigPrice = order.gig.price
-    const sellerName = order.seller.fullname
+    const title = order.gig?.title
+    const gigPrice = order.gig?.price
+    const sellerName = order.seller?.fullname
     console.log('order:', order)
     const orderId = order._id
     const orderStatus = order.status
-    return createData(name, gigPrice, sellerName, orderId, orderStatus)
+    return createData(title, gigPrice, sellerName, orderId, orderStatus)
   })
 
   const changeOrderStatus = (orderId, action) => {
@@ -84,11 +84,11 @@ export const PurchaseList = (props) => {
           <TableBody>
             {rows.map((row) => (
               <TableRow
-                key={row.name}
+                key={row.title}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {row.title}
                 </TableCell>
                 <TableCell align="center">{row.gigPrice}</TableCell>
                 <TableCell align="center">{row.sellerName}</TableCell>

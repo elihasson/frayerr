@@ -40,19 +40,19 @@ export const OrderList = (props) => {
 		// setUserId(userIdFromParams)
 	}, [])
 
-	const createData = (name, gigPrice, buyerName, orderId, orderStatus) => {
-		return { name, gigPrice, buyerName, orderId, orderStatus };
+	const createData = (title, gigPrice, buyerName, orderId, orderStatus) => {
+		return { title, gigPrice, buyerName, orderId, orderStatus };
 	}
 
 	let rows = []
 
 	rows = orders?.map((order) => {
-		const name = order.gig.name
-		const gigPrice = order.gig.price
-		const buyerName = order.buyer.fullname
+		const title = order.gig?.title
+		const gigPrice = order.gig?.price
+		const buyerName = order.buyer?.fullname
 		const orderId = order._id
 		const orderStatus = order.status
-		return createData(name, gigPrice, buyerName, orderId, orderStatus)
+		return createData(title, gigPrice, buyerName, orderId, orderStatus)
 	})
 
 	const changeOrderStatus = (orderId, action) => {
@@ -84,11 +84,11 @@ export const OrderList = (props) => {
 					<TableBody>
 						{rows.map((row) => (
 							<TableRow
-								key={row.name}
+								key={row.title}
 								sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 							>
 								<TableCell component="th" scope="row">
-									{row.name}
+									{row.title}
 								</TableCell>
 								<TableCell align="center">{row.gigPrice}</TableCell>
 								<TableCell align="center">{row.buyerName}</TableCell>

@@ -7,12 +7,14 @@ import { CarouselItem } from './carousel-item'
 import { Carousel } from './carousel'
 import { Link, useNavigate } from 'react-router-dom'
 import { storageService } from '../services/async-storage.service'
-import { setLikedGig } from '../store/gig.actions'
+import { setLikedGig, loadGig } from '../store/gig.actions'
 
 
 
 
-export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
+
+
+export const GigPreview = ({ gig, onRemoveGig, onUpdateGig }) => {
 
     const user = useSelector(state => state.userModule.user)
     
@@ -53,7 +55,6 @@ export function GigPreview({ gig, onRemoveGig, onUpdateGig }) {
         }
         return gigTitle
     }
-
 
     return (
         <li className="gig-preview full">
