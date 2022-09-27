@@ -1,21 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { connect, useDispatch, useSelector } from 'react-redux'
-import { loadGig } from '../store/gig.actions'
 import { CarouselItem } from '../cmps/carousel-item'
 import { Carousel } from '../cmps/carousel'
 import { OrderModal } from '../cmps/order-modal'
 import { UserRateStars } from '../cmps/user-rate-stars'
+import {  loadGig } from '../store/gig.actions'
 
 
-export function _GigDetails({ gig, loadGig }) {
+export const GigDetails = () => {
+
+    const dispatch = useDispatch()
+    const gig = useSelector(state => state.gigModule.watchedGig)
+    console.log('gig:', gig)
 
     const params = useParams()
     //need to be inner function if no gig
-    useEffect(() => {
-        loadGig(params.gigId)
-    }, [])
-
+    useEffect(() =>  {
+        dispatch(loadGig(params.gigId))
+    }, [params.gigId])
+    
     //component of loader
     if (!gig) return <div>Loading...</div>
 
@@ -69,14 +73,3 @@ export function _GigDetails({ gig, loadGig }) {
 }
 
 
-
-const mapStateToProps = state => {
-    return {
-        gig: state.gigModule.watchedGig
-    }
-}
-const mapDispatchToProps = {
-    loadGig
-}
-
-export const GigDetails = connect(mapStateToProps, mapDispatchToProps)(_GigDetails)

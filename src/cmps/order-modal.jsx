@@ -1,37 +1,42 @@
-import React, { useState, useEffect }  from 'react'
+import React, { useState, useEffect } from 'react'
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CheckIcon from '@mui/icons-material/Check';
 import { Link } from 'react-router-dom';
+import { loadCategories } from '../store/gig.actions'
 
-import { gigService } from '../services/gig.service'
+import { useDispatch, useSelector } from 'react-redux';
 
 
-export function OrderModal({ gig, modalClass }) {
+export const OrderModal = ({ gig, modalClass}) => {
 
-    var { title } = gig
-    title = _dropIWill(title)
+    var { title } = gig // todo change the name of title
+    const categories = useSelector(state => state.gigModule.categories)
     const [features, setFeatures] = useState([])
+    console.log('categories:', categories)
+    console.log('gig:', gig)
 
-    // useEffect(async () => {
-    //     var ans = await getFeatures()
-    //     setFeatures(ans)
-    //     return () => {
-    //     }
-    // }, [])
-   
     useEffect(() => {
-        async function getFeatures() {
-            let res = await gigService.getFeaturesByCategory(gig.category)
-            setFeatures(res)
-          }
-      
-          getFeatures()
-    }, [])
+        title = _dropIWill(title)
+        _getFeaturesByCategory(gig.category)
+    })
 
-    // const getFeatures = async () => {
-    //     return await gigService.getFeaturesByCategory(gig.category)
-    // }
+    const _dropIWill = (title) => {
+        title = title.trim();
+        var titleToEdit = title.toLowerCase();
+        if (titleToEdit.startsWith('i will')) {
+            title = title.slice(7);
+            title = title.charAt(0).toUpperCase() + title.slice(1);
+        }
+        return title;
+    }
 
+    const _getFeaturesByCategory = (categoryName) => {
+        const featuresObj = categories.filter(category => category.name === categoryName)
+        setFeatures(featuresObj[0]?.features)
+        console.log('featuresObj.features:',featuresObj )
+    }
+
+    if (!gig) return <div>Loading...</div>
     return (
         <div className={`order-modal ${modalClass}`}>
             <div className='order-title-wrapper'>
@@ -62,14 +67,4 @@ export function OrderModal({ gig, modalClass }) {
             </Link> */}
         </div>
     )
-}
-
-function _dropIWill(title) {
-    title = title.trim();
-    var titleToEdit = title.toLowerCase();
-    if (titleToEdit.startsWith('i will')) {
-        title = title.slice(7);
-        title = title.charAt(0).toUpperCase() + title.slice(1);
-    }
-    return title;
 }

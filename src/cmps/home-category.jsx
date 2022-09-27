@@ -34,8 +34,8 @@ export const HomeCategory = () => {
     }, [])
 
     const getPopularCategories = async () => {
-        const popularCategories = await gigService.getPopularCategories(6)
         return await gigService.getPopularCategories(6)
+        // const popularCategories = await gigService.getPopularCategories(6)
         // console.log('popularCategories:', popularCategories)
         // return popularCategories
     }
