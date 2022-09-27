@@ -30,9 +30,7 @@ export const Explore = (props) => {
 
     useEffect(() => {
         dispatch(loadGigs())
-        dispatch(loadCategories())
-
-        //    gigs = loadGigs()
+    //    gigs = loadGigs()
     }, [filterBy])
 
     const onRemoveGig = (gigId) => {

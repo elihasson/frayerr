@@ -36,8 +36,7 @@ export const PurchaseList = (props) => {
         status: '',
     }))
     dispatch(loadOrders())
-  })
-  // }, [orders])
+  }, [])
 
   const createData = (title, gigPrice, sellerName, orderId, orderStatus) => {
     return { title, gigPrice, sellerName, orderId, orderStatus };
@@ -46,9 +45,9 @@ export const PurchaseList = (props) => {
   let rows = []
 
   rows = orders?.map((order) => {
-    const title = order.gig.title
-    const gigPrice = order.gig.price
-    const sellerName = order.seller.fullname
+    const title = order.gig?.title
+    const gigPrice = order.gig?.price
+    const sellerName = order.seller?.fullname
     console.log('order:', order)
     const orderId = order._id
     const orderStatus = order.status

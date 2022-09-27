@@ -1,6 +1,6 @@
 import { GigPreview } from '../cmps/gig-preview.jsx'
 
-export const GigList = ({ gigs, onRemoveGig, onUpdateGig, onAddToCart, history }) => {
+export const GigList = ({ gigs, onRemoveGig, onUpdateGig}) => {
     
     if(!gigs) return <div>No gigs Found, try again</div>
     return (
