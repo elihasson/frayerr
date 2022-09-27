@@ -18,46 +18,52 @@ export function _GigDetails({ gig, loadGig }) {
 
     //component of loader
     if (!gig) return <div>Loading...</div>
+
+    let levelClass, levelDesc
+    if (gig?.owner?.rate < 4) {
+        levelClass = ''
+        levelDesc = 'Level 2 Seller'
+    } else {
+        levelClass = 'top'
+        levelDesc = 'Top Rated Seller'
+    }
+
     return (
-        <section className="gig-details">
-            <div className="gig-details-container">
-                <div className='details-header inpage-nav' id='Overview'>
-                    <h1 className="gig-title">{gig.title}</h1>
-                    <div className="owner-info">
-                        <div className="user-img" style={{ backgroundImage: `url(${gig.owner.imgUrl})` }}></div>
-                        <h5 className='owner-name'>{gig.owner.fullname}</h5>
-                        <h5 className='owner-level'>{gig.owner.rate}</h5>
-                        <span className='spacer'>|</span>
-                        <UserRateStars gig={gig} />
-                        {/* <h5>stars</h5> */}
+        <section className='gig-details-page flex column'>
+            <section className="gig-details">
+                <div className="gig-details-container">
+                    <div className='details-header inpage-nav' id='Overview'>
+                        <h1 className="gig-title">{gig.title}</h1>
+                        <div className="owner-info">
+                            <div className="user-img" style={{ backgroundImage: `url(${gig.owner.imgUrl})` }}></div>
+                            <h5 className='owner-name'>{gig.owner.fullname}</h5>
+                            <h5 className={'owner-level ' + `${levelClass}`}>{levelDesc}</h5>
+                            <span className='spacer'>|</span>
+                            <UserRateStars gig={gig} />
+                            {/* <h5>stars</h5> */}
+                        </div>
                     </div>
-                </div>
-
-                <div className="gig-img">
-                    <Carousel gig={gig} isDetails={true}>
-                        {gig.imgUrls[0] && gig.imgUrls.map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl} isDetails={true}></CarouselItem>)}
-                    </Carousel>
-                </div>
-                <div className='about-gig'>
-                    <h1>About this gig</h1>
-                    <p>
-                        {gig.description}
-                    </p>
-                </div>
-
-
-
-
-                {/* {gig && <div>
+                    <div className="gig-img">
+                        <Carousel gig={gig} isDetails={true}>
+                            {gig.imgUrls[0] && gig.imgUrls.map((imgUrl, idx) => <CarouselItem key={idx} imgUrl={imgUrl} isDetails={true}></CarouselItem>)}
+                        </Carousel>
+                    </div>
+                    {/* {gig && <div>
                     <pre>
                         {JSON.stringify(gig, null, 2)}
                     </pre>
                 </div>} */}
+                </div>
+                <div className='order-modal-container'>
+                    <OrderModal modalClass="aside" gig={gig} />
+                </div>
+            </section>
+            <div className='about-gig'>
+                <h4>About This Gig</h4>
+                <p>
+                    {gig.description}
+                </p>
             </div>
-            <div className='order-modal-container'>
-                <OrderModal modalClass="aside" gig={gig} />
-            </div>
-
         </section>
     )
 }

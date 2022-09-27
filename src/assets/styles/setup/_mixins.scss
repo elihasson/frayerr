@@ -144,6 +144,12 @@
 
 //Order form mixins
 
+  @mixin for-order-small-layout {
+    @media (min-width: $order-break-small) {
+      @content;
+    }
+  }
+
   @mixin for-order-normal-layout {
     @media (min-width: $order-break-normal) {
       @content;
