@@ -12,18 +12,24 @@ $clr10: #023a15; // Added a clr10 variable for first hero
  
 // Padding
 // $layoutPadding: 71px;
-$layoutPadding: 35px;
+$layoutPadding: 32px;
 
 // Breakpoints
 $break-narrow: 460px;
 $break-normal: 720px;
 $break-wide: 960px;
-$break-extra-wide: 1300px;
+$break-extra-wide: 1520px;
 
-$gig-list-narrow: 630px;
-$gig-list-normal: 900px;
-$gig-list-wide: 1160px;
-$gig-list-wide: 1300px;
+// fiver gig-list/preview
+// wide  4 326x383 - pic 324x194
+// b1160 3 348x395 - pic 348x209
+// b888  2 402x428 - pic 402x241
+// b600  1 547x515 - pic 547x328
+
+$gig-list-narrow: 600px; // 1 to 2 card
+$gig-list-normal: 888px; // 2 to 3 cards
+$gig-list-wide: 1160px;  // 3 to 4 cards
+$gig-list-xwide: 1520px; // double padding to keep 1400
 
 
 // Carousel Breakpoints

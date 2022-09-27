@@ -49,7 +49,7 @@ export const GigPreview = ({ gig, onRemoveGig, onUpdateGig }) => {
     }
 
     const getShortTitle = (gigTitle) => {
-        if (gigTitle.length > 45) {
+        if (gigTitle.length > 80) {
             return `${gigTitle.substring(0, 30)}...`
         }
         return gigTitle

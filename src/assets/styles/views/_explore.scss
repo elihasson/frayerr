@@ -1,5 +1,13 @@
 .explore {
 
+    margin-bottom: 20px;
+    margin-top: 80px;
+    h2{
+        font-size: 26px;
+        color: #404145;
+        margin-bottom: 20px;
+    }
+
     // .gig-list {
     //     list-style: none;
     //     display: flex;
@@ -58,8 +66,13 @@
             max-width: 600px;
             height: 35px;
             color: #222325;
-            font-family: arial;
-            font-style: normal;
+            em {
+                font-family: work-sans;
+                font-style: normal;
+                color: #222325;
+              }
+            // font-family: arial;
+            // font-style: normal;
             li {
                 z-index: 9999;
             }
@@ -77,6 +90,11 @@
         }
         .budget-div {
           position: relative;
+          
+            font-family: work-sans;
+            font-style: normal;
+            color: #222325;
+          
         //   margin: 0 4px;
         //   height: 40px;
           .budget-select {
@@ -85,8 +103,8 @@
             height: 35px;
             border-radius: 4px;
             color: #222325;
-            font-family: arial;
-            font-style: normal;
+            // font-family: arial;
+            // font-style: normal;
             border: 1px solid #c4c4c4;
             padding: 5px 10px 8px 15px;
             width: 120px;
@@ -195,7 +213,7 @@
           color: #222325;
           font-size: 1rem;
           font-weight: 700;
-          font-family: Arial, Helvetica, sans-serif;
+        //   font-family: Arial, Helvetica, sans-serif;
           display: flex;
           align-items: center;
         }
@@ -210,7 +228,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-family: work-sans;
+    //   font-family: work-sans;
       color: $clr2;
       h2 {
         text-align: center;
