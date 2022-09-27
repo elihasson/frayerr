@@ -1,17 +1,20 @@
 .gig-search-bar-container {
-    width: 400px; // added by aharon
+    // width: 400px; // added by aharon
     margin-top: 40px;
     display: flex;
     position: relative;
     flex-direction: column;
     row-gap: 15px;
+    width: 100%;
+    padding-inline-end: 32px;
+
 
     @include for-hero-layout-1 {
-        width: 700px;
+        // width: 700px;
     }
 
     @include for-hero-layout-2 {
-        width: 600px;
+        // width: 600px;
         flex-direction: row;
         row-gap: 0;
     }

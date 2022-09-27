@@ -8,7 +8,7 @@
         height: 100%;
         top: -80px;
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
         background-color: $clr10;
         // z-index: -100; //added by Aharon
         transition: 2s;
@@ -16,6 +16,10 @@
         // @include for-hero-layout-2 {
         //     background-color: unset;
         // }
+
+        @include for-hero-layout-3 {
+            justify-content: flex-end;
+        }
         
         .hero {
             width: 100%;
@@ -41,14 +45,21 @@
         display: flex;
         flex-direction: column;
         margin-block-start: 220px; //added by Aharon
+        align-items: flex-start;
+        padding-inline-start: 32px;
         // align-content: center; // removed by Aharon
         // padding-bottom: 24px;
         // position: absolute;
         // inset-block-start: 30vh;
         // width: 600px;
+        // max-width: 1400px;
+        // margin: auto;
+        // margin-block-start: 220px;
 
         .hero-title {
-            width: 400px;
+            // width: 400px;
+            max-width: 700px;
+            width: 100%;        
             font-size: rem(40px);
             line-height: 55px; // must calculate with lh function
             font-weight: 700;
@@ -57,12 +68,12 @@
 
             @include for-hero-layout-1 {
                 // font-size: rem(48px);
-                width: 700px;
+                // width: 700px;
             }
 
             @include for-hero-layout-2 {
                 // font-size: rem(48px);
-                width: 600px;
+                // width: 600px;
             }
 
             i {
