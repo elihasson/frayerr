@@ -7,6 +7,7 @@ import { AdminApp } from './pages/admin-app.jsx'
 import { GigDetails } from './pages/gig-details.jsx'
 import { UserBackOffice } from './pages/user-back-office.jsx'
 import { UserOrder } from './pages/user-order.jsx'
+import { UserPurchase } from './pages/user-purchase.jsx'
 import { UserGigs } from './pages/user-gigs.jsx'
 import { OrderCheckout } from './cmps/order-checkout.jsx'
 import { GigEdit } from './pages/gig-edit.jsx'
@@ -37,6 +38,11 @@ const routes = [
         path: "/user/:userId/order",
         component: <UserOrder />,
         label: 'User order manager'
+    },
+    {
+        path: "/user/:userId/purchase",
+        component: <UserPurchase />,
+        label: 'User purchase manager'
     },
     {
         path: "/user/:userId/gig",

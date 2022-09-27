@@ -4,7 +4,9 @@ const initialState = {
     lastRemovedOrder: null,
     watchedOrder: null,
     filterBy: {
-        userId: '',
+        userIdSeller: '',
+        userIdBuyer: '',
+        status: '',
     },
 }
 export function orderReducer(state = initialState, action) {
@@ -35,8 +37,17 @@ export function orderReducer(state = initialState, action) {
                 newState = { ...state, orders: [...state.orders, state.lastRemovedOrder], lastRemovedOrder: null }
             }
             break
-        case 'SET_FILTER_USER_ID':
-            newState = { ...state, filterBy: { ...state.filterBy, userId: action.userId } }
+        case 'SET_ORDER_FILTER_BY':
+            newState = { ...state, filterBy:  action.filterBy }
+            break
+        case 'SET_FILTER_USER_ID_SELLER':
+            newState = { ...state, filterBy: { ...state.filterBy, userIdSeller: action.userId } }
+            break
+        case 'SET_FILTER_USER_ID_BUYER':
+            newState = { ...state, filterBy: { ...state.filterBy, userIdBuyer: action.userId } }
+            break
+        case 'SET_FILTER_STATUS':
+            newState = { ...state, filterBy: { ...state.filterBy, status: action.userId } }
             break
 
         default:

@@ -12,7 +12,7 @@ import { NavBar } from './nav-bar.jsx'
 import { GigFilter } from './gig-filter'
 
 import { toggleJoinModal, toggleLoginModal } from '../store/system.actions'
-import { loadUsers } from '../store/user.actions'
+import { loadUsers, onLogout } from '../store/user.actions'
 
 export const AppHeader = (props) => {
 
@@ -81,20 +81,24 @@ export const AppHeader = (props) => {
 
                 {user && <div className='icon-search-bar-container'>
 
-                    <NavLink to="/" >
+                    <NavLink to="/explore" >
                         <NotificationsNoneOutlinedIcon />
                     </NavLink>
 
-                    <NavLink to="/" >
+                    <NavLink to="/explore" >
                         <MailOutlineOutlinedIcon />
                     </NavLink>
 
-                    <NavLink to="/" className='favorite-icon-button'>
+                    <NavLink to="/explore" className='favorite-icon-button'>
                         <FavoriteBorderOutlinedIcon />
                     </NavLink>
 
                     <NavLink to="/" className='orders-button'>
                         <div>Orders</div>
+                    </NavLink>
+
+                    <NavLink to="#" className='logout-button'>
+                        <div onClick={() => dispatch(onLogout())}>Logout</div>
                     </NavLink>
 
                 </div>}
@@ -115,10 +119,10 @@ export const AppHeader = (props) => {
 
                 </div>}
 
-                {user && <div className='avatar-logo-container'>
+                {user && <div className='avatar-logo-container hovertext'
+                    data-hover={`Username: ${user?.username}`}>
                     <NavLink to={`/user/${user?._id}`}> <img src={user?.imgUrl} alt="user img"
-                        data-hover={`Username: ${user?.username}`}
-                        className='user-profile-img hovertext' /></NavLink>
+                        className='user-profile-img ' /></NavLink>
 
                 </div>}
 

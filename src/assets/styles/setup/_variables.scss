@@ -11,13 +11,20 @@ $clr9: #2a2c30;
 $clr10: #023a15; // Added a clr10 variable for first hero
  
 // Padding
-$layoutPadding: 32px;
+// $layoutPadding: 71px;
+$layoutPadding: 35px;
 
 // Breakpoints
 $break-narrow: 460px;
 $break-normal: 720px;
 $break-wide: 960px;
 $break-extra-wide: 1300px;
+
+$gig-list-narrow: 630px;
+$gig-list-normal: 900px;
+$gig-list-wide: 1160px;
+$gig-list-wide: 1300px;
+
 
 // Carousel Breakpoints
 // $carousel-break-normal: 600px;
@@ -44,10 +51,11 @@ $hero-bp-3: 1160px;
 //Review-breakpoint
 // $review-break-narrow: 580px;
 
-// //Order-breakpoint
-$order-break-extra-wide: 1150px;
+//Order-breakpoint
+$order-break-small: 700px;
+$order-break-normal: 890px;
 $order-break-wide: 1080px;
-$order-break-normal: 910px;
+$order-break-extra-wide: 1230px;
 
 //home-categories-breakpoint
 $home-category-break-narrow: 500px;

@@ -9,16 +9,28 @@ import { userService } from '../services/user.service';
 import { onLogout } from '../store/user.actions'
 import { UserMsg } from './user-msg.jsx'
 
+import { InfinitySpin } from 'react-loader-spinner'
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 
 export const AppFooter = () => {
 
-    const  user  = useSelector(state => state.userModule.user)
+    const user = useSelector(state => state.userModule.user)
+    const isLoading = useSelector(state => state.systemModule.isLoading)
     const dispatch = useDispatch()
 
     const [isUser, setIsUser] = useState(user)
 
     return (
         <section className='app-footer main-layout '>
+            {isLoading &&
+                <div className="loader">
+                    <InfinitySpin
+                        width='200'
+                        color="#4fa94d"
+
+                    />
+                </div>}
             {/* <div className="border-for-footer  "></div> */}
             <div className="main-info  ">
                 <div className="logo-small-container">
@@ -55,14 +67,15 @@ export const AppFooter = () => {
                 </ul>
             </div>
 
-            {user && <div>
+            {/* {user && <div>
                 {console.log('user id:', user._id)}
                 <ul>
                     <li>user name:{user.username}</li>
                     <li>full name:{user.fullname}</li>
                     <button onClick={() => dispatch(onLogout())}>Logout</button>
                 </ul>
-            </div>}
+            </div>} */}
+
             <UserMsg />
         </section>
     )

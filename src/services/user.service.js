@@ -32,6 +32,7 @@ const gUsers = [
         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/079e914e9f28e8269dee6bb109ef85a1-1570850131880/40fbde37-316f-4de2-9ca5-07b1300360d2.jpg",
         username: "golda",
         password: "gold",
+        smallDesc:'im a fan of arale kaminsky',
         level: "premium",
         rate: 4.5,
         isAdmin: false,
@@ -53,6 +54,7 @@ const gUsers = [
         imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/200950826/original/08090f735021ad8441f30fe2f38542ce95a2ead9.png",
         username: "frayer",
         password: "123",
+        smallDesc:'the best of the best',
         rate: 4.5,
         level: "premium",
         isAdmin: true,
@@ -218,6 +220,7 @@ async function saveUser(user) {
 //       "imgUrl": "/img/img1.jpg",
 //       "username": "user1",
 //       "password": "secret",
+//       "smallDesc": "im real"
 //       "level": "basic/premium",
 //       "isAdmin: false"
 //       "reviews": [

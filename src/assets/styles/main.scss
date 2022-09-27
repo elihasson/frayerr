@@ -20,8 +20,11 @@
 @import "views/review-app";
 @import "views/back-office";
 @import "views/gig-edit";
+@import "views/user-profile";
+
 
 // Components
+@import "cmps/loader";
 @import "cmps/app-header";
 @import "cmps/app-footer";
 @import "cmps/gig-list";

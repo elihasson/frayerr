@@ -99,7 +99,6 @@
 
 .hovertext {
     position: relative;
-    border-bottom: 1px dotted black;
 
     &:before {
         content: attr(data-hover);
@@ -115,7 +114,7 @@
 
         position: absolute;
         z-index: 1;
-        left: -200%;
+        left: -300%;
         top: 110%;
     }
 
@@ -142,6 +141,13 @@
     &:active {
         background-color: darken($clr1, 10%);
     }
+
+    &.white{
+        background-color: white;
+        color: $clr1;
+        border: solid 1px;
+        border-color: $clr1 ;
+    }
 }
 
 .btn-red {
@@ -162,6 +168,8 @@
         background-color: darken(red, 10%);
     }
 }
+
+
 
 // .main-wrapper {
 //     width: 100%;

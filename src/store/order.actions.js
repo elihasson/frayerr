@@ -1,6 +1,6 @@
 import { orderService } from "../services/order.service.js";
 import { userService } from "../services/user.service.js";
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
+import { showSuccessMsg, showErrorMsg, showThanksMsg } from '../services/event-bus.service.js'
 
 // Action Creators:
 export function getActionRemoveOrder(orderId) {
@@ -21,6 +21,15 @@ export function getActionUpdateOrder(order) {
         order
     }
 }
+
+export function getActionSetWatchedOrder(order) {
+    return {
+        type: 'SET_WATCHED_ORDER',
+        order
+    }
+}
+
+
 
 export function loadOrders() {
     return async (dispatch, getState) => {
@@ -44,7 +53,7 @@ export function removeOrder(orderId) {
     return async (dispatch) => {
         try {
             await orderService.remove(orderId)
-            console.log('Deleted Succesfully!');
+            console.log('Deleted Successfully!');
             dispatch(getActionRemoveOrder(orderId))
             showSuccessMsg('Order removed')
         } catch (err) {
@@ -56,13 +65,16 @@ export function removeOrder(orderId) {
 
 export function addOrder(order, gig = null) {
     return (dispatch) => {
-
         orderService.save(order, gig)
             .then(savedOrder => {
                 console.log('Added Order', savedOrder);
-                dispatch(getActionAddOrder(savedOrder))
-                showSuccessMsg('Order added')
+                dispatch(getActionSetWatchedOrder(savedOrder))
+                return savedOrder
             })
+            .then(savedOrder => {
+                dispatch(getActionAddOrder(savedOrder))
+                showThanksMsg('Thank you for Purchasing')
+            }) 
             .catch(err => {
                 showErrorMsg('Cannot add order')
                 console.log('Cannot add order', err)
@@ -97,7 +109,12 @@ export function loadOrder(orderId) {
     }
 }
 
-export function setFilterUserId(userId) {
+export function setOrderFilterBy(filterBy) {
+    return (dispatch) => {
+        dispatch({type: 'SET_ORDER_FILTER_BY', filterBy})
+    }
+}
+export function setOrderFilterUserId(userId) {
     return (dispatch) => {
         dispatch({type: 'SET_FILTER_USER_ID', userId})
     }

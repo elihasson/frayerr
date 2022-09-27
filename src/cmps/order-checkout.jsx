@@ -7,7 +7,7 @@ import { UserRateStars } from '../cmps/user-rate-stars'
 import { gigService } from "../services/gig.service";
 import { userService } from "../services/user.service";
 import { orderService } from "../services/order.service";
-// import { addOrder } from '../store/order.actions';
+import { addOrder } from '../store/order.actions';
 // import { toggleJoinModal, setHomePage } from '../store/system.actions'
 // import { socketService } from "../services/socket.service";
 // import { utilService } from "../services/util.service";
@@ -21,6 +21,7 @@ export const OrderCheckout = () => {
     const watchedGig = useSelector(state => state.gigModule.watchedGig)
     const categories = useSelector(state => state.gigModule.categories)
     const watchedOrder = useSelector(state => state.orderModule.watchedOrder)
+    const user = useSelector(state => state.userModule.user)
 
     const [gig, setGig] = useState([])
     const [features, setFeatures] = useState([])
@@ -44,12 +45,18 @@ export const OrderCheckout = () => {
         fetchData()
     }, [])
 
-    const onSetOrder = async () => {
 
-        let currOrder = await orderService.save([],gig)
-        setOrder(currOrder)
-        navigate(`/user/${currOrder.buyer._id}/order`)
+    const onSetOrder = async () => {
+        dispatch(addOrder([],gig))
+        navigate(`/user/${user._id}/purchase`)
     }
+    
+    // const onSetOrder1 = async () => {
+
+    //     let currOrder = await orderService.save([], gig)
+    //     setOrder(currOrder)
+    //     navigate(`/user/${user._id}/purchase`)
+    // }
 
     if (!gig) return <div>Loading...</div>
 
@@ -78,7 +85,7 @@ export const OrderCheckout = () => {
                     {/* <p>{() => {trimIWill()}}</p> */}
                     <div className='order-features'>
                         <ul className='clean-list'>
-                            {features.map((feature, idx) => {
+                            {features?.map((feature, idx) => {
                                 return (<li key={idx}>
                                     <CheckIcon className="check-icon" />
                                     {feature}
@@ -102,13 +109,14 @@ export const OrderCheckout = () => {
                             Total
                             <span> {(gig.price + (gig.price * 0.05)).toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
                         </li>
-                        <li> Delivery Time
+                        {/* <li> Delivery Time
                             <div className="li-inner-container">
                                 <span>{+gig.daysToMake}</span>
                                 <span> {+gig.daysToMake === 1 ? 'day' : 'days'}</span>
                             </div>
-                        </li>
+                        </li> */}
                     </ul>
+                    
                     <button className='btn' onClick={onSetOrder}>Purchase</button>
                 </div>
 

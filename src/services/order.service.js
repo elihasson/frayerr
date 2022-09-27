@@ -20,11 +20,12 @@ const gOrders = [
         },
         seller: {
             _id: "u100",
-
+            fullname: 'Frayerr Solutions',
+            username: "frayer",
         },
         gig: {
             _id: "i101",
-            name: "Design Logo",
+            title: "Design Logo",
             price: 20
         },
         status: "pending"
@@ -39,11 +40,12 @@ const gOrders = [
         },
         seller: {
             _id: "u100",
-
+            fullname: 'Frayerr Solutions',
+            username: "frayer",
         },
         gig: {
             _id: "i102",
-            name: "I will scratch you back",
+            title: "I will scratch you back",
             price: 33
         },
         status: "pending"
@@ -58,12 +60,33 @@ const gOrders = [
         },
         seller: {
             _id: "u101",
-
+            fullname: 'Golda Sheraton',
+            username: "golda",
         },
         gig: {
             _id: "i104",
             name: "Scrape data",
             price: 50
+        },
+        status: "pending"
+    },
+    {
+        _id: "07777",
+        createdAt: 9898989,
+        buyer: {
+            _id: "u100",
+            fullname: 'Frayerr Solutions',
+            username: "frayer",
+        },
+        seller: {
+            _id: "u101",
+            fullname: 'Golda Sheraton',
+            username: "golda",
+        },
+        gig: {
+            _id: "i105",
+            name: "Drawings",
+            price: 100
         },
         status: "pending"
     }
@@ -91,14 +114,23 @@ function query(filterBy) {
     // filter by : status 
     return storageService.query(STORAGE_KEY)
         .then(orders => {
-            if (!orders || !orders.length) {
-                storageService.postMany(STORAGE_KEY, gOrders)
-                orders = gOrders
-            }
-            if(filterBy?.userId){
-                orders = orders.filter( order => {
-                return order.seller._id === filterBy.userId
-                })
+            // if (!orders || !orders.length) {
+            //     storageService.postMany(STORAGE_KEY, gOrders)
+            //     orders = gOrders
+            // }
+            if (filterBy) {
+                if (filterBy?.userIdSeller)
+                    orders = orders.filter(order => {
+                        return order.seller._id === filterBy.userIdSeller
+                    })
+                if (filterBy?.userIdBuyer)
+                    orders = orders.filter(order => {
+                        return order.buyer._id === filterBy.userIdBuyer
+                    })
+                if (filterBy?.status)
+                    orders = orders.filter(order => {
+                        return order.status === filterBy.status
+                    })
             }
             return orders
         })
@@ -115,9 +147,8 @@ async function remove(orderId) {
 }
 
 async function save(order = [], gig = null) {
-    debugger
     var savedOrder
-    console.log('order to update from order service:', order )
+    console.log('order to update from order service:', order)
     if (order._id) {
         savedOrder = await storageService.put(STORAGE_KEY, order)
         orderChannel.postMessage(getActionUpdateOrder(savedOrder))
@@ -155,7 +186,7 @@ function _makeOrder(gig, user) {
             serviceFee: gig.price * 0.05,
             img: gig.imgUrls[0],
         },
-        orderStatus: 'pending',
+        status: 'pending',
         //later by the DB
         _id: utilService.makeId(),
         createdAt: new Date(),

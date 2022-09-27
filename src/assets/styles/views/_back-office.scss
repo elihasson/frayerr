@@ -1,9 +1,79 @@
-.back-office-container{
-    min-height: 70vh;
+.back-office-container {
+    margin-top: 30px;
+    min-height: 90vh;
+    gap: 20px;
+    padding-bottom: 30px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
     margin-block-start: 18px;
     margin-block-end: 18px;
 
-    button:not(:first-child){
+    @include for-normal-layout {
+        gap: 40px;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    @include for-order-wide-layout {
+        gap: 60px;
+    }
+
+
+    // background-color: #62646a;
+
+    button:not(:first-child) {
         margin-inline-start: 18px;
     }
+
+    .profile-details-container {
+        justify-content: space-between;
+        font-size: 1.25rem;
+        border-radius: 2px;
+        // margin-top: -60px;
+        // max-width: 370px;
+        width: 370px;
+        height: 380px;
+        // height: fit-content;
+        padding: 32px;
+        text-align: center;
+        border: 2px solid rgb(235, 232, 232);
+        background-color: #fff;
+
+        .user-img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+    }
+
+    .btn-container {
+        height: 36px;
+        
+    }
+
+    .active-gigs-container {
+        margin-left: 30px;
+        max-width: 740px;
+        min-width: 300px;
+        flex-grow: auto;
+        
+        .active-gigs-title {
+            background-color: #fff;
+            border: 2px solid rgb(235, 232, 232);
+            height: 30px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .active-gigs {
+            background-color: #fff;
+            border: 2px solid rgb(235, 232, 232);
+            height: 70vh;
+            width: 100%;
+
+        }
+    }
+
+
 }

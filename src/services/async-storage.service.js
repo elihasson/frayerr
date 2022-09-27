@@ -5,8 +5,24 @@ export const storageService = {
     post,
     put,
     remove,
-    postMany
+    postMany,
+    saveGuestGigs
 }
+
+// !!!! for guest - only in local storage
+
+var guestGigs = JSON.parse(localStorage.getItem("guestGigs_db")) || [];
+
+function saveGuestGigs(gig) {
+    const gigIdx = guestGigs.findIndex((guestGig) => guestGig._id === gig._id);
+    if (gigIdx !== -1) guestGigs.splice(gigIdx, 1);
+    else guestGigs = [...guestGigs, gig];
+    localStorage.setItem("guestGigs_db", JSON.stringify(guestGigs));
+  }
+
+
+
+// functions to convert to httpService
 
 function query(entityType, delay = 600) {
     var entities = JSON.parse(localStorage.getItem(entityType)) || []
