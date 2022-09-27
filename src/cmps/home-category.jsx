@@ -5,24 +5,39 @@ import { useNavigate } from 'react-router-dom'
 import { gigService } from '../services/gig.service'
 import { setFilterBy, loadGigs } from '../store/gig.actions'
 
-export const HomeCategory = (props) => {
+export const HomeCategory = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const gigs = useSelector(state => state.gigModule.gigs)
+    const categories = useSelector(state => state.gigModule.gigs)
     const filterBy = useSelector(state => state.gigModule.filterBy)
 
-    const [popularCategories, setCategories] = useState([])
+    const [popularCategories, setPopularCategories] = useState([])
+
+    // useEffect(() => {
+    //     dispatch(setFilterBy(''))
+    //     dispatch(loadGigs())
+
+    //     return dispatch(setFilterUserId(''))
+    // }, [])
+
+    // useEffect(() => {
+    //     dispatch(setFilterBy(''))
+    //     dispatch(categories())
+
+    //     return dispatch(setFilterUserId(''))
+    // }, [])
+
     useEffect(() => async () => {
-        var ans = await gigService.getCategories()
-        setCategories(ans)
-    }
-        , [])
+        var ans = await getPopularCategories()
+        setPopularCategories(ans)
+    }, [])
 
     const getPopularCategories = async () => {
         const popularCategories = await gigService.getPopularCategories(6)
-        console.log('popularCategories:', popularCategories)
-        // return await gigService.getPopularCategories(5)
-        return popularCategories
+        return await gigService.getPopularCategories(6)
+        // console.log('popularCategories:', popularCategories)
+        // return popularCategories
     }
 
     const onSetFilter = (category) => {
@@ -75,50 +90,41 @@ export const HomeCategory = (props) => {
                     <span className="on-click"></span>
                     <div className="category-container">
 
-                        <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781888/social-media_ihqmul.jpg" />
-                    </div>
-                    <div className='img-container' onClick={() => {
-                        onSetFilter(popularCategories[3])
-                    }}>
-                        <span className="on-click"></span>
-                        <div className="category-container">
-
-                            <div className="subtitle">
-                                Build your brand
-                            </div>
-                            <div className="title">{popularCategories[3]}</div>
+                        <div className="subtitle">
+                            Build your brand
                         </div>
-
-                        <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png" />
+                        <div className="title">{popularCategories[3]}</div>
                     </div>
-                    <div className='img-container' onClick={() => {
-                        onSetFilter(popularCategories[4])
-                    }}>
-                        <span className="on-click"></span>
-                        <div className="category-container">
 
-                            <div className="subtitle">
-                                Customize your site
-                            </div>
-                            <div className="title">{popularCategories[4]}</div>
+                    <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png" />
+                </div>
+                <div className='img-container' onClick={() => {
+                    onSetFilter(popularCategories[4])
+                }}>
+                    <span className="on-click"></span>
+                    <div className="category-container">
+
+                        <div className="subtitle">
+                            Customize your site
                         </div>
-
-                        <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png" />
+                        <div className="title">{popularCategories[4]}</div>
                     </div>
-                    <div className='img-container' onClick={() => {
-                        onSetFilter(popularCategories[4])
-                    }}>
-                        <span className="on-click"></span>
-                        <div className="category-container">
 
-                            <div className="subtitle">
-                                Share your message
-                            </div>
-                            <div className="title">{popularCategories[5]}</div>
+                    <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png" />
+                </div>
+                <div className='img-container' onClick={() => {
+                    onSetFilter(popularCategories[4])
+                }}>
+                    <span className="on-click"></span>
+                    <div className="category-container">
+
+                        <div className="subtitle">
+                            Share your message
                         </div>
-
-                        <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png" />
+                        <div className="title">{popularCategories[5]}</div>
                     </div>
+
+                    <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png" />
                 </div>
             </div>
         </section >

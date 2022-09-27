@@ -1,4 +1,26 @@
 /* Breakpoint mixins  (Media queries)*/
+
+
+/* layout*/
+
+@mixin for-layout-normal {
+  @media (min-width: $break-normal) {
+    @content;
+  }
+}
+@mixin for-layout-wide {
+  @media (min-width: $break-wide) {
+    @content;
+  }
+}
+@mixin for-layout-extra-wide {
+  @media (min-width: $break-extra-wide) {
+    @content;
+  }
+}
+
+// header
+
 @mixin for-normal-max-layout {
   @media (max-width: $header-break-normal) {
     @content;
@@ -42,6 +64,23 @@
 //       @content;
 //     }
 //   }
+
+@mixin for-gig-list-narrow-layout {
+  @media (min-width: $gig-list-narrow) {
+    @content;
+  }
+}
+@mixin for-gig-list-normal-layout {
+  @media (min-width: $gig-list-normal) {
+    @content;
+  }
+}
+@mixin for-gig-list-wide-layout {
+  @media (min-width: $gig-list-wide) {
+    @content;
+  }
+}
+
 
 // header layout mixins
 
@@ -104,6 +143,12 @@
 //   }
 
 //Order form mixins
+
+  @mixin for-order-small-layout {
+    @media (min-width: $order-break-small) {
+      @content;
+    }
+  }
 
   @mixin for-order-normal-layout {
     @media (min-width: $order-break-normal) {

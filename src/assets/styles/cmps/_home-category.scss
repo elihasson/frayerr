@@ -3,6 +3,7 @@
       color: $clr2;
       font-family: roboto-bold;
       font-size: 1.5rem;
+      padding-block-end: 24px;
       @include for-narrow-layout {
         font-size: 2rem;
       }

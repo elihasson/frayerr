@@ -9,6 +9,7 @@ export const UserGigs = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    
     const onRemoveGig = (gigId) => {
         dispatch(removeGig(gigId))
     }

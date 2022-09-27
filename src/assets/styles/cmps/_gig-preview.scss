@@ -1,16 +1,20 @@
 .gig-preview {
   color: $clr2;
   padding: 0px;
-  width: 241px;
-  margin: 0 0 45px 0;
-  // margin-top: 15px;
+  min-width: 245px;
+  text-align: center;
+  transition:0.15s;
+  border-radius: .2em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #FFFFFF;
-  // border: 1px solid #e4e5e7;
-  // border: 1px solid  #B5B6BA;
   border: 1px solid #EFEFF0;
+  margin-bottom: 21px;
+  @include for-gig-list-wide-layout{
+    max-width: 325px;
+
+  }
 
 
   &:hover {
@@ -21,7 +25,7 @@
 
   .gig-img {
     width: 100%;
-    height: 150px;
+    // height: 150px;
     cursor: pointer;
 
     img {
@@ -66,8 +70,8 @@
     .user-img {
       background-size: cover;
       background-repeat: no-repeat;
-      height: 30px;
-      width: 30px;
+      height: 20px;
+      width: 20px;
       border-radius: 50%; 
     }
 
@@ -82,13 +86,14 @@
 
   .gig-title {
     margin: 0;
-    font-size: 18px;
+    // font-size: 16px;
     font-family: work-sans;
     text-align: left;
     color: #222325;
+    min-height: 40px;
     // padding: 8px 20px 8px 12px;
     padding: 0px 12px 5px;
-    margin: 5px 0 0;
+    // margin: 5px 0 0;
     cursor: pointer;
     transition: 0.3s all;
     // height: 3.2em;
@@ -96,14 +101,22 @@
   }
 
   .rate-wrapper {
-    padding: 10px 12px;
+    padding: 15px 15px;
+    font-size: 1rem;
 
     .gig-rating {
       display: flex;
       align-items: center;
-      height: 15px;
+      height: 18px;
+      // text-transform:none;
       color: #FFBE5B;
       font-weight: 700;
+      font-size: 1rem;
+      span {
+        font-size: 12px;
+
+      }
+
     }
 
     .review-number {
@@ -113,10 +126,11 @@
     }
 
     .star {
-      width: 15px;
-      height: 15px;
+      width: 18px;
+      height: 18px;
       margin-right: 5px;
       vertical-align: -0.16em;
+      font-size: 1rem;
     }
   }
 
@@ -126,14 +140,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px;
+    padding: 0px 6px 0px 6px;
 
     p {
       font-size: 10px;
       color: #74767E;
 
       span {
-        font-size: 18px;
+        font-size: 16px;
         color: #404145;
         padding-left: 6px;
       }
@@ -212,14 +226,14 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 145px;
+    height: 197px;
     background-size: cover;
     color: #fff;
   }
 
   .indicators {
     display: block;
-    top: 50%;
+    top: 56%;
   
     &> :first-child {
       position: absolute;

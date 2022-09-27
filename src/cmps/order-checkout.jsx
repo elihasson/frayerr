@@ -46,6 +46,13 @@ export const OrderCheckout = () => {
         dispatch(addOrder([],gig))
         navigate(`/user/${loggedinUser._id}/purchase`)
     }
+    
+    // const onSetOrder1 = async () => {
+
+    //     let currOrder = await orderService.save([], gig)
+    //     setOrder(currOrder)
+    //     navigate(`/user/${user._id}/purchase`)
+    // }
 
     if (!gig) return <div>Loading...</div>
 
@@ -53,7 +60,7 @@ export const OrderCheckout = () => {
 
     return (
         <section className='checkout main-layout ' >
-             <div className="left-side-container">
+            <div className="left-side-container">
                 <div className="main-content-container">
                     <div className="img-container">
                         {/* <img src={gig.imgUrls[0].imgUrl} alt="first image"></img> */}
@@ -105,13 +112,14 @@ export const OrderCheckout = () => {
                             </div>
                         </li> */}
                     </ul>
+                    
                     <button className='btn' onClick={onSetOrder}>Purchase</button>
                 </div>
 
                 {/* <div>{gig && <div><pre>{JSON.stringify(gig, null, 2)}</pre>
                     <p>{JSON.stringify(features, null, 2)}
                         {JSON.stringify(categories.map((category) => gig.category.name, null, 2))}</p></div>}</div> */}
-            </div> 
+            </div>
 
         </section>
     )

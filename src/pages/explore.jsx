@@ -1,8 +1,17 @@
-import { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 
-import { loadGigs, addGig, updateGig, removeGig, loadCategories } from '../store/gig.actions.js'
+
+import { loadGigs, addGig, updateGig, removeGig, loadCategories, setFilterBy } from '../store/gig.actions.js'
+import FormControl from '@mui/material/FormControl'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import MenuItem from '@mui/material/MenuItem'
+import Select from '@mui/material/Select'
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
+
+
 
 import { showSuccessMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.js'
@@ -10,10 +19,15 @@ import { GigList } from '../cmps/gig-list.jsx'
 
 export const Explore = (props) => {
 
-    const  gigs  = useSelector(state => state.gigModule.gigs)
-    const  filterBy  = useSelector(state => state.gigModule.filterBy)
+    const gigs = useSelector(state => state.gigModule.gigs)
+    const filterBy = useSelector(state => state.gigModule.filterBy)
     const dispatch = useDispatch()
-    
+    const navigate = useNavigate()
+
+    const [isBudgetOpen, setIsBudgetOpen] = useState(false)
+    const [minPrice, setMinPrice] = useState(0)
+    const [maxPrice, setMaxPrice] = useState(10000000)
+
     useEffect(() => {
         dispatch(loadGigs())
     //    gigs = loadGigs()
@@ -34,6 +48,34 @@ export const Explore = (props) => {
         dispatch(updateGig(gigToSave))
     }
 
+    const handleFilter = ({ target }) => {
+        const field = target.name
+        const value = target.value
+        dispatch(setFilterBy({ [field]: value }, field))
+        navigate(`/explore?${filterBy}`)
+    }
+
+    const handleBudget = ({ target }) => {
+        const field = target.name
+        const value = +target.value
+        dispatch(setFilterBy({ ...filterBy, [field]: value }, field))
+    }
+
+    const clearFilter = () => {
+        dispatch(setFilterBy({}))
+    }
+
+    const applyFilter = () => {
+        navigate(`/explore?${filterBy}`)
+    }
+
+
+    const toggleBudget = () => {
+        setIsBudgetOpen(!isBudgetOpen)
+
+    }
+
+
     // add to favorites ?
     // const onAddToCart = (gig) => {
     //     console.log(`Adding ${gig.title} to Cart`)
@@ -41,17 +83,79 @@ export const Explore = (props) => {
     //     showSuccessMsg('Added to Cart')
     // }
 
+    var budgetClass = isBudgetOpen ? "open" : "";
+
     return (
         <div className="explore">
-            <h2>Most popular Gigs in</h2>
+            <h2>All Categories</h2>
+            <div className="filter-container">
+                <FormControl sx={{ minWidth: 120, margin: 0 }}>
+                    <ThemeProvider theme={theme}>
+                        <div className={`filters-div flex`}>
+                            <Select
+                                value={filterBy.deliveryTime}
+                                name='deliveryTime'
+                                onChange={handleFilter}
+                                displayEmpty
+                                className='delivery select'
+                                inputProps={{ 'aria-label': 'Without label' }}>
+                                <MenuItem value='' className="select-item">
+                                    <em>Delivery Time</em>
+                                </MenuItem>
+                                <MenuItem className="select-item" value={1}>Express 24H</MenuItem>
+                                <MenuItem className="select-item" value={3}>Up to 3 days</MenuItem>
+                                <MenuItem className="select-item" value={7}>Up to 7 days</MenuItem>
+                            </Select>
+                            <div className="budget-div">
+                                <div onClick={() => toggleBudget()} className="budget-select">
+                                    <span className="text">Budget</span>  <span className={`arrow ${budgetClass}`}><ArrowDropDownIcon /></span>
+                                </div>
+                                <div className={`budget-content ${budgetClass}`}>
+                                    <div className="budget-filter">
+                                        <div className="price-filter flex">
+                                            <div className="input-wrapper flex column">
+                                                <label htmlFor="min">Min:
+                                                </label>
+                                                <input type="text" name="minPrice" onChange={handleBudget} placeholder="Any" value={filterBy.minPrice} />
+                                            </div>
+                                            <div className="input-wrapper flex column">
+                                                <label htmlFor="maxPrice">Max.
+                                                </label>
+                                                <input type="text" name="maxPrice" onChange={handleBudget} placeholder="Any" value={filterBy.maxPrice} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="budget-btns flex">
+                                        <button className="close-btn" onClick={clearFilter}>clear</button>
+                                        <button className="btn" onClick={applyFilter}>Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ThemeProvider>
+                </FormControl>
+            </div>
             <main>
                 {/* <button onClick={onAddGig}>Add Gig</button> */}
                 <GigList
                     gigs={gigs}
                     onRemoveGig={onRemoveGig}
                     onUpdateGig={onUpdateGig}
-                     />
+                />
             </main>
         </div>
     )
 }
+
+const theme = createTheme({
+    components: {
+        MuiSelect: {
+            styleOverrides: {
+                select: {
+                    padding: ('8px 15px'),
+                    borderRadius: '0px',
+                },
+            },
+        },
+    },
+});
