@@ -1,4 +1,10 @@
 .explore {
+
+    // .gig-list {
+    //     list-style: none;
+    //     display: flex;
+    //     flex-wrap: wrap;
+    // }
   
       .filter-container {
         position: sticky;
@@ -9,6 +15,9 @@
         display: flex;
         flex-direction: row;
         padding: 10px 0;
+
+
+
         // @media (max-width: 450px) {
         //   display: none;
         //   &.open {
@@ -42,6 +51,9 @@
         //   line-height: 120%;
         //   display: inline-block;
         // }
+
+
+
         .delivery {
             max-width: 600px;
             height: 35px;

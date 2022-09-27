@@ -10,8 +10,9 @@
   justify-content: space-between;
   background-color: #FFFFFF;
   border: 1px solid #EFEFF0;
+  margin-bottom: 21px;
   @include for-gig-list-wide-layout{
-    max-width: 281px;
+    max-width: 325px;
 
   }
 
@@ -100,13 +101,14 @@
   }
 
   .rate-wrapper {
-    padding: 10px 12px;
+    padding: 15px 15px;
     font-size: 1rem;
 
     .gig-rating {
       display: flex;
       align-items: center;
-      height: 15px;
+      height: 18px;
+      // text-transform:none;
       color: #FFBE5B;
       font-weight: 700;
       font-size: 1rem;
@@ -124,8 +126,8 @@
     }
 
     .star {
-      width: 15px;
-      height: 15px;
+      width: 18px;
+      height: 18px;
       margin-right: 5px;
       vertical-align: -0.16em;
       font-size: 1rem;
@@ -224,7 +226,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 167px;
+    height: 197px;
     background-size: cover;
     color: #fff;
   }
