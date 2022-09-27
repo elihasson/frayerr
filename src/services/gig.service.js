@@ -234,7 +234,7 @@ window.cs = gigService
 
 
 async function query(filterBy) {
-    const { txt, userId } = filterBy
+    const { txt, userId , deliveryTime, minPrice, maxPrice} = filterBy
     try {
         let gigs = await storageService.query(STORAGE_KEY)
         if (!gigs || !gigs.length) {
@@ -247,6 +247,15 @@ async function query(filterBy) {
         }
         if (userId) {
             gigs = gigs.filter(gig => gig.owner._id === userId)
+        }
+        if (deliveryTime) {
+            gigs = gigs.filter(gig => gig.daysToMake <= deliveryTime)
+        }
+        if (minPrice) {
+            gigs = gigs.filter(gig => gig.price >= minPrice)
+        }
+        if (maxPrice) {
+            gigs = gigs.filter(gig => gig.price <= maxPrice)
         }
         return gigs
     } catch (err) {
