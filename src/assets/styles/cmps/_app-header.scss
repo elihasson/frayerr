@@ -342,7 +342,8 @@
     position: fixed;
     border: none;
     z-index: 1;
-    width: 100vw;
+    // width: 100vw;
+    width: 100%;
     background-color: white;
 
     .app-header {
