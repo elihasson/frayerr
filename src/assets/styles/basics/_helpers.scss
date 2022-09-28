@@ -169,6 +169,31 @@
     }
 }
 
+.btn-gray {
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid transparent;
+    font-weight: 600;
+    line-height: 100%;
+    border-color:  #62646a;
+    color: #62646a;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding: 0.8em 0.8em;
+    transition: 0.1s;
+
+    &:hover {
+        background-color: #62646a;
+        color:#fff;
+    }
+
+    &:active {
+        background-color: darken(#62646a, 10%);
+        color: #fff;
+    }
+
+}
+
 
 
 // .main-wrapper {

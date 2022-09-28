@@ -6,6 +6,7 @@ import { Carousel } from '../cmps/carousel'
 import { OrderModal } from '../cmps/order-modal'
 import { UserRateStars } from '../cmps/user-rate-stars'
 import {  loadGig } from '../store/gig.actions'
+import { AboutSeller } from '../cmps/about-seller'
 
 
 export const GigDetails = () => {
@@ -68,6 +69,7 @@ export const GigDetails = () => {
                     {gig.description}
                 </p>
             </div>
+            <AboutSeller gig={gig} owner={gig.owner} />
         </section>
     )
 }
