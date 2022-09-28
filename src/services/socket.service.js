@@ -8,6 +8,8 @@ export const SOCKET_EMIT_USER_WATCH = 'user-watch'
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added'
 export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you'
+export const SOCKET_EMIT_ORDER_ADDED = 'order-added'
+export const SOCKET_EVENT_UPDATE_USER = 'update-user'
 
 export const SOCKET_EMIT_USER_OFFLINE = 'user-offline'
 export const SOCKET_EMIT_USER_ONLINE = 'user-online'
@@ -21,8 +23,8 @@ const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
 
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
-// export const socketService = createSocketService()
-export const socketService = createDummySocketService()
+export const socketService = createSocketService()
+// export const socketService = createDummySocketService()
 
 // for debugging from console
 // window.socketService = socketService
@@ -40,7 +42,7 @@ function createSocketService() {
         if (user) this.login(user._id)
       }, 500)
     },
-    on(eventName, cb) {
+    on(eventName, cb) { //cb function when event is emitted
       socket.on(eventName, cb)
     },
     off(eventName, cb = null) {
