@@ -48,7 +48,7 @@ export const HomeCategory = () => {
     }
 
     return (
-        <section className='proffesional-services-container max-width-container main-layout'>
+        <section className='proffesional-services-container max-width-container'>
             <h1>Popular professional services</h1>
             <div className='proffesional-services'>
                 <div className='img-container' onClick={() => {
@@ -72,7 +72,7 @@ export const HomeCategory = () => {
 
                     <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/illustration-2x.png" />
                 </div>
-                <div className='img-container' onClick={() => {
+                {/* <div className='img-container' onClick={() => {
                     onSetFilter(popularCategories[2])
                 }}>
                     <span className="on-click"></span>
@@ -83,7 +83,7 @@ export const HomeCategory = () => {
                     </div>
 
                     <img src="https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781888/social-media_ihqmul.jpg" />
-                </div>
+                </div> */}
                 <div className='img-container' onClick={() => {
                     onSetFilter(popularCategories[3])
                 }}>
