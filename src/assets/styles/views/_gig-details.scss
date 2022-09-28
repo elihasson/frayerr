@@ -1,8 +1,9 @@
 .gig-details {
   // background-color: antiquewhite;
-  margin-top: 24px;
+  margin-top: 90px;
   display: flex;
   flex-direction: column;
+  padding: 32px 24px 0;
 
   @include for-order-normal-layout {
     flex-direction: row;
@@ -16,7 +17,7 @@
     flex-direction: column;
 
     @include for-order-normal-layout {
-      width: 51%;
+      width: 70%;
     }
 
     .details-header {
@@ -24,30 +25,38 @@
 
       .gig-title {
         color: #404145;
-        font-size: 24px;
-        letter-spacing: .4px;
+        font-size: 28px;
+        overflow-wrap: break-word;
+        line-height: 130%;
+        letter-spacing: 0.6px;
+        font-weight: 700;
         padding-bottom: 16px;
       }
 
       .stars {
+        display: flex;
+        align-items: center;
         // margin-inline: 5px;
         // font-size: 40px;
 
         .star {
           color: #ffb33e;
           // padding: 1px;
-          font-size: 16px;
+          font-size: 21px;
           line-height: 21px;
         }
 
         .rate {
           color: #ffb33e;
-          // text-align: center;
-          vertical-align: text-top;
-          font-size: 12px;
+          font-weight: bold; // text-align: center;
+          // align-items: center;
+          // vertical-align: text-bottom;
+          font-size: 16px;
           font-weight: 700;
-          padding-bottom: 5px;
-          margin-left: 3px;
+          // padding-bottom: 15px;
+          margin-left: 4px;
+          // line-height: 21px;
+
         }
       }
 
@@ -59,11 +68,11 @@
 
         .owner-name {
           color: #404145;
-          font-size: 14px;
+          font-size: 16px;
         }
 
         .owner-level {
-          font-size: 13px;
+          font-size: 15px;
           color: #95979d;
 
           &.top {
@@ -94,25 +103,31 @@
       .carousel {
         margin-bottom: 20px;
         overflow: visible;
+        max-width: 808px;
+
 
         .inner-wrapper {
           // position: relative;
+          // max-width: 712px;
+
           overflow: hidden;
 
 
           .inner {
-            height: 389px;
-            max-width: 800px;
+            // max-width: 712px;
+            height: 460px;
+            // height: 389px;
+            // max-width: 800px;
             padding: 0 auto;
 
-            @include for-order-normal-layout {
-              max-width: 645px;
-              padding: 0 auto;
-            }
+            // @include for-order-normal-layout {
+            //   max-width: 645px;
+            //   padding: 0 auto;
+            // }
 
-            @include for-order-wide-layout {
-              width: 645px;
-            }
+            // @include for-order-wide-layout {
+            //   width: 645px;
+            // }
 
 
             .carousel-item {
@@ -136,12 +151,12 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          padding-block: 5px;
+          padding-block: 10px;
           // height: 65px;
         }
 
         button {
-          height: 55px;
+          height: 70px;
           width: 100px;
           background-size: cover;
           opacity: 0.6;
@@ -232,8 +247,8 @@
           cursor: pointer;
           background-color: #ffffff;
           color: rgb(63, 62, 62);
-          height: 40px;
-          width: 40px;
+          height: 55px;
+          width: 55px;
           border-radius: 50%;
           display: flex;
           justify-content: center;
@@ -259,23 +274,21 @@
     }
   }
 
-  
-
 
   //order modal aside
   .order-modal-container {
-    padding-top: 0px;
+    padding-top: 20px;
     padding-left: 30px;
     padding-right: 0px;
 
     @include for-order-wide-layout {
-      padding-left: 70px;
-      padding-right: 70px;
+      // padding-left: 70px;
+      // padding-right: 70px;
     }
 
     @include for-order-xwide-layout {
-      padding-left: 114px;
-      padding-right: 114px;
+      // padding-left: 114px;
+      // padding-right: 114px;
     }
   }
 
@@ -385,14 +398,14 @@
   }
 }
 
-.gig-details-page{
+.gig-details-page {
   .about-gig {
-    color: #62646a;
+    // color: #62646a;
+    color: #404145;
     // display: block;
     padding: auto;
-    font-size: 19px;
+    font-size: 22px;
     font-weight: 400;
-    line-height: 24px;
     outline-color: rgb(98, 100, 106);
 
     @include for-order-normal-layout {
@@ -400,7 +413,10 @@
     }
 
     p {
-      font-size: 14px;
+      font-stretch: 100%;
+      line-height: 28px;
+      letter-spacing: 0.8px;
+      font-size: 18px;
       color: #62646a;
     }
   }

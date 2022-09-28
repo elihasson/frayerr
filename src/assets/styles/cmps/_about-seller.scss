@@ -1,0 +1,146 @@
+.about-seller {
+  &-header {
+    color: $clr2;
+    padding-bottom: 25px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .seller-stats {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    border: 1px solid $clr6;
+    padding: 24px;
+    margin-bottom: 64px;
+
+    .seller-desc {
+      padding-top: 15px;
+      border-top: 1px solid $clr6;
+    }
+
+    .card {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-bottom: 20px;
+      & > *:first-child {
+        color: $clr8;
+        font-weight: 500;
+        line-height: 1.6875em;
+      }
+    }
+  }
+
+  .seller-info {
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 130%;
+    padding-bottom: 24px;
+    position: relative;
+    .user-img {
+      height: 110px;
+      width: 110px;
+    }
+    .online-status {
+      position: absolute;
+      right: 0;
+      color: $clr3;
+      font-size: 0.9rem;
+      border-radius: 2rem;
+      border: 1px solid $clr3;
+      padding: 2px 5px;
+      font-family: Arial, Helvetica, sans-serif;
+      padding-inline-end: 10px;
+
+      &::before {
+        content: "•";
+        margin-inline: 4px;
+      }
+    }
+    .online-status.online {
+      color: $clr1;
+      border: 1px solid $clr1;
+      padding-inline-end: 10px;
+    }
+
+
+
+  }
+
+  .seller-name-level-rate {
+    margin-inline-start: 15px;
+  }
+
+  .stars {
+    display: flex;
+    align-items: center;
+    // margin-inline: 5px;
+    // font-size: 40px;
+
+    .star {
+      color: #ffb33e;
+      // padding: 1px;
+      font-size: 21px;
+      line-height: 21px;
+    }
+
+    .rate {
+      color: #ffb33e;
+      font-weight: bold; // text-align: center;
+      // align-items: center;
+      // vertical-align: text-bottom;
+      font-size: 16px;
+      font-weight: 700;
+      // padding-bottom: 15px;
+      margin-left: 4px;
+      // line-height: 21px;
+
+    }
+  }
+
+  .seller-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    .owner-name {
+      color: #404145;
+      font-size: 16px;
+    }
+
+    .owner-level {
+      margin-top: 5px;
+      font-size: 15px;
+      color: #95979d;
+
+      &.top {
+        color: #ffb33e;
+      }
+    }
+
+    .spacer {
+      font-size: 12px;
+      color: #c5c6c9;
+      // margin-right: 8px;
+    }
+
+    .user-img {
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 110px;
+      width: 110px;
+      border-radius: 50%;
+    }
+
+    .btn-contact{
+      padding: 16px 24px 12px 24px;
+      font-size: 16px;
+      margin-top: 8px;
+    }
+  }
+
+}

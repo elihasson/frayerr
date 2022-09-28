@@ -1,15 +1,16 @@
 .user-msg {
-    color:white;
+    color: white;
     padding: 10px;
     font-size: 1.4em;
     position: fixed;
-    top:0;
-    right:0;
+    top: 0;
+    right: 0;
     background-color: grey;
 }
+
 .user-msg button {
-    float:right;
-    border:0;
+    float: right;
+    border: 0;
     border-radius: 50%;
     margin: 5px;
     background-color: #222;
@@ -18,13 +19,23 @@
 .user-msg.success {
     background-color: rgb(41, 189, 73);
 }
+
 .user-msg.danger {
     background-color: rgb(216, 59, 59);
 }
 
 .user-msg.thanks {
-     color: rgb(41, 189, 73);
-     top:17%;
-     right:40%;
-     font-size: 1.5em;
+    color: rgb(41, 189, 73);
+    top: 17%;
+    right: 40%;
+    font-size: 1.5em;
+}
+
+.user-msg.incoming-order {
+    background-color: white;
+    color: rgb(28, 35, 30);
+    top: 17%;
+    right: 40%;
+    font-size: 1.5em;
+    z-index: 100;
 }
