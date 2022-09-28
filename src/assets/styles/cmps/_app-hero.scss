@@ -1,7 +1,7 @@
-.hero-container{
+.hero-container {
     position: relative;
     height: 680px;
-    
+
     .hero-background {
         width: 100%;
         position: absolute;
@@ -20,7 +20,7 @@
         @include for-hero-layout-3 {
             justify-content: flex-end;
         }
-        
+
         .hero {
             width: 100%;
             height: 100%;
@@ -34,11 +34,11 @@
             @include for-hero-layout-2 {
                 display: block;
             }
-            
+
             // position: absolute; //removed by Aharon
             // background-image: url('../../img/bg-hero-1.jpg');
             // margin-inline-end: 100px;
-        }   
+        }
     }
 
     .hero-header {
@@ -52,14 +52,17 @@
         // position: absolute;
         // inset-block-start: 30vh;
         // width: 600px;
-        // max-width: 1400px;
-        // margin: auto;
+
         // margin-block-start: 220px;
+        @include for-hero-layout-3 {
+            // max-width: 1400px;
+            // margin: auto;
+        }
 
         .hero-title {
             // width: 400px;
             max-width: 700px;
-            width: 100%;        
+            width: 100%;
             font-size: rem(40px);
             line-height: 55px; // must calculate with lh function
             font-weight: 700;
@@ -76,11 +79,14 @@
                 // width: 600px;
             }
 
+            @include for-hero-layout-3 {
+                max-width: 600px;
+            }
+
             i {
                 font-family: domain-display-italic;
                 font-weight: 500;
             }
         }
-    } 
+    }
 }
-

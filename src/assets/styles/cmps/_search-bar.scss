@@ -38,6 +38,10 @@
         @include for-hero-layout-2 {
             border-radius: 4px 0 0 4px;
         }
+
+        @include for-hero-layout-3 {
+            max-width: 700px;
+        }
     }
 
     .gig-btn-search {
