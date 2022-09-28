@@ -47,6 +47,7 @@
         margin-block-start: 220px; //added by Aharon
         align-items: flex-start;
         padding-inline-start: 32px;
+        
         // align-content: center; // removed by Aharon
         // padding-bottom: 24px;
         // position: absolute;
@@ -54,10 +55,17 @@
         // width: 600px;
 
         // margin-block-start: 220px;
-        @include for-hero-layout-3 {
+        @include for-hero-layout-2 {
             // max-width: 1400px;
             // margin: auto;
+            // padding: 0;
         }
+
+        // @include for-hero-layout-3 {
+        //     // max-width: 1400px;
+        //     // margin: auto;
+        //     padding-inline-start: 32px;
+        // }
 
         .hero-title {
             // width: 400px;
