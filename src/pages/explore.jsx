@@ -34,6 +34,7 @@ export const Explore = (props) => {
     const [isBudgetOpen, setIsBudgetOpen] = useState(false)
     const [minPrice, setMinPrice] = useState(0)
     const [maxPrice, setMaxPrice] = useState(10000000)
+    const [currCategory, setCurrCategory] = useState('')
 
     useEffect(() => {
         dispatch(loadGigs())
@@ -73,6 +74,7 @@ export const Explore = (props) => {
     }
 
     const handleCategory = (catName) => {
+        setCurrCategory(catName)
         dispatch(setFilterBy({category: catName }))
         dispatch(setFilterBy({ ...filterBy, category: catName }, 'category'))
     }
@@ -102,10 +104,11 @@ export const Explore = (props) => {
     // }
 
     var budgetClass = isBudgetOpen ? "open" : "";
+    const gigsTitle = !currCategory ? "All Categories" : currCategory
 
     return (
         <div className="explore">
-            <h2>All Categories</h2>
+            <h2>{gigsTitle}</h2>
             <div className="category-selection-container">
                 <ul className="categories-grid">
                     <li  onClick={() => handleCategory('')} className="category-card all flex">
@@ -117,12 +120,12 @@ export const Explore = (props) => {
                         <div><Illustration className='cat-svg-icon'/></div>
                         <p>Illustration</p>
                     </li>
-                    <li onClick={() => handleCategory('logo-design')} value='logo-design' className="category-card logo-design flex">
+                    <li onClick={() => handleCategory('logo design')} value='logo-design' className="category-card logo-design flex">
                     {/* <li  className="category-card logo-design flex"> */}
                         <div><LogoDesign className='cat-svg-icon'/></div>
                         <p>Logo Design</p>
                     </li>
-                    <li onClick={() => handleCategory('voice-over')} value='voice-over' className="category-card voice-over flex">
+                    <li onClick={() => handleCategory('voice over')} value='voice-over' className="category-card voice-over flex">
                     {/* <li  className="category-card voice-over flex"> */}
                         <div><VoiceOver className='cat-svg-icon'/></div>
                         <p>Voice Over</p>
@@ -132,7 +135,7 @@ export const Explore = (props) => {
                         <div><Wordpress className='cat-svg-icon'/></div>
                         <p>Wordpress</p>
                     </li>
-                    <li onClick={() => handleCategory('video-explainer')} value='video-explainer' className="category-card video-explainer flex">
+                    <li onClick={() => handleCategory('video explainer')} value='video-explainer' className="category-card video-explainer flex">
                     {/* <li className="category-card video-explainer flex"> */}
                         <div><VideoExplainer className='cat-svg-icon'/></div>
                         <p>Video Explainer</p>
