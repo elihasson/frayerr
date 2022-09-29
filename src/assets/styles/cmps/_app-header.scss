@@ -172,11 +172,34 @@
             .orders-button {
                 display: flex;
                 align-items: center;
+                position: relative;
 
                 div {
                     display: flex;
 
                 }
+
+                .connection-dot {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background-color: $clr1;
+                    position: absolute;
+                    top: 30px;
+                    right: 5%;
+                    border: 2px solid white;
+                
+                    &.dot-bottom {
+                      top: auto;
+                      bottom: -10%;
+                      right: -10%;
+                      border: 2px solid white;
+                    }
+
+                    &.hide{
+                        display: none;
+                    }
+                  }
             }
 
             .favorite-icon-button {
@@ -360,7 +383,7 @@
 
                 .frayerr-logo {
                     color: $clr9;
-                    margin-left: 60px;
+                    margin-left: 30px;
 
                 }
             }

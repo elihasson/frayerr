@@ -26,3 +26,9 @@ export function toggleJoinModal() {
         dispatch({ type: "TOGGLE_JOIN_MODAL" })
     }
 }
+
+export function setIsNewOrder(isNewOrder) {
+    return (dispatch) => {
+        dispatch({ type: "SET_IS_NEW_ORDER" , isNewOrder  })
+    }
+}

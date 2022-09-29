@@ -118,7 +118,7 @@ async function toggleLike(gigId, user) {
 
 async function isLikedByUser(gig) {
     const user = await userService.getLoggedinUser()
-    return gig.likedByUsers.some(currUser => currUser._id === user._id)
+    return gig.likedByUsers?.some(currUser => currUser._id === user._id)
 }
 
 async function getCategories(filterBy) {

@@ -31,6 +31,10 @@ export function showThanksMsg(txt) {
     showUserMsg(txt, 'thanks')
 }
 
+export function showIncomingOrderMsg(txt) {
+    showUserMsg(txt, 'incoming-order')
+}
+
 window.myBus = eventBusService;
 window.showUserMsg = showUserMsg;
 

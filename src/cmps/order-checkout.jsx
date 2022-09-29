@@ -13,6 +13,7 @@ import { orderService } from "../services/order.service";
 // import { utilService } from "../services/util.service";
 import { loadGig } from '../store/gig.actions'
 import { addOrder } from '../store/order.actions'
+import { socketService, SOCKET_EMIT_ORDER_ADDED } from '../services/socket.service';
 
 
 export const OrderCheckout = () => {
@@ -40,19 +41,13 @@ export const OrderCheckout = () => {
     }
 
     const onSetOrder = async () => {
-
-        // let currOrder = await orderService.save([],gig)
-        // setOrder(currOrder)
         dispatch(addOrder([],gig))
+
+        const from = loggedinUser?.fullname
+        socketService.emit(SOCKET_EMIT_ORDER_ADDED, { from, gig })
+
         navigate(`/user/${loggedinUser._id}/purchase`)
     }
-    
-    // const onSetOrder1 = async () => {
-
-    //     let currOrder = await orderService.save([], gig)
-    //     setOrder(currOrder)
-    //     navigate(`/user/${user._id}/purchase`)
-    // }
 
     if (!gig) return <div>Loading...</div>
 

@@ -37,7 +37,9 @@ export const OrderList = (props) => {
 			status: '',
 		}))
 		dispatch(loadOrders())
-		// setUserId(userIdFromParams)
+		// socketService.on(SOCKET_EVENT_ORDER_ADDED, ((review) =>
+        //     setReviews(prev => [...prev, review])
+        // ))
 	}, [])
 
 	const createData = (title, gigPrice, buyerName, orderId, orderStatus) => {

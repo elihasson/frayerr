@@ -19,6 +19,7 @@ export const AppHeader = (props) => {
     const user = useSelector(state => state.userModule.user)
     const isLoading = useSelector(state => state.systemModule.isLoading)
     const isHome = useSelector(state => state.systemModule.isHome)
+    const isNewOrder = useSelector(state => state.systemModule.isNewOrder)
 
     const dispatch = useDispatch()
 
@@ -93,8 +94,9 @@ export const AppHeader = (props) => {
                         <FavoriteBorderOutlinedIcon />
                     </NavLink>
 
-                    <NavLink to="/" className='orders-button'>
+                    <NavLink to={`/user/${user._id}/order`} className='orders-button'>
                         <div>Orders</div>
+                        {isNewOrder && <div className="connection-dot dot-bottom"></div>}
                     </NavLink>
 
                     <NavLink to="#" className='logout-button'>

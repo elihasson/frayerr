@@ -34,6 +34,10 @@ export class UserMsg extends React.Component {
       <Alert variant="outlined" severity="success" className={'user-msg ' + msgClass}>
         {this.state.msg.txt}</Alert>)
 
+    if (msgClass === 'incoming-order') return (
+      <Alert variant="outlined" severity="success" className={'user-msg ' + msgClass}>
+        {this.state.msg.txt}</Alert>)
+
     return (
       <section className={'user-msg ' + msgClass}>
         <button onClick={() => {
