@@ -53,7 +53,7 @@ export const UserBackOffice = (props) => {
             <div className='backoffice-btns flex'>
                 <button className="btn" onClick={() => navigate(`/edit`)}>Create gig</button>
                 <button className="btn" onClick={() => navigate(`/user/${user._id}/order`)}>Gig orders</button>
-            <button className="btn" onClick={() => navigate(`/user/${user._id}/purchase`)}>Gigs purchased</button>
+                <button className="btn" onClick={() => navigate(`/user/${user._id}/purchase`)}>Gigs purchased</button>
                 <button className="btn" onClick={() => navigate(`/user/${user._id}/gig`)}>My gigs</button>
             </div>
         </section>
