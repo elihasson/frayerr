@@ -146,6 +146,11 @@
         align-items: center;
         justify-content: space-between;
         gap: 5px;
+
+        img {
+          border-radius: 50%;
+          max-width: 30%;
+        }
         @include for-narrow-layout {
           flex-direction: row-reverse;
           justify-content: flex-end;
@@ -165,10 +170,7 @@
           align-items: center;
         }
 
-        img {
-          border-radius: 50%;
-          width: 50%;
-        }
+
       }
       .order-date {
         display: flex;
