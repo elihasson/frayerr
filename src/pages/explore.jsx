@@ -7,8 +7,6 @@ import { ReactComponent as Wordpress } from '../assets/images/wordpress.svg'
 import { ReactComponent as VideoExplainer } from '../assets/images/video_explainer.svg'
 import { ReactComponent as Programming } from '../assets/images/programming.svg'
 
-
-
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -27,6 +25,7 @@ import { GigList } from '../cmps/gig-list.jsx'
 export const Explore = (props) => {
 
     const gigs = useSelector(state => state.gigModule.gigs)
+    const user = useSelector(state => state.userModule.user)
     const filterBy = useSelector(state => state.gigModule.filterBy)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -103,11 +102,12 @@ export const Explore = (props) => {
     //     showSuccessMsg('Added to Cart')
     // }
 
-    var budgetClass = isBudgetOpen ? "open" : "";
+    var budgetClass = isBudgetOpen ? "open" : ""
     const gigsTitle = !currCategory ? "All Categories" : currCategory
+    const noUserClass = !user ? "no-user" : ''
 
     return (
-        <div className="explore">
+        <div className={`explore ${noUserClass}`}>
             <h2>{gigsTitle}</h2>
             <div className="category-selection-container">
                 <ul className="categories-grid">

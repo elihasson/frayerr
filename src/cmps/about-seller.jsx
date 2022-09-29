@@ -40,7 +40,8 @@ export function AboutSeller({ gig, owner }) {
                 <div className="seller-stats">
                     <div className="card">
                         <h4>From</h4>
-                        <h4>{owner.sellerInfo?.origin}</h4>
+                        {/* <h4>{owner.sellerInfo?.origin}</h4> */}
+                        <h4>Israel</h4>
                     </div>
                     <div className="card">
                         <h4>Member since</h4>
