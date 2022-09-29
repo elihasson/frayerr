@@ -12,6 +12,7 @@ import { AboutSeller } from '../cmps/about-seller'
 export const GigDetails = () => {
 
     const dispatch = useDispatch()
+    const user = useSelector(state => state.userModule.user)
     const gig = useSelector(state => state.gigModule.watchedGig)
     console.log('gig:', gig)
 
@@ -32,9 +33,9 @@ export const GigDetails = () => {
         levelClass = 'top'
         levelDesc = 'Top Rated Seller'
     }
-
+    const noUserClass = !user ? "no-user" : ''
     return (
-        <section className='gig-details-page flex column'>
+        <section className={`gig-details-page flex column ${noUserClass}`}  >
             <section className="gig-details">
                 <div className="gig-details-container">
                     <div className='details-header inpage-nav' id='Overview'>
