@@ -28,6 +28,10 @@ body {
 .app-container{
     height: 100%;
     width: 100%;
+
+    .app-container-main {
+        overflow-x: hidden;
+    }
 }
 
 ul {

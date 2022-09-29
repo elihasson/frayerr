@@ -63,6 +63,7 @@ export const PurchasePreview = ({ order, type, user, onChangeStatus }) => {
 
     const formatDate = () => {
         var { createdAt } = order
+        console.log('createdAt (purchase preview):', createdAt)
         createdAt = new Date(createdAt)
         var month = createdAt.toLocaleString('default', { month: 'short' })
         var year = createdAt.getFullYear();
