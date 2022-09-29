@@ -27,8 +27,6 @@ export const AppHeader = (props) => {
     const [isScroll, setIsScroll] = useState(false)
     const [navBarOpenClassName, setNavBarOpenClassName] = useState('')
 
-    const params = useParams()
-
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)

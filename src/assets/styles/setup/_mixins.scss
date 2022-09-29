@@ -1,6 +1,10 @@
 /* Breakpoint mixins  (Media queries)*/
 
-
+@mixin for-mobile-only {
+  @media (max-width: $padded-break-narrow) {
+    @content;
+  }
+}
 /* layout*/
 
 @mixin for-layout-normal {
