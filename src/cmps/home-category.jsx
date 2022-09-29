@@ -8,10 +8,11 @@ import { setFilterBy, loadGigs, loadCategories } from '../store/gig.actions'
 export const HomeCategory = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const gigs = useSelector(state => state.gigModule.gigs)
+    // const gigs = useSelector(state => state.gigModule.gigs)
     const categories = useSelector(state => state.gigModule.categories)
     const filterBy = useSelector(state => state.gigModule.filterBy)
 
+    const [currCategory, setCurrCategory] = useState('')
     // const [popularCategories, setPopularCategories] = useState([])
 
     // useEffect(() => {
@@ -44,12 +45,19 @@ export const HomeCategory = () => {
     //     dispatch(loadCategories())
     // }, [])
 
+    const handleCategory = (catName) => {
+        setCurrCategory(catName)
+        dispatch(setFilterBy({category: catName }))
+        dispatch(setFilterBy({ ...filterBy, category: catName }, 'category'))
+    }
 
     const onSetFilter = (category) => {
-        dispatch(setFilterBy(category))
-        dispatch(loadGigs())
+       handleCategory(category)
+       navigate(`/explore`)
+        // dispatch(setFilterBy({category:category}))
+        // dispatch(loadGigs())
         // props.history.push(`/explore?category=${category}`)
-        navigate(`/explore`)
+        // navigate(`/explore?${category}`)
     }
 
     return (
