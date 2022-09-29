@@ -34,7 +34,8 @@ export function AboutSeller({ gig, owner }) {
                     <UserRateStars gig={gig} />
                     <button className="btn-gray btn-contact">Contact Me</button>
                 </div>
-                <span className={`online-status ${isOnline && 'online'}`}>{isOnline ? 'online' : 'offline'}</span>
+                {/* <span className={`online-status ${isOnline && 'online'}`}>{isOnline ? 'online' : 'offline'}</span> */}
+                <span className='online-status online'>online</span>
             </div >
             <div className='seller-table'>
                 <div className="seller-stats">
