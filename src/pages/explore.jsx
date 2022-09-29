@@ -1,8 +1,17 @@
+// import ViewAll from '../assets/images/view_all.svg'
+import { ReactComponent as ViewAll } from '../assets/images/view_all.svg'
+import { ReactComponent as Illustration } from '../assets/images/illustration.svg'
+import { ReactComponent as LogoDesign } from '../assets/images/logo_design.svg'
+import { ReactComponent as VoiceOver } from '../assets/images/voice_over.svg'
+import { ReactComponent as Wordpress } from '../assets/images/wordpress.svg'
+import { ReactComponent as VideoExplainer } from '../assets/images/video_explainer.svg'
+import { ReactComponent as Programming } from '../assets/images/programming.svg'
+
+
+
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-
-
 
 import { loadGigs, addGig, updateGig, removeGig, loadCategories, setFilterBy } from '../store/gig.actions.js'
 import FormControl from '@mui/material/FormControl'
@@ -10,8 +19,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles'
 import MenuItem from '@mui/material/MenuItem'
 import Select from '@mui/material/Select'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
-
-
 
 import { showSuccessMsg } from '../services/event-bus.service.js'
 import { gigService } from '../services/gig.service.js'
@@ -30,7 +37,7 @@ export const Explore = (props) => {
 
     useEffect(() => {
         dispatch(loadGigs())
-    //    gigs = loadGigs()
+        //    gigs = loadGigs()
     }, [filterBy])
 
     const onRemoveGig = (gigId) => {
@@ -55,14 +62,25 @@ export const Explore = (props) => {
         navigate(`/explore?${filterBy}`)
     }
 
+    // const handleBudget = ({ target }) => {
     const handleBudget = ({ target }) => {
         const field = target.name
         const value = +target.value
+        
+        if (field === "minPrice" && filterBy.maxPrice === '' ) filterBy.maxPrice =  9999999
+
         dispatch(setFilterBy({ ...filterBy, [field]: value }, field))
     }
 
+    const handleCategory = (catName) => {
+        dispatch(setFilterBy({category: catName }))
+        dispatch(setFilterBy({ ...filterBy, category: catName }, 'category'))
+    }
+
     const clearFilter = () => {
-        dispatch(setFilterBy({}))
+        
+        dispatch(setFilterBy({ ...filterBy, minPrice: '', maxPrice: '' }))
+        // dispatch(setFilterBy({}))
     }
 
     const applyFilter = () => {
@@ -88,6 +106,44 @@ export const Explore = (props) => {
     return (
         <div className="explore">
             <h2>All Categories</h2>
+            <div className="category-selection-container">
+                <ul className="categories-grid">
+                    <li  onClick={() => handleCategory('')} className="category-card all flex">
+                        <div><ViewAll className='cat-svg-icon'/></div>
+                        <p>All</p>
+                    </li>
+                    <li onClick={() => handleCategory('illustration')} value='illustration' className="category-card illustration flex">
+                    {/* <li  className="category-card illustration flex"> */}
+                        <div><Illustration className='cat-svg-icon'/></div>
+                        <p>Illustration</p>
+                    </li>
+                    <li onClick={() => handleCategory('logo-design')} value='logo-design' className="category-card logo-design flex">
+                    {/* <li  className="category-card logo-design flex"> */}
+                        <div><LogoDesign className='cat-svg-icon'/></div>
+                        <p>Logo Design</p>
+                    </li>
+                    <li onClick={() => handleCategory('voice-over')} value='voice-over' className="category-card voice-over flex">
+                    {/* <li  className="category-card voice-over flex"> */}
+                        <div><VoiceOver className='cat-svg-icon'/></div>
+                        <p>Voice Over</p>
+                    </li>
+                    <li onClick={() => handleCategory('wordpress')} value='wordpress' className="category-card wordpress flex">
+                    {/* <li className="category-card wordpress flex"> */}
+                        <div><Wordpress className='cat-svg-icon'/></div>
+                        <p>Wordpress</p>
+                    </li>
+                    <li onClick={() => handleCategory('video-explainer')} value='video-explainer' className="category-card video-explainer flex">
+                    {/* <li className="category-card video-explainer flex"> */}
+                        <div><VideoExplainer className='cat-svg-icon'/></div>
+                        <p>Video Explainer</p>
+                    </li>
+                    <li onClick={() => handleCategory('programming')} value='programming' className="category-card programming flex">
+                    {/* <li className="category-card programming flex"> */}
+                        <div><Programming className='cat-svg-icon'/></div>
+                        <p>Programming</p>
+                    </li>
+                </ul>
+            </div>
             <div className="filter-container">
                 <FormControl sx={{ minWidth: 120, margin: 0 }}>
                     <ThemeProvider theme={theme}>

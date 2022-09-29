@@ -13,6 +13,41 @@
     //     display: flex;
     //     flex-wrap: wrap;
     // }
+    .category-selection-container{
+      .categories-grid{
+        display: grid;
+        padding: 16px 0;
+        grid-template-columns: repeat(7, minmax(144px, 1fr));
+            gap: 10px;
+      }
+      .category-card{
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items:flex-start;
+        // width: 100px;
+        // height: 100px;
+        border: 1px solid #e4e5e7;
+        border-radius: 4px;
+        color: #222325;
+        padding: 17px;
+        height: 144px;
+        box-shadow: 0 0.14px 2.29266px rgb(0 0 0 / 3%), 0 0.37px 4.42626px rgb(0 0 0 / 5%), 0 3px 7px rgb(0 0 0 / 9%);
+        &:hover{
+          color: #1dbf73;
+        }
+
+        p{
+          line-height: 21px;
+          font-weight: 600;
+        }
+        .cat-svg-icon{
+          // width: 50%;
+          // height: 50%;
+        }
+      }
+
+    }
+    
   
       .filter-container {
         position: sticky;
