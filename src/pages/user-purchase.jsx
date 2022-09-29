@@ -5,9 +5,11 @@ export const UserPurchase = (props) => {
 
     return (
         // <section className='user-purchase-container'>
-        <section className='orders-content'>
-            <h3>Purchased Orders</h3>
-            <PurchaseList />
-        </section>
+        <div className="orders-section">
+            <section className='orders-content'>
+                <h3>Purchased Orders</h3>
+                <PurchaseList />
+            </section>
+        </div >
     )
 }
