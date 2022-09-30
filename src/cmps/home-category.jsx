@@ -57,7 +57,7 @@ export const HomeCategory = () => {
         // dispatch(setFilterBy({category:category}))
         // dispatch(loadGigs())
         // props.history.push(`/explore?category=${category}`)
-        // navigate(`/explore?${category}`)
+        // navigate(`/explore?category=${category}`)
     }
 
     return (
