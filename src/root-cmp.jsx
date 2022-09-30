@@ -27,8 +27,7 @@ export const RootCmp = () => {
                 showIncomingOrderMsg('You have got a new order')
                 dispatch(setIsNewOrder(true))
             }
-            // use event bus / store to update use msg!
-            // dispatch(setUserMsg(msg))
+ 
         })
     }, [])
 

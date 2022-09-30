@@ -6,8 +6,8 @@
 // import TableHead from '@mui/material/TableHead';
 // import TableRow from '@mui/material/TableRow';
 // import Paper from '@mui/material/Paper';
-// import IconButton from '@mui/material/IconButton';
-// import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 // import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
 // import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { OrderPreview } from "./order-preview.jsx"
@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { loadOrders, setOrderFilterBy, removeOrder, updateOrder } from '../store/order.actions'
 import { useParams } from 'react-router-dom';
+import { socketService, SOCKET_EVENT_UPDATE_USER } from "../services/socket.service.js";
 
 export const OrderList = (props) => {
 
@@ -36,9 +37,16 @@ export const OrderList = (props) => {
 			status: '',
 		}))
 		dispatch(loadOrders())
-		// socketService.on(SOCKET_EVENT_ORDER_ADDED, ((review) =>
-        //     setReviews(prev => [...prev, review])
-        // ))
+		socketService.on(SOCKET_EVENT_UPDATE_USER, (msg) => {
+			if (msg === 'incoming-order') {
+				console.log('msg', msg);
+				dispatch(loadOrders())
+            }
+        })
+
+		return () => {
+			socketService.off(SOCKET_EVENT_UPDATE_USER)
+		}
 	}, [])
 
 	return (
@@ -66,14 +74,14 @@ export const OrderList = (props) => {
 	// 	return createData(title, gigPrice, buyerName, orderId, orderStatus)
 	// })
 
-	// const changeOrderStatus = (orderId, action) => {
-	// 	if (action === 'delete') return dispatch(removeOrder(orderId))
-	// 	const order = orders.filter(order => order._id === orderId)
-	// 	if (action === 'decline' || action === 'accept') {
-	// 		order[0].status = action
-	// 		dispatch(updateOrder(order[0]))
-	// 	}
-	// }
+	const changeOrderStatus = (orderId, action) => {
+		if (action === 'delete') return dispatch(removeOrder(orderId))
+		const order = orders.filter(order => order._id === orderId)
+		if (action === 'decline' || action === 'accept') {
+			order[0].status = action
+			dispatch(updateOrder(order[0]))
+		}
+	}
 
 	// return (
 	// 	<div>
