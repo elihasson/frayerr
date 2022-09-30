@@ -58,7 +58,7 @@ export const AppHeader = (props) => {
         <div className={`app-header-container full main-layout ${isHomeHeaderTop()}`}>
             {isMenuOpen && <div onClick={toggleMenu} className="main-screen"></div>}
 
-            <NavBar classProp={navBarOpenClassName} />
+            <NavBar classProp={navBarOpenClassName} toggleMenu={toggleMenu}/>
 
             <header className="app-header main-layout" >
 

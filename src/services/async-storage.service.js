@@ -6,7 +6,8 @@ export const storageService = {
     put,
     remove,
     postMany,
-    saveGuestGigs
+    saveGuestGigs,
+    isLikedByGuest, // added by Ariel
 }
 
 // !!!! for guest - only in local storage
@@ -18,9 +19,12 @@ function saveGuestGigs(gig) {
     if (gigIdx !== -1) guestGigs.splice(gigIdx, 1);
     else guestGigs = [...guestGigs, gig];
     localStorage.setItem("guestGigs_db", JSON.stringify(guestGigs));
-  }
+}
 
-
+// This function was not exist and caused a console error in gig preview - Just created it. currently returns false:
+function isLikedByGuest(gig) {
+    return false
+}
 
 // functions to convert to httpService
 
