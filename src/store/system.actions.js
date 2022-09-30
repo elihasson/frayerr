@@ -27,6 +27,12 @@ export function toggleJoinModal() {
     }
 }
 
+export function closeLoginJoinModal() {
+    return (dispatch) => {
+        dispatch({ type: "CLOSE_LOGIN_JOIN_MODAL" })
+    }
+}
+
 export function setIsNewOrder(isNewOrder) {
     return (dispatch) => {
         dispatch({ type: "SET_IS_NEW_ORDER" , isNewOrder  })

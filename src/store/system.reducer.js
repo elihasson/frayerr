@@ -20,6 +20,8 @@ export function systemReducer(state = initialState, action = {}) {
             return { ...state, isModalSign: !state.isModalSign, isJoinModal: false }
         case "TOGGLE_JOIN_MODAL":
             return { ...state, isJoinModal: !state.isJoinModal, isModalSign: false }
+        case "CLOSE_LOGIN_JOIN_MODAL":
+            return { ...state, isJoinModal: false, isModalSign: false }
         case "SET_IS_NEW_ORDER":
             return { ...state, isNewOrder: action.isNewOrder }
         default: return state
