@@ -33,9 +33,14 @@ export const Explore = (props) => {
     const [isBudgetOpen, setIsBudgetOpen] = useState(false)
     const [minPrice, setMinPrice] = useState(0)
     const [maxPrice, setMaxPrice] = useState(10000000)
-    const [currCategory, setCurrCategory] = useState('')
+    const [currCategory, setCurrCategory] = useState(filterBy.category)
 
     useEffect(() => {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          })
         dispatch(loadGigs())
         //    gigs = loadGigs()
     }, [filterBy])

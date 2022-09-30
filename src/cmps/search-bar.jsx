@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from '@mui/icons-material/Search'
+import { useNavigate } from 'react-router-dom'
 
 export const SearchBar = () => {
 
     const [txt, setTxt] = useState('')
+    const navigate = useNavigate()
 
     const handleChange = ({ target }) => {
         const { value } = target
@@ -28,7 +30,8 @@ export const SearchBar = () => {
                 placeholder='Try "building web app"'
                 autoComplete='off'
             />
-            <button className='gig-btn-search'>Search</button>
+            {/* <button className='gig-btn-search' onClick={() => navigate(`/explore`)}>Search</button> */}
+            <button className='gig-btn-search' onClick={() => navigate(`/explore?txt=${txt}`)}>Search</button>
         </form>
     )
 }

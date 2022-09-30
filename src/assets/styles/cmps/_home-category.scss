@@ -30,6 +30,9 @@
         font-size: 1rem;
         font-weight: 400;
       }
+      .title {
+        text-transform: capitalize;
+      }
     }
     .img-container {
       transition: 0.2s;

@@ -5,7 +5,7 @@ import { CarouselItem } from '../cmps/carousel-item'
 import { Carousel } from '../cmps/carousel'
 import { OrderModal } from '../cmps/order-modal'
 import { UserRateStars } from '../cmps/user-rate-stars'
-import {  loadGig } from '../store/gig.actions'
+import { loadGig } from '../store/gig.actions'
 import { AboutSeller } from '../cmps/about-seller'
 
 
@@ -18,10 +18,10 @@ export const GigDetails = () => {
 
     const params = useParams()
     //need to be inner function if no gig
-    useEffect(() =>  {
+    useEffect(() => {
         dispatch(loadGig(params.gigId))
     }, [params.gigId])
-    
+
     //component of loader
     if (!gig) return <div>Loading...</div>
 
@@ -60,6 +60,7 @@ export const GigDetails = () => {
                     </pre>
                 </div>} */}
                 </div>
+                <div class='for-sticky'>----</div>
                 <div className='order-modal-container'>
                     <OrderModal modalClass="aside" gig={gig} />
                 </div>

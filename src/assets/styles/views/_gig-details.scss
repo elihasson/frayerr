@@ -1,18 +1,18 @@
-
-.gig-details-page{
+.gig-details-page {
   margin-top: 18px;
-  &.no-user{
+
+  &.no-user {
     margin-top: 98px;
   }
 }
 
 .gig-details {
   // background-color: antiquewhite;
- 
+
   display: flex;
   flex-direction: column;
   padding: 32px 24px 0;
-  
+
 
   @include for-order-normal-layout {
     flex-direction: row;
@@ -283,9 +283,17 @@
     }
   }
 
+  .for-sticky {
+    color: #404145;
+    position: absolute;
+    top: 90px;
+    left: 80%;
+    // top:
+  }
 
   //order modal aside
   .order-modal-container {
+    position: sticky;
     padding-top: 20px;
     padding-left: 30px;
     padding-right: 0px;
