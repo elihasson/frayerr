@@ -12,6 +12,9 @@ export const HomeCategory = () => {
     const categories = useSelector(state => state.gigModule.categories)
     const filterBy = useSelector(state => state.gigModule.filterBy)
 
+    // useEffect(() => {
+    //     dispatch(loadCategories())
+    // })
     // const [currCategory, setCurrCategory] = useState('')
     // const [popularCategories, setPopularCategories] = useState([])
 
@@ -83,6 +86,10 @@ export const HomeCategory = () => {
                         <div className="title">{categories[1]?.name}</div>
                     </div>
 
+                    {not the phone, another image for illustartion:}
+                    <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/251899943/original/4becf0249e346ffec8e99db192b3e0bfc4950bdc/create-concept-item-game-art.jpg" />
+
+                    {the original fiverr image for illustartion:}
                     <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/illustration-2x.png" />
                 </div> */}
                 <div className='img-container' onClick={() => {

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service'
 import { ImgUploader } from '../cmps/img-uploader'
 import { useDispatch } from 'react-redux'
-import { toggleLoginModal, closeLoginJoinModal } from '../store/system.actions'
+import { toggleLoginModal, toggleJoinModal, closeLoginJoinModal } from '../store/system.actions'
 import { onSignup  } from '../store/user.actions'
 
 import CloseIcon from '@mui/icons-material/Close'
@@ -42,6 +42,7 @@ export function Signup(props) {
         if (!credentials.username || !credentials.password || !credentials.fullname) return
         dispatch(onSignup(credentials))
         clearState()
+        dispatch(toggleJoinModal())
     }
 
     const onLogin = () => {
@@ -83,7 +84,7 @@ export function Signup(props) {
                             onChange={handleChange}
                             className="user-input" />
                     </div>
-                    <button className="continue-btn" type="submit">Continue</button>
+                    <button className="continue-btn" type="submit">Join</button>
                     <p className="siginig-agree">By joining I agree to the terms of frayerr.</p>
                 </form>
             </div>
