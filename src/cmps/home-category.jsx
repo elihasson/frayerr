@@ -12,7 +12,7 @@ export const HomeCategory = () => {
     const categories = useSelector(state => state.gigModule.categories)
     const filterBy = useSelector(state => state.gigModule.filterBy)
 
-    const [currCategory, setCurrCategory] = useState('')
+    // const [currCategory, setCurrCategory] = useState('')
     // const [popularCategories, setPopularCategories] = useState([])
 
     // useEffect(() => {
@@ -45,10 +45,10 @@ export const HomeCategory = () => {
     //     dispatch(loadCategories())
     // }, [])
 
-    const handleCategory = (catName) => {
-        setCurrCategory(catName)
-        dispatch(setFilterBy({category: catName }))
-        dispatch(setFilterBy({ ...filterBy, category: catName }, 'category'))
+    const handleCategory = (categoryName) => {
+        // setCurrCategory(categoryName)
+        dispatch(setFilterBy({category: categoryName }))
+        dispatch(setFilterBy({ ...filterBy, category: categoryName }, 'category'))
     }
 
     const onSetFilter = (category) => {
