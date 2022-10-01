@@ -3,12 +3,26 @@
     font-family: 'Macan-regular';
     color: $clr7;
     position: absolute;
-    inset-block-end: 102px;
-    inset-inline-end: 20px;
+    // inset-block-end: 102px;
+    // inset-inline-end: 20px;
     transition: 2s;
+    // padding-inline-start: 250px;
+    bottom: 0;
+    padding-block-end: 32px;
+    // right: 250px;
+
+    // padding-inline-end: 250px;
+    min-width: 20%;
+    // justify-content: flex-end;
 
     @include for-hero-layout-2 {
-        display: block;
+        // display: block;
+        display: flex;
+        // align-content: flex-end;
+        // justify-items: flex-end;
+        // justify-content: flex-end;
+        // align-items: flex-end;
+        gap: 5px;
     }
 
     .hero-role {

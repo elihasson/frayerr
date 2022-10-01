@@ -69,16 +69,16 @@ export const AppHero = () => {
         // rendering background images doesn't affect breakpoints which is good
         <div className='hero-container full'>
             <div className='hero-background'>
-                <div className='hero' style={{backgroundImage: `url(${require(`../assets/img/bg-hero-${hero.imgSrc}`)})`, backgroundColor: hero.bgc}}>
-                    <div className='hero-header add-main-layout'> 
-                    {/* removed add-main-layout */}
+                <div className='hero' style={{ backgroundImage: `url(${require(`../assets/img/bg-hero-${hero.imgSrc}`)})`, backgroundColor: hero.bgc }}>
+                    <div className='hero-header add-main-layout'>
+                        {/* removed add-main-layout */}
                         <h1 className='hero-title'>
                             Find the perfect <i>freelance</i> services for your business
                         </h1>
                         <SearchBar />
                     </div>
-                    <HeroDetails heroDetails={hero.details}/>
                 </div>
+                <HeroDetails heroDetails={hero.details} />
             </div>
         </div>
     )
