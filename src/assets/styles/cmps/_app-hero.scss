@@ -26,13 +26,17 @@
             height: 100%;
             // background-image: url('https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049983/bg-hero-1-1792-x1.png');
             // background-image: url('../../img/bg-hero-1.jpg');
-            background-position: 50% 100%;
+            background-position: 70% 100%;
             background-repeat: no-repeat;
             display: contents;
             transition: 2s;
 
             @include for-hero-layout-2 {
                 display: block;
+            }
+
+            @include for-hero-layout-4 {
+                background-position: 30% 100%;
             }
 
             // position: absolute; //removed by Aharon
