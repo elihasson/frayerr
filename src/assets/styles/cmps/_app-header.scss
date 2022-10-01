@@ -48,7 +48,8 @@
                 position: absolute;
                 left: 50%;
                 margin-left: -60px;
-            }
+                
+            } 
 
         }
     }
@@ -66,6 +67,8 @@
         color: $clr2;
         font-size: 1.5rem;
         font-weight: 100;
+        margin-block-start: -8px;
+
 
         span {
             color: $clr1;
@@ -76,12 +79,16 @@
 
     .icon-search-bar-container {
         display: none;
-
+        
         a {
             text-decoration: none;
             color: inherit;
             padding: 0;
         }
+
+        // .orders-button{
+        //     display: block;
+        // }
     }
 
     .gig-filter-container {
@@ -91,6 +98,7 @@
 
     .user-profile-img {
         display: none;
+        cursor: pointer;
     }
 
 
@@ -169,38 +177,38 @@
             margin: 20px;
             display: flex;
 
-            .orders-button {
-                display: flex;
-                align-items: center;
-                position: relative;
+            // .orders-button {
+            //     display: flex;
+            //     align-items: center;
+            //     position: relative;
 
-                div {
-                    display: flex;
+            //     div {
+            //         display: flex;
 
-                }
+            //     }
 
-                .connection-dot {
-                    width: 12px;
-                    height: 12px;
-                    border-radius: 50%;
-                    background-color: $clr1;
-                    position: absolute;
-                    top: 30px;
-                    right: 5%;
-                    border: 2px solid white;
+            //     .connection-dot {
+            //         width: 12px;
+            //         height: 12px;
+            //         border-radius: 50%;
+            //         background-color: $clr1;
+            //         position: absolute;
+            //         top: 30px;
+            //         right: 5%;
+            //         border: 2px solid white;
                 
-                    &.dot-bottom {
-                      top: auto;
-                      bottom: -10%;
-                      right: -10%;
-                      border: 2px solid white;
-                    }
+            //         &.dot-bottom {
+            //           top: auto;
+            //           bottom: -10%;
+            //           right: -10%;
+            //           border: 2px solid white;
+            //         }
 
-                    &.hide{
-                        display: none;
-                    }
-                  }
-            }
+            //         &.hide{
+            //             display: none;
+            //         }
+            //       }
+            // }
 
             .favorite-icon-button {
                 display: block;
@@ -216,9 +224,8 @@
         .burger-icon-gig-filter-container {
             .burger-icon-container {
                 .frayerr-logo {
-
                     margin: 0;
-
+                    margin-block-start: -8px;
                 }
             }
         }
@@ -383,7 +390,7 @@
 
                 .frayerr-logo {
                     color: $clr9;
-                    margin-left: 30px;
+                    margin-left: 60px;
 
                 }
             }
@@ -484,6 +491,7 @@
 
                     .frayerr-logo {
                         margin: 0;
+                        margin-block-start: -8px;
                     }
                 }
             }

@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { loadOrders, setOrderFilterBy, removeOrder, updateOrder } from '../store/order.actions'
 import { useParams } from 'react-router-dom';
+import { socketService, SOCKET_EVENT_UPDATE_USER } from "../services/socket.service.js";
 
 export const PurchaseList = (props) => {
 
@@ -35,10 +36,18 @@ export const PurchaseList = (props) => {
 			userIdBuyer: userIdFromParams,
 			status: '',
 		}))
+
 		dispatch(loadOrders())
-		// socketService.on(SOCKET_EVENT_ORDER_ADDED, ((review) =>
-        //     setReviews(prev => [...prev, review])
-        // ))
+		socketService.on(SOCKET_EVENT_UPDATE_USER, (msg) => {
+			if (msg === 'update-order') {
+				console.log('msg', msg);
+				dispatch(loadOrders())
+            }
+        })
+		return () => {
+			socketService.off(SOCKET_EVENT_UPDATE_USER)
+		}
+
 	}, [])
 
 	return (

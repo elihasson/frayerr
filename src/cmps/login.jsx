@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import { onLogin, onSignup } from '../store/user.actions'
-import { toggleLoginModal, toggleJoinModal } from '../store/system.actions'
+import { toggleLoginModal, toggleJoinModal, closeLoginJoinModal } from '../store/system.actions'
 // import { showErrorMsg, showSuccessMsg } from '../../services/event-bus.service'
 import CloseIcon from '@mui/icons-material/Close'
 import { userService } from '../services/user.service'
@@ -37,7 +37,7 @@ export const Login = () => {
     
     return (
         <section className="sign-modal">
-            <div className='btn-close-sign' onClick={() => toggleLoginModal(false)}><CloseIcon /></div>
+            <div className='btn-close-sign' onClick={() => dispatch(closeLoginJoinModal(false))}><CloseIcon /></div>
             <div className="modal-content">
                 <header >
                     <h1 className="modal-title">Sign in to frayerr</h1>

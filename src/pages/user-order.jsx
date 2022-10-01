@@ -17,7 +17,7 @@ export const UserOrder = (props) => {
     return (
         <div className="orders-section">
             <section className="orders-content">
-                <h3>Manage orders</h3>
+                <h3>Orders manager</h3>
                 <OrderList />
             </section>
         </div>

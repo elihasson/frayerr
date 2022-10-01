@@ -7,8 +7,7 @@ export const UserPurchase = (props) => {
         // <section className='user-purchase-container'>
         <div className="orders-section">
             <section className='orders-content'>
-                {/* Purchased Orders is shown as My Orders*/}
-                <h3>My Orders</h3>
+                <h3>Purchased gigs</h3>
                 <PurchaseList />
             </section>
         </div >

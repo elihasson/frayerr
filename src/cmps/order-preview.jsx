@@ -1,4 +1,10 @@
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { removeOrder, updateOrder } from "../store/order.actions";
+
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 // import { UserProfileImg } from "../profile/UserProfileImg"
 // import { socketService } from "../../services/socket.service";
@@ -6,59 +12,31 @@ import { NavLink } from "react-router-dom";
 
 export const OrderPreview = ({ order, type, user, onChangeStatus }) => {
 
-    const username = order.seller.username;
+    const dispatch = useDispatch()
+
+    const fullname = order.buyer.fullname;
     var statusClass;
 
-    if (order.status === ('pending' || 'delivered')) statusClass = 'gray';
-    if (order.status === 'rejected') statusClass = 'deactivated red';
-    if (order.status === 'active') {
-        if (type === 'seller') statusClass = 'deactivated green'
-        else statusClass = 'green';
-    }
+    // if (order.status === ('pending' || 'delivered')) statusClass = 'gray';
+    // if (order.status === 'rejected') statusClass = 'deactivated red';
+    // if (order.status === 'active') {
+    //     if (type === 'seller') statusClass = 'deactivated green'
+    //     else statusClass = 'green';
+    // }
 
-    const getStatus = () => {
-        switch (order.status) {
-            case 'pending': {
-                return 'Approve'
-            }
-            case 'active': {
-                return 'Active'
-            }
-            case 'rejected': {
-                return 'Rejected'
-            }
-        }
-
-    }
-
-    const setStatus = (value) => {
-        // if (order.status === 'rejected' || order.status === 'active') return
-        // order.status = value
-        // onChangeStatus(order)
-        // const notification = {
-        //     _id: utilService.makeId(8),
-        //     sender: user,
-        //     type: order.status,
-        //     createdAt: Date.now(),
-        //     msg: createMsg(order.status)
-        // }
-        // socketService.emit('new status', { order, notification })
-        console.log('hi:')
-    }
-
-    // const createMsg = (status) => {
-    //     var msg = {}
-    //     if (status === "active") {
-    //         msg.title = "Order approved!"
-    //         msg.content = "The seller approved your order"
-    //         msg.subHeader = "You can now view it in the dashboard"
+    // const getStatus = () => {
+    //     switch (order.status) {
+    //         case 'pending': {
+    //             return 'Approve'
+    //         }
+    //         case 'accept': {
+    //             return 'Active'
+    //         }
+    //         case 'decline': {
+    //             return 'Rejected'
+    //         }
     //     }
-    //     else if (status === "rejected") {
-    //         msg.title = "Order was rejected!"
-    //         msg.content = "The seller rejected your order"
-    //         msg.subHeader = "Dont worry! we have many other gigs for you"
-    //     }
-    //     return msg;
+
     // }
 
     const formatDate = () => {
@@ -74,18 +52,30 @@ export const OrderPreview = ({ order, type, user, onChangeStatus }) => {
         return formatedDate;
     }
 
+    const changeOrderStatus = (orderId, action) => {
+        if (action === 'delete') return dispatch(removeOrder(orderId))
+        else {
+            order.status = action
+            dispatch(updateOrder(order))
+        }
+    }
+
     return (
         <section className={`order-preview flex`}>
             <div className="main">
                 <NavLink className="gig-img" to={`/explore/${order.gig._id}`}>
                     <div className='img-container'>
                         <img src={order.gig.img.imgUrl} alt='img' />
+                        <div className="gig-img-title-container">
+                            <span>Title:</span>
+                            <span className="gig-img-title">{order.gig.title}</span>
+                        </div>
                     </div>
                 </NavLink>
                 <div className='user-info flex'>
-                    <h5>{username}</h5>
-                    {/* <UserProfileImg isLink={true} user={order[showingType]} /> */}
-                    <img src={order.seller.imgUrl} alt='img' />
+                    <h5>Buyer:</h5>
+                    <img src={order.buyer.imgUrl} alt='img' />
+                    <span>{fullname}</span>
                 </div>
                 <div className='gig-info flex'>
                     <span className='price'>Price</span>
@@ -101,23 +91,40 @@ export const OrderPreview = ({ order, type, user, onChangeStatus }) => {
                 </div>
             </div>
             <div className="status-container">
-                <span className='order-type'>Order Status:</span>
-                {/* {showingType === 'buyer' ? */}
+
+                <IconButton aria-label="delete" onClick={() => changeOrderStatus(order?._id, 'delete')}>
+                    <DeleteIcon />
+                </IconButton>
+
+                {order.status === 'done' && <span className='order-type'>Order Status:</span>}
                 <div className='btn-wrapper flex'>
-                    <button className={`button ${getStatus() === 'Rejected' ? 'red' : 'green'}`
-                    } onClick={() => {
-                        setStatus('active')
-                    }}>
-                        {getStatus()}
-                    </button>
+                    {order.status === 'pending' && <button className={`button green`}
+                        onClick={() => {
+                            changeOrderStatus(order._id, 'accept')
+                        }}>
+                        Accept
+                    </button>}
                     {order.status === 'pending' && <button className={'button red'}
                         onClick={() => {
-                            setStatus('rejected')
+                            changeOrderStatus(order._id, 'decline')
                         }}>Reject
                     </button>}
+
+                    {order.status === 'accept' && <button className={`button green`}
+                        onClick={() => {
+                            changeOrderStatus(order._id, 'done')
+                        }}>
+                        Completed
+                    </button>}
+                    {order.status === 'accept' && <button className={'button red'}
+                        onClick={() => {
+                            changeOrderStatus(order._id, 'pending')
+                        }}>Pending
+                    </button>}
+
+                    {order.status === 'done' && <span className={`status`}>{order.status}</span>}
                 </div>
 
-                {/* // <span className={`status ${statusClass}`}>{order.status}</span>} */}
             </div>
         </ section >
     )

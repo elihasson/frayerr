@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react'
 import { userService } from '../services/user.service'
 import { ImgUploader } from '../cmps/img-uploader'
-import { connect } from 'react-redux'
-import { toggleLoginModal, toggleJoinModal } from '../store/system.actions'
+import { useDispatch } from 'react-redux'
+import { toggleLoginModal, toggleJoinModal, closeLoginJoinModal } from '../store/system.actions'
+import { onSignup  } from '../store/user.actions'
 
 import CloseIcon from '@mui/icons-material/Close'
 
 
 // import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js';
-import { onSignup } from '../store/user.actions'
 
-export function _Signup(props) {
+export function Signup(props) {
+
+    const dispatch = useDispatch()
+
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
     const [isSignup, setIsSignup] = useState(false)
     const [users, setUsers] = useState([])
@@ -37,17 +40,18 @@ export function _Signup(props) {
     const handleSignup = (ev = null) => {
         if (ev) ev.preventDefault()
         if (!credentials.username || !credentials.password || !credentials.fullname) return
-        props.onSignup(credentials)
+        dispatch(onSignup(credentials))
         clearState()
+        dispatch(toggleJoinModal())
     }
 
     const onLogin = () => {
-        props.toggleLoginModal()
+        dispatch(toggleLoginModal())
     }
 
     return (
         <section className="sign-modal">
-            <div className='btn-close-sign' onClick={() => toggleJoinModal()}><CloseIcon /></div>
+            <div className='btn-close-sign' onClick={() => dispatch(closeLoginJoinModal())}><CloseIcon /></div>
             <div className="modal-content">
                 <header >
                     <h1 className="modal-title">Join frayerr</h1>
@@ -80,7 +84,7 @@ export function _Signup(props) {
                             onChange={handleChange}
                             className="user-input" />
                     </div>
-                    <button className="continue-btn" type="submit">Continue</button>
+                    <button className="continue-btn" type="submit">Join</button>
                     <p className="siginig-agree">By joining I agree to the terms of frayerr.</p>
                 </form>
             </div>
@@ -95,17 +99,17 @@ export function _Signup(props) {
     )
 }
 
-function mapStateToProps(state) {
-    return {
-        users: state.userModule.users,
-        user: state.userModule.user,
-        isLoading: state.systemModule.isLoading
-    }
-}
-const mapDispatchToProps = {
-    onSignup,
-    toggleLoginModal,
-    toggleJoinModal
-}
+// function mapStateToProps(state) {
+//     return {
+//         users: state.userModule.users,
+//         user: state.userModule.user,
+//         isLoading: state.systemModule.isLoading
+//     }
+// }
+// const mapDispatchToProps = {
+//     onSignup,
+//     toggleLoginModal,
+//     toggleJoinModal
+// }
 
-export const Signup = connect(mapStateToProps, mapDispatchToProps)(_Signup)
+// export const Signup = connect(mapStateToProps, mapDispatchToProps)(_Signup)

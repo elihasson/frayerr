@@ -44,27 +44,35 @@
     .hero-header {
         display: flex;
         flex-direction: column;
-        margin-block-start: 220px; //added by Aharon
+        margin-block-start: 125px; 
         align-items: flex-start;
         padding-inline-start: 32px;
-        
+
         // align-content: center; // removed by Aharon
         // padding-bottom: 24px;
         // position: absolute;
         // inset-block-start: 30vh;
         // width: 600px;
 
-        // margin-block-start: 220px;
-        @include for-hero-layout-2 {
+        @include for-hero-layout-1 {
             // max-width: 1400px;
             // margin: auto;
             // padding: 0;
+            margin-block-start: 220px;
         }
 
+        // @include for-hero-layout-2 {
+            // max-width: 1400px;
+            // margin: auto;
+            // padding: 0;
+            // margin-block-start: 220px;
+        // }
+
         // @include for-hero-layout-3 {
-        //     // max-width: 1400px;
-        //     // margin: auto;
-        //     padding-inline-start: 32px;
+             
+            // max-width: 1400px;
+            // margin: auto;
+            // padding-inline-start: 32px;
         // }
 
         .hero-title {
