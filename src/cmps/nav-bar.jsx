@@ -62,13 +62,11 @@ export const NavBar = ({ classProp, toggleMenu, user, dispatch, toggleJoinModal,
 
                 {user &&
                     <React.Fragment>
-                        <NavLink to="/" >
-                            {/* currently just closes navbar */}
+                        {/* <NavLink to="/" >
                             <div onClick={toggleMenu}>Inbox</div>
-                        </NavLink>
+                        </NavLink> */}
 
                         <NavLink to={`/user/${user._id}/order`}>
-                            {/* currently just closes navbar */}
                             <div onClick={toggleMenu}>Manage Orders</div>
                         </NavLink>
                         <NavLink to="/" >

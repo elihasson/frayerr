@@ -26,7 +26,7 @@
             height: 100%;
             // background-image: url('https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049983/bg-hero-1-1792-x1.png');
             // background-image: url('../../img/bg-hero-1.jpg');
-            background-position: 60% 100%;
+            background-position: 50% 100%;
             background-repeat: no-repeat;
             display: contents;
             transition: 2s;
@@ -35,9 +35,9 @@
                 display: block;
             }
 
-            @include for-hero-layout-4 {
-                background-position: 5% 100%;
-            }
+            // @include for-hero-layout-4 {
+            //     background-position: 5% 100%;
+            // }
 
             // position: absolute; //removed by Aharon
             // background-image: url('../../img/bg-hero-1.jpg');
@@ -70,13 +70,14 @@
 
         // }
 
-        @include for-hero-layout-3 {
-            margin: auto;
-            margin-block-start: 220px;
-        }
+        // @include for-hero-layout-3 {
+        //     margin-inline: unset;
+        //     padding-inline: unset;
+        // }
 
         @include for-hero-layout-4 {
-            max-width: 1460px;
+            margin-inline: auto;
+            padding-inline: 0;
         }
 
         .hero-title {
@@ -97,11 +98,12 @@
             @include for-hero-layout-2 {
                 // font-size: rem(48px);
                 // width: 600px;
-            }
-
-            @include for-hero-layout-3 {
                 max-width: 600px;
             }
+
+            // @include for-hero-layout-3 {
+            //     max-width: 600px;
+            // }
 
             i {
                 font-family: domain-display-italic;
