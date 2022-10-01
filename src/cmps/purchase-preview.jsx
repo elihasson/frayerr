@@ -57,7 +57,7 @@ export const PurchasePreview = ({ order, type, user, onChangeStatus }) => {
                         <img src={order?.gig?.img?.imgUrl} alt='img' />
                         <div className="gig-img-title-container">
                             <span>Title:</span>
-                            <span className="gig-img-title">{order.gig.title}</span>
+                            <span className="gig-img-title">{order?.gig?.title}</span>
                         </div>
                     </div>
                 </NavLink>
