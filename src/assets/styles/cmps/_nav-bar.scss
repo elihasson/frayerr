@@ -41,11 +41,27 @@
 
         }
 
+        .user-profile-img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .username-container {
+            // position: absolute;
+            // top: 40%;
+            // left: 28%;
+            position: relative;
+            bottom: 23px;
+            left: 10px;
+        }
+
         .nav-bar-signin-button {
             margin-block-start: 16px;
         }
 
-        
+
     }
 
     .menu-nav {

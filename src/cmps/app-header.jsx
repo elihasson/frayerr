@@ -58,7 +58,7 @@ export const AppHeader = (props) => {
         <div className={`app-header-container full main-layout ${isHomeHeaderTop()}`}>
             {isMenuOpen && <div onClick={toggleMenu} className="main-screen"></div>}
 
-            <NavBar classProp={navBarOpenClassName} toggleMenu={toggleMenu}/>
+            <NavBar classProp={navBarOpenClassName} toggleMenu={toggleMenu} user={user} dispatch = {dispatch} toggleJoinModal={ toggleJoinModal} toggleLoginModal={toggleLoginModal} onLogout={onLogout}/>
 
             <header className="app-header main-layout" >
 

@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom"
-import { useSelector, useDispatch } from 'react-redux'
-import { toggleJoinModal, toggleLoginModal } from '../store/system.actions'
-import { onLogout } from '../store/user.actions'
+// import { useDispatch } from 'react-redux'
+// import { toggleJoinModal, toggleLoginModal } from '../store/system.actions'
+// import { onLogout } from '../store/user.actions'
 import React from "react"
 
-export const NavBar = ({classProp, toggleMenu}) => {
-    const user = useSelector(state => state.userModule.user)
-    const dispatch = useDispatch()
+export const NavBar = ({ classProp, toggleMenu, user, dispatch, toggleJoinModal, toggleLoginModal, onLogout }) => {
+    // const user = useSelector(state => state.userModule.user)
+    // const dispatch = useDispatch()
 
     const handleJoinModal = () => {
         dispatch(toggleJoinModal())
@@ -27,7 +27,13 @@ export const NavBar = ({classProp, toggleMenu}) => {
         <section className={`nav-bar-containter ${classProp}`} >
             <header className="menu-header">
 
-                {!user &&
+                {user ?
+                    <div className='avatar-logo-container hovertext'>
+                        <img src={user?.imgUrl} alt="user img"
+                            className='user-profile-img ' />
+                        <span className='username-container'>{user?.username}</span>
+                    </div>
+                    :
                     <React.Fragment>
                         <NavLink to="/" className='nav-bar-join-button'>
                             <div className="nav-bar-join-button-txt" onClick={handleJoinModal} >Join frayerr</div>
@@ -50,24 +56,25 @@ export const NavBar = ({classProp, toggleMenu}) => {
                     <div onClick={toggleMenu}>Explore</div>
                 </NavLink>
 
-                <NavLink to="/" >
-                    {/* currently just closes navbar */}
-                    <div onClick={toggleMenu}>Inbox</div>
-                </NavLink>
-
-                <NavLink to="/" >
-                    {/* currently just closes navbar */}
-                    <div onClick={toggleMenu}>Manage Orders</div>
-                </NavLink>
-
                 {/* <NavLink to="/" >
                     <div>Categories</div>
                 </NavLink> */}
 
                 {user &&
-                    <NavLink to="/" >
-                        <div onClick={handleLogout}>Logout</div>
-                    </NavLink>
+                    <React.Fragment>
+                        <NavLink to="/" >
+                            {/* currently just closes navbar */}
+                            <div onClick={toggleMenu}>Inbox</div>
+                        </NavLink>
+
+                        <NavLink to={`/user/${user._id}/order`}>
+                            {/* currently just closes navbar */}
+                            <div onClick={toggleMenu}>Manage Orders</div>
+                        </NavLink>
+                        <NavLink to="/" >
+                            <div onClick={handleLogout}>Logout</div>
+                        </NavLink>
+                    </React.Fragment>
                 }
             </nav>
         </section>
