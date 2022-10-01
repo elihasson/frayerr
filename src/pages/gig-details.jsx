@@ -45,7 +45,7 @@ export const GigDetails = () => {
                         <h5 className='owner-name'>{gig.owner.fullname}</h5>
                         <h5 className={'owner-level ' + `${levelClass}`}>{levelDesc}</h5>
                         <span className='spacer'>|</span>
-                        <UserRateStars gig={gig} />
+                        <UserRateStars gig={gig} /><span>(5)</span>
                         {/* <h5>stars</h5> */}
                     </div>
                 </div>

@@ -6,6 +6,10 @@ export function ReviewPreview({ review }) {
 
     return (
         <div className='review-preview'>
+             {review?.imgUrl ? <div className="reviewer-img" style={{ backgroundImage: `url(${review.imgUrl})` }}></div>
+                : <div style={{ backgroundColor: '#' + Math.floor(Math.random() * 16777215).toString(16)}} className="reviewer-img">
+                    <span>{review.name.charAt(0)}</span>
+                </div>}
             <header>
                 <div className="reviewer-info">
                     <span className="reviewer-name">{review.name}</span>

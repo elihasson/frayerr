@@ -324,11 +324,11 @@
 // }
 
 .sticky-box {
-  height:10vh;
+  height: 10vh;
   width: 100%;
   background-color: pink;
-  position:sticky;
-  top:0;
+  position: sticky;
+  top: 0;
 
 }
 
@@ -338,17 +338,17 @@
     grid-column: 2;
     // position: absolute;
     // inset: auto auto auto 0;
-    // position: sticky;
+    position: sticky;
     // top: 0;
-    margin-left: auto;
+    margin-left: 90px;
 
   }
 }
 
 .order-modal {
-      position: sticky;
-    top: 0;
-    align-self: flex-start;
+  position: sticky;
+  top: 0;
+  // align-self: flex-start;
   display: flex;
   flex-direction: column;
   padding-top: 32px;

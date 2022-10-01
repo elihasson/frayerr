@@ -4,7 +4,7 @@
     max-width: 50vw;
   }
   padding: 44px;
-  padding-inline-start: 44px;
+  padding-inline-start: 60px;
   position: relative;
   border-top: 1px solid $clr6;
 
@@ -26,8 +26,8 @@
   .reviewer-img {
     border-radius: 50%;
     background-size: cover;
-    height: 30px;
-    width: 30px;
+    height: 45px;
+    width: 45px;
     position: absolute;
     left: 0;
     top: 38px;
@@ -69,14 +69,14 @@
   }
 
   .review-desc {
-    // padding: 8px 0;
+    padding: 8px 0;
     p {
       margin-top: 5px;
       margin-bottom: 0px;
       line-height: 22px;
       color: $clr2;
       font-weight: 400;
-      font-size: 0.8rem;
+      font-size: 1.1rem;
       word-wrap: break-word;
       max-width: 100%;
     }
