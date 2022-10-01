@@ -51,6 +51,7 @@ export const AppHeader = (props) => {
     const isHomeHeaderTop = () => {
         if (isHome && isScroll && !user) return 'home-top-header-with-scroll'
         if (isHome && !user) return 'home-top-header-no-scroll'
+        if (isHome && user) return 'home-top-header-with-user'
         if (!user) return 'home-top-header-with-scroll'
 
     }
@@ -126,7 +127,7 @@ export const AppHeader = (props) => {
                 </div>}
 
                 {user && <div className='avatar-logo-container hovertext'
-                    data-hover={`Username: ${user?.username}`}>
+                    data-hover={`Username: ${user?.fullname}`}>
                     {/* <NavLink to={`/user/${user?._id}`}> 
                     </NavLink> */}
                     <img src={user?.imgUrl} alt="user img"

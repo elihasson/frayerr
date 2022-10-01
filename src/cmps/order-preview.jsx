@@ -122,7 +122,7 @@ export const OrderPreview = ({ order, type, user, onChangeStatus }) => {
                         }}>Pending
                     </button>}
 
-                    {order.status === 'done' && <span className={`status`}>{order.status}</span>}
+                    {order.status === 'done' && <span className={`status green`}>Delivered</span>}
                 </div>
 
             </div>
