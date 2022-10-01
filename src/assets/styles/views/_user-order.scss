@@ -322,7 +322,7 @@
 
       font-family: work-sans;
       height: 30px;
-      width: 70px;
+      min-width: 70px;
       font-size: 0.8rem;
 
       @include for-narrow-layout {
