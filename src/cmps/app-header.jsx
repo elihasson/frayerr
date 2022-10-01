@@ -10,7 +10,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 
 import { NavBar } from './nav-bar.jsx'
 import { GigFilter } from './gig-filter'
-
+import { ProfileMenu } from './profile-menu'
 import { toggleJoinModal, toggleLoginModal } from '../store/system.actions'
 import { loadUsers, onLogout } from '../store/user.actions'
 
@@ -24,6 +24,7 @@ export const AppHeader = (props) => {
     const dispatch = useDispatch()
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
     const [isScroll, setIsScroll] = useState(false)
     const [navBarOpenClassName, setNavBarOpenClassName] = useState('')
 
@@ -54,11 +55,20 @@ export const AppHeader = (props) => {
 
     }
 
+    const toggleProfileMenu = () => {
+        setIsProfileMenuOpen(!isProfileMenuOpen)
+    }
+
+    const handleLogout = () => {
+        dispatch(onLogout())
+        toggleProfileMenu()
+    }
+
     return (
         <div className={`app-header-container full main-layout ${isHomeHeaderTop()}`}>
             {isMenuOpen && <div onClick={toggleMenu} className="main-screen"></div>}
 
-            <NavBar classProp={navBarOpenClassName} toggleMenu={toggleMenu} user={user} dispatch = {dispatch} toggleJoinModal={ toggleJoinModal} toggleLoginModal={toggleLoginModal} onLogout={onLogout}/>
+            <NavBar classProp={navBarOpenClassName} toggleMenu={toggleMenu} user={user} dispatch={dispatch} toggleJoinModal={toggleJoinModal} toggleLoginModal={toggleLoginModal} onLogout={onLogout} />
 
             <header className="app-header main-layout" >
 
@@ -97,10 +107,6 @@ export const AppHeader = (props) => {
                         {isNewOrder && <div className="connection-dot dot-bottom"></div>}
                     </NavLink>
 
-                    <NavLink to="#" className='logout-button'>
-                        <div onClick={() => dispatch(onLogout())}>Logout</div>
-                    </NavLink>
-
                 </div>}
 
                 {(!user) && <div className='icon-search-bar-container'>
@@ -121,9 +127,14 @@ export const AppHeader = (props) => {
 
                 {user && <div className='avatar-logo-container hovertext'
                     data-hover={`Username: ${user?.username}`}>
-                    <NavLink to={`/user/${user?._id}`}> <img src={user?.imgUrl} alt="user img"
-                        className='user-profile-img ' /></NavLink>
-
+                    {/* <NavLink to={`/user/${user?._id}`}> 
+                    </NavLink> */}
+                    <img src={user?.imgUrl} alt="user img"
+                        className='user-profile-img' onClick={toggleProfileMenu}/>
+                    {/* <NavLink to="#" className='logout-button'>
+                        <div onClick={() => dispatch(onLogout())}>Logout</div>
+                    </NavLink> */}
+                    {isProfileMenuOpen && <ProfileMenu onLogout={handleLogout} user={user} closeProfileMenu={toggleProfileMenu} />}
                 </div>}
 
             </header>
