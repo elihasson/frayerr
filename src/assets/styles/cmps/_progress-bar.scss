@@ -1,0 +1,58 @@
+.progress-bar {
+  width: 100%;
+  max-width: 712px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  .bar {
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+    span{
+      color: #446ee7;
+    }
+
+    :first-child {
+      color: #446ee7;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 100%;
+    }
+
+    &-1 {
+      padding-inline-end: 10px;
+    }
+    .progress-bar-container {
+      height: 8px;
+      width: 100%;
+      border-radius: 30px;
+      position: relative;
+      
+    }
+  }
+  .star-name {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+      padding-inline-start: 5px;
+      display: inline-block;
+    }
+  }
+
+  .first-span,
+  .second-span {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #e4e5e7;
+    border-radius: 50px;
+  }
+
+  .second-span {
+    background-color: #ffb33e;
+  }
+}
