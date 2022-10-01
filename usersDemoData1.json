@@ -1,0 +1,269 @@
+
+{
+    "_id" : ObjectId("633548767a4ae74614f849cb"),
+    "username" : "b",
+    "password" : "$2b$10$Z1mCZk9gUtrc6.Sj6zx1N.jtBoWJbdJX3a6ca2ru./bmw3/7WZy3a",
+    "fullname" : "Tobin Abbott",
+    "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642849189/User%20photos/Male/profile_img_7_wrinwo.jpg",
+    "smallDesc": "i will draw any world you imagine",
+    "rate" : 4.9,
+    "level" : "premium",
+    "score" : 100,
+    "reviews" : [
+        {
+            "name":"tobiaspille300",
+            "country":"Thailand",
+            "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+            "review":"Tobin ist a super kind artist doing the process he was super professional and only took him 1 shot to deliver a perfect result ! Highly recommended work with this guy !",
+            "reviewedAt":"Published 2 months ago"
+          },
+          {
+            "name":"liam31",
+            "country":"United Kingdom",
+            "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+            "review":"I requested a slightly earlier delivery on this and once again Tobin came through and provided a fantastic delivery. Thanks so much!",
+            "reviewedAt":"Published 3 weeks ago"
+          },
+          {
+            "name":"liam31",
+            "country":"United Kingdom",
+            "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+            "review":"Tobin is amazing and extremely talented. This is the second time working with him and he has been a pleasure yet again!",
+            "reviewedAt":"Published 3 weeks ago"
+          },
+          {
+            "name":"larsonraz",
+            "country":"United States",
+            "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            "review":"Very detailed",
+            "reviewedAt":"Published 1 week ago"
+          },
+          {
+            "name":"stevekaszycki",
+            "country":"United States",
+            "flag":"https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+            "review":"very nice portrait, very good quality.",
+            "reviewedAt":"Published 2 weeks ago"
+          }
+
+
+    ]
+}
+
+
+/////////////////////////////////
+
+
+// was:
+
+{
+    "_id" : ObjectId("633548767a4ae74614f849cb"),
+    "username" : "b",
+    "password" : "$2b$10$Z1mCZk9gUtrc6.Sj6zx1N.jtBoWJbdJX3a6ca2ru./bmw3/7WZy3a",
+    "fullname" : "Tobin Abbott",
+    "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642849189/User%20photos/Male/profile_img_7_wrinwo.jpg",
+    "score" : 100
+}
+
+//was
+
+{
+  "_id" : ObjectId("63372472f7b225df5fc46574"),
+  "title" : "I will illustrate your dreams",
+  "price" : 180.0,
+  "owner" : {
+      "_id" : "61ed0fa45eze75815ffx10f6",
+      "fullname" : "Tobin Abbott",
+      "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642849189/User%20photos/Male/profile_img_7_wrinwo.jpg",
+      "level" : "professional",
+      "rate" : 4.6
+  },
+  "daysToMake" : 2.0,
+  "description" : "I'm your voice for your project right here on Frayerr. I am a Professional voice narrator with 3 Years of Experience. I'll narrate an upload, your voiceover project, whatever it might be. I do audio books, children's books, YouTube videos, narrations whiteboards, sales presentations, you name it.  Do you need a HIGHLY EXPERIENCED, PROFESSIONAL NARRATOR for your audiobook?  I will professionally narrate your audiobook to industry standards. I'll do it quickly professionally and make sure it's of the highest quality. Hey, it's your project. It deserves to be done. Right. So go ahead and check out my gigs, check out my samples. And if you have any questions, go ahead and send me a message and I'll make sure to respond back with a custom offer. Thanks so much. And I look forward to working with you.",
+  "imgUrls" : [ 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843821/illustration/illustration_16_fgwhje.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843821/illustration/illustration_17_thcwdn.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843820/illustration/illustration_14_xubud3.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843820/illustration/illustration_16_mtwidh.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843820/illustration/illustration_15_rbdzcm.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843820/illustration/illustration_15_l9ofuv.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843820/illustration/illustration_14_overmn.jpg"
+      }
+  ],
+  "category" : "illustration",
+  "likedByUser" : [ 
+      {
+          "userId" : "61ed0fa4539e75815ff210f6",
+          "fullname" : "Dwayne Loony",
+          "imgUrl" : "https://media.istockphoto.com/photos/portrait-of-handsome-smiling-young-man-with-crossed-arms-picture-id1200677760?k=20&m=1200677760&s=612x612&w=0&h=JCqytPoHb6bQqU9bq6gsWT2EX1G5chlW5aNK81Kh4Lg="
+      }
+  ]
+}
+//correction
+{
+  "_id" : ObjectId("63372472f7b225df5fc46574"),
+  "title" : "I will illustrate your dreams",
+  "price" : 180.0,
+  "owner" : {
+      "_id" : "633548767a4ae74614f849cb",
+      "fullname" : "Tobin Abbott",
+      "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642849189/User%20photos/Male/profile_img_7_wrinwo.jpg",
+      "level" : "professional",
+      "rate" : 4.6
+  },
+  "daysToMake" : 2.0,
+  "description" : "I'm your voice for your project right here on Frayerr. I am a Professional voice narrator with 3 Years of Experience. I'll narrate an upload, your voiceover project, whatever it might be. I do audio books, children's books, YouTube videos, narrations whiteboards, sales presentations, you name it.  Do you need a HIGHLY EXPERIENCED, PROFESSIONAL NARRATOR for your audiobook?  I will professionally narrate your audiobook to industry standards. I'll do it quickly professionally and make sure it's of the highest quality. Hey, it's your project. It deserves to be done. Right. So go ahead and check out my gigs, check out my samples. And if you have any questions, go ahead and send me a message and I'll make sure to respond back with a custom offer. Thanks so much. And I look forward to working with you.",
+  "imgUrls" : [ 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843821/illustration/illustration_16_fgwhje.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843821/illustration/illustration_17_thcwdn.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843820/illustration/illustration_14_xubud3.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843820/illustration/illustration_16_mtwidh.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843820/illustration/illustration_15_rbdzcm.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843820/illustration/illustration_15_l9ofuv.jpg"
+      }, 
+      {
+          "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642843820/illustration/illustration_14_overmn.jpg"
+      }
+  ],
+  "category" : "illustration",
+  "likedByUser" : [ 
+      {
+          "userId" : "61ed0fa4539e75815ff210f6",
+          "fullname" : "Dwayne Loony",
+          "imgUrl" : "https://media.istockphoto.com/photos/portrait-of-handsome-smiling-young-man-with-crossed-arms-picture-id1200677760?k=20&m=1200677760&s=612x612&w=0&h=JCqytPoHb6bQqU9bq6gsWT2EX1G5chlW5aNK81Kh4Lg="
+      }
+  ]
+}
+
+//was1
+
+{
+  "_id" : ObjectId("633548767a4ae74614f849cb"),
+  "username" : "b",
+  "password" : "$2b$10$Z1mCZk9gUtrc6.Sj6zx1N.jtBoWJbdJX3a6ca2ru./bmw3/7WZy3a",
+  "fullname" : "Tobin Abbott",
+  "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642849189/User%20photos/Male/profile_img_7_wrinwo.jpg",
+  "smallDesc" : "i will draw any world you imagine",
+  "rate" : 4.9,
+  "level" : "premium",
+  "score" : 100,
+  "reviews" : [ 
+      {
+          "name" : "tobiaspille300",
+          "country" : "Thailand",
+          "flag" : "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+          "review" : "Tobin ist a super kind artist doing the process he was super professional and only took him 1 shot to deliver a perfect result ! Highly recommended work with this guy !",
+          "reviewedAt" : "Published 2 months ago"
+      }, 
+      {
+          "name" : "liam31",
+          "country" : "United Kingdom",
+          "flag" : "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+          "review" : "I requested a slightly earlier delivery on this and once again Tobin came through and provided a fantastic delivery. Thanks so much!",
+          "reviewedAt" : "Published 3 weeks ago"
+      }, 
+      {
+          "name" : "liam31",
+          "country" : "United Kingdom",
+          "flag" : "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+          "review" : "Tobin is amazing and extremely talented. This is the second time working with him and he has been a pleasure yet again!",
+          "reviewedAt" : "Published 3 weeks ago"
+      }, 
+      {
+          "name" : "larsonraz",
+          "country" : "United States",
+          "flag" : "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+          "review" : "Very detailed",
+          "reviewedAt" : "Published 1 week ago"
+      }, 
+      {
+          "name" : "stevekaszycki",
+          "country" : "United States",
+          "flag" : "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+          "review" : "very nice portrait, very good quality.",
+          "reviewedAt" : "Published 2 weeks ago"
+      }
+  ]
+}
+
+//corrected1
+{
+  "_id" : ObjectId("633548767a4ae74614f849cb"),
+  "username" : "b",
+  "password" : "$2b$10$Z1mCZk9gUtrc6.Sj6zx1N.jtBoWJbdJX3a6ca2ru./bmw3/7WZy3a",
+  "fullname" : "Tobin Abbott",
+  "imgUrl" : "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642849189/User%20photos/Male/profile_img_7_wrinwo.jpg",
+  "smallDesc" : "i will draw any world you imagine",
+  "rate" : 4.9,
+  "level" : "premium",
+  "score" : 100,
+  "reviews" : [ 
+      {
+          "name" : "tobiaspille300",
+          "country" : "Thailand",
+          "flag" : "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f9-1f1ed.png",
+          "review" : "Tobin ist a super kind artist doing the process he was super professional and only took him 1 shot to deliver a perfect result ! Highly recommended work with this guy !",
+          "rate" : 5,
+          "reviewedAt" : "Published 2 months ago"
+      }, 
+      {
+          "name" : "liam31",
+          "country" : "United Kingdom",
+          "flag" : "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+          "review" : "I requested a slightly earlier delivery on this and once again Tobin came through and provided a fantastic delivery. Thanks so much!",
+          "rate" : 5,
+          "reviewedAt" : "Published 3 weeks ago"
+      }, 
+      {
+          "name" : "liam31",
+          "country" : "United Kingdom",
+          "flag" : "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png",
+          "review" : "Tobin is amazing and extremely talented. This is the second time working with him and he has been a pleasure yet again!",
+          "rate" : 4,
+          "reviewedAt" : "Published 3 weeks ago"
+      }, 
+      {
+          "name" : "larsonraz",
+          "country" : "United States",
+          "flag" : "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+          "review" : "Very detailed",
+          "rate" : 5,
+          "reviewedAt" : "Published 1 week ago"
+      }, 
+      {
+          "name" : "stevekaszycki",
+          "country" : "United States",
+          "flag" : "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png",
+          "review" : "very nice portrait, very good quality.",
+          "rate" : 5,
+          "reviewedAt" : "Published 2 weeks ago"
+      }
+  ]
+}
+
+
+

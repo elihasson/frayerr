@@ -1,0 +1,141 @@
+.review-section {
+  width: 100%;
+  max-width: 712px;
+
+  .stats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 30px;
+    // flex-wrap: wrap;
+    @include for-layout-normal {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .left-side-container {
+    width: 100%;
+
+    // @include for-review-narrow-layout {
+    //   width: 48%;
+    // }
+  }
+
+  .right-side-container {
+    color: $clr2;
+    width: 45%;
+    padding-top: 20px;
+
+    h4 {
+      padding-bottom: 16px;
+      font-weight: 600;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      li {
+        color: #95979d;
+
+        font-size: rem(14px);
+        // @include for-normal-layout {
+        //   font-size: rem(14px);
+        // }
+      }
+    }
+    width: 100%;
+
+    // @include for-review-narrow-layout {
+    //   width: 45%;
+    // }
+  }
+  .line {
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 400;
+    }
+  }
+
+  .star-rate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffb33e;
+  }
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+  }
+
+  .number-of-reviews {
+    font-size: 22px;
+    line-height: 42px;
+    font-weight: 700;
+    color: $clr2;
+    display: flex;
+    gap: 5px;
+  }
+
+  .stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    .star{
+      color: #ffb33e;
+    }
+    .rate{
+      color: #ffb33e;
+    }
+  }
+
+  .num-of-rating {
+    color: #ffb33e;
+    font-weight: 700;
+  }
+  .add-review-btn {
+    width: 45%;
+    @media (max-width: 350px) {
+      white-space: nowrap;
+      width: 100%;
+    }
+    padding: 7px;
+    cursor: pointer;
+    background-color: inherit;
+    border: 1px solid $clr5;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: 500;
+    margin-bottom: 30px;
+    &:hover {
+      background-color: #7a7d85;
+      color: white;
+    }
+  }
+
+  .review-add-header {
+    h2 {
+      color: $clr2;
+      line-height: 2.5rem;
+      padding: 5px 0;
+    }
+    .title {
+      line-height: 140%;
+      padding-bottom: 0.9375rem;
+      border-bottom: 1px solid #cdcad1;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+}
