@@ -132,11 +132,11 @@
   }
 }
 
-// @mixin for-hero-layout-4 {
-//   @media (min-width: $hero-bp-4) {
-//     @content;
-//   }
-// }
+@mixin for-hero-layout-4 {
+  @media (min-width: $hero-bp-4) {
+    @content;
+  }
+}
 
 // REVIEW MIXINS
 
