@@ -33,7 +33,7 @@ export const Explore = (props) => {
     const [isBudgetOpen, setIsBudgetOpen] = useState(false)
     const [minPrice, setMinPrice] = useState(0)
     const [maxPrice, setMaxPrice] = useState(10000000)
-    const [currCategory, setCurrCategory] = useState(filterBy.category)
+    const [currCategory, setCurrCategory] = useState('')
 
     useEffect(() => {
         window.scroll({
@@ -43,6 +43,16 @@ export const Explore = (props) => {
           })
         dispatch(loadGigs())
         //    gigs = loadGigs()
+        // return () => {
+        //     // dispatch(setFilterBy({
+        //     //     txt: '',
+        //     //     deliveryTime: '',
+        //     //     budget: '',
+        //     //     category: '',
+        //     //     userId: '',
+        //     // }))
+        //     setCurrCategory('')
+        // }
     }, [filterBy])
 
     const onRemoveGig = (gigId) => {
