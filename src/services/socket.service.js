@@ -9,6 +9,7 @@ export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added'
 export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you'
 export const SOCKET_EMIT_ORDER_ADDED = 'order-added'
+export const SOCKET_EMIT_ORDER_UPDATE = 'order-updated'
 export const SOCKET_EVENT_UPDATE_USER = 'update-user'
 
 export const SOCKET_EMIT_USER_OFFLINE = 'user-offline'

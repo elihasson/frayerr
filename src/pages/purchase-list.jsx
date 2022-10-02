@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { loadOrders, setOrderFilterBy, removeOrder, updateOrder } from '../store/order.actions'
 import { useParams } from 'react-router-dom';
-import { socketService, SOCKET_EVENT_UPDATE_USER } from "../services/socket.service.js";
+import { socketService, SOCKET_EMIT_ORDER_UPDATE, SOCKET_EVENT_UPDATE_USER } from "../services/socket.service.js";
 
 export const PurchaseList = (props) => {
 
@@ -38,15 +38,15 @@ export const PurchaseList = (props) => {
 		}))
 
 		dispatch(loadOrders())
-		socketService.on(SOCKET_EVENT_UPDATE_USER, (msg) => {
+		socketService.on(SOCKET_EMIT_ORDER_UPDATE, (msg) => {
 			if (msg === 'update-order') {
 				console.log('msg', msg);
 				dispatch(loadOrders())
             }
         })
 		return () => {
-			socketService.off(SOCKET_EVENT_UPDATE_USER)
-		}
+			socketService.off(SOCKET_EMIT_ORDER_UPDATE)
+		} 
 
 	}, [])
 
@@ -60,77 +60,4 @@ export const PurchaseList = (props) => {
         </ul>
     )
 
-	// const createData = (title, gigPrice, buyerName, orderId, orderStatus) => {
-	// 	return { title, gigPrice, buyerName, orderId, orderStatus };
-	// }
-
-	// let rows = []
-
-	// rows = orders?.map((order) => {
-	// 	const title = order.gig?.title
-	// 	const gigPrice = order.gig?.price
-	// 	const buyerName = order.buyer?.fullname
-	// 	const orderId = order._id
-	// 	const orderStatus = order.status
-	// 	return createData(title, gigPrice, buyerName, orderId, orderStatus)
-	// })
-
-	// const changeOrderStatus = (orderId, action) => {
-	// 	if (action === 'delete') return dispatch(removeOrder(orderId))
-	// 	const order = orders.filter(order => order._id === orderId)
-	// 	if (action === 'decline' || action === 'accept') {
-	// 		order[0].status = action
-	// 		dispatch(updateOrder(order[0]))
-	// 	}
-	// }
-
-	// return (
-	// 	<div>
-	// 		<div className='user-order-heading'>
-	// 			{orders.length !== 0 ? 'Your orders:' : 'No orders yet :('}
-	// 		</div>
-
-	// 		{(orders.length !== 0) && <TableContainer component={Paper} className="order-list">
-	// 			<Table sx={{ minWidth: 650 }} aria-label="simple table">
-	// 				<TableHead>
-	// 					<TableRow>
-	// 						<TableCell>Gig ordered</TableCell>
-	// 						<TableCell align="center">Price</TableCell>
-	// 						<TableCell align="center">Buyer Name</TableCell>
-	// 						<TableCell align="center">Order status</TableCell>
-	// 						<TableCell align="center">Actions</TableCell>
-	// 					</TableRow>
-	// 				</TableHead>
-	// 				<TableBody>
-	// 					{rows.map((row) => (
-	// 						<TableRow
-	// 							key={row.title}
-	// 							sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-	// 						>
-	// 							<TableCell component="th" scope="row">
-	// 								{row.title}
-	// 							</TableCell>
-	// 							<TableCell align="center">{row.gigPrice}</TableCell>
-	// 							<TableCell align="center">{row.buyerName}</TableCell>
-	// 							<TableCell align="center">{row.orderStatus}</TableCell>
-	// 							<TableCell align="center">
-	// 								{/* <button className='btn' onClick={() =>changeOrderStatus(row.orderId, 'accept')} >Accept</button>
-    //             <button className='btn-red' onClick={() => changeOrderStatus(row.orderId, 'decline')}>Decline</button> */}
-	// 								<IconButton aria-label="accept" onClick={() => changeOrderStatus(row.orderId, 'accept')}>
-	// 									<DoneOutlineRoundedIcon />
-	// 								</IconButton>
-	// 								<IconButton aria-label="decline" onClick={() => changeOrderStatus(row.orderId, 'decline')}>
-	// 									<CloseRoundedIcon />
-	// 								</IconButton>
-	// 								<IconButton aria-label="delete" onClick={() => changeOrderStatus(row.orderId, 'delete')}>
-	// 									<DeleteIcon />
-	// 								</IconButton>
-	// 							</TableCell>
-	// 						</TableRow>
-	// 					))}
-	// 				</TableBody>
-	// 			</Table>
-	// 		</TableContainer>}
-	// 	</div>
-	// )
 }

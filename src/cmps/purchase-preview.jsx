@@ -14,16 +14,27 @@ export const PurchasePreview = ({ order, type, user, onChangeStatus }) => {
 
     const dispatch = useDispatch()
 
-    const fullname = order?.seller?.fullname;
-    var statusClass;
+    let statusClass
+    let statusTxt
 
-    // if (order.status === ('pending' || 'delivered')) statusClass = 'gray';
-    // if (order.status === 'rejected') statusClass = 'deactivated red';
-    // if (order.status === 'active') {
-    //     if (type === 'seller') statusClass = 'deactivated green'
-    //     else statusClass = 'green';
-    // }
+    const fullname = order?.seller?.fullname
 
+    useEffect(() => {
+    }, [])
+
+    if (order.status === ('pending')) {
+        statusClass = 'gray'
+        statusTxt = 'Pending'
+    }
+    if (order.status === 'decline'){
+         statusClass = 'deactivated red'
+         statusTxt = 'Order was declined'
+    }
+    if (order.status === 'accept' || order.status === 'done') {
+        statusClass = 'green'
+        if(order.status === 'done') statusTxt = 'Order delivered'
+        if(order.status === 'accept') statusTxt = 'Order in work'
+    }
 
     const formatDate = () => {
         var { createdAt } = order
@@ -49,6 +60,7 @@ export const PurchasePreview = ({ order, type, user, onChangeStatus }) => {
         }
     }
 
+    console.log('statusClass:', statusClass)
     return (
         <section className={`order-preview flex`}>
             <div className="main">
@@ -88,7 +100,7 @@ export const PurchasePreview = ({ order, type, user, onChangeStatus }) => {
 
                 <span className='order-type'>Order Status:</span>
 
-                <span className={`status `}>{order?.status}</span>
+                <span className={`status ${statusClass}`}>{statusTxt}</span>
             </div>
         </ section >
     )
