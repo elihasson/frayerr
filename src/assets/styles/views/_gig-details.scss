@@ -40,7 +40,7 @@
 .gig-details-container {
   // padding: 0px 70px 0;
   // padding-left: 32px;
-  padding-left: 22px;
+  // padding-left: 22px;
   width: 100%;
 
   // display: flex;
@@ -356,12 +356,30 @@
   //min 890
   @include for-order-normal-layout {
     position: fixed;
-    width: 478px;
     top: 118px;
-    right: 142px;
+    right: 0px;
+    width: 300px;
     // position: sticky;
     // top: 0;
   }
+  //1080
+  @include for-order-wide-layout {
+    right: 0px;
+    width: 350px;
+  }
+  //1230
+  @include for-order-xwide-layout {
+    right: 0px;
+    width: 478px;
+    // width: 450px;
+    
+  }
+  
+  // @mixin for-order-xwide-layout {
+  //   width: 478px;
+  //   right: 142px;
+    
+  // }
 }
 
 .order-modal {
