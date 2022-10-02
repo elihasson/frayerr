@@ -38,7 +38,9 @@
 
 
 .gig-details-container {
-  padding: 0px 70px 0;
+  // padding: 0px 70px 0;
+  // padding-left: 32px;
+  padding-left: 22px;
   width: 100%;
 
   // display: flex;
@@ -342,13 +344,23 @@
 .order-modal-container {
   @include for-order-normal-layout {
 
+    padding-right: 32px;
     grid-column: 2;
     // position: absolute;
     // inset: auto auto auto 0;
+    position: sticky;
+    top: 0;
+    margin-left: 72px;
+    // margin-inline-end: 300px;
+  }
+  //min 890
+  @include for-order-normal-layout {
+    position: fixed;
+    width: 478px;
+    top: 118px;
+    right: 142px;
     // position: sticky;
     // top: 0;
-    margin-left: 90px;
-    margin-inline-end: 300px;
   }
 }
 
@@ -375,9 +387,9 @@
 
   //min 890
   @include for-order-normal-layout {
-    position: fixed;
+    // position: fixed;
     top: 98px;
-    // position: sticky;
+    position: sticky;
     // top: 0;
     // grid-column: 2;
     // margin-left: auto;
@@ -386,7 +398,7 @@
     // top: 112px;
     // right: 132px;
     width: 100%;
-    max-width: 350px;
+    // max-width: 350px;
     // height: 400px;
 
     // min-width: 300px;
