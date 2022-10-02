@@ -8,7 +8,7 @@ export const AppHero = () => {
 
     const heros = [
         {
-            imgSrc: '1.jpg',
+            imgSrcs: ['1-v1.jpg', '1-v2.jpg'],
             bgc: '#023a15',
             details: {
                 heroName: 'Andrea',
@@ -16,7 +16,7 @@ export const AppHero = () => {
             }
         },
         {
-            imgSrc: '2.jpg',
+            imgSrcs: ['2-v1.jpg', '2-v2.jpg'],
             bgc: '#b64762',
             details: {
                 heroName: 'Moon',
@@ -24,7 +24,7 @@ export const AppHero = () => {
             }
         },
         {
-            imgSrc: '3.jpg',
+            imgSrcs: ['3-v1.jpg', '3-v2.jpg'],
             bgc: '#540e1f',
             details: {
                 heroName: 'Ritika',
@@ -32,7 +32,7 @@ export const AppHero = () => {
             }
         },
         {
-            imgSrc: '4.jpg',
+            imgSrcs: ['4-v1.jpg', '4-v2.jpg'],
             bgc: '#023a15',
             details: {
                 heroName: 'Zach',
@@ -40,7 +40,7 @@ export const AppHero = () => {
             }
         },
         {
-            imgSrc: '5.jpg',
+            imgSrcs: ['5-v1.jpg', '5-v2.jpg'],
             bgc: '#7d1a00',
             details: {
                 heroName: 'Gabrielle',
@@ -50,17 +50,26 @@ export const AppHero = () => {
     ]
 
     const [hero, setHero] = useState(heros[0])
+    const [windowCurrWidth, setWindowCurrWidth] = useState(window.innerWidth)
 
     useEffect(() => {
+        const handleWidthResize = () => {
+            setWindowCurrWidth(window.innerWidth)
+        }
+        window.addEventListener('resize', handleWidthResize)
+
         const intervalId = setInterval(() => {
             heroIdx = (heroIdx + 1) % heros.length
             // console.log('heroIdx:', heroIdx)
             setHero(heros[heroIdx])
         }, 7000)
         return () => {
+            window.removeEventListener('resize', handleWidthResize)
             clearInterval(intervalId)
         }
     }, [])
+
+    
 
     return (
         // this url works in backgroundImage: "https://via.placeholder.com/500"
@@ -69,16 +78,16 @@ export const AppHero = () => {
         // rendering background images doesn't affect breakpoints which is good
         <div className='hero-container full'>
             <div className='hero-background'>
-                <div className='hero' style={{backgroundImage: `url(${require(`../assets/img/bg-hero-${hero.imgSrc}`)})`, backgroundColor: hero.bgc}}>
-                    <div className='hero-header add-main-layout'> 
-                    {/* removed add-main-layout */}
+                <div className='hero' style={{ backgroundImage: `url(${require(`../assets/img/bg-hero-${hero.imgSrcs[`${windowCurrWidth>1159?0:1}`]}`)})`, backgroundColor: hero.bgc }}>
+                    <div className='hero-header add-main-layout'>
+                        {/* removed add-main-layout */}
                         <h1 className='hero-title'>
                             Find the perfect <i>freelance</i> services for your business
                         </h1>
                         <SearchBar />
                     </div>
-                    <HeroDetails heroDetails={hero.details}/>
                 </div>
+                <HeroDetails heroDetails={hero.details} />
             </div>
         </div>
     )
