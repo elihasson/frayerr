@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { removeOrder, updateOrder } from "../store/order.actions";
 
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { setIsNewOrder } from "../store/system.actions";
 
 
 // import { UserProfileImg } from "../profile/UserProfileImg"
@@ -16,6 +18,10 @@ export const OrderPreview = ({ order, type, user, onChangeStatus }) => {
 
     const fullname = order.buyer.fullname;
     var statusClass;
+
+    useEffect(() => {
+        dispatch(setIsNewOrder(false))
+    })
 
     // if (order.status === ('pending' || 'delivered')) statusClass = 'gray';
     // if (order.status === 'rejected') statusClass = 'deactivated red';

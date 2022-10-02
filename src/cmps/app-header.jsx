@@ -11,7 +11,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import { NavBar } from './nav-bar.jsx'
 import { GigFilter } from './gig-filter'
 import { ProfileMenu } from './profile-menu'
-import { toggleJoinModal, toggleLoginModal } from '../store/system.actions'
+import {  toggleJoinModal, toggleLoginModal } from '../store/system.actions'
 import { loadUsers, onLogout } from '../store/user.actions'
 
 export const AppHeader = (props) => {

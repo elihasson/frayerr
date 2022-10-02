@@ -24,6 +24,7 @@ export const RootCmp = () => {
         socketService.on(SOCKET_EVENT_UPDATE_USER, (msg) => {
             console.log('msg', msg);
             if (msg === 'incoming-order') {
+                console.log('msg:', msg)
                 showIncomingOrderMsg('You have got a new order')
                 dispatch(setIsNewOrder(true))
             }

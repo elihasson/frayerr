@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { loadOrders, setOrderFilterBy, removeOrder, updateOrder } from '../store/order.actions'
 import { useParams } from 'react-router-dom';
-import { socketService, SOCKET_EVENT_UPDATE_USER } from "../services/socket.service.js";
+import { socketService, SOCKET_EMIT_ORDER_UPDATE, SOCKET_EVENT_UPDATE_USER } from "../services/socket.service.js";
 
 export const OrderList = (props) => {
 
@@ -37,7 +37,7 @@ export const OrderList = (props) => {
 			status: '',
 		}))
 		dispatch(loadOrders())
-		socketService.on(SOCKET_EVENT_UPDATE_USER, (msg) => {
+		socketService.on(SOCKET_EMIT_ORDER_UPDATE, (msg) => {
 			if (msg === 'incoming-order') {
 				console.log('msg', msg);
 				dispatch(loadOrders())
@@ -45,7 +45,7 @@ export const OrderList = (props) => {
         })
 
 		return () => {
-			socketService.off(SOCKET_EVENT_UPDATE_USER)
+			socketService.off(SOCKET_EMIT_ORDER_UPDATE)
 		}
 	}, [])
 

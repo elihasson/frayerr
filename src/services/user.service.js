@@ -57,6 +57,7 @@ const gUsers = [
         smallDesc: 'the best of the best',
         rate: 4.5,
         level: "premium",
+        
         isAdmin: true,
         reviews: [
             {
