@@ -2,13 +2,16 @@
     display: none;
     font-family: 'Macan-regular';
     color: $clr7;
-    position: absolute;
+    max-width: 1400px;
+    margin: auto;
+    margin-inline: 32px;
+    // position: absolute;
     // inset-block-end: 102px;
     // inset-inline-end: 20px;
-    
+
     // padding-inline-start: 250px;
     bottom: 0;
-    padding-block-end: 32px;
+    // padding-block-end: 32px;
     // right: 250px;
 
     // padding-inline-end: 250px;
@@ -18,6 +21,8 @@
     @include for-hero-layout-2 {
         // display: block;
         display: flex;
+        justify-content: flex-end;
+        margin-block-start: 550px;
         // align-content: flex-end;
         // justify-items: flex-end;
         // justify-content: flex-end;
@@ -27,5 +32,10 @@
 
     .hero-role {
         font-family: 'Macan-bold';
+    }
+
+    @include for-hero-layout-4 {
+        margin: auto;
+        margin-block-start: 550px;
     }
 }
