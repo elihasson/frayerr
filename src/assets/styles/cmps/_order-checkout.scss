@@ -10,6 +10,7 @@
     flex-direction: row;
     // justify-content: space-evenly;
     justify-content: space-between;
+    padding-inline: 72px;
   }
 
   @include for-order-wide-layout {

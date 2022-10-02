@@ -69,7 +69,7 @@ export const AppHero = () => {
         }
     }, [])
 
-    
+
 
     return (
         // this url works in backgroundImage: "https://via.placeholder.com/500"
@@ -78,7 +78,7 @@ export const AppHero = () => {
         // rendering background images doesn't affect breakpoints which is good
         <div className='hero-container full'>
             <div className='hero-background'>
-                <div className='hero' style={{ backgroundImage: `url(${require(`../assets/img/bg-hero-${hero.imgSrcs[`${windowCurrWidth>1159?0:1}`]}`)})`, backgroundColor: hero.bgc }}>
+                <div className='hero' style={{ backgroundImage: `url(${require(`../assets/img/bg-hero-${hero.imgSrcs[`${windowCurrWidth > 1159 ? 0 : 1}`]}`)})`, backgroundColor: hero.bgc }}>
                     <div className='hero-header add-main-layout'>
                         {/* removed add-main-layout */}
                         <h1 className='hero-title'>
@@ -87,8 +87,8 @@ export const AppHero = () => {
                         <SearchBar />
                     </div>
                 </div>
-                <HeroDetails heroDetails={hero.details} />
             </div>
+            <HeroDetails heroDetails={hero.details} />
         </div>
     )
 }
