@@ -6,7 +6,7 @@
     flex-direction: column;
     row-gap: 15px;
     width: 100%;
-    padding-inline-end: 32px;
+    // padding-inline-end: 32px; // removed by Aharon
 
 
     @include for-hero-layout-1 {
