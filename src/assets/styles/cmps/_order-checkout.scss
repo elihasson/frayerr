@@ -2,7 +2,7 @@
   font-family: work-sans;
   min-height: 90vh;
   display: flex;
-  margin-top: 80px;
+  // margin-top: 80px;
   flex-direction: column;
   gap: 20px;
   @include for-normal-layout {
@@ -33,7 +33,7 @@
         margin-bottom: 0;
         position:sticky;
         width: 300px;
-        top: 118px;
+        // top: 118px;
 
       }
     }
