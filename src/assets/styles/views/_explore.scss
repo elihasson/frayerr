@@ -27,6 +27,7 @@
  
     .categories-grid {
       display: none;
+      cursor: pointer;
       
       @include for-gig-list-narrow-layout {
         display: grid;
