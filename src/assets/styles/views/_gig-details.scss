@@ -1,6 +1,12 @@
 .gig-details-page {
   margin-top: 18px;
-  align-items: start;
+  // align-items: baseline;
+  // align-items: baseline;
+  // height: 300vh;
+
+
+  // align-items: flex-start;
+  // height: 340vh;
 
   &.no-user {
     margin-top: 98px;
@@ -34,6 +40,7 @@
 .gig-details-container {
   padding: 32px 24px 0;
   width: 100%;
+
   // display: flex;
   // flex-direction: column;
   grid-column: 1/ -1;
@@ -323,14 +330,14 @@
 //   }
 // }
 
-.sticky-box {
-  height: 10vh;
-  width: 100%;
-  background-color: pink;
-  position: sticky;
-  top: 0;
+// .sticky-box {
+//   height: 10vh;
+//   width: 100%;
+//   background-color: pink;
+//   position: sticky;
+//   top: 0;
 
-}
+// }
 
 .order-modal-container {
   @include for-order-normal-layout {
@@ -338,7 +345,7 @@
     grid-column: 2;
     // position: absolute;
     // inset: auto auto auto 0;
-    position: sticky;
+    // position: sticky;
     // top: 0;
     margin-left: 90px;
 
@@ -346,8 +353,9 @@
 }
 
 .order-modal {
-  position: sticky;
-  top: 0;
+  //sticky here!
+  // position: sticky;
+  // align-self: start;
   // align-self: flex-start;
   display: flex;
   flex-direction: column;
@@ -367,6 +375,8 @@
 
   //min 890
   @include for-order-normal-layout {
+    position: fixed;
+    top: 80px;
     // position: sticky;
     // top: 0;
     // grid-column: 2;
