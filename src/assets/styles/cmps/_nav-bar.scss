@@ -10,6 +10,15 @@
     padding-top: 20px;
     transform: translate(-100%);
 
+    a {
+        color: $clr9;
+
+        :hover{
+            color: $clr1;
+        }
+
+    }
+
     &.open {
         left: 0;
         transform: translate(0, 0);
@@ -46,6 +55,7 @@
             height: 64px;
             border-radius: 50%;
             object-fit: cover;
+
         }
 
         .username-container {

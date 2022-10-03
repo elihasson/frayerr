@@ -31,7 +31,7 @@ export const NavBar = ({ classProp, toggleMenu, user, dispatch, toggleJoinModal,
                     <div className='avatar-logo-container hovertext'>
                         <img src={user?.imgUrl} alt="user img"
                             className='user-profile-img ' />
-                        <span className='username-container'>{user?.username}</span>
+                        <span className='username-container'>{user?.fullname}</span>
                     </div>
                     :
                     <React.Fragment>
