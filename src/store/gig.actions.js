@@ -155,11 +155,14 @@ export function removeFromCart(gigId) {
 export function loadGig(gigId) {
     return async (dispatch) => {
         try {
+            dispatch({ type: 'LOADING_START' })
             const gig = await gigService.getById(gigId)
             dispatch({ type: 'SET_WATCHED_GIG', gig })
         } catch (err) {
             showErrorMsg('Cannot load gig')
             console.log('Cannot load gig', err)
+        } finally {
+            dispatch({ type: 'LOADING_DONE' })
         }
     }
 }

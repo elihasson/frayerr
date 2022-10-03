@@ -24,7 +24,7 @@ export const GigDetails = () => {
     }, [params.gigId])
 
     //component of loader
-    if (!gig) return <div>Loading...</div>
+    if (!gig) return <div className='loading-container'></div>
 
     let levelClass, levelDesc
     if (gig?.owner?.rate < 4) {
