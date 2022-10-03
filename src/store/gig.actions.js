@@ -201,6 +201,12 @@ export function setFilterBy(filterBy) {
     }
 }
 
+export function clearFilterBy(filterBy) {
+    return (dispatch) => {
+        dispatch({ type: 'CLEAR_FILTER_BY'})
+    }
+}
+
 export function setSortBy(sortBy) {
     return (dispatch) => {
         dispatch({ type: 'SET_SORT_BY', sortBy })

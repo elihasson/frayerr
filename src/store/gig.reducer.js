@@ -74,6 +74,17 @@ export function gigReducer(state = initialState, action) {
         case 'SET_FILTER_BY':
             newState = { ...state, filterBy: action.filterBy }
             break
+        case 'CLEAR_FILTER_BY':
+            newState = {
+                ...state, filterBy: {
+                    txt: '',
+                    deliveryTime: '',
+                    budget: '',
+                    category: '',
+                    userId: '',
+                }
+            }
+            break
         case 'SET_SORT_BY':
             newState = { ...state, sortBy: action.sortBy }
         default:

@@ -11,7 +11,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import { loadGigs, addGig, updateGig, removeGig, loadCategories, setFilterBy } from '../store/gig.actions.js'
+import { loadGigs, addGig, updateGig, removeGig, clearFilterBy, setFilterBy } from '../store/gig.actions.js'
 import FormControl from '@mui/material/FormControl'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import MenuItem from '@mui/material/MenuItem'
@@ -42,17 +42,14 @@ export const Explore = (props) => {
             behavior: 'smooth'
           })
         dispatch(loadGigs())
-        //    gigs = loadGigs()
-        // return () => {
-        //     // dispatch(setFilterBy({
-        //     //     txt: '',
-        //     //     deliveryTime: '',
-        //     //     budget: '',
-        //     //     category: '',
-        //     //     userId: '',
-        //     // }))
-        // }
+        
     }, [filterBy])
+
+    useEffect(() => {
+        return () => {
+            dispatch(clearFilterBy())
+        }
+    }, [])
 
     const onRemoveGig = (gigId) => {
         dispatch(removeGig(gigId))
