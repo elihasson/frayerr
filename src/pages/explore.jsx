@@ -116,7 +116,6 @@ export const Explore = (props) => {
     var budgetClass = isBudgetOpen ? "open" : ""
     const gigsTitle = !currCategory ? "All Categories" : currCategory
     const noUserClass = !user ? "no-user" : ''
-
     return (
         <div className={`explore ${noUserClass}`}>
             <h2>{gigsTitle}</h2>

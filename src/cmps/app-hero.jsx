@@ -1,9 +1,28 @@
 import { SearchBar } from './search-bar'
+import { HeroPopularServices } from './hero-popular-services'
 import { HeroDetails } from './hero-details'
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { setFilterBy, loadGigs, loadCategories } from '../store/gig.actions'
 // import { img } from '../assets/img/bg-hero-1.jpg'
 
 export const AppHero = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const categories = useSelector(state => state.gigModule.categories)
+    const filterBy = useSelector(state => state.gigModule.filterBy)
+
+    const handleCategory = (categoryName) => {
+        dispatch(setFilterBy({ category: categoryName }))
+        dispatch(setFilterBy({ ...filterBy, category: categoryName }, 'category'))
+    }
+
+    const onSetFilter = (category) => {
+        handleCategory(category)
+        navigate(`/explore`)
+    }
+
     let heroIdx = 0
 
     const heros = [
@@ -85,6 +104,7 @@ export const AppHero = () => {
                             Find the perfect <i>freelance</i> services for your business
                         </h1>
                         <SearchBar />
+                        <HeroPopularServices categories={categories} onSetFilter={onSetFilter} />
                     </div>
                 </div>
             </div>
