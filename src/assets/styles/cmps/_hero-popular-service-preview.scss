@@ -1,0 +1,21 @@
+.hero-popular-service-preview {
+    > button {
+        text-transform: capitalize;
+        background-color: transparent;
+        color: $clr7;
+        border: 1px solid $clr7;
+        padding: 1px 12px 0;
+        border-radius: 40px;
+        font-family: 'Macan-bold';
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+        line-height: 24px;
+        transition: all .2s ease-in-out;
+    }
+
+    > button:hover {
+        background-color: $clr7;
+        color: #404145;
+    }
+}

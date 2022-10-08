@@ -1,0 +1,19 @@
+.hero-popular-services-container {
+    color: $clr7;
+    display: none;
+    gap: 9px;
+    padding-top: 24px;
+    
+    h5 {
+        line-height: 24px;
+    }
+
+    @include for-hero-layout-2 {
+        display: flex;
+    }
+
+    .hero-popular-services {
+        display: flex;
+        gap: 9px;
+    }
+}
