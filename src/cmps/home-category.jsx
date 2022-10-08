@@ -24,7 +24,7 @@ export const HomeCategory = () => {
     }
 
     return (
-        <section className='professional-services-container max-width-container'>
+        <section className="professional-services-container max-width-container">
             <h1>Popular professional services</h1>
             <ProfessionalServices categories={categories} onSetFilter={onSetFilter}/>
         </section >

@@ -1,12 +1,12 @@
 export const ProfessionalServicePreview = ({ category, onSetFilter }) => {
     return (
-        <div className='img-container' onClick={() => {
+        <div className="img-container" onClick={() => {
             onSetFilter(category?.title)
         }}>
             <span className="on-click"></span>
             <div className="category-container">
-                <div className="subtitle">{category?.subtitle}</div>
-                <div className="title">{category?.title}</div>
+                <h5 className="subtitle">{category?.subtitle}</h5>
+                <h4 className="title">{category?.title}</h4>
             </div>
             <img src={category?.imgUrl} />
         </div>

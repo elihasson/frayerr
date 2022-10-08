@@ -48,10 +48,12 @@
 @import "cmps/order-list";
 @import "cmps/user-gig-list"; // Added a user-gig-list scss file
 @import "cmps/home-category"; // Added a home-category scss file 
+@import "cmps/professional-services"; // Added a professional-services scss file 
+@import "cmps/professional-service-preview"; // Added a professional-service-preview scss file 
 @import "cmps/home-page-info"; // Added a home-page-info scss file 
 @import "cmps/home-signup"; // Added a home-signup scss file 
 @import "cmps/home-trusted-by"; // Added a home-trusted-by scss file 
 @import "cmps/home-trusted-companies"; // Added a home-trusted-companies scss file 
 @import "cmps/home-trusted-company-preview"; // Added a home-trusted-company-preview scss file 
 
-@import "cmps/_profile-menu.scss"; // Added a profile-menu scss file 
+@import "cmps/profile-menu"; // Added a profile-menu scss file 
