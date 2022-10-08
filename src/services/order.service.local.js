@@ -215,7 +215,7 @@ function getEmptyOrder() {
 //         description: 'i will add some description for you so you can see a description in your order',
 //         imgUrls:[{imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/8a1623fd3276ad7297d7647a8727bdf0-1589096119095/6c637953-9dc0-4c9c-b04d-c13c947fdc43.jpg"}],
 //         owner: {_id: 'u101', fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 },
-//         tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
+//         tags: ['logo-design', 'artisitic', 'professional', 'accessible'],
 //         likedByUsers: []
 //     }
 // }
@@ -254,7 +254,7 @@ function getEmptyOrder() {
 //       "tags": [
 //         "logo-design",
 //         "artisitic",
-//         "proffesional",
+//         "professional",
 //         "accessible"
 //       ],
 //       "likedByUsers" : ['mini-user'] // for user-wishlist : use $in

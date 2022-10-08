@@ -1,4 +1,4 @@
-.proffesional-services-container {
+.professional-services-container {
     h1 {
       color: $clr2;
       font-family: roboto-bold;
@@ -9,7 +9,7 @@
       }
     }
   }
-  .proffesional-services {
+  .professional-services {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 45px;

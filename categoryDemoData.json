@@ -1,0 +1,132 @@
+[
+    {
+        "title" : "logo design",
+        "subtitle": "Build your brand",
+        "features" : [ 
+            "1 Concept Included", 
+            "Logo Transparency", 
+            "Vector File", 
+            "Printable File", 
+            "3D Mockup", 
+            "Source File"
+        ],
+        "imgUrl": "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png"
+    },
+    {
+        "title" : "wordpress",
+        "subtitle": "Customize your site",
+        "features" : [ 
+            "1 Page", 
+            "Design Customization", 
+            "Content Upload", 
+            "Responsive Design"
+        ],
+        "imgUrl": "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png"
+    },
+    {
+        "title" : "voice over",
+        "subtitle": "Share your message",
+        "features" : [ 
+            "HQ Audio File (WAV format)", 
+            "Number Of Words: 150"
+        ],
+        "imgUrl": "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png"
+    },
+    {
+        "title" : "video explainer",
+        "subtitle": "Engage your audience",
+        "features" : [ 
+            "Background Music", 
+            "Add Logo", 
+            "60 Seconds Running Time"
+        ],
+        "imgUrl": "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_550,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png"
+    },
+    {
+        "title" : "programming",
+        "subtitle": "Develope your apps",
+        "features" : [ 
+            "Include Source Code", 
+            "Database Integration", 
+            "Setup File", 
+            "Detailed Code Comments", 
+            "3D Mockup", 
+            "Source File"
+        ],
+        "imgUrl": "https://res.cloudinary.com/drdfrwt1d/image/upload/v1642781888/social-media_ihqmul.jpg"
+    },
+    {
+        "title" : "social media",
+        "subtitle": "Reach more customers",
+        "features" : [ 
+            "Simple and Friendly User Interface (UI)",
+            "Visually Appealing and Accessible Design",
+            "Secure Login",
+            "Open Forum",
+            "Real-Time Notifications"
+        ],
+        "imgUrl": "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741667/social-2x.png"
+    },
+    {
+        "title" : "illustration",
+        "subtitle": "Color your dreams",
+        "features" : [ 
+            "Source File", 
+            "High Resolution", 
+            "Background/Scene", 
+            "Color", 
+            "Full Body", 
+            "Commercial Use", 
+            "1 Figure"
+        ],
+        "imgUrl": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/251899943/original/4becf0249e346ffec8e99db192b3e0bfc4950bdc/create-concept-item-game-art.jpg"
+    },
+    {
+        "title" : "translation",
+        "subtitle": "Globalize your ideas",
+        "features" : [ 
+            "Translation Memory", 
+            "Glossary", 
+            "Segmentation", 
+            "Live Editing", 
+            "Language Pairs"
+        ],
+        "imgUrl": "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741674/translation-2x.png"
+    },
+    {
+        "title" : "data entry",
+        "subtitle": "Learn your business",
+        "features" : [ 
+            "Basic Software Knowledge", 
+            "Good Written and Communication Skills", 
+            "Fast Typing Speed", 
+            "High Levels of Concentration", 
+            "Managing Data Flow"
+        ],
+        "imgUrl": "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741664/data-entry-2x.png"
+    },
+    {
+        "title" : "book covers",
+        "subtitle": "Showcase your story",
+        "features" : [ 
+            "A riveting title for the book", 
+            "An evocative subtitle", 
+            "Interesting typography", 
+            "Coherent cover design and layout", 
+            "A well-placed author bio"
+        ],
+        "imgUrl": "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/book-covers-2x.png"
+    },
+    {
+        "title" : "marketing",
+        "subtitle": "Market your products",
+        "features" : [ 
+            "Multiple Campaigns", 
+            "Researched audiences", 
+            "Multiple Ads", 
+            "Budget & Creative Optimization", 
+            "Free tips"
+        ],
+        "imgUrl": "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/125623364/original/b4fc73fc820f54892102c2858e72424b913b3fb9.jpg"
+    }
+]

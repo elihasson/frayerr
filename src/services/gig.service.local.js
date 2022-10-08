@@ -96,7 +96,7 @@ const gGigs = [
             _id: 'u101', username: 'james', fullname: 'james carlo', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/798a61194492b92313c2f5b27d5397bb-1615924783131/a6a1c7f0-0cc0-4c50-95e1-2693d183ee1c.jpg",
             level: 'basic', rate: 4
         },
-        tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
+        tags: ['logo-design', 'artisitic', 'professional', 'accessible'],
         likedByUsers: [{}]
     },
     {
@@ -112,7 +112,7 @@ const gGigs = [
             _id: 'u102', username: 'marco', fullname: 'marco polo', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg",
             level: 'premium', rate: 5
         },
-        tags: ['garage', 'mechanics', 'proffesional', 'accessible'],
+        tags: ['garage', 'mechanics', 'professional', 'accessible'],
         likedByUsers: [{}]
     },
     {
@@ -128,7 +128,7 @@ const gGigs = [
             _id: 'u103', username: 'amos', fullname: 'amos devinci', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/e34531bf0bbed9d144dba7384f6473b6-1621577835789/60307055-cde9-4dc2-9e9e-4daa421991d3.jpg",
             level: 'basic', rate: 5
         },
-        tags: ['programming', 'coding-academy', 'proffesional', 'accessible'],
+        tags: ['programming', 'coding-academy', 'professional', 'accessible'],
         likedByUsers: [{}]
     },
     {
@@ -143,7 +143,7 @@ const gGigs = [
             _id: 'u104', username: 'amos', fullname: 'moni piloni', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/1fe02234f0b300905f098d1c2eef2599-1621414093019/30dd09bd-748a-49c0-b3bc-ee3071bdfadb.jpg",
             level: 'professional', rate: 5
         },
-        tags: ['music', 'mastering', 'proffesional', 'accessible'],
+        tags: ['music', 'mastering', 'professional', 'accessible'],
         likedByUsers: [{}]
     },
     {
@@ -159,7 +159,7 @@ const gGigs = [
             _id: 'u105', username: 'amos', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
             level: 'basic', rate: 4
         },
-        tags: ['cellolar', 'proffesional', 'accessible'],
+        tags: ['cellolar', 'professional', 'accessible'],
         likedByUsers: [{}]
     },
     {
@@ -175,7 +175,7 @@ const gGigs = [
             _id: 'u105', username: 'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
             level: 'basic', rate: 4
         },
-        tags: ['cellolar', 'proffesional', 'accessible'],
+        tags: ['cellolar', 'professional', 'accessible'],
         likedByUsers: [{}]
     },
     {
@@ -191,7 +191,7 @@ const gGigs = [
             _id: 'u100', username: 'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
             level: 'basic', rate: 4
         },
-        tags: ['cellolar', 'proffesional', 'accessible'],
+        tags: ['cellolar', 'professional', 'accessible'],
         likedByUsers: [{}]
     },
     {
@@ -207,7 +207,7 @@ const gGigs = [
             _id: 'u100', username: 'avi', fullname: 'avi phone', imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7928a9bdb9e68c7dcc870f7dac91d92b-768025031598387384699/JPEG_20200826_012943_1616096493516260103.jpg",
             level: 'basic', rate: 4
         },
-        tags: ['cellolar', 'proffesional', 'accessible'],
+        tags: ['cellolar', 'professional', 'accessible'],
         likedByUsers: [{}]
     },
 ]
@@ -306,7 +306,7 @@ function _getEmptyGig() {
         imgUrls: [{ imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/044fb5914a845a4eb59fc2b69f7f7b32-1634120039750/4dbc2acb-7322-4cd0-9afb-e5190e8e8a0d.jpg" },
         { imgUrl: "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/3171448/original/a41a38f3733bb97279a49d1449f7337dece50693.jpg" }],
         // owner: { _id: '', username: '', fullname: '', imgUrl: '', level: '', rate: 0 },
-        tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
+        tags: ['logo-design', 'artisitic', 'professional', 'accessible'],
         likedByUsers: []
     }
 }
@@ -389,7 +389,7 @@ async function getFeaturesByCategory(categoryName) {
 //       "tags": [
 //         "logo-design",
 //         "artisitic",
-//         "proffesional",
+//         "professional",
 //         "accessible"
 //       ],
 //       "likedByUsers" : ['mini-user'] // for user-wishlist : use $in
