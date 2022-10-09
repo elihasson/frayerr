@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { setFilterBy, loadGigs, loadCategories } from '../store/gig.actions'
-// import { img } from '../assets/img/bg-hero-1.jpg'
 
 export const AppHero = () => {
     const navigate = useNavigate()
@@ -79,7 +78,6 @@ export const AppHero = () => {
 
         const intervalId = setInterval(() => {
             heroIdx = (heroIdx + 1) % heros.length
-            // console.log('heroIdx:', heroIdx)
             setHero(heros[heroIdx])
         }, 7000)
         return () => {
@@ -91,15 +89,10 @@ export const AppHero = () => {
 
 
     return (
-        // this url works in backgroundImage: "https://via.placeholder.com/500"
-        // this url doesn't: ${hero.imgSrc}
-        // this url also finally works `../assets/img/bg-hero-${hero.imgSrc}`
-        // rendering background images doesn't affect breakpoints which is good
         <div className='hero-container full'>
             <div className='hero-background'>
                 <div className='hero' style={{ backgroundImage: `url(${require(`../assets/img/bg-hero-${hero.imgSrcs[`${windowCurrWidth > 1159 ? 0 : 1}`]}`)})`, backgroundColor: hero.bgc }}>
                     <div className='hero-header add-main-layout'>
-                        {/* removed add-main-layout */}
                         <h1 className='hero-title'>
                             Find the perfect <i>freelance</i> services for your business
                         </h1>

@@ -29,9 +29,8 @@ export const AppFooter = () => {
             {isLoading &&
                 <div className="loader">
                     <InfinitySpin
-                        width='200'
+                        width="200"
                         color="#4fa94d"
-
                     />
                 </div>}
             {/* <div className="border-for-footer  "></div> */}
