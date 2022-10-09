@@ -1,10 +1,10 @@
 import { SearchBar } from './search-bar'
 import { HeroPopularServices } from './hero-popular-services'
 import { HeroDetails } from './hero-details'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { setFilterBy, loadGigs, loadCategories } from '../store/gig.actions'
+import { setFilterBy} from '../store/gig.actions'
 
 export const AppHero = () => {
     const navigate = useNavigate()
@@ -22,7 +22,7 @@ export const AppHero = () => {
         navigate(`/explore`)
     }
 
-    let heroIdx = 0
+    const heroIdx = useRef(0)
 
     const heros = [
         {
@@ -77,16 +77,14 @@ export const AppHero = () => {
         window.addEventListener('resize', handleWidthResize)
 
         const intervalId = setInterval(() => {
-            heroIdx = (heroIdx + 1) % heros.length
-            setHero(heros[heroIdx])
+            heroIdx.current = (heroIdx.current + 1) % heros.length
+            setHero(heros[heroIdx.current])
         }, 7000)
         return () => {
             window.removeEventListener('resize', handleWidthResize)
             clearInterval(intervalId)
         }
-    }, [])
-
-
+    })
 
     return (
         <div className='hero-container full'>
