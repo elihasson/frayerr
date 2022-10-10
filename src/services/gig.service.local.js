@@ -350,20 +350,20 @@ async function getPopularCategories(categoriesCount) {
     var popularCategories = gCategories.slice(0, categoriesCount)
     console.log('popularCategories:', popularCategories)
     return popularCategories.map((category) => {
-      return `${category.name
+      return `${category.title
         .charAt(0)
-        .toUpperCase()}${category.name.slice(1)}`;
+        .toUpperCase()}${category.title.slice(1)}`;
       })
     }
 
 async function getCategoriesNames() {
     // const categories = await httpService.get("category");
     // const categories = await storageService.get('category')
-    return gCategories.map((category) => category.name)
+    return gCategories.map((category) => category.title)
 }
 
 async function getFeaturesByCategory(categoryName) {
-    const category = gCategories.find((category) => category.name === categoryName)
+    const category = gCategories.find((category) => category.title === categoryName)
     if (category)
         return category.features
     else

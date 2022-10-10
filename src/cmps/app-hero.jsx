@@ -67,7 +67,7 @@ export const AppHero = () => {
         }
     ]
 
-    const [hero, setHero] = useState(heros[0])
+    const [hero, setHero] = useState(heros[heroIdx.current])
     const [windowCurrWidth, setWindowCurrWidth] = useState(window.innerWidth)
 
     useEffect(() => {

@@ -36,7 +36,7 @@ export const OrderCheckout = () => {
     }, [categories])
 
     const _getFeaturesByCategory = (categoryName) => {
-        const featuresObj = categories.filter(category => category.name === categoryName)
+        const featuresObj = categories.filter(category => category.title === categoryName)
         setFeatures(featuresObj[0]?.features)
     }
 
@@ -113,7 +113,7 @@ export const OrderCheckout = () => {
 
                 {/* <div>{gig && <div><pre>{JSON.stringify(gig, null, 2)}</pre>
                     <p>{JSON.stringify(features, null, 2)}
-                        {JSON.stringify(categories.map((category) => gig.category.name, null, 2))}</p></div>}</div> */}
+                        {JSON.stringify(categories.map((category) => gig.category.title, null, 2))}</p></div>}</div> */}
             </div>
 
         </section>

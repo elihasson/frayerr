@@ -31,7 +31,7 @@ export const OrderModal = ({ gig, modalClass}) => {
     }
 
     const _getFeaturesByCategory = (categoryName) => {
-        const featuresObj = categories.filter(category => category.name === categoryName)
+        const featuresObj = categories.filter(category => category.title === categoryName)
         setFeatures(featuresObj[0]?.features)
         console.log('featuresObj.features:',featuresObj )
     }
