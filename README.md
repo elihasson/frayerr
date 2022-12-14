@@ -1,5 +1,5 @@
 # frayerr
-## application based on fiver.com
+## application based on fiverr.com
 ## written on React, JavaScript, SCSS 
 ## link here --> https://frayerr.onrender.com/
 
