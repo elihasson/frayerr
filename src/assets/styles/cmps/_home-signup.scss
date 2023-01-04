@@ -3,13 +3,18 @@
     margin-top: 48px;
     border-radius: 4px;
     height: 70vh;
-    background-image: url('../../img/bg-signup-v1.webp');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50% 100%;
 
     @include for-hero-layout-2 {
         display: block;
+        background-position: 95% 100%;
+        background-image: url('../../img/bg-signup-v2.webp');
+    }
+
+    @include for-hero-layout-3 {
+        background-position: 75% 100%;
+        background-image: url('../../img/bg-signup-v1.webp');
     }
     
     h2 {
