@@ -1,8 +1,8 @@
-.home-signup {
+.home-signup-container {
     display: none;
     margin-top: 48px;
     border-radius: 4px;
-    height: 70vh;
+    height: 41vh;
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -13,23 +13,32 @@
     }
 
     @include for-hero-layout-3 {
-        background-position: 75% 100%;
+        background-position: 85% 100%;
         background-image: url('../../img/bg-signup-v1.webp');
     }
     
-    h2 {
-        color: $clr7;
-        font-family: 'Macan-regular';
-        font-weight: 700;
-        font-size: rem(48px);
-        line-height: 48px;
-        max-width: 650px;
-        padding-block-end: 40px;
+    .home-signup-content {
         margin-block-start: 120px;
-        margin-inline-start: 50px;
+        margin-inline-start: 70px;
 
-        i {
-            font-family: 'domain-display-italic';
+        h2 {
+            color: $clr7;
+            font-family: 'Macan-regular';
+            font-weight: 700;
+            font-size: rem(48px);
+            line-height: 48px;
+            max-width: 650px;
+            padding-block-end: 50px;
+
+    
+            i {
+                font-family: 'domain-display-italic';
+            }
+        }
+
+        .btn {
+            font-family: 'Macan-bold';
+            padding: 12px 24px;
         }
     }
 }
