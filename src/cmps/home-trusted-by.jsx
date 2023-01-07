@@ -19,11 +19,11 @@ export const HomeTrustedBy = () => {
         }
     ]
     return (
-        <div className='main-layout trusted-by-container'>
-            <div className='trusted-by-txt-container'>
-                <span>Trusted By:</span>
+        <div className='full trusted-by-container'>
+            <div className='trusted-by-content flex'>
+                <span>Trusted by:</span>
+                <TrustedCompanies trustedCompanies={trustedCompanies}/>
             </div>
-            <TrustedCompanies trustedCompanies={trustedCompanies}/>
         </div>
     )
 }
