@@ -1,0 +1,21 @@
+.trusted-by-container {
+    position: relative;
+    bottom: 80px;
+    .trusted-by-content {
+        justify-content: center;
+        align-items: center;
+        background-color: #fafafa;
+        padding-block: 17px;
+        gap: 64px;
+        padding-inline-start: 50px;
+    
+        span {
+            display: none;
+            color: #b5b6ba;
+            font-family: 'Macan-bold';
+            @include for-hero-layout-3 {
+                display: unset;
+            }
+        }  
+    }
+}

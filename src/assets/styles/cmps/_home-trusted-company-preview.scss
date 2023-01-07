@@ -1,0 +1,12 @@
+.trusted-company-preview {
+    &:last-child {
+        display: none;
+        @include for-hero-layout-1 {
+            display: unset;
+        }
+    }
+    img {
+        width: 50%;
+        display: block;
+    }
+}

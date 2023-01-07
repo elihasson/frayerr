@@ -26,7 +26,7 @@ export const HomePage = () => {
         <section className='home-container full'>
             <div className='home-page main-layout'>
                 <AppHero />
-                {/* <HomeTrustedBy /> */}
+                <HomeTrustedBy />
                 <HomeCategory />
                 <HomePageInfo />
                 <HomeSignup />
