@@ -3,16 +3,11 @@ import StarIcon from '@mui/icons-material/Star'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { CarouselItem } from './carousel-item'
-import { Carousel } from './carousel'
+import { CarouselItem } from './carousel-item.jsx'
+import { Carousel } from './carousel.jsx'
 import { Link, useNavigate } from 'react-router-dom'
 import { storageService } from '../services/async-storage.service'
 import { setLikedGig, loadGig } from '../store/gig.actions'
-
-
-
-
-
 
 export const GigPreview = ({ gig, onRemoveGig, onUpdateGig }) => {
 
@@ -108,8 +103,8 @@ export const GigPreview = ({ gig, onRemoveGig, onUpdateGig }) => {
 }
 
 
-{/* <section className='actions'>
+/* <section className='actions'>
 <button onClick={() => onRemoveToy(toy._id)}>Delete</button>
 <Link to={`/toys/edit/${toy._id}`} >Edit</Link>
 <Link to={`/toy/${toy._id}`} >Details</Link>
-</section> */}
+</section> */
