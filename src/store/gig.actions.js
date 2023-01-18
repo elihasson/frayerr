@@ -190,6 +190,7 @@ export function setFilterTxt(txt) {
 }
 
 export function setFilterUserId(userId) {
+    // console.log(`userId: ${userId}`)
     return (dispatch) => {
         dispatch({ type: 'SET_FILTER_USER_ID', userId })
     }

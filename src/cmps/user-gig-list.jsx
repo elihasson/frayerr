@@ -22,21 +22,25 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
     const navigate = useNavigate()
     const params = useParams()
     const dispatch = useDispatch()
-    const [userId, setUserId] = useState('')
+    // const [userId, setUserId] = useState('')
     const gigs = useSelector(state => state.gigModule.gigs)
     const filterBy = useSelector(state => state.gigModule.filterBy)
     const isLoading = useSelector(state => state.systemModule.isLoading)
-    console.log('gigs:', gigs)
-    console.log('filterBy:', filterBy)
+    // console.log('gigs:', gigs)
+    // console.log('filterBy:', filterBy)
 
-    if(!gigs) dispatch(setLoadingStart())
-    if(gigs) dispatch(setLoadingDone())
+    // if(!gigs) dispatch(setLoadingStart())
+    // if(gigs) dispatch(setLoadingDone())
 
     useEffect(() => {
         const userIdFromParams = params.userId
+        console.log(`userIdFromParams: ${userIdFromParams}`)
         dispatch(setFilterUserId(userIdFromParams))
         dispatch(loadGigs())
-        setUserId(userIdFromParams)
+        // console.log('gigs:', gigs)
+        // console.log('filterBy:', filterBy)
+        // setUserId(userIdFromParams)
+        // console.log(`userId: ${userId}`)
 
         return dispatch(setFilterUserId(''))
     }, [])
@@ -60,20 +64,11 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
     })
 
     return (
-        // <div className='gig-list main-layout'>
-        //     <div>Here Are Some User gigs:</div>
-        //     {console.log('gigs:', gigs)}
-        //     {gigs.map(gig => <UserGigPreview key={gig._id} gig={gig}
-        //         onRemoveGig={onRemoveGig}
-        //         onUpdateGig={onUpdateGig}
-        //     />)}
-        // </div>
         <TableContainer component={Paper} className="user-gig-list">
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
                         <TableCell align="left">Gig</TableCell>
-                        {/* <TableCell align="left"></TableCell> */}
                         <TableCell align="left">Impressions</TableCell>
                         <TableCell align="left">Clicks</TableCell>
                         <TableCell align="left">Orders</TableCell>
@@ -93,13 +88,10 @@ export const UserGigList = ({ onRemoveGig, onUpdateGig }) => {
                                     <Grid item lg={5}><Typography>{row.gigTitle}</Typography></Grid>
                                 </Grid>
                             </TableCell>
-                            {/* <TableCell align="left"><img src={`${row.gigImgUrl}`} alt="No img Url" /></TableCell>
-                            <TableCell align="left">{row.gigTitle}</TableCell> */}
                             <TableCell align="left">{row.gigImpressionCount}</TableCell>
                             <TableCell align="left">{row.gigClickCount}</TableCell>
                             <TableCell align="left">{row.gigOrderCount}</TableCell>
                             <TableCell align="left">{row.gigCancellationCount + '%'}</TableCell>
-                            {/* <TableCell align="left"><button onClick={onRemoveGig} className="btn-red">Delete Gig</button></TableCell> */}
                             <TableCell align="left">
                                 <button className="btn" onClick={() => navigate(`/edit/${row.gigId}`)}>Edit Gig</button>
                                 <button onClick={onRemoveGig} className="btn-red">Delete Gig</button>

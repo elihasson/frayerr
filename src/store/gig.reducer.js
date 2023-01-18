@@ -4,7 +4,6 @@ const initialState = {
     categories: [],
     gigFeatures: [],
     lastRemovedGig: null,
-
     watchedGig: null,
     filterBy: {
         txt: '',
@@ -45,8 +44,6 @@ export function gigReducer(state = initialState, action) {
         case 'SET_GIG_FEATURES':
             newState = { ...state, gigFeatures: action.gigFeatures }
             break
-
-
         case 'ADD_TO_CART':
             newState = { ...state, cart: [...state.cart, action.gig] }
             break
@@ -54,9 +51,6 @@ export function gigReducer(state = initialState, action) {
             cart = state.cart.filter(gig => gig._id !== action.gigId)
             newState = { ...state, cart }
             break
-
-
-
         case 'CLEAR_CART':
             newState = { ...state, cart: [] }
             break
@@ -87,6 +81,7 @@ export function gigReducer(state = initialState, action) {
             break
         case 'SET_SORT_BY':
             newState = { ...state, sortBy: action.sortBy }
+            break
         default:
     }
     // For debug:
@@ -95,5 +90,4 @@ export function gigReducer(state = initialState, action) {
     // console.log('Action:', action)
     // console.log('New State:', newState)
     return newState
-
 }
