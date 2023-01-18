@@ -1,15 +1,15 @@
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import PinterestIcon from '@mui/icons-material/Pinterest';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
+import TwitterIcon from '@mui/icons-material/Twitter'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import PinterestIcon from '@mui/icons-material/Pinterest'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { loadCategories } from '../store/gig.actions'
 import { UserMsg } from './user-msg.jsx'
 
 import { InfinitySpin } from 'react-loader-spinner'
-// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 
 export const AppFooter = () => {
@@ -25,7 +25,7 @@ export const AppFooter = () => {
     }, [])
 
     return (
-        <section className='app-footer main-layout '>
+        <section className="app-footer main-layout">
             {isLoading &&
                 <div className="loader">
                     <InfinitySpin
@@ -34,35 +34,35 @@ export const AppFooter = () => {
                     />
                 </div>}
             {/* <div className="border-for-footer  "></div> */}
-            <div className="main-info  ">
+            <div className="main-info">
                 <div className="logo-small-container">
                     <h2>frayerr<span>®</span></h2>
-                    <div className='logo-small-text'>© Frayerr International Ltd. {new Date().getFullYear()}</div>
+                    <div className="logo-small-text">© Frayerr International Ltd. {new Date().getFullYear()}</div>
                 </div>
 
-                <ul className='social clean-list'>
+                <ul className="social clean-list">
                     <li>
-                        <a className='clean-link' target="_blank" href="https://www.facebook.com/" >
+                        <a className="clean-link" target="_blank" href="https://www.facebook.com/" >
                             <FacebookRoundedIcon />
                         </a>
                     </li>
                     <li>
-                        <a className='clean-link' target="_blank" href="https://twitter.com/explore" >
+                        <a className="clean-link" target="_blank" href="https://twitter.com/explore" >
                             <TwitterIcon />
                         </a>
                     </li>
                     <li>
-                        <a className='clean-link' target="_blank" href="https://www.linkedin.com/" >
+                        <a className="clean-link" target="_blank" href="https://www.linkedin.com/" >
                             <LinkedInIcon />
                         </a>
                     </li>
                     <li>
-                        <a className='clean-link' target="_blank" href="https://www.pinterest.com/" >
+                        <a className="clean-link" target="_blank" href="https://www.pinterest.com/" >
                             <PinterestIcon />
                         </a>
                     </li>
-                    <li className='instagram-icon'>
-                        <a className='clean-link ' target="_blank" href="https://www.instagram.com/" >
+                    <li className="instagram-icon">
+                        <a className="clean-link" target="_blank" href="https://www.instagram.com/" >
                             <InstagramIcon />
                         </a>
                     </li>

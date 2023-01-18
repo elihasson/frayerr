@@ -13,25 +13,24 @@ export const SearchBar = () => {
     }
 
     const onSubmit = (ev) => {
-        ev.preventDefault();
-        console.log('onSubmit filter line12 gig-filter:', txt);
+        ev.preventDefault()
+        console.log('onSubmit filter line12 gig-filter:', txt)
     }
 
     return (
-        <form className='gig-search-bar-container' onSubmit={onSubmit}>
-            <span className='search-icon-container'>
+        <form className="gig-search-bar-container" onSubmit={onSubmit}>
+            <span className="search-icon-container">
                 <SearchIcon />
             </span>
             <input
-                className='gig-search-bar'
-                type='search'
+                className="gig-search-bar"
+                type="search"
                 value={txt}
                 onChange={handleChange}
-                placeholder='Try "building web app"'
-                autoComplete='off'
+                placeholder={`Try "building web app"`}
+                autoComplete="off"
             />
-            {/* <button className='gig-btn-search' onClick={() => navigate(`/explore`)}>Search</button> */}
-            <button className='gig-btn-search' onClick={() => navigate(`/explore?txt=${txt}`)}>Search</button>
+            <button className="gig-btn-search" onClick={() => navigate(`/explore?txt=${txt}`)}>Search</button>
         </form>
     )
 }

@@ -1,20 +1,17 @@
 .gig-search-bar-container {
-    // width: 400px; // added by aharon
     margin-top: 40px;
     display: flex;
     position: relative;
     flex-direction: column;
     row-gap: 15px;
     width: 100%;
-    // padding-inline-end: 32px; // removed by Aharon
-
 
     @include for-hero-layout-1 {
-        // width: 700px;
+        // max-width: 700px;
     }
 
     @include for-hero-layout-2 {
-        // width: 600px;
+        // max-width: 600px;
         flex-direction: row;
         row-gap: 0;
     }
@@ -34,7 +31,7 @@
         border: none;
         outline: 0;
         flex-grow: 1;
-        // width: 100%;
+        width: 100%;
         
 
         @include for-hero-layout-2 {
@@ -42,13 +39,13 @@
             max-width: 430px;
         }
 
-        @include for-hero-layout-3 {
-            
-        }
+        // @include for-hero-layout-3 {
+        //     max-width: 600px;
+        // }
     }
 
     .gig-btn-search {
-        font-family: 'Macan-bold';
+        font-family: "Macan-bold";
         font-size: rem(16px);
         height: 48px;
         padding: 12px 24px;

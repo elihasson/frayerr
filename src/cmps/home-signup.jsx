@@ -7,10 +7,10 @@ export const HomeSignup = () => {
 
     return (
         !user &&
-        <section className='home-signup-container main-layout'>
-            <div className='home-signup-content'>
+        <section className="home-signup-container main-layout">
+            <div className="home-signup-content">
                 <h2>Find the <i>talent</i> needed to get your business <i>growing.</i></h2>
-                <button className='btn' onClick={() => { dispatch(toggleJoinModal()) }}>Get Started</button>
+                <button className="btn" onClick={() => { dispatch(toggleJoinModal()) }}>Get Started</button>
             </div>
         </section>
     )

@@ -24,7 +24,7 @@ export const GigDetails = () => {
     }, [params.gigId])
 
     //component of loader
-    if (!gig) return <div className='loading-container'></div>
+    if (!gig) return <div className="loading-container"></div>
 
     let levelClass, levelDesc
     if (gig?.owner?.rate < 4) {
@@ -34,17 +34,17 @@ export const GigDetails = () => {
         levelClass = 'top'
         levelDesc = 'Top Rated Seller'
     }
-    const noUserClass = !user ? "no-user" : ''
+    const noUserClass = !user ? 'no-user' : ''
     return (
         <section className={`gig-details-page details-layout ${noUserClass}`}  >
             <div className="gig-details-container ">
-                <div className='details-header inpage-nav' id='Overview'>
+                <div className="details-header inpage-nav" id="Overview">
                     <h1 className="gig-title">{gig.title}</h1>
                     <div className="owner-info">
                         <div className="user-img" style={{ backgroundImage: `url(${gig.owner.imgUrl})` }}></div>
-                        <h5 className='owner-name'>{gig.owner.fullname}</h5>
-                        <h5 className={'owner-level ' + `${levelClass}`}>{levelDesc}</h5>
-                        <span className='spacer'>|</span>
+                        <h5 className="owner-name">{gig.owner.fullname}</h5>
+                        <h5 className={'owner-level' + `${levelClass}`}>{levelDesc}</h5>
+                        <span className="spacer">|</span>
                         <UserRateStars gig={gig} /><span>(251)</span>
                         {/* <h5>stars</h5> */}
                     </div>
@@ -55,7 +55,7 @@ export const GigDetails = () => {
                     </Carousel>
                 </div>
                 <OrderModal modalClass="in-details" gig={gig} />
-                <div className='about-gig'>
+                <div className="about-gig">
                     <h4>About This Gig</h4>
                     <p>{gig.description}</p>
                 </div>
@@ -70,8 +70,8 @@ export const GigDetails = () => {
                 </div>} */}
 
             </div>
-            {/* <div className='sticky-box'></div> */}
-            <div className='order-modal-container '>
+            {/* <div className="sticky-box"></div> */}
+            <div className="order-modal-container">
                 <OrderModal modalClass="aside" gig={gig} />
             </div>
         </section>

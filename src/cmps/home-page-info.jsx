@@ -3,7 +3,7 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 export const HomePageInfo = () => {
 
     return (
-        <section className='home-page-info full main-layout'>
+        <section className="home-page-info full main-layout">
             <div className="container max-width-container">
                 <div className="left-side-container">
                     <h2>
@@ -17,7 +17,7 @@ export const HomePageInfo = () => {
                                 The best for every budget
                             </h3>
                         </div>
-                        <span className='desc'>
+                        <span className="desc">
                             Find high-quality services at every price point. No hourly rates, just project-based pricing.
                         </span>
                     </div>
@@ -26,7 +26,7 @@ export const HomePageInfo = () => {
                             <span><CheckCircleOutlineIcon /></span>
                             <h3> Quality work done quickly </h3>
                         </div>
-                        <span className='desc'>
+                        <span className="desc">
                             Find the right freelancer to begin working on your project within minutes.
                         </span>
                     </div>
@@ -37,7 +37,7 @@ export const HomePageInfo = () => {
                                 Protected payments, every time
                             </h3>
                         </div>
-                        <span className='desc'>
+                        <span className="desc">
                             Always know what you'll pay upfront. Your payment isn't released until you approve the work.
                         </span>
                     </div>
@@ -48,7 +48,7 @@ export const HomePageInfo = () => {
                                 24/7 support
                             </h3>
                         </div>
-                        <span className='desc'>
+                        <span className="desc">
                             Questions? Our round-the-clock support team is available to help anytime, anywhere.
                         </span>
                     </div>

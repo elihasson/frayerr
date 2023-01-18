@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import CheckIcon from '@mui/icons-material/Check';
-import { Link } from 'react-router-dom';
+import AccessTimeIcon from '@mui/icons-material/AccessTime'
+import CheckIcon from '@mui/icons-material/Check'
+import { Link } from 'react-router-dom'
 import { loadCategories } from '../store/gig.actions'
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'
 
 
 export const OrderModal = ({ gig, modalClass}) => {
@@ -21,13 +21,13 @@ export const OrderModal = ({ gig, modalClass}) => {
     })
 
     const _dropIWill = (title) => {
-        title = title.trim();
-        var titleToEdit = title.toLowerCase();
+        title = title.trim()
+        var titleToEdit = title.toLowerCase()
         if (titleToEdit.startsWith('i will')) {
-            title = title.slice(7);
-            title = title.charAt(0).toUpperCase() + title.slice(1);
+            title = title.slice(7)
+            title = title.charAt(0).toUpperCase() + title.slice(1)
         }
-        return title;
+        return title
     }
 
     const _getFeaturesByCategory = (categoryName) => {
@@ -39,17 +39,17 @@ export const OrderModal = ({ gig, modalClass}) => {
     if (!gig) return <div>Loading...</div>
     return (
         <div className={`order-modal ${modalClass}`}>
-            <div className='order-title-wrapper'>
-                <h3 className='order-title'>{title}</h3>
-                <span className='order-price'>{gig.price.toLocaleString("USA", { style: "currency", currency: "USD" })}</span>
+            <div className="order-title-wrapper">
+                <h3 className="order-title">{title}</h3>
+                <span className="order-price">{gig.price.toLocaleString('USA', { style: 'currency', currency: 'USD' })}</span>
             </div>
-            <p className='order-subtitle'>{gig.title}</p>
-            <div className='order-delivery'>
+            <p className="order-subtitle">{gig.title}</p>
+            <div className="order-delivery">
                 <AccessTimeIcon className="clock-icon" />
                 {gig.daysToMake} Days Delivery
             </div>
-            <div className='order-features'>
-                <ul className='clean-list'>
+            <div className="order-features">
+                <ul className="clean-list">
                     {features?.map((feature, idx) => {
                         return (<li key={idx}>
                             <CheckIcon className="check-icon" />
@@ -58,12 +58,12 @@ export const OrderModal = ({ gig, modalClass}) => {
                     })}
                 </ul>
             </div>
-            {/* <Link className='clean-link' to={`/checkout/${gig._id}?features=${features}`}> */}
-            <Link className='clean-link' to={`/checkout/${gig._id}`}>
-                <button className='btn'>Continue ({gig.price.toLocaleString("USA", { style: "currency", currency: "USD" })})</button>
+            {/* <Link className="clean-link" to={`/checkout/${gig._id}?features=${features}`}> */}
+            <Link className="clean-link" to={`/checkout/${gig._id}`}>
+                <button className="btn">Continue ({gig.price.toLocaleString('USA', { style: 'currency', currency: 'USD' })})</button>
             </Link>
-            {/* <Link className='clean-link' to={`/explore/${gig._id}`}>
-                <p className='gig-title'> {getShortTitle(gig.title)} </p>
+            {/* <Link className="clean-link" to={`/explore/${gig._id}`}>
+                <p className="gig-title"> {getShortTitle(gig.title)} </p>
             </Link> */}
         </div>
     )

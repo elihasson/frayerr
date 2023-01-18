@@ -1,5 +1,5 @@
-import { orderService } from "../services/order.service.js";
-import { userService } from "../services/user.service.js";
+import { orderService } from '../services/order.service.js'
+import { userService } from '../services/user.service.js'
 import { showSuccessMsg, showErrorMsg, showThanksMsg } from '../services/event-bus.service.js'
 
 // Action Creators:
@@ -53,7 +53,7 @@ export function removeOrder(orderId) {
     return async (dispatch) => {
         try {
             await orderService.remove(orderId)
-            console.log('Deleted Successfully!');
+            console.log('Deleted Successfully!')
             dispatch(getActionRemoveOrder(orderId))
             showSuccessMsg('Order removed')
         } catch (err) {
@@ -67,7 +67,7 @@ export function addOrder(order, gig = null) {
     return (dispatch) => {
         orderService.save(order, gig)
             .then(savedOrder => {
-                console.log('Added Order', savedOrder);
+                console.log('Added Order', savedOrder)
                 dispatch(getActionSetWatchedOrder(savedOrder))
                 return savedOrder
             })
@@ -86,7 +86,7 @@ export function updateOrder(order) {
     return (dispatch) => {
         orderService.save(order)
             .then(savedOrder => {
-                console.log('Updated Order:', savedOrder);
+                console.log('Updated Order:', savedOrder)
                 dispatch(getActionUpdateOrder(savedOrder))
                 showSuccessMsg('Order updated')
             })
@@ -170,7 +170,7 @@ export function onRemoveOrderOptimistic(orderId) {
 
         orderService.remove(orderId)
             .then(() => {
-                console.log('Server Reported - Deleted Succesfully');
+                console.log('Server Reported - Deleted Succesfully')
             })
             .catch(err => {
                 showErrorMsg('Cannot remove order')

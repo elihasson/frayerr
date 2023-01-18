@@ -1,4 +1,4 @@
-import { gigService } from '../services/gig.service';
+import { gigService } from '../services/gig.service'
 import StarIcon from '@mui/icons-material/Star'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import { useSelector, useDispatch } from 'react-redux'
@@ -63,24 +63,24 @@ export const GigPreview = ({ gig, onRemoveGig, onUpdateGig }) => {
             <div className="owner-info">
                 <div className="user-img" style={{ backgroundImage: `url(${gig.owner.imgUrl})` }}></div>
                 <div className="owner-name-level">
-                    <h5 className='owner-name'>{gig.owner.fullname}</h5>
-                    <h5 className='owner-level'>{gig.owner.level}</h5>
+                    <h5 className="owner-name">{gig.owner.fullname}</h5>
+                    <h5 className="owner-level">{gig.owner.level}</h5>
                 </div>
             </div>
-            <Link className='clean-link' to={`/explore/${gig._id}`}>
-                <p className='gig-title'> {getShortTitle(gig.title)} </p>
+            <Link className="clean-link" to={`/explore/${gig._id}`}>
+                <p className="gig-title"> {getShortTitle(gig.title)} </p>
             </Link>
 
-            <div className='rate-wrapper'>
+            <div className="rate-wrapper">
                 {/* <p>rate: <span>{gig.owner.rate}</span></p> */}
-                <div className='gig-rating'>
+                <div className="gig-rating">
                     <StarIcon fontSize="inherit" />
                     <span>{gig.owner.rate}</span>
-                    <span className='review-number'>(1k+)</span>
+                    <span className="review-number">(1k+)</span>
                 </div>
             </div>
 
-            <div className='card-footer'>
+            <div className="card-footer">
                 {/* <button onClick={() => { onRemoveGig(gig._id) }}>x</button> */}
                 {/* <button onClick={() => { onUpdateGig(gig) }}>Edit</button> */}
                 <span className={isLike ? 'like active' : 'popup like'}
@@ -101,10 +101,3 @@ export const GigPreview = ({ gig, onRemoveGig, onUpdateGig }) => {
         </li>
     )
 }
-
-
-/* <section className='actions'>
-<button onClick={() => onRemoveToy(toy._id)}>Delete</button>
-<Link to={`/toys/edit/${toy._id}`} >Edit</Link>
-<Link to={`/toy/${toy._id}`} >Details</Link>
-</section> */

@@ -12,13 +12,13 @@ export const storageService = {
 
 // !!!! for guest - only in local storage
 
-var guestGigs = JSON.parse(localStorage.getItem("guestGigs_db")) || [];
+var guestGigs = JSON.parse(localStorage.getItem("guestGigs_db")) || []
 
 function saveGuestGigs(gig) {
-    const gigIdx = guestGigs.findIndex((guestGig) => guestGig._id === gig._id);
-    if (gigIdx !== -1) guestGigs.splice(gigIdx, 1);
-    else guestGigs = [...guestGigs, gig];
-    localStorage.setItem("guestGigs_db", JSON.stringify(guestGigs));
+    const gigIdx = guestGigs.findIndex((guestGig) => guestGig._id === gig._id)
+    if (gigIdx !== -1) guestGigs.splice(gigIdx, 1)
+    else guestGigs = [...guestGigs, gig]
+    localStorage.setItem("guestGigs_db", JSON.stringify(guestGigs))
 }
 
 // This function was not exist and caused a console error in gig preview - Just created it. currently returns false:

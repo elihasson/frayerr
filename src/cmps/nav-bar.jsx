@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom"
+import { NavLink } from 'react-router-dom'
 // import { useDispatch } from 'react-redux'
 // import { toggleJoinModal, toggleLoginModal } from '../store/system.actions'
 // import { onLogout } from '../store/user.actions'
-import React from "react"
+import React from 'react'
 
 export const NavBar = ({ classProp, toggleMenu, user, dispatch, toggleJoinModal, toggleLoginModal, onLogout }) => {
     // const user = useSelector(state => state.userModule.user)
@@ -28,14 +28,14 @@ export const NavBar = ({ classProp, toggleMenu, user, dispatch, toggleJoinModal,
             <header className="menu-header">
 
                 {user ?
-                    <div className='avatar-logo-container hovertext'>
+                    <div className="avatar-logo-container hovertext">
                         <img src={user?.imgUrl} alt="user img"
-                            className='user-profile-img ' />
-                        <span className='username-container'>{user?.fullname}</span>
+                            className="user-profile-img"/>
+                        <span className="username-container">{user?.fullname}</span>
                     </div>
                     :
                     <React.Fragment>
-                        <NavLink to="/" className='nav-bar-join-button'>
+                        <NavLink to="/" className="nav-bar-join-button">
                             <div className="nav-bar-join-button-txt" onClick={handleJoinModal} >Join frayerr</div>
                         </NavLink>
 

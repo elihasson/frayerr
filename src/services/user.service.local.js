@@ -131,7 +131,7 @@ async function update(user) {
     // user = await httpService.put(`user/${user._id}`, user)
     // Handle case in which admin updates other user's details
     if (getLoggedinUser()._id === user._id) saveLocalUser(user)
-    return user;
+    return user
 }
 
 async function login(userCred) {
@@ -145,7 +145,7 @@ async function login(userCred) {
     }
 }
 async function signup(userCred) {
-    // userCred.score = 10000;
+    // userCred.score = 10000
     const user = await storageService.post('user', userCred)
     // const user = await httpService.post('auth/signup', userCred)
     socketService.login(user._id)
@@ -192,16 +192,16 @@ async function saveReview(rate, txt, user, gigId = '', owner) {
     }
     owner.reviews = [...owner.reviews, review]
     const updatedOwner = await saveUser(owner)
-    return updatedOwner;
+    return updatedOwner
 }
 
 async function saveUser(user) {
     if (user._id) {
         return storageService.put('user', user)
-        //   return httpService.put(`user/${user._id}`, user);
+        //   return httpService.put(`user/${user._id}`, user)
     } else {
         return storageService.post('user', user)
-        // return httpService.post("user", user);
+        // return httpService.post("user", user)
     }
 }
 

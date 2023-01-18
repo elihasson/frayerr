@@ -2,12 +2,10 @@ import { UserRateStars } from './user-rate-stars'
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
+// import LocationOnIcon from '@mui/icons-material/LocationOn'
+// import PersonIcon from '@mui/icons-material/Person'
 
-
-// import LocationOnIcon from '@mui/icons-material/LocationOn';
-// import PersonIcon from '@mui/icons-material/Person';
-
-export function UserDetails({ user }) {       
+export const UserDetails = ({ user }) => {       
     const gig = { owner: { rate: user.rate } }
     return (
         <div className="user-details max-width-container equal-padding">
@@ -20,18 +18,12 @@ export function UserDetails({ user }) {
             </div>
             <div className="user-info-wrapper">
                 <div className="user-stats">
-                    {/* {user.sellerInfo && <div className='origin-wrapper'>
+                    {/* {user.sellerInfo && <div className="origin-wrapper">
                         <div><LocationOnIcon /> From</div>
-                        <div className='origin'> {user.sellerInfo.origin}</div>
+                        <div className="origin"> {user.sellerInfo.origin}</div>
                     </div>} */}
                     </div>
                 </div>
             </div>
     )
 }
-
-        // username: user.username,
-        // fullname: user.fullname,
-        // imgUrl: user.imgUrl,
-        // level: user.level,
-        // rate: user.rate

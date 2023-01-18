@@ -12,7 +12,7 @@
         span {
             display: none;
             color: #b5b6ba;
-            font-family: 'Macan-bold';
+            font-family: "Macan-bold";
             @include for-hero-layout-3 {
                 display: unset;
             }

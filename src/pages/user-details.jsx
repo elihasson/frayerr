@@ -3,14 +3,13 @@ import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { loadUser } from '../store/user.actions'
 
-export function _UserDetails({ user, loadUser }) {
+export const _UserDetails = ({ user, loadUser }) => {
 
   const params = useParams()
 
   useEffect(() => {
     loadUser(params.id)
   }, [])
-
 
   return (
     <section className="user-details">
@@ -26,8 +25,6 @@ export function _UserDetails({ user, loadUser }) {
     </section>
   )
 }
-
-
 
 const mapStateToProps = state => {
   return {

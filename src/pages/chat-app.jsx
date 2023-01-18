@@ -10,7 +10,7 @@ function _ChatApp({ loggedInUser }) {
     let botTimeout
 
     useEffect(() => {
-        socketService.on(SOCKET_EVENT_ADD_MSG, addMsg);
+        socketService.on(SOCKET_EVENT_ADD_MSG, addMsg)
         return () => {
             socketService.off(SOCKET_EVENT_ADD_MSG, addMsg)
             botTimeout && clearTimeout(botTimeout)
@@ -37,7 +37,7 @@ function _ChatApp({ loggedInUser }) {
         ev.preventDefault()
         const from = loggedInUser?.fullname || 'Me'
         socketService.emit(SOCKET_EMIT_SEND_MSG, { from, txt: msg.txt })
-        if (isBotMode) sendBotResponse();
+        if (isBotMode) sendBotResponse()
         setMsg({ txt: '' })
     }
 

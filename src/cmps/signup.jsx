@@ -4,13 +4,11 @@ import { ImgUploader } from '../cmps/img-uploader'
 import { useDispatch } from 'react-redux'
 import { toggleLoginModal, toggleJoinModal, closeLoginJoinModal } from '../store/system.actions'
 import { onSignup  } from '../store/user.actions'
-
 import CloseIcon from '@mui/icons-material/Close'
 
+// import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
 
-// import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js';
-
-export function Signup(props) {
+export const Signup = () => {
 
     const dispatch = useDispatch()
 
@@ -51,7 +49,7 @@ export function Signup(props) {
 
     return (
         <section className="sign-modal">
-            <div className='btn-close-sign' onClick={() => dispatch(closeLoginJoinModal())}><CloseIcon /></div>
+            <div className="btn-close-sign" onClick={() => dispatch(closeLoginJoinModal())}><CloseIcon /></div>
             <div className="modal-content">
                 <header >
                     <h1 className="modal-title">Join frayerr</h1>

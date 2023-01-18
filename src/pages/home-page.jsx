@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch  } from 'react-redux'
 
 import { AppHero } from '../cmps/app-hero'
@@ -7,14 +7,14 @@ import { HomeCategory } from '../cmps/home-category'
 import { HomePageInfo } from '../cmps/home-page-info'
 import { HomeSignup } from '../cmps/home-signup'
 
-import { setHomePage } from '../store/system.actions.js' // aharon
+import { setHomePage } from '../store/system.actions.js' 
 
 export const HomePage = () => {
 
-    const isHome = useSelector(state => state.systemModule.user) //aharon
-    const dispatch = useDispatch() //aharon
+    const isHome = useSelector(state => state.systemModule.user) 
+    const dispatch = useDispatch() 
 
-    useEffect(() => {  //aharon
+    useEffect(() => {  
         dispatch(setHomePage(true))
 
         return () => {
@@ -23,8 +23,8 @@ export const HomePage = () => {
     }, [])
 
     return (
-        <section className='home-container full'>
-            <div className='home-page main-layout'>
+        <section className="home-container full">
+            <div className="home-page main-layout">
                 <AppHero />
                 <HomeTrustedBy />
                 <HomeCategory />
@@ -33,5 +33,4 @@ export const HomePage = () => {
             </div>
         </section >
     )
-
 }

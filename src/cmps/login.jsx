@@ -37,9 +37,9 @@ export const Login = () => {
     
     return (
         <section className="sign-modal">
-            <div className='btn-close-sign' onClick={() => dispatch(closeLoginJoinModal(false))}><CloseIcon /></div>
+            <div className="btn-close-sign" onClick={() => dispatch(closeLoginJoinModal(false))}><CloseIcon /></div>
             <div className="modal-content">
-                <header >
+                <header>
                     <h1 className="modal-title">Sign in to frayerr</h1>
                 </header>
                 <form action="" className="sign-form" onSubmit={handleSubmit}>

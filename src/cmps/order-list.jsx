@@ -1,27 +1,25 @@
-// import * as React from 'react';
-// import Table from '@mui/material/Table';
-// import TableBody from '@mui/material/TableBody';
-// import TableCell from '@mui/material/TableCell';
-// import TableContainer from '@mui/material/TableContainer';
-// import TableHead from '@mui/material/TableHead';
-// import TableRow from '@mui/material/TableRow';
-// import Paper from '@mui/material/Paper';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
-// import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
-// import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import { OrderPreview } from "./order-preview.jsx"
+// import * as React from 'react'
+// import Table from '@mui/material/Table'
+// import TableBody from '@mui/material/TableBody'
+// import TableCell from '@mui/material/TableCell'
+// import TableContainer from '@mui/material/TableContainer'
+// import TableHead from '@mui/material/TableHead'
+// import TableRow from '@mui/material/TableRow'
+// import Paper from '@mui/material/Paper'
+import IconButton from '@mui/material/IconButton'
+import DeleteIcon from '@mui/icons-material/Delete'
+// import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded'
+// import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
+import { OrderPreview } from './order-preview.jsx'
 
-
-
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { loadOrders, setOrderFilterBy, removeOrder, updateOrder } from '../store/order.actions'
-import { useParams } from 'react-router-dom';
-import { socketService, SOCKET_EMIT_ORDER_UPDATE, SOCKET_EVENT_UPDATE_USER } from "../services/socket.service.js";
+import { useParams } from 'react-router-dom'
+import { socketService, SOCKET_EMIT_ORDER_UPDATE, SOCKET_EVENT_UPDATE_USER } from '../services/socket.service.js'
 
-export const OrderList = (props) => {
+export const OrderList = () => {
 
 	const params = useParams()
 	const dispatch = useDispatch()
@@ -39,7 +37,7 @@ export const OrderList = (props) => {
 		dispatch(loadOrders())
 		socketService.on(SOCKET_EMIT_ORDER_UPDATE, (msg) => {
 			if (msg === 'incoming-order') {
-				console.log('msg', msg);
+				console.log('msg', msg)
 				dispatch(loadOrders())
             }
         })
@@ -60,7 +58,7 @@ export const OrderList = (props) => {
     )
 
 	// const createData = (title, gigPrice, buyerName, orderId, orderStatus) => {
-	// 	return { title, gigPrice, buyerName, orderId, orderStatus };
+	// 	return { title, gigPrice, buyerName, orderId, orderStatus }
 	// }
 
 	// let rows = []
@@ -85,7 +83,7 @@ export const OrderList = (props) => {
 
 	// return (
 	// 	<div>
-	// 		<div className='user-order-heading'>
+	// 		<div className="user-order-heading">
 	// 			{orders.length !== 0 ? 'Your orders:' : 'No orders yet :('}
 	// 		</div>
 
@@ -113,8 +111,8 @@ export const OrderList = (props) => {
 	// 							<TableCell align="center">{row.buyerName}</TableCell>
 	// 							<TableCell align="center">{row.orderStatus}</TableCell>
 	// 							<TableCell align="center">
-	// 								{/* <button className='btn' onClick={() =>changeOrderStatus(row.orderId, 'accept')} >Accept</button>
-    //             <button className='btn-red' onClick={() => changeOrderStatus(row.orderId, 'decline')}>Decline</button> */}
+	// 								{/* <button className="btn" onClick={() =>changeOrderStatus(row.orderId, 'accept')} >Accept</button>
+    //             <button className="btn-red" onClick={() => changeOrderStatus(row.orderId, 'decline')}>Decline</button> */}
 	// 								<IconButton aria-label="accept" onClick={() => changeOrderStatus(row.orderId, 'accept')}>
 	// 									<DoneOutlineRoundedIcon />
 	// 								</IconButton>

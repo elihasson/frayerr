@@ -52,12 +52,12 @@ export const GigEdit = () => {
     return (
         <section className="gig-edit full-height">
             <div className="user-container">
-                <div className='details-header inpage-nav' id='Overview'>
+                <div className="details-header inpage-nav" id="Overview">
                     <div className="owner-info">
-                        <h5 className='owner-name'>{user.fullname}</h5>
-                        <div className='level-rate-user'>
-                            <h5 className='owner-level'>{user.rate}</h5>
-                            <span className='spacer'>|</span>
+                        <h5 className="owner-name">{user.fullname}</h5>
+                        <div className="level-rate-user">
+                            <h5 className="owner-level">{user.rate}</h5>
+                            <span className="spacer">|</span>
                             <h5>stars</h5>
                             {/* <UserRateStars gig={gig} /> */}
                         </div>
@@ -69,7 +69,7 @@ export const GigEdit = () => {
             <div className="gig-edit-container">
                 <h1>{gig._id ? 'Edit' : 'Add'} Gig</h1>
                 {/* <form onSubmit={onSaveGig}> */}
-                <form className='gig-edit-form' onSubmit={onSaveGig}>
+                <form className="gig-edit-form" onSubmit={onSaveGig}>
                     <label className="egig-title" htmlFor="title">Title:</label>
                     <input
                         ref={inputRef}
@@ -105,46 +105,10 @@ export const GigEdit = () => {
                         id="description"
                     />
 
-                    <button className='btn'>Save</button>
+                    <button className="btn">Save</button>
                 </form>
             </div>
 
         </section>
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useEffect } from 'react'
-// import { useParams } from 'react-router-dom'
-// import { connect, useDispatch, useSelector } from 'react-redux'
-// import { loadGig } from '../store/gig.actions'
-
-
-
-
-
-
-
-// export const GigEdit = () => {
-//     return(
-//         <div>edit create</div>
-//     )
-// }

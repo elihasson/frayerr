@@ -87,11 +87,11 @@ export const AppHero = () => {
     })
 
     return (
-        <div className='hero-container full'>
-            <div className='hero-background'>
-                <div className='hero' style={{ backgroundImage: `url(${require(`../assets/img/bg-hero-${hero.imgSrcs[`${windowCurrWidth > 1159 ? 0 : 1}`]}`)})`, backgroundColor: hero.bgc }}>
-                    <div className='hero-header add-main-layout'>
-                        <h1 className='hero-title'>
+        <div className="hero-container full">
+            <div className="hero-background">
+                <div className="hero" style={{ backgroundImage: `url(${require(`../assets/img/bg-hero-${hero.imgSrcs[`${windowCurrWidth > 1159 ? 0 : 1}`]}`)})`, backgroundColor: hero.bgc }}>
+                    <div className="hero-header add-main-layout">
+                        <h1 className="hero-title">
                             Find the perfect <i>freelance</i> services for your business
                         </h1>
                         <SearchBar />

@@ -9,10 +9,18 @@
     margin-block-start: 18px;
     margin-block-end: 18px;
 
+    .user-info {
+        flex-direction: column;
+    }
+
     @include for-normal-layout {
         gap: 40px;
         flex-direction: row;
         justify-content: space-evenly;
+
+        .user-info {
+            flex-direction: row;
+        }
     }
 
     @include for-order-wide-layout {
@@ -74,6 +82,4 @@
 
         }
     }
-
-
 }

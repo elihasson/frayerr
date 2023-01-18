@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useSwipeable } from "react-swipeable";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import React, { useEffect, useState } from 'react'
+import { useSwipeable } from 'react-swipeable'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 
 
-export function Carousel({ gig, isDetails, children }) {
+export const Carousel = ({ gig, isDetails, children }) => {
 
-    const [activeIdx, setActiveIdx] = useState(0);
-    const [isArrows, setArrows] = useState(false);
+    const [activeIdx, setActiveIdx] = useState(0)
+    const [isArrows, setArrows] = useState(false)
 
     const updateIdx = (newIdx, ev) => {
         ev.stopPropagation()
@@ -34,10 +34,10 @@ export function Carousel({ gig, isDetails, children }) {
 
             <div className="inner-wrapper">
                 <div className={isArrows ? 'indicators show' : 'indicators'}>
-                    <span className='prev-button-slick' onClick={(ev) => { updateIdx(activeIdx - 1, ev) }} float="left" >
+                    <span className="prev-button-slick" onClick={(ev) => { updateIdx(activeIdx - 1, ev) }} float="left" >
                         <ArrowBackIosNewIcon />
                     </span>
-                    <span className='next-button-slick' onClick={(ev) => { updateIdx(activeIdx + 1, ev) }} float="right">
+                    <span className="next-button-slick" onClick={(ev) => { updateIdx(activeIdx + 1, ev) }} float="right">
                         <ArrowForwardIosIcon />
                     </span>
                 </div>
@@ -58,16 +58,13 @@ export function Carousel({ gig, isDetails, children }) {
                             className={`${index === activeIdx ? "active" : ""}`}
                             style={{ backgroundImage: `url(${child.props.imgUrl.imgUrl})` }}
                             onClick={(ev) => {
-                                updateIdx(index, ev);
+                                updateIdx(index, ev)
                             }}
                         >
-
                         </button>
-                    );
+                    )
                 })}
             </div>
-
         </div>
-    );
-};
-
+    )
+}

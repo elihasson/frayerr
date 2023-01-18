@@ -14,8 +14,8 @@ export const SOCKET_EVENT_UPDATE_USER = 'update-user'
 
 export const SOCKET_EMIT_USER_OFFLINE = 'user-offline'
 export const SOCKET_EMIT_USER_ONLINE = 'user-online'
-export const SOCKET_EMIT_JOIN_IS_CONNECTED = 'join isConnected';
-export const SOCKET_EMIT_JOIN = 'join';
+export const SOCKET_EMIT_JOIN_IS_CONNECTED = 'join isConnected'
+export const SOCKET_EMIT_JOIN = 'join'
 
 
 
@@ -34,7 +34,7 @@ socketService.setup()
 
 
 function createSocketService() {
-  var socket = null;
+  var socket = null
   const socketService = {
     setup() {
       socket = io(baseUrl)
@@ -47,7 +47,7 @@ function createSocketService() {
       socket.on(eventName, cb)
     },
     off(eventName, cb = null) {
-      if (!socket) return;
+      if (!socket) return
       if (!cb) socket.removeAllListeners(eventName)
       else socket.off(eventName, cb)
     },
@@ -101,7 +101,7 @@ function createDummySocketService() {
       this.emit('chat addMsg', { from: 'Someone', txt: 'Aha it worked!' })
     },
   }
-  window.listenersMap = listenersMap;
+  window.listenersMap = listenersMap
   return socketService
 }
 

@@ -23,12 +23,12 @@ function Projects() {
     const [projs, setProjs] = useState(['Puki Proj', 'Muki Proj'])
     const projList = projs.map((proj, idx) => (
         <div className="proj-preview" key={proj} onClick={(ev) => {
-            ev.stopPropagation();
+            ev.stopPropagation()
             setProjs(projs.filter(p => p !== proj))
         }}>
             {proj}
         </div>
-    ));
+    ))
     return <section style={{ height: '50vh', backgroundColor: 'lightblue' }}>
         <h2>Projects</h2>
         <TransitionGroup transitionName="example" transitionEnterTimeout={500}
@@ -36,7 +36,7 @@ function Projects() {
             {projList}
         </TransitionGroup>
         <button onClick={ev => {
-            ev.stopPropagation();
+            ev.stopPropagation()
             setProjs([...projs, 'Babu Proj' + Date.now() % 100])
         }}>Add</button>
     </section >
@@ -74,7 +74,7 @@ export class AboutUs extends React.Component {
     }
     componentDidMount() {
         // this.interval = setInterval(() => {
-        //     console.log('Setting Followers Count');
+        //     console.log('Setting Followers Count')
         //     this.setState(({ count }) => ({ count: count + utilService.getRandomIntInclusive(5, 20) }))
         // }, 2500)
     }
@@ -87,7 +87,7 @@ export class AboutUs extends React.Component {
     }
 
     onTellMeMore = () => {
-        console.log('Telling you more');
+        console.log('Telling you more')
     }
     render() {
         const { count } = this.state
@@ -117,9 +117,8 @@ export class AboutUs extends React.Component {
     }
 }
 
-
 class MyErrorBoundary extends React.Component {
-    state = { error: null, errorInfo: null };
+    state = { error: null, errorInfo: null }
 
     componentDidCatch(error, errorInfo) {
         // Catch errors in children and re-render with error message
@@ -144,9 +143,9 @@ class MyErrorBoundary extends React.Component {
                         {this.state.errorInfo.componentStack}
                     </details>
                 </div>
-            );
+            )
         }
         // Normally, just render children
-        return this.props.children;
+        return this.props.children
     }
 }

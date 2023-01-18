@@ -19,8 +19,8 @@ export const HomeTrustedBy = () => {
         }
     ]
     return (
-        <div className='full trusted-by-container'>
-            <div className='trusted-by-content flex'>
+        <div className="full trusted-by-container">
+            <div className="trusted-by-content flex">
                 <span>Trusted by:</span>
                 <TrustedCompanies trustedCompanies={trustedCompanies}/>
             </div>

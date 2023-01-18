@@ -128,7 +128,7 @@ async function update(user) {
             console.log('Cannot update user', err)
         }
     }
-    return user;
+    return user
 }
 
 async function login(userCred) {
@@ -196,16 +196,16 @@ async function saveReview(rate, txt, user, gigId = '', owner) {
     }
     owner.reviews = [...owner.reviews, review]
     const updatedOwner = await saveUser(owner)
-    return updatedOwner;
+    return updatedOwner
 }
 
 async function saveUser(user) {
     if (user._id) {
         return storageService.put('user', user)
-        //   return httpService.put(`user/${user._id}`, user);
+        //   return httpService.put(`user/${user._id}`, user)
     } else {
         return storageService.post('user', user)
-        // return httpService.post("user", user);
+        // return httpService.post("user", user)
     }
 }
 

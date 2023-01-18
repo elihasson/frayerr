@@ -1,12 +1,12 @@
 // import React from 'react'
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, useParams } from 'react-router-dom'
 
-import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
-import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined'
+import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined'
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 
 import { NavBar } from './nav-bar.jsx'
 import { GigFilter } from './gig-filter'
@@ -53,7 +53,6 @@ export const AppHeader = (props) => {
         if (isHome && !user) return 'home-top-header-no-scroll'
         if (isHome && user) return 'home-top-header-with-user'
         if (!user) return 'home-top-header-with-scroll'
-
     }
 
     const toggleProfileMenu = () => {
@@ -73,8 +72,8 @@ export const AppHeader = (props) => {
 
             <header className="app-header main-layout" >
 
-                <div className='burger-icon-gig-filter-container'>
-                    <div className='burger-icon-container'>
+                <div className="burger-icon-gig-filter-container">
+                    <div className="burger-icon-container">
                         <div className="burger-button-container" onClick={toggleMenu}>
                             <div><svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19"><rect y="16" width="23" height="3" rx="1.5" ></rect><rect width="23" height="3" rx="1.5" ></rect><rect y="8" width="23" height="3" rx="1.5" ></rect></svg></div>
                         </div>
@@ -84,12 +83,12 @@ export const AppHeader = (props) => {
                         </NavLink>
                     </div>
 
-                    <div className='gig-filter-container'>
+                    <div className="gig-filter-container">
                         <GigFilter />
                     </div>
                 </div>
 
-                {user && <div className='icon-search-bar-container'>
+                {user && <div className="icon-search-bar-container">
 
                     <NavLink to="/explore" >
                         <NotificationsNoneOutlinedIcon />
@@ -99,42 +98,37 @@ export const AppHeader = (props) => {
                         <MailOutlineOutlinedIcon />
                     </NavLink>
 
-                    <NavLink to="/explore" className='favorite-icon-button'>
+                    <NavLink to="/explore" className="favorite-icon-button">
                         <FavoriteBorderOutlinedIcon />
                     </NavLink>
 
-                    <NavLink to={`/user/${user._id}/order`} className='orders-button'>
+                    <NavLink to={`/user/${user._id}/order`} className="orders-button">
                         <div>Orders</div>
                         {isNewOrder && <div className="connection-dot dot-bottom"></div>}
                     </NavLink>
 
                 </div>}
 
-                {(!user) && <div className='icon-search-bar-container'>
+                {(!user) && <div className="icon-search-bar-container">
 
-                    <NavLink to="/explore" className='explore-button'>
+                    <NavLink to="/explore" className="explore-button">
                         <div>Explore</div>
                     </NavLink>
 
-                    <NavLink to="#" className='signin-button'>
+                    <NavLink to="#" className="signin-button">
                         <div onClick={() => { dispatch(toggleLoginModal()) }}>Sign in</div>
                     </NavLink>
 
-                    <NavLink to="#" className='join-button'>
+                    <NavLink to="#" className="join-button">
                         <div onClick={() => { dispatch(toggleJoinModal()) }}>Join</div>
                     </NavLink>
 
                 </div>}
 
-                {user && <div className='avatar-logo-container hovertext'
+                {user && <div className="avatar-logo-container hovertext"
                     data-hover={`Username: ${user?.fullname}`}>
-                    {/* <NavLink to={`/user/${user?._id}`}> 
-                    </NavLink> */}
                     <img src={user?.imgUrl} alt="user img"
-                        className='user-profile-img' onClick={toggleProfileMenu}/>
-                    {/* <NavLink to="#" className='logout-button'>
-                        <div onClick={() => dispatch(onLogout())}>Logout</div>
-                    </NavLink> */}
+                        className="user-profile-img" onClick={toggleProfileMenu}/>
                     {isProfileMenuOpen && <ProfileMenu onLogout={handleLogout} user={user} closeProfileMenu={toggleProfileMenu} />}
                 </div>}
 

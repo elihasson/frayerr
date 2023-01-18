@@ -19,7 +19,7 @@ export function orderReducer(state = initialState, action) {
             break
         case 'SET_WATCHED_ORDER':
             newState = { ...state, watchedOrder: action.order }
-            break;
+            break
         case 'REMOVE_ORDER':
             const lastRemovedOrder = state.orders.find(order => order._id === action.orderId)
             orders = state.orders.filter(order => order._id !== action.orderId)

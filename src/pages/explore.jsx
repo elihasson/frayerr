@@ -121,37 +121,37 @@ export const Explore = (props) => {
             <div className="category-selection-container">
                 <ul className="categories-grid">
                     <li  onClick={() => handleCategory('')} className="category-card all flex">
-                        <div><ViewAll className='cat-svg-icon'/></div>
+                        <div><ViewAll className="cat-svg-icon"/></div>
                         <p>All</p>
                     </li>
-                    <li onClick={() => handleCategory('illustration')} value='illustration' className="category-card illustration flex">
+                    <li onClick={() => handleCategory('illustration')} value="illustration" className="category-card illustration flex">
                     {/* <li  className="category-card illustration flex"> */}
-                        <div><Illustration className='cat-svg-icon'/></div>
+                        <div><Illustration className="cat-svg-icon"/></div>
                         <p>Illustration</p>
                     </li>
-                    <li onClick={() => handleCategory('logo design')} value='logo-design' className="category-card logo-design flex">
+                    <li onClick={() => handleCategory('logo design')} value="logo-design" className="category-card logo-design flex">
                     {/* <li  className="category-card logo-design flex"> */}
-                        <div><LogoDesign className='cat-svg-icon'/></div>
+                        <div><LogoDesign className="cat-svg-icon"/></div>
                         <p>Logo Design</p>
                     </li>
-                    <li onClick={() => handleCategory('voice over')} value='voice-over' className="category-card voice-over flex">
+                    <li onClick={() => handleCategory('voice over')} value="voice-over" className="category-card voice-over flex">
                     {/* <li  className="category-card voice-over flex"> */}
-                        <div><VoiceOver className='cat-svg-icon'/></div>
+                        <div><VoiceOver className="cat-svg-icon"/></div>
                         <p>Voice Over</p>
                     </li>
-                    <li onClick={() => handleCategory('wordpress')} value='wordpress' className="category-card wordpress flex">
+                    <li onClick={() => handleCategory('wordpress')} value="wordpress" className="category-card wordpress flex">
                     {/* <li className="category-card wordpress flex"> */}
-                        <div><Wordpress className='cat-svg-icon'/></div>
+                        <div><Wordpress className="cat-svg-icon"/></div>
                         <p>Wordpress</p>
                     </li>
-                    <li onClick={() => handleCategory('video explainer')} value='video-explainer' className="category-card video-explainer flex">
+                    <li onClick={() => handleCategory('video explainer')} value="video-explainer" className="category-card video-explainer flex">
                     {/* <li className="category-card video-explainer flex"> */}
-                        <div><VideoExplainer className='cat-svg-icon'/></div>
+                        <div><VideoExplainer className="cat-svg-icon"/></div>
                         <p>Video Explainer</p>
                     </li>
-                    <li onClick={() => handleCategory('programming')} value='programming' className="category-card programming flex">
+                    <li onClick={() => handleCategory('programming')} value="programming" className="category-card programming flex">
                     {/* <li className="category-card programming flex"> */}
-                        <div><Programming className='cat-svg-icon'/></div>
+                        <div><Programming className="cat-svg-icon"/></div>
                         <p>Programming</p>
                     </li>
                 </ul>
@@ -162,12 +162,12 @@ export const Explore = (props) => {
                         <div className={`filters-div flex`}>
                             <Select
                                 value={filterBy.deliveryTime}
-                                name='deliveryTime'
+                                name="deliveryTime"
                                 onChange={handleFilter}
                                 displayEmpty
-                                className='delivery select'
+                                className="delivery select"
                                 inputProps={{ 'aria-label': 'Without label' }}>
-                                <MenuItem value='' className="select-item">
+                                <MenuItem value="" className="select-item">
                                     <em>Delivery Time</em>
                                 </MenuItem>
                                 <MenuItem className="select-item" value={1}>Express 24H</MenuItem>
@@ -226,4 +226,4 @@ const theme = createTheme({
             },
         },
     },
-});
+})

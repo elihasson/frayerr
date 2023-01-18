@@ -3,11 +3,9 @@ import React from 'react'
 import { eventBusService } from '../services/event-bus.service.js'
 import { Alert } from '@mui/material'
 
-
-
 export class UserMsg extends React.Component {
 
-  removeEvent;
+  removeEvent
 
   state = {
     msg: null
@@ -48,4 +46,3 @@ export class UserMsg extends React.Component {
     )
   }
 }
-

@@ -1,5 +1,5 @@
-import { gigService } from "../services/gig.service.js";
-import { userService } from "../services/user.service.js";
+import { gigService } from '../services/gig.service.js'
+import { userService } from '../services/user.service.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 // Action Creators:
@@ -92,7 +92,7 @@ export function addGig(gig) {
 
         gigService.save(gig)
             .then(savedGig => {
-                console.log('Added Gig', savedGig);
+                console.log('Added Gig', savedGig)
                 dispatch(getActionAddGig(savedGig))
                 showSuccessMsg('Gig added')
             })
@@ -107,7 +107,7 @@ export function updateGig(gig) {
     return (dispatch) => {
         gigService.save(gig)
             .then(savedGig => {
-                console.log('Updated Gig:', savedGig);
+                console.log('Updated Gig:', savedGig)
                 dispatch(getActionUpdateGig(savedGig))
                 showSuccessMsg('Gig updated')
             })
@@ -122,17 +122,13 @@ export function setLikedGig(gig, user) {
     return async (dispatch) => {
         try {
             const savedGig = await gigService.toggleLike(gig._id, user)
-            console.log('Updated Gig:', savedGig);
+            console.log('Updated Gig:', savedGig)
             dispatch(getActionUpdateGig(savedGig))
         } catch (err){
             console.log('err', err)
         }
     }
 }
-
-
-
-
 
 export function addToCart(gig) {
     return (dispatch) => {
@@ -229,7 +225,7 @@ export function onRemoveGigOptimistic(gigId) {
 
         gigService.remove(gigId)
             .then(() => {
-                console.log('Server Reported - Deleted Succesfully');
+                console.log('Server Reported - Deleted Succesfully')
             })
             .catch(err => {
                 showErrorMsg('Cannot remove gig')
@@ -240,4 +236,3 @@ export function onRemoveGigOptimistic(gigId) {
             })
     }
 }
-

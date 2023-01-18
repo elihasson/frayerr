@@ -9,12 +9,12 @@
     @include for-hero-layout-2 {
         display: block;
         background-position: 95% 100%;
-        background-image: url('../../img/bg-signup-v2.webp');
+        background-image: url("../../img/bg-signup-v2.webp");
     }
 
     @include for-hero-layout-3 {
         background-position: 85% 100%;
-        background-image: url('../../img/bg-signup-v1.webp');
+        background-image: url("../../img/bg-signup-v1.webp");
     }
     
     .home-signup-content {
@@ -23,7 +23,7 @@
 
         h2 {
             color: $clr7;
-            font-family: 'Macan-regular';
+            font-family: "Macan-regular";
             font-weight: 700;
             font-size: rem(48px);
             line-height: 56px;
@@ -32,12 +32,12 @@
 
     
             i {
-                font-family: 'domain-display-italic';
+                font-family: "domain-display-italic";
             }
         }
 
         .btn {
-            font-family: 'Macan-bold';
+            font-family: "Macan-bold";
             padding: 12px 24px;
         }
     }

@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { utilService } from "../services/util.service";
+import React, { useState } from 'react'
+import { utilService } from '../services/util.service'
 // import { UserProfileImg } from '../profile/UserProfileImg'
-import { UserRateStars } from "./user-rate-stars";
+import { UserRateStars } from './user-rate-stars'
 
-
-export function AboutSeller({ gig, owner }) {
-    const [isOnline, setIsOnline] = useState(false);
+export const AboutSeller = ({ gig, owner }) => {
+    const [isOnline, setIsOnline] = useState(false)
 
     if (!owner) return <React.Fragment></React.Fragment>
     
@@ -19,8 +18,8 @@ export function AboutSeller({ gig, owner }) {
     }
 
     return (
-        <div className='about-seller inpage-nav' id="AboutSeller">
-            <h2 className='about-seller-header'>About the Seller</h2>
+        <div className="about-seller inpage-nav" id="AboutSeller">
+            <h2 className="about-seller-header">About the Seller</h2>
             <div className="seller-info">
                 <div className="container-user-img">
                     {owner.imgUrl &&
@@ -29,15 +28,15 @@ export function AboutSeller({ gig, owner }) {
                         </div>}
                 </div>
                 <div className="seller-name-level-rate">
-                    <h5 className='owner-name'>{gig.owner?.fullname}</h5>
+                    <h5 className="owner-name">{gig.owner?.fullname}</h5>
                     <h5 className={'owner-level ' + `${levelClass}`}>{levelDesc}</h5>
                     <UserRateStars gig={gig} />
                     <button className="btn-gray btn-contact">Contact Me</button>
                 </div>
                 {/* <span className={`online-status ${isOnline && 'online'}`}>{isOnline ? 'online' : 'offline'}</span> */}
-                <span className='online-status online'>online</span>
+                <span className="online-status online">online</span>
             </div >
-            <div className='seller-table'>
+            <div className="seller-table">
                 <div className="seller-stats">
                     <div className="card">
                         <h4>From</h4>

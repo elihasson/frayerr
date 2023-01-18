@@ -25,7 +25,7 @@ export function gigReducer(state = initialState, action) {
             break
         case 'SET_WATCHED_GIG':
             newState = { ...state, watchedGig: action.gig }
-            break;
+            break
         case 'REMOVE_GIG':
             const lastRemovedGig = state.gigs.find(gig => gig._id === action.gigId)
             gigs = state.gigs.filter(gig => gig._id !== action.gigId)

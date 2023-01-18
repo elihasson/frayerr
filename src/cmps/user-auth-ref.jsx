@@ -1,10 +1,10 @@
-import { useSelector } from "react-redux"
-import { useDispatch } from "react-redux"
-import { useFormRegister } from "../hooks/useFormRegister"
-import { userService } from "../services/user.service"
-import { login, logout } from "../store/actions/user.actions"
-import { Link } from "react-router-dom"
-import { uploadImg } from "../services/upload.service"
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useFormRegister } from '../hooks/useFormRegister'
+import { userService } from '../services/user.service'
+import { login, logout } from '../store/actions/user.actions'
+import { Link } from 'react-router-dom'
+import { uploadImg } from '../services/upload.service'
 
 export const UserAuth = () => {
     const [registerLogin, setLoginDetails, loginDetails] = useFormRegister({ username: '', password: '' })

@@ -86,7 +86,7 @@
             line-height: 55px; // must calculate with lh function
             font-weight: 700;
             color: $clr7;
-            font-family: 'Macan-bold';
+            font-family: "Macan-bold";
 
             @include for-hero-layout-1 {
                 // font-size: rem(48px);

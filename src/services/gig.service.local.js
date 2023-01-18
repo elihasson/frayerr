@@ -289,7 +289,7 @@ async function save(gig) {
             showErrorMsg('you need to login')
             console.log('no logged in user Cannot add/save gig', err)
         }
-        // console.log('upd gig', gig);
+        // console.log('upd gig', gig)
         // if (!gig.owner)
         //     gig.owner = { _id: 'u101', fullname: 'james carlo', imgUrl: 'url', level: 'basic', rate: 4 }
     }
@@ -312,7 +312,7 @@ function _getEmptyGig() {
 }
 
 async function toggleLike(gigId, user) {
-    const gig = await getById(gigId);
+    const gig = await getById(gigId)
     if (user) {
       const idx = gig.likedByUsers.findIndex(currUser => currUser._id === user._id)
       if (idx === -1) {
@@ -320,16 +320,16 @@ async function toggleLike(gigId, user) {
           fullname: user.fullname,
           imgUrl: user.imgUrl,
           _id: user._id,
-        };
-        gig.likedByUsers = [...gig.likedByUsers, miniUser];
+        }
+        gig.likedByUsers = [...gig.likedByUsers, miniUser]
       } else {
         gig.likedByUsers.splice(idx, 1)
       }
     } else {
-      storageService.saveGuestGigs(gig);
+      storageService.saveGuestGigs(gig)
     }
-    const data = await save(gig);
-    return data;
+    const data = await save(gig)
+    return data
   }
 
 async function isLikedByUser(gig) {
@@ -339,25 +339,25 @@ async function isLikedByUser(gig) {
 
 // when working with database need to turn to a real async functions
 async function getCategories() {
-    // const categories = await httpService.get("category");
+    // const categories = await httpService.get("category")
     // const categories = await storageService.get('category')
     return gCategories
 }
 
 async function getPopularCategories(categoriesCount) {
-    // const categories = await httpService.get("category");
+    // const categories = await httpService.get("category")
     // const categories = await storageService.get("category")
     var popularCategories = gCategories.slice(0, categoriesCount)
     console.log('popularCategories:', popularCategories)
     return popularCategories.map((category) => {
       return `${category.title
         .charAt(0)
-        .toUpperCase()}${category.title.slice(1)}`;
+        .toUpperCase()}${category.title.slice(1)}`
       })
     }
 
 async function getCategoriesNames() {
-    // const categories = await httpService.get("category");
+    // const categories = await httpService.get("category")
     // const categories = await storageService.get('category')
     return gCategories.map((category) => category.title)
 }

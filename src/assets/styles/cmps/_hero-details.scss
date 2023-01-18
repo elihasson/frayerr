@@ -1,6 +1,6 @@
 .hero-details {
     display: none;
-    font-family: 'Macan-regular';
+    font-family: "Macan-regular";
     color: $clr7;
     max-width: 1400px;
     margin: auto;
@@ -31,7 +31,7 @@
     }
 
     .hero-role {
-        font-family: 'Macan-bold';
+        font-family: "Macan-bold";
     }
 
     @include for-hero-layout-4 {

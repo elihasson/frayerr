@@ -6,6 +6,5 @@ export const CarouselItem = ({ children, width, imgUrl }) => {
         <div className="carousel-item" style={itemStyle} >
             {children}
         </div>
-    );
-};
-
+    )
+}
