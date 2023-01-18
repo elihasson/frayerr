@@ -66,6 +66,12 @@ export const NavBar = ({ classProp, toggleMenu, user, dispatch, toggleJoinModal,
                             <div onClick={toggleMenu}>Inbox</div>
                         </NavLink> */}
 
+                        <NavLink to={`/user/${user._id}`}>
+                            <div onClick={toggleMenu}>Profile</div>
+                        </NavLink>
+                        <NavLink to={`/user/${user._id}`}>
+                            <div onClick={toggleMenu}>Dashboard</div>
+                        </NavLink>
                         <NavLink to={`/user/${user._id}/order`}>
                             <div onClick={toggleMenu}>Manage Orders</div>
                         </NavLink>
