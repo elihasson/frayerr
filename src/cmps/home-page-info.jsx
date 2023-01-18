@@ -3,9 +3,8 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 export const HomePageInfo = () => {
 
     return (
-        <section className='home-page-info'>
-            {/* must use main layout instead of layout padding and design different */}
-            <div className="container max-width-container equal-padding">
+        <section className='home-page-info full main-layout'>
+            <div className="container max-width-container">
                 <div className="left-side-container">
                     <h2>
                         A whole world of freelance talent at your fingertips
